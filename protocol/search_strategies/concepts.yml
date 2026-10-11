@@ -1,0 +1,82 @@
+# Single source of truth for the search. `amlr search` renders each block into
+# per-source syntax and writes dated <source>-<YYYY-MM-DD>.txt records next to this file.
+# Status: DRAFT (to be peer-reviewed with PRESS 2015 before freezing).
+# Logic: (active_matter AND robotic_agents) OR (colloids AND control) OR composite_phrases
+
+active_matter:
+  - "active matter"
+  - "active particle*"
+  - "active brownian"
+  - "self-propelled"
+  - "self-propulsion"
+  - "collective motion"
+  # Spelled out: several sources cannot truncate inside phrases.
+  - "collective behavior"
+  - "collective behaviour"
+  - "flocking"
+  # "swarming" is deliberately absent: stemmed to "swarm" it matches all swarm-robotics
+  # engineering (≈ 85 % of hits in the 2026-10-11 pilot), which E3 excludes anyway.
+  - "motility-induced phase separation"
+  - "active nematic*"
+  - "active solid*"
+  - "odd elastic*"
+  - "non-reciprocal interaction*"
+  - "chiral active"
+  - "active granular"
+  - "emergent behavior"
+  - "emergent behaviour"
+  # Physics anchors added after the 2026-10-11 known-item test (marginal OpenAlex hits in
+  # brackets). Broader terms were rejected: self-organiz* (+2.4k-3k each), "collective"
+  # (+7.4k); items they would catch are left to citation chasing.
+  - "collective dynamics"        # +74
+  - "steric interaction*"        # +5
+  - "sterically interacting"     # +3
+  - "mechanical interaction*"    # +195
+  - "order parameter*"           # +53
+  - "statistical mechanics"      # +76
+  - "phase transition*"          # +717
+
+robotic_agents:
+  - "robot*"
+  - "robotic swarm*"
+  - "swarm robot*"
+  - "kilobot*"
+  - "bristlebot*"
+  - "bristle-bot*"               # +23 (hyphenated spelling, e.g. Giomi et al. 2013)
+  - "bristle bot*"
+  - "brainbot*"                  # not matched by robot*; e.g. Noirhomme et al. 2025 (PULS seed)
+  - "vibrobot*"
+  - "hexbug*"
+  - "smarticle*"
+  - "microrobot*"
+  - "nanorobot*"
+  - "programmable matter"
+  - "self-propelled robot*"
+  - "granular robot*"
+  - "modular robot*"
+  - "robotic metamaterial*"
+
+# Synthetic active particles are in scope only under programmable or feedback control (PICO E6).
+colloids:
+  - "Janus particle*"
+  - "active colloid*"
+  - "self-propelled colloid*"
+  - "self-propelled particle*"
+  - "microswimmer*"
+
+control:
+  - "feedback control"
+  - "closed-loop"
+  - "programmable"
+  - "optical feedback"
+  - "real-time control"
+  - "feedback-controlled"
+
+composite_phrases:
+  - "robotic active matter"
+  - "active robotic matter"
+  - "robophysics"
+  - "robophysical"
+  - "robot swarm active matter"
+
+arxiv_categories: [cond-mat.soft, cond-mat.stat-mech, nlin.AO, cs.RO, cs.MA, physics.bio-ph]

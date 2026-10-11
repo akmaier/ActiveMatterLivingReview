@@ -1,0 +1,60 @@
+# PDF cache (full-text, gitignored per project convention)
+docs/
+
+# Raw and canonical corpus data
+data/raw/
+# Text extracted from subscriber PDFs: copyrighted, never committed
+data/fulltext_text/
+data/corpus.jsonl
+data/*.sqlite
+data/*.sqlite-journal
+
+# Snapshots are intentionally committed; nothing to ignore under data/snapshots/.
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+
+# LaTeX build products (anywhere under paper/)
+paper/**/*.aux
+paper/**/*.bbl
+paper/**/*.blg
+paper/**/*.log
+paper/**/*.out
+paper/**/*.toc
+paper/**/*.synctex.gz
+paper/**/*.fdb_latexmk
+paper/**/*.fls
+paper/**/*.pdf
+paper/**/*Notes.bib
+
+# TDM credentials — never commit, even if symlinked in by accident
+tdm_api.toml
+**/tdm_api.toml
+.env
+.env.*
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Advisory lock files from amlr.storage.locked
+*.lock

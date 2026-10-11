@@ -1,0 +1,9 @@
+source: ads
+run_at_utc: 2026-10-11T16:37:24+00:00
+amlr_version: 0.0.1
+record_count: 4772
+raw_payload_sha256: fa1969bbf0728bc85d5dddf39436100a5e9506345c9db4809dac9bc17434a620
+concepts_sha256: 5758fbe4fc45635b450e8b876c3bf56f0d6eeb555c753398f93b0e1f1b57fa7b
+
+query:
+((abs:"active matter" OR abs:"active particle" OR abs:"active brownian" OR abs:self-propelled OR abs:self-propulsion OR abs:"collective motion" OR abs:"collective behavior" OR abs:"collective behaviour" OR abs:flocking OR abs:"motility-induced phase separation" OR abs:"active nematic" OR abs:"active solid" OR abs:"odd elastic" OR abs:"non-reciprocal interaction" OR abs:"chiral active" OR abs:"active granular" OR abs:"emergent behavior" OR abs:"emergent behaviour" OR abs:"collective dynamics" OR abs:"steric interaction" OR abs:"sterically interacting" OR abs:"mechanical interaction" OR abs:"order parameter" OR abs:"statistical mechanics" OR abs:"phase transition") AND (abs:robot* OR abs:"robotic swarm" OR abs:"swarm robot" OR abs:kilobot* OR abs:bristlebot* OR abs:bristle-bot* OR abs:"bristle bot" OR abs:brainbot* OR abs:vibrobot* OR abs:hexbug* OR abs:smarticle* OR abs:microrobot* OR abs:nanorobot* OR abs:"programmable matter" OR abs:"self-propelled robot" OR abs:"granular robot" OR abs:"modular robot" OR abs:"robotic metamaterial")) OR ((abs:"Janus particle" OR abs:"active colloid" OR abs:"self-propelled colloid" OR abs:"self-propelled particle" OR abs:microswimmer*) AND (abs:"feedback control" OR abs:closed-loop OR abs:programmable OR abs:"optical feedback" OR abs:"real-time control" OR abs:feedback-controlled)) OR (abs:"robotic active matter" OR abs:"active robotic matter" OR abs:robophysics OR abs:robophysical OR abs:"robot swarm active matter")

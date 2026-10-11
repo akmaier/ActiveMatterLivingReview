@@ -1,0 +1,12 @@
+source: ieee
+run_at_utc: 2026-10-11T16:39:56+00:00
+amlr_version: 0.0.1
+record_count: 901
+raw_payload_sha256: 088f8a88f71b75056ed40c67ef75b03d8c77a95f4403c7a6fb34fe0b407a10fe
+concepts_sha256: 5758fbe4fc45635b450e8b876c3bf56f0d6eeb555c753398f93b0e1f1b57fa7b
+
+query:
+IEEE Xplore Command Search (web UI, FAU institutional access), exported via Export → Search Results → CSV.
+q1: ("Abstract":"active matter" OR "Abstract":"active particle" OR "Abstract":"active brownian" OR "Abstract":"self-propelled" OR "Abstract":"self-propulsion" OR "Abstract":"collective motion" OR "Abstract":"collective behavior" OR "Abstract":"collective behaviour" OR "Abstract":flocking OR "Abstract":"motility-induced phase separation" OR "Abstract":"active nematic" OR "Abstract":"active solid" OR "Abstract":"odd elastic" OR "Abstract":"non-reciprocal interaction" OR "Abstract":"chiral active" OR "Abstract":"active granular" OR "Abstract":"emergent behavior" OR "Abstract":"emergent behaviour" OR "Abstract":"collective dynamics" OR "Abstract":"steric interaction" OR "Abstract":"sterically interacting" OR "Abstract":"mechanical interaction" OR "Abstract":"order parameter" OR "Abstract":"statistical mechanics" OR "Abstract":"phase transition") AND ("Abstract":robot* OR "Abstract":kilobot* OR "Abstract":bristlebot* OR "Abstract":"bristle-bot" OR "Abstract":"bristle bot" OR "Abstract":brainbot* OR "Abstract":vibrobot* OR "Abstract":hexbug* OR "Abstract":smarticle* OR "Abstract":microrobot* OR "Abstract":nanorobot* OR "Abstract":"programmable matter")
+q2: (("Abstract":"Janus particle" OR "Abstract":"active colloid" OR "Abstract":"self-propelled colloid" OR "Abstract":"self-propelled particle" OR "Abstract":microswimmer) AND ("Abstract":"feedback control" OR "Abstract":"closed-loop" OR "Abstract":programmable OR "Abstract":"optical feedback" OR "Abstract":"real-time control" OR "Abstract":"feedback-controlled")) OR ("Abstract":"robotic active matter" OR "Abstract":"active robotic matter" OR "Abstract":robophysics OR "Abstract":robophysical OR "Abstract":"robot swarm active matter")
+export files (sha256): {"q1.csv": "f279c9249e38d477cf021625639ec801ecfb876741ace015018bdbf9e05817a0", "q2.csv": "c2ea05e34da4027e8f5f196f8407f293d287e38a8d00182ed29f27e48ecffb95"}

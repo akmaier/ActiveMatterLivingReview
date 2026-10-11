@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this living review, please cite it as below."
+title: "A Living Systematic Review of Robotic Active Matter"
+abstract: >-
+  A PRISMA 2020 living systematic review of robotic realizations and
+  theoretical models of active matter. The repository hosts the pipeline
+  that discovers, deduplicates, screens, and extracts data from the
+  literature; a companion Jekyll website that renders the current corpus,
+  PRISMA flow, and change log; and the REVTeX source for a manuscript
+  targeted at Reviews of Modern Physics.
+type: dataset
+authors:
+  - family-names: Maier
+    given-names: Andreas
+    email: andreas.maier@fau.de
+    affiliation: Friedrich-Alexander-Universität Erlangen-Nürnberg
+repository-code: "https://github.com/akmaier/ActiveMatterLivingReview"
+url: "https://akmaier.github.io/ActiveMatterLivingReview/"
+license: CC-BY-4.0
+keywords:
+  - active matter
+  - robotic swarms
+  - PRISMA 2020
+  - living review
+  - soft matter

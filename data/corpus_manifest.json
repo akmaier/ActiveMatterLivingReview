@@ -1,0 +1,38 @@
+{
+  "built_at": "2026-10-11T17:03:49+00:00",
+  "per_source": {
+    "ads": {
+      "file": "ads-2026-10-11.jsonl",
+      "records": 4772
+    },
+    "arxiv": {
+      "file": "arxiv-2026-10-11.jsonl",
+      "records": 695
+    },
+    "crossref": {
+      "file": "crossref-2026-10-11.jsonl",
+      "records": 373
+    },
+    "europepmc_biorxiv": {
+      "file": "europepmc_biorxiv-2026-10-11.jsonl",
+      "records": 44
+    },
+    "hal": {
+      "file": "hal-2026-10-11.jsonl",
+      "records": 147
+    },
+    "ieee": {
+      "file": "ieee-2026-10-11.jsonl",
+      "records": 901
+    },
+    "pubmed": {
+      "file": "pubmed-2026-10-11.jsonl",
+      "records": 983
+    }
+  },
+  "identified_db": 7915,
+  "identified_other": 0,
+  "after_dedup": 5307,
+  "duplicates_removed": 2608,
+  "state_carried_over": 0
+}

@@ -1,0 +1,49 @@
+% Manuscript shell for Reviews of Modern Physics, based on the APS REVTeX 4.2
+% apstemplate.tex (copy in template/). Prose lives in sections/*.tex and is drafted by
+% Codex via `amlr draft <id>`; this file only holds structure.
+\documentclass[aps,rmp,reprint,superscriptaddress,nofootinbib,longbibliography]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[colorlinks=true,allcolors=blue!60!black]{hyperref}
+
+\begin{document}
+
+% Working title; PRISMA item 1 requires "systematic review" in the title.
+\title{Robotic active matter: a living systematic review}
+
+\author{Andreas Maier}
+\email{andreas.maier@fau.de}
+\affiliation{Friedrich-Alexander-Universit\"at Erlangen-N\"urnberg, Erlangen, Germany}
+
+\date{\today}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results_overview}
+\input{figures/prisma_figure}
+\input{sections/platforms}
+\input{sections/phenomena}
+\input{sections/theory}
+\input{sections/control}
+\input{sections/discussion}
+\input{sections/outlook}
+\input{sections/conclusion}
+
+\begin{acknowledgments}
+\input{sections/acknowledgments}
+\end{acknowledgments}
+
+\nocite{*}
+\bibliography{refs}
+
+\end{document}

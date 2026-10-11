@@ -1,0 +1,4 @@
+/* Project-specific tweaks layered over minima. */
+table#corpus { font-size: 0.9rem; }
+table#corpus td, table#corpus th { padding: 0.4rem 0.6rem; }
+pre.mermaid { background: transparent; border: none; }

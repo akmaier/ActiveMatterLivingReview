@@ -1,0 +1,9 @@
+source: pubmed
+run_at_utc: 2026-10-11T16:26:26+00:00
+amlr_version: 0.0.1
+record_count: 983
+raw_payload_sha256: 979f22754b96fb5c1eb2af36db080a16059929c12394be8eac0f9217755cf129
+concepts_sha256: 5758fbe4fc45635b450e8b876c3bf56f0d6eeb555c753398f93b0e1f1b57fa7b
+
+query:
+(("active matter"[tiab] OR "active particle*"[tiab] OR "active brownian"[tiab] OR self-propelled[tiab] OR self-propulsion[tiab] OR "collective motion"[tiab] OR "collective behavior"[tiab] OR "collective behaviour"[tiab] OR flocking[tiab] OR "motility-induced phase separation"[tiab] OR "active nematic*"[tiab] OR "active solid*"[tiab] OR "odd elastic*"[tiab] OR "non-reciprocal interaction*"[tiab] OR "chiral active"[tiab] OR "active granular"[tiab] OR "emergent behavior"[tiab] OR "emergent behaviour"[tiab] OR "collective dynamics"[tiab] OR "steric interaction*"[tiab] OR "sterically interacting"[tiab] OR "mechanical interaction*"[tiab] OR "order parameter*"[tiab] OR "statistical mechanics"[tiab] OR "phase transition*"[tiab]) AND (robot*[tiab] OR "robotic swarm*"[tiab] OR "swarm robot*"[tiab] OR kilobot*[tiab] OR bristlebot*[tiab] OR bristle-bot*[tiab] OR "bristle bot*"[tiab] OR brainbot*[tiab] OR vibrobot*[tiab] OR hexbug*[tiab] OR smarticle*[tiab] OR microrobot*[tiab] OR nanorobot*[tiab] OR "programmable matter"[tiab] OR "self-propelled robot*"[tiab] OR "granular robot*"[tiab] OR "modular robot*"[tiab] OR "robotic metamaterial*"[tiab])) OR (("Janus particle*"[tiab] OR "active colloid*"[tiab] OR "self-propelled colloid*"[tiab] OR "self-propelled particle*"[tiab] OR microswimmer*[tiab]) AND ("feedback control"[tiab] OR closed-loop[tiab] OR programmable[tiab] OR "optical feedback"[tiab] OR "real-time control"[tiab] OR feedback-controlled[tiab])) OR ("robotic active matter"[tiab] OR "active robotic matter"[tiab] OR robophysics[tiab] OR robophysical[tiab] OR "robot swarm active matter"[tiab])

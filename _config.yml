@@ -1,0 +1,57 @@
+title: "Active Matter Living Review"
+description: >-
+  A PRISMA 2020 living systematic review of robotic active matter.
+author: "Andreas Maier"
+url: ""
+baseurl: ""
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+permalink: /:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax
+
+include:
+  - _pages
+
+exclude:
+  - README.md
+  - CITATION.cff
+  - LICENSE
+  - LICENSE-CC-BY-4.0
+  - .venv/
+  - pipeline/
+  - protocol/search_strategies/
+  - paper/
+  - data/
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+  - "*.py"
+  - "*.toml"
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+collections: {}
+
+# minima 2.5 (the version GitHub Pages ships) reads the nav from `header_pages`.
+header_pages:
+  - _pages/corpus.md
+  - _pages/prisma.md
+  - _pages/methods.md
+  - _pages/taxonomy.md
+  - _pages/changelog.md

@@ -1,0 +1,29 @@
+# Known-item set for validating search sensitivity (`amlr search-validate`).
+# Every entry must be eligible under PICO.md. Extend with key papers the author knows;
+# the protocol is frozen only when recall on this set is acceptable across all sources.
+# `sources_expected`: where a hit is expected if OpenAlex lacks an abstract.
+seed:
+  - title: Boundaries control collective dynamics of inertial self-propelled robots
+  - title: Rotating robots move collectively and self-organize
+  - title: Swarming, swirling and stasis in sequestered bristle-bots
+  - title: "Kilobot: A low cost scalable robot system for collective behaviors"
+  - title: Programmable self-assembly in a thousand-robot swarm
+  - title: Particle robotics based on statistical mechanics of loosely coupled components
+  - title: "A robot made of robots: Emergent transport and control of a smarticle ensemble"
+  - title: Emergent field-driven robot swarm states
+  - title: Morphological computation and decentralized learning in a swarm of sterically interacting robots
+  - title: From collections of independent, mindless robots to flexible, mobile, and directional superstructures
+  - title: "Low rattling: A predictive principle for self-organization in active collectives"
+  - title: Selective and collective actuation in active solids
+    sources_expected: [arxiv]   # no abstract in OpenAlex as of 2026-10-11
+  # From the PULS group list (puls.nat.fau.de/publications, 2026-10-11). Eligibility is
+  # unverified until screened: count toward recall, not toward the freeze criterion.
+  - title: Brainbots as smart autonomous active particles with programmable motion
+    doi: 10.1103/pv3d-7s54
+    eligibility: unverified
+  - title: "GRASPion: an open-source, programmable brainbot for active matter research"
+    doi: 10.1063/5.0303152
+    eligibility: unverified
+  - title: Physics-informed digital twin and onboard control of a brainbot for intelligent active matter
+    doi: 10.1103/rd1t-h2v6
+    eligibility: unverified

@@ -1,0 +1,497 @@
+source: crossref
+run_at_utc: 2026-10-11T16:35:25+00:00
+amlr_version: 0.0.1
+record_count: 373
+raw_payload_sha256: 70b5b8fbbae8129bc1d6e9284ee60462e39e30a306506d1bd99588e3608c9c74
+concepts_sha256: 5758fbe4fc45635b450e8b876c3bf56f0d6eeb555c753398f93b0e1f1b57fa7b
+
+query:
+query.bibliographic, rows=100, one request per subquery, then local Boolean filter (amlr.search.matches) on title+abstract. Non-report types skipped: book-series, book-set, component, database, dataset, grant, journal, journal-issue, journal-volume, peer-review, proceedings, report-series, standard.
+Subqueries:
+active matter robot
+active matter robotic swarm
+active matter swarm robot
+active matter kilobot
+active matter bristlebot
+active matter bristle-bot
+active matter bristle bot
+active matter brainbot
+active matter vibrobot
+active matter hexbug
+active matter smarticle
+active matter microrobot
+active matter nanorobot
+active matter programmable matter
+active matter self-propelled robot
+active matter granular robot
+active matter modular robot
+active matter robotic metamaterial
+active particle robot
+active particle robotic swarm
+active particle swarm robot
+active particle kilobot
+active particle bristlebot
+active particle bristle-bot
+active particle bristle bot
+active particle brainbot
+active particle vibrobot
+active particle hexbug
+active particle smarticle
+active particle microrobot
+active particle nanorobot
+active particle programmable matter
+active particle self-propelled robot
+active particle granular robot
+active particle modular robot
+active particle robotic metamaterial
+active brownian robot
+active brownian robotic swarm
+active brownian swarm robot
+active brownian kilobot
+active brownian bristlebot
+active brownian bristle-bot
+active brownian bristle bot
+active brownian brainbot
+active brownian vibrobot
+active brownian hexbug
+active brownian smarticle
+active brownian microrobot
+active brownian nanorobot
+active brownian programmable matter
+active brownian self-propelled robot
+active brownian granular robot
+active brownian modular robot
+active brownian robotic metamaterial
+self-propelled robot
+self-propelled robotic swarm
+self-propelled swarm robot
+self-propelled kilobot
+self-propelled bristlebot
+self-propelled bristle-bot
+self-propelled bristle bot
+self-propelled brainbot
+self-propelled vibrobot
+self-propelled hexbug
+self-propelled smarticle
+self-propelled microrobot
+self-propelled nanorobot
+self-propelled programmable matter
+self-propelled self-propelled robot
+self-propelled granular robot
+self-propelled modular robot
+self-propelled robotic metamaterial
+self-propulsion robot
+self-propulsion robotic swarm
+self-propulsion swarm robot
+self-propulsion kilobot
+self-propulsion bristlebot
+self-propulsion bristle-bot
+self-propulsion bristle bot
+self-propulsion brainbot
+self-propulsion vibrobot
+self-propulsion hexbug
+self-propulsion smarticle
+self-propulsion microrobot
+self-propulsion nanorobot
+self-propulsion programmable matter
+self-propulsion self-propelled robot
+self-propulsion granular robot
+self-propulsion modular robot
+self-propulsion robotic metamaterial
+collective motion robot
+collective motion robotic swarm
+collective motion swarm robot
+collective motion kilobot
+collective motion bristlebot
+collective motion bristle-bot
+collective motion bristle bot
+collective motion brainbot
+collective motion vibrobot
+collective motion hexbug
+collective motion smarticle
+collective motion microrobot
+collective motion nanorobot
+collective motion programmable matter
+collective motion self-propelled robot
+collective motion granular robot
+collective motion modular robot
+collective motion robotic metamaterial
+collective behavior robot
+collective behavior robotic swarm
+collective behavior swarm robot
+collective behavior kilobot
+collective behavior bristlebot
+collective behavior bristle-bot
+collective behavior bristle bot
+collective behavior brainbot
+collective behavior vibrobot
+collective behavior hexbug
+collective behavior smarticle
+collective behavior microrobot
+collective behavior nanorobot
+collective behavior programmable matter
+collective behavior self-propelled robot
+collective behavior granular robot
+collective behavior modular robot
+collective behavior robotic metamaterial
+collective behaviour robot
+collective behaviour robotic swarm
+collective behaviour swarm robot
+collective behaviour kilobot
+collective behaviour bristlebot
+collective behaviour bristle-bot
+collective behaviour bristle bot
+collective behaviour brainbot
+collective behaviour vibrobot
+collective behaviour hexbug
+collective behaviour smarticle
+collective behaviour microrobot
+collective behaviour nanorobot
+collective behaviour programmable matter
+collective behaviour self-propelled robot
+collective behaviour granular robot
+collective behaviour modular robot
+collective behaviour robotic metamaterial
+flocking robot
+flocking robotic swarm
+flocking swarm robot
+flocking kilobot
+flocking bristlebot
+flocking bristle-bot
+flocking bristle bot
+flocking brainbot
+flocking vibrobot
+flocking hexbug
+flocking smarticle
+flocking microrobot
+flocking nanorobot
+flocking programmable matter
+flocking self-propelled robot
+flocking granular robot
+flocking modular robot
+flocking robotic metamaterial
+motility-induced phase separation robot
+motility-induced phase separation robotic swarm
+motility-induced phase separation swarm robot
+motility-induced phase separation kilobot
+motility-induced phase separation bristlebot
+motility-induced phase separation bristle-bot
+motility-induced phase separation bristle bot
+motility-induced phase separation brainbot
+motility-induced phase separation vibrobot
+motility-induced phase separation hexbug
+motility-induced phase separation smarticle
+motility-induced phase separation microrobot
+motility-induced phase separation nanorobot
+motility-induced phase separation programmable matter
+motility-induced phase separation self-propelled robot
+motility-induced phase separation granular robot
+motility-induced phase separation modular robot
+motility-induced phase separation robotic metamaterial
+active nematic robot
+active nematic robotic swarm
+active nematic swarm robot
+active nematic kilobot
+active nematic bristlebot
+active nematic bristle-bot
+active nematic bristle bot
+active nematic brainbot
+active nematic vibrobot
+active nematic hexbug
+active nematic smarticle
+active nematic microrobot
+active nematic nanorobot
+active nematic programmable matter
+active nematic self-propelled robot
+active nematic granular robot
+active nematic modular robot
+active nematic robotic metamaterial
+active solid robot
+active solid robotic swarm
+active solid swarm robot
+active solid kilobot
+active solid bristlebot
+active solid bristle-bot
+active solid bristle bot
+active solid brainbot
+active solid vibrobot
+active solid hexbug
+active solid smarticle
+active solid microrobot
+active solid nanorobot
+active solid programmable matter
+active solid self-propelled robot
+active solid granular robot
+active solid modular robot
+active solid robotic metamaterial
+odd elastic robot
+odd elastic robotic swarm
+odd elastic swarm robot
+odd elastic kilobot
+odd elastic bristlebot
+odd elastic bristle-bot
+odd elastic bristle bot
+odd elastic brainbot
+odd elastic vibrobot
+odd elastic hexbug
+odd elastic smarticle
+odd elastic microrobot
+odd elastic nanorobot
+odd elastic programmable matter
+odd elastic self-propelled robot
+odd elastic granular robot
+odd elastic modular robot
+odd elastic robotic metamaterial
+non-reciprocal interaction robot
+non-reciprocal interaction robotic swarm
+non-reciprocal interaction swarm robot
+non-reciprocal interaction kilobot
+non-reciprocal interaction bristlebot
+non-reciprocal interaction bristle-bot
+non-reciprocal interaction bristle bot
+non-reciprocal interaction brainbot
+non-reciprocal interaction vibrobot
+non-reciprocal interaction hexbug
+non-reciprocal interaction smarticle
+non-reciprocal interaction microrobot
+non-reciprocal interaction nanorobot
+non-reciprocal interaction programmable matter
+non-reciprocal interaction self-propelled robot
+non-reciprocal interaction granular robot
+non-reciprocal interaction modular robot
+non-reciprocal interaction robotic metamaterial
+chiral active robot
+chiral active robotic swarm
+chiral active swarm robot
+chiral active kilobot
+chiral active bristlebot
+chiral active bristle-bot
+chiral active bristle bot
+chiral active brainbot
+chiral active vibrobot
+chiral active hexbug
+chiral active smarticle
+chiral active microrobot
+chiral active nanorobot
+chiral active programmable matter
+chiral active self-propelled robot
+chiral active granular robot
+chiral active modular robot
+chiral active robotic metamaterial
+active granular robot
+active granular robotic swarm
+active granular swarm robot
+active granular kilobot
+active granular bristlebot
+active granular bristle-bot
+active granular bristle bot
+active granular brainbot
+active granular vibrobot
+active granular hexbug
+active granular smarticle
+active granular microrobot
+active granular nanorobot
+active granular programmable matter
+active granular self-propelled robot
+active granular granular robot
+active granular modular robot
+active granular robotic metamaterial
+emergent behavior robot
+emergent behavior robotic swarm
+emergent behavior swarm robot
+emergent behavior kilobot
+emergent behavior bristlebot
+emergent behavior bristle-bot
+emergent behavior bristle bot
+emergent behavior brainbot
+emergent behavior vibrobot
+emergent behavior hexbug
+emergent behavior smarticle
+emergent behavior microrobot
+emergent behavior nanorobot
+emergent behavior programmable matter
+emergent behavior self-propelled robot
+emergent behavior granular robot
+emergent behavior modular robot
+emergent behavior robotic metamaterial
+emergent behaviour robot
+emergent behaviour robotic swarm
+emergent behaviour swarm robot
+emergent behaviour kilobot
+emergent behaviour bristlebot
+emergent behaviour bristle-bot
+emergent behaviour bristle bot
+emergent behaviour brainbot
+emergent behaviour vibrobot
+emergent behaviour hexbug
+emergent behaviour smarticle
+emergent behaviour microrobot
+emergent behaviour nanorobot
+emergent behaviour programmable matter
+emergent behaviour self-propelled robot
+emergent behaviour granular robot
+emergent behaviour modular robot
+emergent behaviour robotic metamaterial
+collective dynamics robot
+collective dynamics robotic swarm
+collective dynamics swarm robot
+collective dynamics kilobot
+collective dynamics bristlebot
+collective dynamics bristle-bot
+collective dynamics bristle bot
+collective dynamics brainbot
+collective dynamics vibrobot
+collective dynamics hexbug
+collective dynamics smarticle
+collective dynamics microrobot
+collective dynamics nanorobot
+collective dynamics programmable matter
+collective dynamics self-propelled robot
+collective dynamics granular robot
+collective dynamics modular robot
+collective dynamics robotic metamaterial
+steric interaction robot
+steric interaction robotic swarm
+steric interaction swarm robot
+steric interaction kilobot
+steric interaction bristlebot
+steric interaction bristle-bot
+steric interaction bristle bot
+steric interaction brainbot
+steric interaction vibrobot
+steric interaction hexbug
+steric interaction smarticle
+steric interaction microrobot
+steric interaction nanorobot
+steric interaction programmable matter
+steric interaction self-propelled robot
+steric interaction granular robot
+steric interaction modular robot
+steric interaction robotic metamaterial
+sterically interacting robot
+sterically interacting robotic swarm
+sterically interacting swarm robot
+sterically interacting kilobot
+sterically interacting bristlebot
+sterically interacting bristle-bot
+sterically interacting bristle bot
+sterically interacting brainbot
+sterically interacting vibrobot
+sterically interacting hexbug
+sterically interacting smarticle
+sterically interacting microrobot
+sterically interacting nanorobot
+sterically interacting programmable matter
+sterically interacting self-propelled robot
+sterically interacting granular robot
+sterically interacting modular robot
+sterically interacting robotic metamaterial
+mechanical interaction robot
+mechanical interaction robotic swarm
+mechanical interaction swarm robot
+mechanical interaction kilobot
+mechanical interaction bristlebot
+mechanical interaction bristle-bot
+mechanical interaction bristle bot
+mechanical interaction brainbot
+mechanical interaction vibrobot
+mechanical interaction hexbug
+mechanical interaction smarticle
+mechanical interaction microrobot
+mechanical interaction nanorobot
+mechanical interaction programmable matter
+mechanical interaction self-propelled robot
+mechanical interaction granular robot
+mechanical interaction modular robot
+mechanical interaction robotic metamaterial
+order parameter robot
+order parameter robotic swarm
+order parameter swarm robot
+order parameter kilobot
+order parameter bristlebot
+order parameter bristle-bot
+order parameter bristle bot
+order parameter brainbot
+order parameter vibrobot
+order parameter hexbug
+order parameter smarticle
+order parameter microrobot
+order parameter nanorobot
+order parameter programmable matter
+order parameter self-propelled robot
+order parameter granular robot
+order parameter modular robot
+order parameter robotic metamaterial
+statistical mechanics robot
+statistical mechanics robotic swarm
+statistical mechanics swarm robot
+statistical mechanics kilobot
+statistical mechanics bristlebot
+statistical mechanics bristle-bot
+statistical mechanics bristle bot
+statistical mechanics brainbot
+statistical mechanics vibrobot
+statistical mechanics hexbug
+statistical mechanics smarticle
+statistical mechanics microrobot
+statistical mechanics nanorobot
+statistical mechanics programmable matter
+statistical mechanics self-propelled robot
+statistical mechanics granular robot
+statistical mechanics modular robot
+statistical mechanics robotic metamaterial
+phase transition robot
+phase transition robotic swarm
+phase transition swarm robot
+phase transition kilobot
+phase transition bristlebot
+phase transition bristle-bot
+phase transition bristle bot
+phase transition brainbot
+phase transition vibrobot
+phase transition hexbug
+phase transition smarticle
+phase transition microrobot
+phase transition nanorobot
+phase transition programmable matter
+phase transition self-propelled robot
+phase transition granular robot
+phase transition modular robot
+phase transition robotic metamaterial
+Janus particle feedback control
+Janus particle closed-loop
+Janus particle programmable
+Janus particle optical feedback
+Janus particle real-time control
+Janus particle feedback-controlled
+active colloid feedback control
+active colloid closed-loop
+active colloid programmable
+active colloid optical feedback
+active colloid real-time control
+active colloid feedback-controlled
+self-propelled colloid feedback control
+self-propelled colloid closed-loop
+self-propelled colloid programmable
+self-propelled colloid optical feedback
+self-propelled colloid real-time control
+self-propelled colloid feedback-controlled
+self-propelled particle feedback control
+self-propelled particle closed-loop
+self-propelled particle programmable
+self-propelled particle optical feedback
+self-propelled particle real-time control
+self-propelled particle feedback-controlled
+microswimmer feedback control
+microswimmer closed-loop
+microswimmer programmable
+microswimmer optical feedback
+microswimmer real-time control
+microswimmer feedback-controlled
+robotic active matter
+active robotic matter
+robophysics
+robophysical
+robot swarm active matter
+
+skipped_non_report_matching_title: {"component": 16, "dataset": 1}

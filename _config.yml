@@ -2,8 +2,9 @@ title: "Active Matter Living Review"
 description: >-
   A PRISMA 2020 living systematic review of robotic active matter.
 author: "Andreas Maier"
-url: ""
-baseurl: ""
+# Project site: served under /ActiveMatterLivingReview/ on GitHub Pages.
+url: "https://akmaier.github.io"
+baseurl: "/ActiveMatterLivingReview"
 
 theme: minima
 plugins:

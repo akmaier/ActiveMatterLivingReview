@@ -7,6 +7,7 @@ Reuses experteye's OpenAI-compatible `RRZEClient`. The API key comes from the en
 
 from __future__ import annotations
 
+import http.client
 import json
 import os
 import re
@@ -78,6 +79,11 @@ def chat(client: RRZEClient, system: str, user: str, *, max_tokens: int = 4096,
             if attempt == retries or not _SERVER_ERROR.search(str(e)):
                 raise
             time.sleep(5 * 2**attempt)
+        except (OSError, http.client.HTTPException) as e:
+            # Dropped connections (RemoteDisconnected, resets) are not wrapped by RRZEClient.
+            if attempt == retries:
+                raise RRZEClientError(f"network error after {retries + 1} attempts: {type(e).__name__}: {e}") from e
+            time.sleep(5 * 2**attempt)
     raise AssertionError("unreachable")
 
 
@@ -94,7 +100,8 @@ def parse_json_object(text: str, required_key: str) -> dict:
     """
 
     text = _THINK.sub("", text)
-    decoder = json.JSONDecoder()
+    # strict=False: models sometimes copy raw control characters (e.g. from PDF text) into strings.
+    decoder = json.JSONDecoder(strict=False)
     found: dict | None = None
     for i, ch in enumerate(text):
         if ch != "{":

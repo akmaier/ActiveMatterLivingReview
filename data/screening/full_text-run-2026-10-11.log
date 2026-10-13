@@ -1,0 +1,50 @@
+{
+    'mode': 'adaptive',
+    'votes_cast': 411,
+    'tiebreak_or_audit_votes': 55,
+    'vote_errors': 6,
+    'decided': 174,
+    'skipped_no_full_text': 180,
+    'prompt_sha256': 
+'7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7'
+}
+{
+    'mode': 'adaptive',
+    'votes_cast': 154,
+    'tiebreak_or_audit_votes': 26,
+    'vote_errors': 6,
+    'decided': 64,
+    'skipped_no_full_text': 116,
+    'prompt_sha256': 
+'7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7'
+}
+{
+    'mode': 'adaptive',
+    'votes_cast': 131,
+    'tiebreak_or_audit_votes': 35,
+    'vote_errors': 6,
+    'decided': 48,
+    'skipped_no_full_text': 68,
+    'prompt_sha256': 
+'7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7'
+}
+{
+    'mode': 'adaptive',
+    'votes_cast': 173,
+    'tiebreak_or_audit_votes': 45,
+    'vote_errors': 11,
+    'decided': 59,
+    'skipped_no_full_text': 2,
+    'prompt_sha256': 
+'7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7'
+}
+{
+    'mode': 'adaptive',
+    'votes_cast': 15,
+    'tiebreak_or_audit_votes': 10,
+    'vote_errors': 3,
+    'decided': 10,
+    'skipped_no_full_text': 0,
+    'prompt_sha256': 
+'7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7'
+}

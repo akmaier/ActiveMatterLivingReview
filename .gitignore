@@ -58,3 +58,6 @@ tdm_api.toml
 
 # Advisory lock files from amlr.storage.locked
 *.lock
+
+# Click-through lists for manual retrieval (regenerated on demand)
+data/fulltext/manual-*.html

@@ -119,8 +119,11 @@ Extraction form: `protocol/extraction_prompt.md` (controlled vocabularies, JSON 
 piloted on 10 included studies and then frozen with `amlr freeze` before the remaining
 extractions. R1 and R3 extract independently from the full text; coded fields are compared
 exactly, list fields as sets, counts within 10 %, sizes within 25 %; only disputed fields are
-extracted by R2 and settled by majority; fields with three different values are flagged for
-author resolution. Free-text fields are kept from both extractors.
+extracted by R2 and settled by majority (multi-label fields — phenomena, interaction modality,
+theory compared — label-wise: a label is kept if at least two of the three extractors chose it);
+single-valued fields with three different values are flagged for author resolution. Free-text
+fields are kept from both extractors. Pilot (10 studies, 2026-10-12): 9 extracted, 2 with one
+unresolved field each.
 Missing items are recorded as missing, not imputed. Authors are not contacted for the
 initial version.
 
@@ -184,4 +187,7 @@ platforms and groups reproducing the finding and the D1/D6 ratings.
 | Date | Change | Reason |
 |---|---|---|
 | 2026-10-11 | §7: extraction form specified (`protocol/extraction_prompt.md`) with field-comparison rules | Instrument completed before any extraction; no data affected |
+| 2026-10-12 | §7: multi-label extraction fields reconciled label-wise by majority instead of whole-set equality; extraction prompt frozen after the pilot | Pilot: whole-set equality left 9/9 studies with unresolved multi-label fields although most labels were shared by all extractors; label-wise majority leaves 2/9 with one genuinely disputed single-valued field |
+| 2026-10-11 | §6: where no full text can be obtained after all retrieval tiers (including the author's own browser), eligibility is judged on the abstract; such records are flagged `assessment_basis: abstract_only`, reported in the PRISMA flow as "reports not retrieved — of which assessed on abstract only", and excluded in a sensitivity analysis. Conference-abstract-only records are assessed the same way (E5 applies to abstracts without results) | Author decision; avoids silently dropping eligible studies whose full text is unavailable |
+| 2026-10-11 | §6: records whose only report is a conference abstract (ADS doctype `abstract`, e.g. APS March Meeting) are counted as "reports not retrieved — no full report exists"; later journal versions enter through search and citation chasing | Such records have no full text to assess; reason recorded per record |
 | 2026-10-11 | §6: at title/abstract, reason-code disagreements between R1 and R2 are resolved by code precedence instead of an R3 vote | PRISMA 2020 reports title/abstract exclusions without reasons; R3 gateway latency; no inclusion decision changes (screening prompt unchanged, SHA-256 `7aeeb0b6…`) |

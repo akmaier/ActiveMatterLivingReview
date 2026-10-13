@@ -1,0 +1,244 @@
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/maier/Documents/code/ActiveMatterLivingReview/pipeline/src/amlr/cli.p │
+│ y:153 in screen_llm                                                          │
+│                                                                              │
+│   150 │   from .schema import Stage                                          │
+│   151 │   from .screen_llm import run_panel                                  │
+│   152 │                                                                      │
+│ ❱ 153 │   rprint(run_panel(Stage(stage), corpus, mode=mode, audit=audit,     │
+│       limit=limit, workers=workers,                                          │
+│   154 │   │   │   │   │    tiebreak_workers=tiebreak_workers,                │
+│   155 │   │   │   │   │    full_text_for=text_for if stage == "full_text"    │
+│       else None))                                                            │
+│   156                                                                        │
+│                                                                              │
+│ /Users/maier/Documents/code/ActiveMatterLivingReview/pipeline/src/amlr/scree │
+│ n_llm.py:238 in run_panel                                                    │
+│                                                                              │
+│   235 │   │   │   │   │   continue                                           │
+│   236 │   │   │   │   if needs_tiebreak(v, r, stage) or (audit and           │
+│       in_audit(r["id"])):                                                    │
+│   237 │   │   │   │   │   round2.append((r, TIEBREAK, prompts[r["id"]]))     │
+│ ❱ 238 │   │   │   errors += _execute(round2, system, sha, stage, transport,  │
+│       tiebreak_workers, fh)                                                  │
+│   239 │                                                                      │
+│   240 │   applied = early + apply_decisions(stage, corpus_path, ledger_path, │
+│       sha)                                                                   │
+│   241 │   return {"mode": mode, "votes_cast": len(round1) + len(round2),     │
+│       "tiebreak_or_audit_votes": len(round2),                                │
+│                                                                              │
+│ /Users/maier/Documents/code/ActiveMatterLivingReview/pipeline/src/amlr/scree │
+│ n_llm.py:169 in _execute                                                     │
+│                                                                              │
+│   166 │   │   futures = [pool.submit(cast_vote, rv, PANEL[rv], system, user, │
+│       sha, r["id"], stage, transport)                                        │
+│   167 │   │   │   │      for r, rv, user in tasks]                           │
+│   168 │   │   for f in as_completed(futures):                                │
+│ ❱ 169 │   │   │   row = f.result()                                           │
+│   170 │   │   │   errors += row["error"] is not None                         │
+│   171 │   │   │   fh.write(json.dumps(row, ensure_ascii=False) + "\n")       │
+│   172 │   │   │   fh.flush()                                                 │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/concurrent/futures/_base.py:443 in result               │
+│                                                                              │
+│   440 │   │   │   │   if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]: │
+│   441 │   │   │   │   │   raise CancelledError()                             │
+│   442 │   │   │   │   elif self._state == FINISHED:                          │
+│ ❱ 443 │   │   │   │   │   return self.__get_result()                         │
+│   444 │   │   │   │                                                          │
+│   445 │   │   │   │   self._condition.wait(timeout)                          │
+│   446                                                                        │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/concurrent/futures/_base.py:395 in __get_result         │
+│                                                                              │
+│   392 │   def __get_result(self):                                            │
+│   393 │   │   if self._exception is not None:                                │
+│   394 │   │   │   try:                                                       │
+│ ❱ 395 │   │   │   │   raise self._exception                                  │
+│   396 │   │   │   finally:                                                   │
+│   397 │   │   │   │   # Break a reference cycle with the exception in        │
+│       self._exception                                                        │
+│   398 │   │   │   │   self = None                                            │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/concurrent/futures/thread.py:86 in run                  │
+│                                                                              │
+│    83 │   │   │   return                                                     │
+│    84 │   │                                                                  │
+│    85 │   │   try:                                                           │
+│ ❱  86 │   │   │   result = ctx.run(self.task)                                │
+│    87 │   │   except BaseException as exc:                                   │
+│    88 │   │   │   self.future.set_exception(exc)                             │
+│    89 │   │   │   # Break a reference cycle with the exception 'exc'         │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/concurrent/futures/thread.py:73 in run                  │
+│                                                                              │
+│    70 │                                                                      │
+│    71 │   def run(self, task):                                               │
+│    72 │   │   fn, args, kwargs = task                                        │
+│ ❱  73 │   │   return fn(*args, **kwargs)                                     │
+│    74                                                                        │
+│    75                                                                        │
+│    76 class _WorkItem:                                                       │
+│                                                                              │
+│ /Users/maier/Documents/code/ActiveMatterLivingReview/pipeline/src/amlr/scree │
+│ n_llm.py:81 in cast_vote                                                     │
+│                                                                              │
+│    78 │   }                                                                  │
+│    79 │   t0 = time.monotonic()                                              │
+│    80 │   try:                                                               │
+│ ❱  81 │   │   resp = chat(client_for(model, transport=transport), system,    │
+│       user, max_tokens=MAX_TOKENS)                                           │
+│    82 │   │   row.update(model_reported=resp.model,                          │
+│       finish_reason=resp.finish_reason, raw=resp.content,                    │
+│    83 │   │   │   │      usage=resp.raw.get("usage"))                        │
+│    84 │   │   obj = parse_json_object(resp.content, "decision")              │
+│                                                                              │
+│ /Users/maier/Documents/code/ActiveMatterLivingReview/pipeline/src/amlr/llm.p │
+│ y:67 in chat                                                                 │
+│                                                                              │
+│    64 │   messages = [{"role": "system", "content": system}, {"role":        │
+│       "user", "content": user}]                                              │
+│    65 │   for attempt in range(retries + 1):                                 │
+│    66 │   │   try:                                                           │
+│ ❱  67 │   │   │   return client.chat(messages, temperature=0.0,              │
+│       max_tokens=max_tokens)                                                 │
+│    68 │   │   except RRZERateLimit as e:                                     │
+│    69 │   │   │   if attempt == retries:                                     │
+│    70 │   │   │   │   raise                                                  │
+│                                                                              │
+│ /Users/maier/Documents/code/experteye/src/experteye_scraper/scrum/rrze_clien │
+│ t.py:118 in chat                                                             │
+│                                                                              │
+│   115 │   │   if self.transport:                                             │
+│   116 │   │   │   data = self.transport(f"{self.base_url}/chat/completions", │
+│       headers, body, self.timeout_seconds)                                   │
+│   117 │   │   else:                                                          │
+│ ❱ 118 │   │   │   data =                                                     │
+│       self._post_json(f"{self.base_url}/chat/completions", headers, body)    │
+│   119 │   │   return self._parse_response(data)                              │
+│   120 │                                                                      │
+│   121 │   def _post_json(self, url: str, headers: dict[str, str], body:      │
+│       bytes) -> dict[str, Any]:                                              │
+│                                                                              │
+│ /Users/maier/Documents/code/experteye/src/experteye_scraper/scrum/rrze_clien │
+│ t.py:124 in _post_json                                                       │
+│                                                                              │
+│   121 │   def _post_json(self, url: str, headers: dict[str, str], body:      │
+│       bytes) -> dict[str, Any]:                                              │
+│   122 │   │   req = urllib.request.Request(url, data=body, headers=headers,  │
+│       method="POST")                                                         │
+│   123 │   │   try:                                                           │
+│ ❱ 124 │   │   │   with urllib.request.urlopen(req,                           │
+│       timeout=self.timeout_seconds) as response:                             │
+│   125 │   │   │   │   raw = response.read().decode("utf-8")                  │
+│   126 │   │   │   │   return json.loads(raw)                                 │
+│   127 │   │   except urllib.error.HTTPError as exc:                          │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/urllib/request.py:187 in urlopen                        │
+│                                                                              │
+│    184 │   │   _opener = opener = build_opener()                             │
+│    185 │   else:                                                             │
+│    186 │   │   opener = _opener                                              │
+│ ❱  187 │   return opener.open(url, data, timeout)                            │
+│    188                                                                       │
+│    189 def install_opener(opener):                                           │
+│    190 │   global _opener                                                    │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/urllib/request.py:487 in open                           │
+│                                                                              │
+│    484 │   │   │   req = meth(req)                                           │
+│    485 │   │                                                                 │
+│    486 │   │   sys.audit('urllib.Request', req.full_url, req.data,           │
+│        req.headers, req.get_method())                                        │
+│ ❱  487 │   │   response = self._open(req, data)                              │
+│    488 │   │                                                                 │
+│    489 │   │   # post-process response                                       │
+│    490 │   │   meth_name = protocol+"_response"                              │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/urllib/request.py:504 in _open                          │
+│                                                                              │
+│    501 │   │   │   return result                                             │
+│    502 │   │                                                                 │
+│    503 │   │   protocol = req.type                                           │
+│ ❱  504 │   │   result = self._call_chain(self.handle_open, protocol,         │
+│        protocol +                                                            │
+│    505 │   │   │   │   │   │   │   │     '_open', req)                       │
+│    506 │   │   if result:                                                    │
+│    507 │   │   │   return result                                             │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/urllib/request.py:464 in _call_chain                    │
+│                                                                              │
+│    461 │   │   handlers = chain.get(kind, ())                                │
+│    462 │   │   for handler in handlers:                                      │
+│    463 │   │   │   func = getattr(handler, meth_name)                        │
+│ ❱  464 │   │   │   result = func(*args)                                      │
+│    465 │   │   │   if result is not None:                                    │
+│    466 │   │   │   │   return result                                         │
+│    467                                                                       │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/urllib/request.py:1369 in https_open                    │
+│                                                                              │
+│   1366 │   │   │   self._context = context                                   │
+│   1367 │   │                                                                 │
+│   1368 │   │   def https_open(self, req):                                    │
+│ ❱ 1369 │   │   │   return self.do_open(http.client.HTTPSConnection, req,     │
+│   1370 │   │   │   │   │   │   │   │   context=self._context)                │
+│   1371 │   │                                                                 │
+│   1372 │   │   https_request = AbstractHTTPHandler.do_request_               │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/urllib/request.py:1325 in do_open                       │
+│                                                                              │
+│   1322 │   │   │   │   │   │                                                 │
+│        encode_chunked=req.has_header('Transfer-encoding'))                   │
+│   1323 │   │   │   except OSError as err: # timeout error                    │
+│   1324 │   │   │   │   raise URLError(err)                                   │
+│ ❱ 1325 │   │   │   r = h.getresponse()                                       │
+│   1326 │   │   except:                                                       │
+│   1327 │   │   │   h.close()                                                 │
+│   1328 │   │   │   raise                                                     │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/http/client.py:1459 in getresponse                      │
+│                                                                              │
+│   1456 │   │                                                                 │
+│   1457 │   │   try:                                                          │
+│   1458 │   │   │   try:                                                      │
+│ ❱ 1459 │   │   │   │   response.begin()                                      │
+│   1460 │   │   │   except ConnectionError:                                   │
+│   1461 │   │   │   │   self.close()                                          │
+│   1462 │   │   │   │   raise                                                 │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/http/client.py:336 in begin                             │
+│                                                                              │
+│    333 │   │                                                                 │
+│    334 │   │   # read until we get a non-100 response                        │
+│    335 │   │   while True:                                                   │
+│ ❱  336 │   │   │   version, status, reason = self._read_status()             │
+│    337 │   │   │   if status != CONTINUE:                                    │
+│    338 │   │   │   │   break                                                 │
+│    339 │   │   │   # skip the header from the 100 response                   │
+│                                                                              │
+│ /opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions │
+│ /3.14/lib/python3.14/http/client.py:305 in _read_status                      │
+│                                                                              │
+│    302 │   │   if not line:                                                  │
+│    303 │   │   │   # Presumably, the server closed the connection before     │
+│    304 │   │   │   # sending a valid response.                               │
+│ ❱  305 │   │   │   raise RemoteDisconnected("Remote end closed connection    │
+│        without"                                                              │
+│    306 │   │   │   │   │   │   │   │   │    " response")                     │
+│    307 │   │   try:                                                          │
+│    308 │   │   │   version, status, reason = line.split(None, 2)             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RemoteDisconnected: Remote end closed connection without response

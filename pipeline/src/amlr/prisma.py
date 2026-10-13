@@ -27,6 +27,10 @@ def compute_counts(records: Iterable[dict], today: date | None = None, manifest:
     else:
         identified_db, identified_other, duplicates = len(records), 0, n[P.duplicate.value]
     awaiting = n[P.identified.value]
+    # Full text unobtainable but eligibility judged on the abstract (author decision): PRISMA
+    # reports them as not retrieved, with the abstract-only assessment stated separately.
+    abstract_only = sum(1 for r in records if r.get("assessment_basis") == "abstract_only"
+                        and r.get("phase") in (P.assessed.value, P.included.value, P.excluded_eligibility.value))
     screened = in_corpus - awaiting
     excluded_screening = n[P.screened_out.value]
 
@@ -47,8 +51,11 @@ def compute_counts(records: Iterable[dict], today: date | None = None, manifest:
         "screened": screened,
         "excluded_screening": excluded_screening,
         "sought": screened - excluded_screening,
-        "not_retrieved": n[P.fulltext_not_retrieved.value],
-        "assessed": n[P.assessed.value] + n[P.excluded_eligibility.value] + n[P.included.value],
+        "not_retrieved": n[P.fulltext_not_retrieved.value] + abstract_only,
+        "assessed_on_abstract_only": abstract_only,
+        "abstract_only_included": sum(1 for r in records if r.get("assessment_basis") == "abstract_only"
+                                      and r.get("phase") == P.included.value),
+        "assessed": n[P.assessed.value] + n[P.excluded_eligibility.value] + n[P.included.value] - abstract_only,
         "excluded_eligibility": n[P.excluded_eligibility.value],
         "excluded_eligibility_reasons": dict(reasons),
         "included_studies": n[P.included.value],
@@ -78,7 +85,8 @@ def render_flow_svg(c: dict) -> str:
         (
             "",
             [f"Reports sought for retrieval (n = {c['sought']})"],
-            [f"Reports not retrieved (n = {c['not_retrieved']})"],
+            [f"Reports not retrieved (n = {c['not_retrieved']})",
+             f"of which assessed on abstract only (n = {c.get('assessed_on_abstract_only', 0)})"],
         ),
         (
             "",
@@ -166,7 +174,7 @@ def render_flow_tikz(c: dict) -> str:
 \node[box, below=of id] (scr) {{Records screened ($n={c['screened']}$)}};
 \node[side, right=of scr] (exs) {{Records excluded ($n={c['excluded_screening']}$)}};
 \node[box, below=of scr] (sou) {{Reports sought for retrieval ($n={c['sought']}$)}};
-\node[side, right=of sou] (nr) {{Reports not retrieved ($n={c['not_retrieved']}$)}};
+\node[side, right=of sou] (nr) {{Reports not retrieved ($n={c['not_retrieved']}$)\\ assessed on abstract only ($n={c.get('assessed_on_abstract_only', 0)}$)}};
 \node[box, below=of sou] (ass) {{Reports assessed for eligibility ($n={c['assessed']}$)}};
 \node[side, right=of ass] (exe) {{Reports excluded ($n={c['excluded_eligibility']}$){reasons}}};
 \node[box, below=of ass, fill=green!6] (inc) {{Studies included ($n={c['included_studies']}$)\\ reports of included studies ($n={c['included_reports']}$)}};

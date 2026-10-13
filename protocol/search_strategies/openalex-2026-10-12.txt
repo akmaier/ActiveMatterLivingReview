@@ -1,0 +1,9 @@
+source: openalex
+run_at_utc: 2026-10-12T00:02:21+00:00
+amlr_version: 0.0.1
+record_count: 7119
+raw_payload_sha256: 2bd8dec6f46fcf39149681e672a3175446c48de47db0a151f8d847d903599855
+concepts_sha256: 5758fbe4fc45635b450e8b876c3bf56f0d6eeb555c753398f93b0e1f1b57fa7b
+
+query:
+(("active matter" OR "active particle" OR "active brownian" OR self-propelled OR self-propulsion OR "collective motion" OR "collective behavior" OR "collective behaviour" OR flocking OR "motility-induced phase separation" OR "active nematic" OR "active solid" OR "odd elastic" OR "non-reciprocal interaction" OR "chiral active" OR "active granular" OR "emergent behavior" OR "emergent behaviour" OR "collective dynamics" OR "steric interaction" OR "sterically interacting" OR "mechanical interaction" OR "order parameter" OR "statistical mechanics" OR "phase transition") AND (robot OR "robotic swarm" OR "swarm robot" OR kilobot OR bristlebot OR bristle-bot OR "bristle bot" OR brainbot OR vibrobot OR hexbug OR smarticle OR microrobot OR nanorobot OR "programmable matter" OR "self-propelled robot" OR "granular robot" OR "modular robot" OR "robotic metamaterial")) OR (("Janus particle" OR "active colloid" OR "self-propelled colloid" OR "self-propelled particle" OR microswimmer) AND ("feedback control" OR closed-loop OR programmable OR "optical feedback" OR "real-time control" OR feedback-controlled)) OR ("robotic active matter" OR "active robotic matter" OR robophysics OR robophysical OR "robot swarm active matter")

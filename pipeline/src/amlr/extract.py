@@ -64,6 +64,10 @@ def field_values(d: dict) -> dict:
     """Flatten an extraction into comparable fields (risk-of-bias ratings as rob.<domain>)."""
 
     out = {f: d.get(f) for f in CODED + SETS + COUNTS + SIZES}
+    # The frozen prompt asks for true only when a repository or archive is named, so "not stated"
+    # (null) and false both mean "no named repository" and are compared as such.
+    for f in ("code_available", "data_available"):
+        out[f] = out[f] is True
     rob = d.get("rob") or {}
     for dom in ROB:
         v = rob.get(dom)
@@ -94,7 +98,14 @@ def reconcile(a: dict, b: dict, c: dict | None) -> tuple[dict, list[str]]:
     fc = field_values(c) if c else {}
     final, unresolved = dict(fa), []
     for f in disputed(a, b):
-        if c is not None and same(f, fc.get(f), fa[f]):
+        if f in SETS and c is not None:
+            # Multi-label fields: label-wise majority (a label is kept if >= 2 of 3 extractors chose it).
+            sets = [set(x.get(f) or []) for x in (fa, fb, fc)]
+            final[f] = sorted({lab for lab in set().union(*sets) if sum(lab in s for s in sets) >= 2})
+        elif f.startswith("rob.") and c is not None and len({fa[f], fb[f], fc.get(f)}) == 3 \
+                and {fa[f], fb[f], fc.get(f)} <= {"low", "some_concerns", "high"}:
+            final[f] = "some_concerns"  # PROTOCOL §9: all three ratings differ -> "some concerns"
+        elif c is not None and same(f, fc.get(f), fa[f]):
             final[f] = fa[f]
         elif c is not None and same(f, fc.get(f), fb[f]):
             final[f] = fb[f]
@@ -118,7 +129,7 @@ def _vote(reviewer: str, system: str, user: str, sha: str, record_id: str, trans
         resp = chat(client_for(PANEL[reviewer], transport=transport), system, user, max_tokens=8192)
         row["raw"] = resp.content
         row["data"] = parse_json_object(resp.content, "platform_class")
-    except (RRZEClientError, ValueError) as e:
+    except Exception as e:  # recorded and retried on the next run; one failure must not end the batch
         row["error"] = f"{type(e).__name__}: {e}"[:500]
     row["elapsed_s"] = round(time.monotonic() - t0, 2)
     return row

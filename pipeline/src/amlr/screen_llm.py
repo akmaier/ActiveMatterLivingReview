@@ -45,6 +45,9 @@ def load_prompt(path: Path = PROMPT_FILE) -> tuple[str, str, str]:
 def render_record(template: str, record: dict, stage: Stage, full_text: str | None = None) -> str:
     if stage is Stage.title_abstract:
         label, body = "Abstract", record.get("abstract") or "(no abstract available)"
+    elif record.get("assessment_basis") == "abstract_only":
+        # Full text could not be obtained; the panel judges eligibility on the abstract alone.
+        label, body = "Abstract only (full text unavailable)", record.get("abstract") or ""
     else:
         label, body = "Full text", (full_text or "")[:MAX_FULLTEXT_CHARS]
     return template.format(
@@ -116,7 +119,11 @@ def _valid_votes(ledger: list[dict], stage: Stage, sha: str) -> dict[str, dict[s
 
     out: dict[str, dict[str, dict]] = {}
     for v in ledger:
-        if v["stage"] == stage.value and v["prompt_sha256"] == sha and v["include"] is not None:
+        if v["stage"] != stage.value:
+            continue
+        if "invalidated_at" in v:  # input text withdrawn: earlier votes on this record no longer count
+            out.pop(v["record_id"], None)
+        elif v["prompt_sha256"] == sha and v["include"] is not None:
             out.setdefault(v["record_id"], {})[v["reviewer"]] = v
     return out
 
@@ -156,10 +163,16 @@ def _decidable(votes: dict[str, dict], record: dict, stage: Stage) -> bool:
 def _execute(tasks, system, sha, stage, transport, workers, fh) -> int:
     errors = 0
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-        futures = [pool.submit(cast_vote, rv, PANEL[rv], system, user, sha, r["id"], stage, transport)
-                   for r, rv, user in tasks]
+        futures = {pool.submit(cast_vote, rv, PANEL[rv], system, user, sha, r["id"], stage, transport): (r, rv)
+                   for r, rv, user in tasks}
         for f in as_completed(futures):
-            row = f.result()
+            try:
+                row = f.result()
+            except Exception as e:  # never let one failed vote end the run; it is retried next pass
+                r, rv = futures[f]
+                row = {"record_id": r["id"], "stage": stage.value, "reviewer": rv, "model": PANEL[rv],
+                       "prompt_sha256": sha, "at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                       "include": None, "reason": None, "error": f"{type(e).__name__}: {e}"[:500]}
             errors += row["error"] is not None
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
             fh.flush()
@@ -248,7 +261,10 @@ def _apply_decisions(stage: Stage, corpus_path: Path, ledger_path: Path, sha: st
     for r in records:
         if r.get("phase", PrismaPhase.identified.value) not in _ELIGIBLE[stage]:
             continue
-        rv = votes.get(r["id"], {})
+        rv = dict(votes.get(r["id"], {}))
+        for alias in r.get("previous_ids", []):  # votes cast before a merge changed the record's id
+            for k, v in votes.get(alias, {}).items():
+                rv.setdefault(k, v)
         if not _decidable(rv, r, stage):
             continue
         liberal = stage is Stage.title_abstract and not r.get("abstract")

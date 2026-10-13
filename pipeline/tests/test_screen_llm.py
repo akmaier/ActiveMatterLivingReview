@@ -14,6 +14,8 @@ def test_parse_json_tolerates_reasoning_and_fences():
     assert parse_json_object('<think>x</think>{"decision":"exclude","reason":"E2"}', "decision")["reason"] == "E2"
     with pytest.raises(ValueError):
         parse_json_object("no json here", "decision")
+    # Raw control characters inside strings (copied from PDF text) are tolerated.
+    assert parse_json_object('{"decision": "include", "rationale": "order \x03 parameter"}', "decision")["decision"] == "include"
 
 
 def _v(inc, reason=None):
@@ -128,3 +130,35 @@ def test_adaptive_mode_calls_r3_only_when_it_can_matter(tmp_path):
     assert rows[ids[0]]["decisions"][-1]["votes"] == "2/2"
     assert rows[ids[1]]["phase"] == PrismaPhase.screened_in.value
     assert rows[ids[2]]["phase"] == PrismaPhase.screened_out.value
+
+
+def test_invalidation_marker_voids_earlier_full_text_votes():
+    from amlr.screen_llm import _valid_votes
+
+    vote = lambda rid, rv: {"record_id": rid, "stage": "full_text", "reviewer": rv, "prompt_sha256": "s", "include": True}
+    ledger = [vote("a", "R1"), vote("a", "R2"), vote("b", "R1"),
+              {"record_id": "a", "stage": "full_text", "invalidated_at": "t", "reason": "preview"},
+              vote("a", "R1")]
+    v = _valid_votes(ledger, Stage.full_text, "s")
+    assert set(v["a"]) == {"R1"}  # only the vote cast after the invalidation counts
+    assert set(v["b"]) == {"R1"}
+
+
+def test_dropped_connection_is_recorded_not_fatal(tmp_path):
+    import http.client
+
+    corpus, ledger = tmp_path / "corpus.jsonl", tmp_path / "votes.jsonl"
+    write_jsonl(corpus, [{"id": "a", "title": "t", "abstract": "x"}])
+
+    def transport(url, headers, body, timeout):
+        raise http.client.RemoteDisconnected("Remote end closed connection without response")
+
+    import amlr.llm as llm
+    orig = llm.time.sleep
+    llm.time.sleep = lambda s: None
+    try:
+        out = run_panel(Stage.title_abstract, corpus, mode="full", workers=1, transport=transport, ledger_path=ledger)
+    finally:
+        llm.time.sleep = orig
+    assert out["vote_errors"] == 3 and out["decided"] == 0
+    assert all("network error" in v["error"] for v in read_jsonl(ledger))

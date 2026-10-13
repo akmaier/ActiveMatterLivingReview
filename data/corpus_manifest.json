@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-10-11T17:03:49+00:00",
+  "built_at": "2026-10-12T21:44:19+00:00",
   "per_source": {
     "ads": {
       "file": "ads-2026-10-11.jsonl",
@@ -25,14 +25,18 @@
       "file": "ieee-2026-10-11.jsonl",
       "records": 901
     },
+    "openalex": {
+      "file": "openalex-2026-10-12.jsonl",
+      "records": 7119
+    },
     "pubmed": {
       "file": "pubmed-2026-10-11.jsonl",
       "records": 983
     }
   },
-  "identified_db": 7915,
+  "identified_db": 15034,
   "identified_other": 0,
-  "after_dedup": 5307,
-  "duplicates_removed": 2608,
-  "state_carried_over": 0
+  "after_dedup": 8702,
+  "duplicates_removed": 6332,
+  "state_carried_over": 8702
 }

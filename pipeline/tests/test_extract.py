@@ -56,3 +56,23 @@ def test_run_calls_arbiter_only_for_disputes(tmp_path):
     assert ("R2", "t") not in calls and ("R2", "u") in calls
     rows = {r["id"]: r for r in read_jsonl(corpus)}
     assert rows["b"]["extraction"]["propulsion"] == "legs"
+
+
+def test_multilabel_fields_use_labelwise_majority():
+    a = dict(BASE, phenomena=["chirality_or_rotation", "transport_or_locomotion", "boundary_accumulation"])
+    b = dict(BASE, phenomena=["chirality_or_rotation", "swarming_or_vortex", "transport_or_locomotion"])
+    c = dict(BASE, phenomena=["chirality_or_rotation", "boundary_accumulation"])
+    final, unresolved = reconcile(a, b, c)
+    assert final["phenomena"] == ["boundary_accumulation", "chirality_or_rotation", "transport_or_locomotion"]
+    assert "phenomena" not in unresolved
+
+
+def test_rob_three_way_split_resolves_to_some_concerns():
+    rob = lambda r: {k: {"rating": r, "why": ""} for k in BASE["rob"]}
+    final, unresolved = reconcile(dict(BASE, rob=rob("low")), dict(BASE, rob=rob("high")), dict(BASE, rob=rob("some_concerns")))
+    assert final["rob.D1_replication"] == "some_concerns" and not any(u.startswith("rob.") for u in unresolved)
+
+
+def test_availability_null_and_false_agree():
+    assert "code_available" not in disputed(dict(BASE, code_available=None), dict(BASE, code_available=False))
+    assert "code_available" in disputed(dict(BASE, code_available=True), dict(BASE, code_available=None))

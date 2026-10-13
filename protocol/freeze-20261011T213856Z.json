@@ -1,0 +1,14 @@
+{
+  "frozen_at_utc": "2026-10-11T21:38:56+00:00",
+  "note": "amendment 2: abstract-only assessment where full text is unobtainable; conference abstracts",
+  "git_head": "f8229ae02e3c413d9cb97a04718302484f059afc",
+  "protocol_uncommitted_at_freeze": true,
+  "sha256": {
+    "protocol/PROTOCOL.md": "b5b72ca8dbc990693183fc94e8422538c202fbb06e0069e7c2a9a7134bcc7f97",
+    "protocol/PICO.md": "0cb125e2c6ca4b9d673f640fe439905d5177cb1a062dcf21130e8a7a7d66ef87",
+    "protocol/screening_prompt.md": "7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7",
+    "protocol/extraction_prompt.md": "d190d61c3af2d60c692fb7d2a1cb5109ceea9f75fd624a1834485bcaf72ef7dd",
+    "protocol/search_strategies/concepts.yml": "5758fbe4fc45635b450e8b876c3bf56f0d6eeb555c753398f93b0e1f1b57fa7b",
+    "protocol/search_strategies/seed_set.yml": "5ba761fdef62ab049e35bba113f5664a265b9eb1c579f643e1031ccb8bfe0476"
+  }
+}

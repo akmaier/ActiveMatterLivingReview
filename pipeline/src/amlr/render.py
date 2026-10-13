@@ -21,8 +21,11 @@ def write_corpus_yml(records: Iterable[dict], out: Path | None = None) -> Path:
             "title": r.get("title"),
             "authors": "; ".join(r.get("authors", []) or []),
             "venue": r.get("venue"),
-            "platform": (r.get("extraction") or {}).get("platform"),
-            "agents": (r.get("extraction") or {}).get("agents"),
+            "platform": ((r.get("extraction") or {}).get("platform_class") or "").replace("_", " ") or None,
+            "platform_name": (r.get("extraction") or {}).get("platform_name"),
+            "agents": (r.get("extraction") or {}).get("n_agents_max"),
+            "phenomena": ", ".join(p.replace("_", " ") for p in (r.get("extraction") or {}).get("phenomena") or []),
+            "abstract_only": r.get("assessment_basis") == "abstract_only",
             "doi": r.get("doi"),
         }
         for r in records

@@ -20,7 +20,8 @@ this site.
       <th>Authors</th>
       <th>Venue</th>
       <th>Platform</th>
-      <th>Agents</th>
+      <th>Agents (max)</th>
+      <th>Phenomena</th>
       <th>DOI</th>
     </tr>
   </thead>
@@ -28,11 +29,12 @@ this site.
     {% for row in site.data.corpus %}
     <tr>
       <td>{{ row.year }}</td>
-      <td>{{ row.title }}</td>
+      <td>{{ row.title }}{% if row.abstract_only %} <small title="Full text unavailable; eligibility judged on the abstract">[abstract only]</small>{% endif %}</td>
       <td>{{ row.authors }}</td>
       <td>{{ row.venue }}</td>
-      <td>{{ row.platform }}</td>
+      <td>{{ row.platform }}{% if row.platform_name %} <small>({{ row.platform_name }})</small>{% endif %}</td>
       <td>{{ row.agents }}</td>
+      <td>{{ row.phenomena }}</td>
       <td>{% if row.doi %}<a href="https://doi.org/{{ row.doi }}">{{ row.doi }}</a>{% endif %}</td>
     </tr>
     {% endfor %}

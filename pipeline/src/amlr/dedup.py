@@ -54,16 +54,19 @@ def _arxiv_id(r: dict) -> str | None:
 
 def record_keys(r: dict) -> list[str]:
     keys = []
-    doi = canonical_doi(r.get("doi"))
-    if doi and not _ARXIV_DOI.match(doi):
-        keys.append(f"doi:{doi}")
+    for d in [r.get("doi")] + list(r.get("all_dois") or []):
+        doi = canonical_doi(d)
+        if doi and not _ARXIV_DOI.match(doi):
+            keys.append(f"doi:{doi}")
     if ax := _arxiv_id(r):
         keys.append(f"arxiv:{ax}")
     if r.get("pmid"):
         keys.append(f"pmid:{r['pmid']}")
     for src, sid in (r.get("source_ids") or {}).items():
         keys.append(f"{src}:{sid}".lower())
-    return keys
+    for src, sid in r.get("source_id_list") or []:
+        keys.append(f"{src}:{sid}".lower())
+    return list(dict.fromkeys(keys))
 
 
 class _UF:
@@ -103,7 +106,8 @@ def cluster(records: list[dict], *, title_threshold: float = 0.9) -> list[list[d
         nt = normalized_title(r.get("title"))
         words = nt.split()
         if len(words) >= 5:
-            by_title[nt].append(i)
+            # Spaces removed: some indexes drop spaces in titles ("Generating andAnalyzing ... inaMulti-leg").
+            by_title[nt.replace(" ", "")].append(i)
             blocks[" ".join(words[:3])].append(i)
     for idx in by_title.values():
         for j in idx[1:]:
@@ -154,6 +158,9 @@ def fold(group: list[dict]) -> dict:
     abstracts = [r.get("abstract") for r in group if r.get("abstract")]
     out["abstract"] = max(abstracts, key=len) if abstracts else None
     out["source_ids"] = source_ids
+    # source_ids keeps one id per source; this list keeps every id (an index can list a work twice).
+    out["source_id_list"] = sorted({(src, str(sid)) for r in group for src, sid in (r.get("source_ids") or {}).items()}
+                                   | {tuple(x) for r in group for x in (r.get("source_id_list") or [])})
     out["provenance"] = provenance
     out["sources"] = sorted(source_ids)
     out["id"] = stable_id(out)
@@ -180,22 +187,39 @@ def merge_records(records: Iterable[dict], *, title_threshold: float = 0.9) -> l
 
 
 _CARRY = ("phase", "decisions", "extraction", "local_pdf_path", "checksum", "byte_count",
-          "acquisition_status", "access_route", "failure_reason", "fulltext_txt_path")
+          "acquisition_status", "access_route", "failure_reason", "fulltext_txt_path", "assessment_basis")
 
 
 def carry_over(new: list[dict], old: list[dict]) -> int:
-    """Copy screening/acquisition state from a previous corpus onto matching new records."""
+    """Copy screening/acquisition state from a previous corpus onto matching new records.
+
+    A matched record keeps its previous id, so screening ledgers keyed by record id stay valid
+    across living updates; ids of other previous records merged into it become `previous_ids`.
+    """
 
     index: dict[str, dict] = {}
     for r in old:
         for k in record_keys(r) + [f"id:{r['id']}"]:
-            index[k] = r
+            index.setdefault(k, r)
     n = 0
     for r in new:
-        prev = next((index[k] for k in record_keys(r) + [f"id:{r['id']}"] if k in index), None)
-        if prev:
-            for f in _CARRY:
-                if f in prev:
-                    r[f] = prev[f]
-            n += 1
+        matches = []
+        for k in record_keys(r) + [f"id:{r['id']}"]:
+            m = index.get(k)
+            if m is not None and all(m is not x for x in matches):
+                matches.append(m)
+        if not matches:
+            continue
+        # Prefer the previous record that progressed furthest (it carries the decisions).
+        rank = {"included": 6, "excluded_eligibility": 6, "fulltext_not_retrieved": 5, "assessed": 4,
+                "fulltext_sought": 3, "screened_in": 3, "screened_out": 2, "identified": 1}
+        prev = max(matches, key=lambda m: rank.get(m.get("phase", "identified"), 0))
+        for f in _CARRY:
+            if f in prev:
+                r[f] = prev[f]
+        r["id"] = prev["id"]
+        aliases = sorted({m["id"] for m in matches if m is not prev} | set(prev.get("previous_ids", [])))
+        if aliases:
+            r["previous_ids"] = aliases
+        n += 1
     return n

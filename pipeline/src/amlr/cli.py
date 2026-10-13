@@ -161,11 +161,13 @@ def fulltext(
     limit: int = typer.Option(None),
     workers: int = typer.Option(4),
     dry_run: bool = typer.Option(False, "--dry-run", help="Only summarize what would be tried"),
+    retry: bool = typer.Option(False, "--retry", help="Only untried routes for records still missing"),
+    force_route: list[str] = typer.Option([], "--force-route", help="Route to retry even if already tried"),
 ) -> None:
     """Tier 1 (TDM / institutional) and tier 2 (open access) PDFs for screened-in records into docs/."""
     from .fulltext.dispatch import run
 
-    rprint(run(corpus, limit=limit, workers=workers, dry_run=dry_run))
+    rprint(run(corpus, limit=limit, workers=workers, dry_run=dry_run, retry=retry, force_routes=frozenset(force_route)))
 
 
 @app.command()
@@ -179,6 +181,70 @@ def extract(
     from .fulltext.dispatch import text_for
 
     rprint(run(corpus, text_for, limit=limit, workers=workers))
+
+
+@app.command("fulltext-browser")
+def fulltext_browser(
+    corpus: Path = typer.Option(CORPUS),
+    limit: int = typer.Option(None),
+    publisher: str = typer.Option(None, help="Restrict to hosts containing this string, e.g. ieee"),
+    exclude: str = typer.Option(None, help="Skip hosts containing this string, e.g. ieee"),
+    wait_for_human: int = typer.Option(300, help="Seconds to wait at a bot check for the person at the screen (0: skip host)"),
+    dry_run: bool = typer.Option(False, "--dry-run"),
+) -> None:
+    """Tier 3: visible Chrome over FAU institutional access for records the APIs could not supply."""
+    from .fulltext.browser import run
+
+    rprint(run(corpus, limit=limit, publisher=publisher, exclude=exclude, dry_run=dry_run,
+               wait_for_human_s=wait_for_human))
+
+
+@app.command("fulltext-list")
+def fulltext_list(
+    corpus: Path = typer.Option(CORPUS),
+    include_ieee: bool = typer.Option(False, help="Also list IEEE papers (normally fetched by fulltext-browser)"),
+) -> None:
+    """Write a click-through HTML list of papers still lacking full text, for the author's browser."""
+    import subprocess
+
+    from .fulltext.manual import write_list
+
+    out = write_list(corpus, include_ieee)
+    rprint(f"wrote {out}")
+    subprocess.run(["open", "-a", "Safari", str(out)], check=False)
+
+
+@app.command("fulltext-import")
+def fulltext_import(
+    src: Path = typer.Argument(Path.home() / "Downloads"),
+    corpus: Path = typer.Option(CORPUS),
+    since_hours: float = typer.Option(24, help="Only PDFs modified within this many hours"),
+) -> None:
+    """Import PDFs the author saved (matched by DOI, Elsevier PII, or title) into docs/."""
+    from datetime import datetime, timedelta, timezone
+
+    from .fulltext.manual import import_dir
+
+    rprint(import_dir(corpus, src, since=datetime.now(timezone.utc) - timedelta(hours=since_hours)))
+
+
+@app.command("fulltext-abstract-only")
+def fulltext_abstract_only(
+    corpus: Path = typer.Option(CORPUS),
+    exclude_ieee: bool = typer.Option(False, help="Leave IEEE records for the browser tier"),
+    skip: list[str] = typer.Option([], help="Record ids still being retrieved"),
+    include_conference_abstracts: bool = typer.Option(True, help="Also records whose only report is an abstract"),
+) -> None:
+    """Assess eligibility on the abstract for papers whose full text cannot be obtained."""
+    from .fulltext.browser import plan
+    from .fulltext.dispatch import mark_abstract_only
+    from .fulltext.manual import missing
+    from .storage import read_jsonl
+
+    ids = [r["id"] for r in missing(corpus, include_ieee=not exclude_ieee) if r["id"] not in skip]
+    if include_conference_abstracts:
+        ids += [r["id"] for r in read_jsonl(corpus) if r.get("acquisition_status") == "no_full_report"]
+    rprint(mark_abstract_only(corpus, ids, "full text unobtainable after all retrieval tiers; assessed on abstract"))
 
 
 @app.command("fulltext-finalize")

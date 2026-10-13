@@ -41,7 +41,8 @@ def _openalex_get(url: str, *, min_remaining: int = 20) -> dict:
     """GET without experteye's Retry-After sleep: OpenAlex answers 429 with resets of hours."""
 
     req = urllib.request.Request(url, headers={"User-Agent": f"amlr/0.0.1 (mailto:{MAILTO})"})
-    for attempt in range(4):
+    for attempt in range(6):
+        time.sleep(1.0)  # OpenAlex also enforces a short-term burst limit on search requests
         try:
             with urllib.request.urlopen(req, timeout=90) as r:
                 remaining = int(r.headers.get("x-ratelimit-remaining", "1000000"))
@@ -50,11 +51,16 @@ def _openalex_get(url: str, *, min_remaining: int = 20) -> dict:
                 data["_amlr_stop"] = f"credits nearly exhausted ({remaining} left)"
             return data
         except urllib.error.HTTPError as e:
-            if e.code == 429:
-                raise CreditsExhausted(f"OpenAlex 429; reset in {e.headers.get('x-ratelimit-reset')} s") from e
-            if e.code >= 500 and attempt < 3:
-                time.sleep(5 * 2**attempt)
+            remaining = e.headers.get("x-ratelimit-remaining")
+            if e.code == 429 and remaining is not None and int(remaining) < min_remaining:
+                raise CreditsExhausted(f"OpenAlex daily credits exhausted; reset in {e.headers.get('x-ratelimit-reset')} s") from e
+            if (e.code == 429 or e.code >= 500) and attempt < 5:
+                # Burst limit (credits remain) or transient server error: back off and retry.
+                wait = int(e.headers.get("Retry-After") or 0) or min(120, 15 * 2**attempt)
+                time.sleep(wait)
                 continue
+            if e.code == 429:
+                raise CreditsExhausted(f"OpenAlex 429 persisted after backoff (remaining={remaining})") from e
             raise
     raise AssertionError("unreachable")
 

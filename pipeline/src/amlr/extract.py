@@ -192,5 +192,13 @@ def _apply(corpus: Path, finals: dict[str, dict]) -> None:
         records = read_jsonl(corpus)
         for r in records:
             if r["id"] in finals:
-                r["extraction"] = {k: v for k, v in finals[r["id"]].items() if k != "record_id"}
+                new = {k: v for k, v in finals[r["id"]].items() if k != "record_id"}
+                # Fields the author resolved (amlr.human) outlive re-extraction.
+                resolved = (r.get("extraction") or {}).get("author_resolved") or {}
+                for f, v in resolved.items():
+                    new[f] = v["value"]
+                if resolved:
+                    new["unresolved"] = [f for f in new.get("unresolved") or [] if f not in resolved]
+                    new["author_resolved"] = resolved
+                r["extraction"] = new
         rewrite_jsonl(corpus, records)

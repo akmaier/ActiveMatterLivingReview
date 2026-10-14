@@ -107,7 +107,13 @@ Peer review of the search: PRESS 2015 checklist by a second person before freezi
   random sample of 200 title/abstract records and all 1-of-3 split votes at full text, to
   report panel sensitivity and specificity and to retain human accountability for the final
   inclusion set. If title/abstract sensitivity is < 0.95, the prompt is amended (logged as an
-  amendment) and all records are re-screened.
+  amendment) and all records are re-screened. The author labels on the site's `/check/` page:
+  the sample (fixed in `data/human_check/ta_sample.txt`) is labelled blind to the panel votes,
+  and sensitivity is computed from the blind label. Labels are kept in the append-only ledger
+  `data/human_check/labels.jsonl`. An author decision on a full-text split or a seed paper
+  replaces the panel decision. At title/abstract, an author include sends a panel-excluded
+  record to full-text retrieval; an author exclude is reported but not applied when a
+  full-text assessment exists, because that assessment supersedes it.
 - Reproducibility caveat: served models are not bit-for-bit deterministic even at
   temperature 0; the stored votes are the record of decision and are not re-generated. A
   model retired from the gateway is replaced only by protocol amendment, after re-calibration

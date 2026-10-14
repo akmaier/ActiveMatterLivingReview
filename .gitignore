@@ -61,3 +61,6 @@ tdm_api.toml
 
 # Click-through lists for manual retrieval (regenerated on demand)
 data/fulltext/manual-*.html
+
+# Local preview config for Claude Code
+.claude/launch.json

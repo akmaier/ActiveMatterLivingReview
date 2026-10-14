@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import csv
+import hashlib
+import json
 import re
+from datetime import date
 from pathlib import Path
 from typing import Iterable
 
@@ -39,24 +43,73 @@ def write_corpus_yml(records: Iterable[dict], out: Path | None = None) -> Path:
 def write_bibtex(records: Iterable[dict], out: Path | None = None) -> Path:
     out = out or (REPO_ROOT / "paper" / "refs.bib")
     out.parent.mkdir(parents=True, exist_ok=True)
+    included = [r for r in records if r.get("phase") == "included"]
+    keys = bibkeys(included)
     with out.open("w", encoding="utf-8") as fh:
-        for r in records:
-            if r.get("phase") != "included":
-                continue
-            fh.write(_bibentry(r))
+        for r in included:
+            fh.write(_bibentry(r, keys[r["id"]]))
             fh.write("\n")
     return out
 
 
+SNAPSHOT_FIELDS = ["platform_class", "platform_name", "n_agents_min", "n_agents_max", "agent_size_mm",
+                   "propulsion", "interaction_modality", "control_architecture", "environment", "phenomena",
+                   "observables", "theory_compared", "agreement", "n_independent_runs", "code_available",
+                   "data_available", "rob.D1_replication", "rob.D2_agent_heterogeneity",
+                   "rob.D3_finite_size_and_boundaries", "rob.D4_measurement_validity",
+                   "rob.D5_data_code_availability", "rob.D6_quantitative_theory_comparison", "notes"]
+
+
+def _cell(v) -> str:
+    if v is None:
+        return ""
+    if isinstance(v, list):
+        return "; ".join(str(x) for x in v)
+    return str(v)
+
+
+def write_snapshot(records: Iterable[dict], day: date | None = None) -> Path:
+    """Dated, committed export of the included studies with their bib keys and extracted fields
+    (`data/snapshots/<date>/included.csv`, plus a SHA-256 manifest)."""
+
+    included = sorted((r for r in records if r.get("phase") == "included"), key=lambda r: r["id"])
+    keys = bibkeys(included)
+    snap = REPO_ROOT / "data" / "snapshots" / (day or date.today()).isoformat()
+    snap.mkdir(parents=True, exist_ok=True)
+    out = snap / "included.csv"
+    with out.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["key", "id", "doi", "year", "first_author", "title", "venue", "basis", *SNAPSHOT_FIELDS, "unresolved"])
+        for r in included:
+            e = r.get("extraction") or {}
+            first = (r.get("authors") or [""])[0]
+            w.writerow([keys[r["id"]], r["id"], r.get("doi") or "", r.get("year") or "", first,
+                        r.get("title") or "", r.get("venue") or "",
+                        "abstract" if r.get("assessment_basis") == "abstract_only" else "full_text",
+                        *(_cell(e.get(f)) for f in SNAPSHOT_FIELDS), _cell(e.get("unresolved"))])
+    manifest = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(snap.iterdir())
+                if p.is_file() and p.name != "MANIFEST.json"}
+    (snap / "MANIFEST.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    return out
+
+
 _SAFE = re.compile(r"[^A-Za-z0-9]+")
+_TAG = re.compile(r"<[^>]+>")
+_TEX_SPECIAL = re.compile(r"([&%#_$])")
 
 
-def _bibentry(r: dict) -> str:
-    key = _bibkey(r)
+def _tex(s: str | None) -> str:
+    """Plain metadata text made safe for a BibTeX field (markup dropped, specials escaped)."""
+
+    s = _TAG.sub("", s or "").replace("{", "").replace("}", "").replace("\\", "")
+    return _TEX_SPECIAL.sub(r"\\\1", s)
+
+
+def _bibentry(r: dict, key: str) -> str:
     year = r.get("year", "n.d.")
-    authors = " and ".join(r.get("authors", []) or ["Anonymous"])
-    title = (r.get("title") or "").replace("{", "").replace("}", "")
-    venue = r.get("venue") or ""
+    authors = " and ".join(_tex(a) for a in (r.get("authors", []) or ["Anonymous"]))
+    title = _tex(r.get("title"))
+    venue = _tex(r.get("venue"))
     doi = r.get("doi") or ""
     return (
         f"@article{{{key},\n"
@@ -67,6 +120,19 @@ def _bibentry(r: dict) -> str:
         f"  doi    = {{{doi}}}\n"
         f"}}\n"
     )
+
+
+def bibkeys(records: Iterable[dict]) -> dict[str, str]:
+    """Stable, unique citation keys: author-year-title stem, with a/b/... on collisions."""
+
+    stems: dict[str, list[str]] = {}
+    for r in sorted(records, key=lambda r: r["id"]):
+        stems.setdefault(_bibkey(r), []).append(r["id"])
+    keys = {}
+    for stem, ids in stems.items():
+        for i, rid in enumerate(ids):
+            keys[rid] = stem if len(ids) == 1 else f"{stem}{chr(97 + i)}"
+    return keys
 
 
 def _bibkey(r: dict) -> str:

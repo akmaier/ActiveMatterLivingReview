@@ -1355,10 +1355,10 @@
     and Manipulation.
   authors: Ashlee D McGovern; Mu-Jie Huang; Jiyuan Wang; Raymond Kapral; Igor S Aranson
   venue: Small (Weinheim an der Bergstrasse, Germany)
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: robotic micro nano agents
+  platform_name: chiral micropropellers
+  agents: 2
+  phenomena: chirality or rotation, transport or locomotion
   abstract_only: false
   doi: 10.1002/smll.202304773
 - id: ads:2024APS..MARA34003X
@@ -1414,10 +1414,10 @@
   title: A Mechanical Origin of Cooperative Transport
   authors: Ben Zion, Matan Yah
   venue: APS March Meeting Abstracts
-  platform: null
-  platform_name: null
+  platform: other
+  platform_name: transporton
   agents: null
-  phenomena: ''
+  phenomena: transport or locomotion
   abstract_only: true
   doi: null
 - id: ads:2024APS..MARF38003H
@@ -1626,10 +1626,10 @@
   authors: Caroline Desgranges; Melissa Ferrari; P. M. Chaikin; Stefano Sacanna; Mark
     E. Tuckerman; Jérôme Delhommelle
   venue: Soft Matter
-  platform: null
-  platform_name: null
+  platform: robotic micro nano agents
+  platform_name: light-activated colloidal swimmers
   agents: null
-  phenomena: ''
+  phenomena: boundary accumulation, self assembly or shape formation
   abstract_only: false
   doi: 10.1039/d3sm00915g
 - id: arxiv:2309.11408
@@ -1831,10 +1831,10 @@
   authors: Dilshani Karunarathna; Nuwan Jaliyagoda; Ganindu Jayalath; Janaka Alawatugoda;
     Roshan Ragel; Isuru Nawinne
   venue: IEEE Access
-  platform: null
+  platform: wheeled or legged swarm robots
   platform_name: null
-  agents: null
-  phenomena: ''
+  agents: 10
+  phenomena: other
   abstract_only: false
   doi: 10.1109/access.2023.3317434
 - id: doi:10.1109/tmech.2022.3211155
@@ -1842,10 +1842,11 @@
   title: Unifying Control Architecture for Reactive Particle Swarms
   authors: Shae T. Hart; Christopher Kitts
   venue: IEEE/ASME Transactions on Mechatronics
-  platform: null
-  platform_name: null
+  platform: wheeled or legged swarm robots
+  platform_name: custom omnidrive robots
   agents: null
-  phenomena: ''
+  phenomena: boundary accumulation, chirality or rotation, clustering or mips, self
+    assembly or shape formation
   abstract_only: false
   doi: 10.1109/tmech.2022.3211155
 - id: doi:10.1016/j.cej.2022.139464
@@ -2878,9 +2879,10 @@
     Steven M. LaValle
   venue: International Symposium on Multi-Robot and Multi-Agent Systems (MRS)
   platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform_name: Weaselball
+  agents: 5
+  phenomena: clustering or mips, boundary accumulation, chirality or rotation, synchronization,
+    self assembly or shape formation
   abstract_only: false
   doi: 10.1109/mrs.2019.8901081
 - id: arxiv:1908.02999
@@ -3504,10 +3506,10 @@
     Application to a circular formation control
   authors: Yamada, Ken-ichi; Hara, Naoyuki; Konishi, Keiji
   venue: SICE Annual Conference 2011
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: wheeled or legged swarm robots
+  platform_name: e-puck
+  agents: 3
+  phenomena: self assembly or shape formation
   abstract_only: false
   doi: null
 - id: doi:10.1109/iros.2011.6095129
@@ -3540,10 +3542,10 @@
   authors: GEORGE V. LAUDER; Jeanette Li Li Lim; Ryan M. Shelton; Chuck Witt; Erik
     J. Anderson; James L. Tangorra
   venue: Marine Technology Society Journal
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: other
+  platform_name: flapping foil apparatus
+  agents: 2
+  phenomena: transport or locomotion
   abstract_only: false
   doi: 10.4031/mtsj.45.4.8
 - id: doi:10.1109/iciea.2011.5975893
@@ -4090,10 +4092,10 @@
   title: Active Brownian Particles with Programmable Interaction Rules
   authors: Celia Lozano; Tobias Bäuerle; Clemens Bechinger
   venue: Active Matter and Nonequilibrium Statistical Physics
-  platform: null
+  platform: feedback controlled active colloids
   platform_name: null
   agents: null
-  phenomena: ''
+  phenomena: clustering or mips
   abstract_only: true
   doi: 10.1093/oso/9780192858313.003.0007
 - id: doi:10.1007/s11721-008-0016-2
@@ -4185,10 +4187,10 @@
     swarms
   authors: Fatih Gökçe; Erol Şahin
   venue: Theoretical Computer Science
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: wheeled or legged swarm robots
+  platform_name: Kobot
+  agents: 7
+  phenomena: flocking polar order, transport or locomotion
   abstract_only: false
   doi: 10.1016/j.tcs.2010.03.006
 - id: doi:10.1109/jsee.2014.00054
@@ -4307,10 +4309,10 @@
   title: Robophysical study of excavation in confined environments
   authors: Vadim Linevich; Daria Monaenkova; Daniel I. Goldman
   venue: Artificial Life and Robotics
-  platform: null
+  platform: wheeled or legged swarm robots
   platform_name: null
-  agents: null
-  phenomena: ''
+  agents: 3
+  phenomena: jamming or crystallization, transport or locomotion
   abstract_only: false
   doi: 10.1007/s10015-016-0317-2
 - id: doi:10.1101/677005
@@ -4319,10 +4321,10 @@
     between individuals in schooling fish
   authors: Lei Liu; Ramón Escobedo; Clément Sire; Guy Théraulaz
   venue: PLoS Computational Biology
-  platform: null
+  platform: wheeled or legged swarm robots
   platform_name: null
-  agents: null
-  phenomena: ''
+  agents: 5
+  phenomena: boundary accumulation, flocking polar order, swarming or vortex
   abstract_only: false
   doi: 10.1101/677005
 - id: doi:10.1101/2023.12.04.569886
@@ -4418,10 +4420,11 @@
   authors: X. An; S. Luo; H. Zhang; Q. Yang; B. Wang; L. Zhang; Q. Wang
   venue: 2026 IEEE/ASME International Conference on Advanced Intelligent Mechatronics
     (AIM)
-  platform: null
+  platform: robotic micro nano agents
   platform_name: null
   agents: null
-  phenomena: ''
+  phenomena: transport or locomotion, self assembly or shape formation, swarming or
+    vortex
   abstract_only: false
   doi: 10.1109/aim65483.2026.11658253
 - id: doi:10.1109/m-ra.2007.908970
@@ -4466,10 +4469,10 @@
     Flow for Swarm Robotics'
   authors: Z. Wang; Y. Li; W. Zhan; T. Hu
   venue: IEEE Robotics and Automation Letters
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: other
+  platform_name: Tello UAV
+  agents: 6
+  phenomena: flocking polar order
   abstract_only: false
   doi: 10.1109/lra.2026.3742288
 - id: doi:10.1299/jsmermd.2024.1p2-m07
@@ -4950,6 +4953,18 @@
     transport or locomotion
   abstract_only: false
   doi: 10.20965/jrm.2004.p0278
+- id: doi:10.1049/csy2.70047
+  year: 2026
+  title: 'Higher‐Order Interaction Models for Real Robot Swarms: Bridging Theory and
+    Practice With Physical and Operational Constraints'
+  authors: Z X Sun; Tianjiang Hu
+  venue: IET Cyber-Systems and Robotics
+  platform: null
+  platform_name: null
+  agents: null
+  phenomena: ''
+  abstract_only: true
+  doi: 10.1049/csy2.70047
 - id: doi:10.7498/aps.71.20212385
   year: 2022
   title: Dynamic behavior of oligomers formed by “十” shaped self-propelling agents
@@ -5131,6 +5146,18 @@
     vortex, transport or locomotion
   abstract_only: false
   doi: 10.1021/acsnano.3c03131
+- id: doi:10.1155/2020/7357464
+  year: 2020
+  title: Flocking Control of Mobile Robots with Obstacle Avoidance Based on Simulated
+    Annealing Algorithm
+  authors: Jin Cheng; Bin Wang
+  venue: Mathematical Problems in Engineering
+  platform: wheeled or legged swarm robots
+  platform_name: null
+  agents: null
+  phenomena: flocking polar order
+  abstract_only: true
+  doi: 10.1155/2020/7357464
 - id: doi:10.58571/cnca.amca.2025.064
   year: 2025
   title: Flocking control for a group of wheeled mobile robots free of linear velocity
@@ -5416,6 +5443,18 @@
   phenomena: swarming or vortex, transport or locomotion
   abstract_only: false
   doi: 10.37099/mtu.dc.etdr/1447
+- id: doi:10.1049/csy2.12114
+  year: 2024
+  title: 'ATI: Assemble topological interaction overcomes consistency–cohesion trade‐off
+    in bird flocking'
+  authors: Jialei Huang; Bo Zhu; Tianjiang Hu
+  venue: IET Cyber-Systems and Robotics
+  platform: null
+  platform_name: null
+  agents: null
+  phenomena: ''
+  abstract_only: true
+  doi: 10.1049/csy2.12114
 - id: doi:10.1021/acsnano.4c11686
   year: 2025
   title: Robotic Microcapsule Assemblies with Adaptive Mobility for Targeted Treatment
@@ -5774,6 +5813,18 @@
     locomotion
   abstract_only: false
   doi: 10.1007/s10514-018-9702-0
+- id: doi:10.1039/c8sm00513c
+  year: 2018
+  title: Active cargo transport with Janus colloidal shuttles using electric and magnetic
+    fields
+  authors: Ahmet Faik Demirörs; Mehmet Tolga Akan; Erik Poloni; André R. Studart
+  venue: Soft Matter
+  platform: robotic micro nano agents
+  platform_name: Janus colloidal shuttle
+  agents: null
+  phenomena: transport or locomotion
+  abstract_only: true
+  doi: 10.1039/c8sm00513c
 - id: doi:10.1007/s40747-024-01662-2
   year: 2024
   title: Adversarial imitation learning with deep attention network for swarm systems
@@ -5901,6 +5952,17 @@
   phenomena: self assembly or shape formation
   abstract_only: false
   doi: null
+- id: doi:10.1002/admt.v11.6
+  year: 2026
+  title: ''
+  authors: ''
+  venue: Advanced Materials Technologies
+  platform: null
+  platform_name: null
+  agents: null
+  phenomena: ''
+  abstract_only: true
+  doi: 10.1002/admt.v11.6
 - id: doi:10.1016/j.automatica.2024.112047
   year: 2024
   title: A matching problem between two decoupled multi-agent systems with reference
@@ -5918,12 +5980,24 @@
   title: Flight control for target seeking by 13 gram ornithopter
   authors: Stanley S. Baek; Fernando L. Garcia Bermudez; Ronald S. Fearing
   venue: IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
+  platform: wheeled or legged swarm robots
+  platform_name: iRobot Create
+  agents: 6
+  phenomena: flocking polar order
+  abstract_only: false
+  doi: 10.1109/iros.2011.6048246
+- id: doi:10.1073/pnas.1816098116
+  year: 2019
+  title: Flow interactions between uncoordinated flapping swimmers give rise to group
+    cohesion
+  authors: Joel W. Newbolt; Jun Zhang; Leif Ristroph
+  venue: Proceedings of the National Academy of Sciences
   platform: null
   platform_name: null
   agents: null
   phenomena: ''
-  abstract_only: false
-  doi: 10.1109/iros.2011.6048246
+  abstract_only: true
+  doi: 10.1073/pnas.1816098116
 - id: openalex:W3110984773
   year: 2020
   title: Density dependent synchronization in contact-coupled oscillators
@@ -6004,6 +6078,17 @@
   phenomena: synchronization, transport or locomotion
   abstract_only: false
   doi: 10.1016/j.jfluidstructs.2020.102923
+- id: doi:10.1155/2016/4370635
+  year: 2016
+  title: Method of Quantitative Analysis for Multirobot Cooperative Hunting Behaviors
+  authors: Yong Hua Song; Chengjin Zhang; Hai Liu
+  venue: Mathematical Problems in Engineering
+  platform: null
+  platform_name: null
+  agents: null
+  phenomena: ''
+  abstract_only: true
+  doi: 10.1155/2016/4370635
 - id: doi:10.1007/s10514-021-10033-6
   year: 2022
   title: Herding stochastic autonomous agents via local control rules and online target
@@ -6047,10 +6132,10 @@
   authors: Jiří Horyna; Tomas Baca; Viktor Walter; Dario Albani; Daniel Heřt; Eliseo
     Ferrante; Martin Saska
   venue: Autonomous Robots
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: other
+  platform_name: Quadcopter 450
+  agents: 14
+  phenomena: flocking polar order
   abstract_only: false
   doi: 10.1007/s10514-022-10066-5
 - id: doi:10.15607/rss.2026.xxii.038
@@ -6060,10 +6145,10 @@
   authors: Aswin Karthik Ramachandran Venkatapathy; Jona Schulz; Maurus Derungs; Carlo
     Angelini; Tobias Meier; Raffaello D’Andrea
   venue: null
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: other
+  platform_name: KlaskTron
+  agents: 2
+  phenomena: other
   abstract_only: false
   doi: 10.15607/rss.2026.xxii.038
 - id: doi:10.1038/s41467-021-26699
@@ -6114,6 +6199,19 @@
   phenomena: active solid or odd elasticity, other
   abstract_only: false
   doi: null
+- id: doi:10.1039/d5cc04292e
+  year: 2025
+  title: Reconfigurable superstructures of photocatalytic colloidal motors under light,
+    magnetic, and acoustic fields.
+  authors: Zhiying Yi; Donghao Cui; Jinyao Tang; Xing Ma; Wei Wang
+  venue: Chemical communications (Cambridge, England)
+  platform: robotic micro nano agents
+  platform_name: TiO2-Fe photocatalytic colloidal motors
+  agents: null
+  phenomena: self assembly or shape formation, chirality or rotation, clustering or
+    mips
+  abstract_only: true
+  doi: 10.1039/d5cc04292e
 - id: doi:10.1002/cnma.202300225
   year: 2023
   title: Spatial Patterning of Micromotor Aggregation and Flux.
@@ -6196,10 +6294,11 @@
     Light.
   authors: Xi Chen; Yankai Xu; Kai Lou; Yixin Peng; Chao Zhou; H P Zhang; Wei Wang
   venue: ACS nano
-  platform: null
-  platform_name: null
+  platform: robotic micro nano agents
+  platform_name: PMMA-Ag Janus microspheres
   agents: null
-  phenomena: ''
+  phenomena: chirality or rotation, self assembly or shape formation, synchronization,
+    transport or locomotion
   abstract_only: false
   doi: 10.1021/acsnano.2c04596
 - id: doi:10.3389/fbioe.2022.877964
@@ -6234,9 +6333,9 @@
   authors: Meihua Xie; Wei Zhang; Chengying Fan; Chu Wu; Qishuai Feng; Jiaojiao Wu;
     Yingze Li; Rui Gao; Zhenguang Li; Qigang Wang; Yu Cheng; Bin He
   venue: Advanced materials (Deerfield Beach, Fla.)
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: robotic micro nano agents
+  platform_name: Biomimetic Magnetic Microrobot (BMM)
+  agents: 500000
+  phenomena: synchronization, transport or locomotion
   abstract_only: false
   doi: 10.1002/adma.202000366

@@ -286,12 +286,44 @@ def prisma(corpus: Path = typer.Option(CORPUS)) -> None:
 
 @app.command()
 def render(corpus: Path = typer.Option(CORPUS)) -> None:
-    """Emit _data/corpus.yml and paper/refs.bib."""
-    from .render import write_bibtex, write_corpus_yml
+    """Emit _data/corpus.yml, paper/refs.bib, the included-studies snapshot and the /check/ queue."""
+    from .human import build_queue
+    from .render import write_bibtex, write_corpus_yml, write_snapshot
     from .storage import read_jsonl
 
     rows = read_jsonl(corpus)
-    rprint(f"wrote {write_corpus_yml(rows)} and {write_bibtex(rows)}")
+    rprint(f"wrote {write_corpus_yml(rows)}, {write_bibtex(rows)} and {write_snapshot(rows)}")
+    rprint(f"human-check queue: {build_queue(corpus)}")
+
+
+@app.command("human-queue")
+def human_queue(corpus: Path = typer.Option(CORPUS)) -> None:
+    """Write assets/human_check.json, the queue behind the site's /check/ page."""
+    from .human import build_queue
+
+    rprint(build_queue(corpus))
+
+
+@app.command("human-import")
+def human_import(
+    files: list[Path] = typer.Argument(..., help="JSON exports from the /check/ page"),
+    corpus: Path = typer.Option(CORPUS),
+) -> None:
+    """Append the author's labels to data/human_check/labels.jsonl and apply them to the corpus."""
+    from .human import apply, import_labels, report
+
+    for f in files:
+        rprint(f"{f.name}: {import_labels(f)}")
+    rprint(apply(corpus))
+    rprint(report(corpus))
+
+
+@app.command("human-report")
+def human_report(corpus: Path = typer.Option(CORPUS)) -> None:
+    """Panel sensitivity, specificity and kappa against the author's labels."""
+    from .human import report
+
+    rprint(report(corpus))
 
 
 @app.command()

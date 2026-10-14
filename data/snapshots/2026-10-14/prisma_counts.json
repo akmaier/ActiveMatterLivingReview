@@ -1,0 +1,35 @@
+{
+  "snapshot_date": "2026-10-14",
+  "identified_db": 15034,
+  "identified_registers": 0,
+  "identified_by_source": {
+    "ads": 4772,
+    "arxiv": 695,
+    "crossref": 373,
+    "europepmc_biorxiv": 44,
+    "hal": 147,
+    "ieee": 901,
+    "openalex": 7119,
+    "pubmed": 983
+  },
+  "duplicates_removed": 6332,
+  "awaiting_screening": 0,
+  "screened": 8702,
+  "excluded_screening": 7425,
+  "sought": 1277,
+  "not_retrieved": 300,
+  "assessed_on_abstract_only": 179,
+  "abstract_only_included": 34,
+  "assessed": 977,
+  "excluded_eligibility": 619,
+  "excluded_eligibility_reasons": {
+    "E2": 275,
+    "E1": 24,
+    "E5": 122,
+    "E3": 179,
+    "E4": 7,
+    "E6": 12
+  },
+  "included_studies": 530,
+  "included_reports": 530
+}

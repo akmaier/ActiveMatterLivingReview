@@ -1296,10 +1296,10 @@
     Coupling
   authors: Zixuan Deng; Hang Zhang; Arri Priimägi; Hao Zeng
   venue: Advanced Materials
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: other
+  platform_name: light‑fueled liquid crystal elastomer (LCE) strip
+  agents: 2
+  phenomena: chirality or rotation, synchronization, transport or locomotion
   abstract_only: false
   doi: 10.1002/adma.202209683
 - id: ads:2024APS..MARD38003P
@@ -5380,10 +5380,10 @@
     Behaviors
   authors: Iñaki Navarro; Ezequiel Di Mario; Alcherio Martino
   venue: null
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: wheeled or legged swarm robots
+  platform_name: Khepera III
+  agents: 4
+  phenomena: flocking polar order
   abstract_only: false
   doi: 10.7551/978-0-262-33027-5-ch056
 - id: openalex:W2126856755
@@ -5449,10 +5449,10 @@
     in bird flocking'
   authors: Jialei Huang; Bo Zhu; Tianjiang Hu
   venue: IET Cyber-Systems and Robotics
-  platform: null
+  platform: other
   platform_name: null
   agents: null
-  phenomena: ''
+  phenomena: flocking polar order
   abstract_only: true
   doi: 10.1049/csy2.12114
 - id: doi:10.1021/acsnano.4c11686
@@ -5678,10 +5678,10 @@
   title: Spin-Coupled Hydrodynamics Generates Oscillatory Bound States in Chiral Robots
   authors: Gregor Leech
   venue: eScholarship (California Digital Library)
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: other
+  platform_name: Bots
+  agents: 2
+  phenomena: chirality or rotation, synchronization
   abstract_only: true
   doi: null
 - id: doi:10.1007/s11721-010-0042-8
@@ -5799,6 +5799,17 @@
   phenomena: self assembly or shape formation
   abstract_only: false
   doi: 10.3390/mi14081503
+- id: doi:10.35248/2376-130x.21.7.e167
+  year: 2020
+  title: Expansion of Social Network
+  authors: Aladlin Ayash
+  venue: null
+  platform: null
+  platform_name: null
+  agents: null
+  phenomena: ''
+  abstract_only: true
+  doi: 10.35248/2376-130x.21.7.e167
 - id: doi:10.1007/s10514-018-9702-0
   year: 2018
   title: Distributed system of autonomous buoys for scalable deployment and monitoring
@@ -5957,10 +5968,10 @@
   title: ''
   authors: ''
   venue: Advanced Materials Technologies
-  platform: null
-  platform_name: null
+  platform: robotic micro nano agents
+  platform_name: magnetic microswimmers
   agents: null
-  phenomena: ''
+  phenomena: transport or locomotion
   abstract_only: true
   doi: 10.1002/admt.v11.6
 - id: doi:10.1016/j.automatica.2024.112047
@@ -5992,10 +6003,10 @@
     cohesion
   authors: Joel W. Newbolt; Jun Zhang; Leif Ristroph
   venue: Proceedings of the National Academy of Sciences
-  platform: null
+  platform: other
   platform_name: null
-  agents: null
-  phenomena: ''
+  agents: 2
+  phenomena: clustering or mips, transport or locomotion
   abstract_only: true
   doi: 10.1073/pnas.1816098116
 - id: openalex:W3110984773
@@ -6014,10 +6025,10 @@
   title: Distributed cohesive configuration controller for a swarm with low‐cost platforms
   authors: Seoung Kyou Lee
   venue: Journal of Field Robotics
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: wheeled or legged swarm robots
+  platform_name: r-one
+  agents: 100
+  phenomena: boundary accumulation, flocking polar order, self assembly or shape formation
   abstract_only: false
   doi: 10.1002/rob.22111
 - id: doi:10.1021/acsami.9b22342
@@ -6026,10 +6037,10 @@
     Dark Pulses, Mode Switching, and Controlled Clustering'
   authors: Xi Chen; Chao Zhou; Yixin Peng; Qizhang Wang; Wei Wang
   venue: ACS Applied Materials & Interfaces
-  platform: null
-  platform_name: null
+  platform: robotic micro nano agents
+  platform_name: SiO2-Ag Janus motor
   agents: null
-  phenomena: ''
+  phenomena: clustering or mips, self assembly or shape formation, synchronization
   abstract_only: false
   doi: 10.1021/acsami.9b22342
 - id: doi:10.1038/s41586-019-1388-8
@@ -6037,10 +6048,10 @@
   title: Designing minimal and scalable insect-inspired multi-locomotion millirobots
   authors: Zhenishbek Zhakypov; Kazuaki Mori; Koh Hosoda; Jamie Kyujin Paik
   venue: Nature
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: wheeled or legged swarm robots
+  platform_name: Tribot
+  agents: 5
+  phenomena: transport or locomotion
   abstract_only: false
   doi: 10.1038/s41586-019-1388-8
 - id: doi:10.31390/gradschool_dissertations.4609
@@ -6048,10 +6059,10 @@
   title: Formation Control of Nonholonomic Multi-Agent Systems
   authors: Milad Khaledyan
   venue: null
-  platform: null
-  platform_name: null
-  agents: null
-  phenomena: ''
+  platform: wheeled or legged swarm robots
+  platform_name: GRITSBot
+  agents: 5
+  phenomena: self assembly or shape formation, transport or locomotion
   abstract_only: false
   doi: 10.31390/gradschool_dissertations.4609
 - id: doi:10.1023/b:auro.0000033970.96785.f2
@@ -6078,6 +6089,18 @@
   phenomena: synchronization, transport or locomotion
   abstract_only: false
   doi: 10.1016/j.jfluidstructs.2020.102923
+- id: doi:10.1016/j.conengprac.2025.106262
+  year: 2025
+  title: On the attitude consensus of rigid bodies using exponential coordinates
+  authors: Javier Pliego‐Jiménez; Miguel Sidón-Ayala; César Cruz-Hernadez; Marco A.
+    Arteaga
+  venue: Control Engineering Practice
+  platform: wheeled or legged swarm robots
+  platform_name: Khepera III
+  agents: 4
+  phenomena: synchronization
+  abstract_only: false
+  doi: 10.1016/j.conengprac.2025.106262
 - id: doi:10.1155/2016/4370635
   year: 2016
   title: Method of Quantitative Analysis for Multirobot Cooperative Hunting Behaviors

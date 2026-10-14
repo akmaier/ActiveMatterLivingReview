@@ -6,6 +6,7 @@ import csv
 import hashlib
 import json
 import re
+import unicodedata
 from datetime import date
 from pathlib import Path
 from typing import Iterable
@@ -100,19 +101,36 @@ _TAG = re.compile(r"<[^>]+>")
 _TEX_SPECIAL = re.compile(r"([&%#_$])")
 
 
-def _tex(s: str | None) -> str:
-    """Plain metadata text made safe for a BibTeX field (markup dropped, specials escaped)."""
+_SPACES = dict.fromkeys(map(ord, "\u00a0\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f"), " ")
+_DASHES = dict.fromkeys(map(ord, "\u2010\u2011\u2012\u2212"), "-")
+_PUNCT = set("\u2013\u2014\u2018\u2019\u201c\u201d\u2026")
 
-    s = _TAG.sub("", s or "").replace("{", "").replace("}", "").replace("\\", "")
-    return _TEX_SPECIAL.sub(r"\\\1", s)
+
+def _tex(s: str | None) -> str:
+    """Plain metadata text made safe for a BibTeX field under pdfLaTeX: markup dropped, specials
+    escaped, and characters pdfLaTeX's UTF-8 support lacks (e.g. CJK) left out."""
+
+    s = unicodedata.normalize("NFC", _TAG.sub("", s or "")).translate(_SPACES).translate(_DASHES)
+    s = "".join(ch for ch in s if ord(ch) < 0x180 or ch in _PUNCT)
+    s = s.replace("{", "").replace("}", "").replace("\\", "")
+    return _TEX_SPECIAL.sub(r"\\\1", re.sub(r" {2,}", " ", s).strip())
+
+
+def _name(a: str) -> str:
+    """One BibTeX name. Metadata sometimes lists an institution as an author; braces keep its
+    commas and its "and" from being parsed as name parts."""
+
+    a = _tex(a)
+    return f"{{{a}}}" if a.count(",") > 1 or " and " in a else a
 
 
 def _bibentry(r: dict, key: str) -> str:
     year = r.get("year", "n.d.")
-    authors = " and ".join(_tex(a) for a in (r.get("authors", []) or ["Anonymous"]))
+    authors = " and ".join(_name(a) for a in (r.get("authors", []) or ["Anonymous"]))
     title = _tex(r.get("title"))
     venue = _tex(r.get("venue"))
-    doi = r.get("doi") or ""
+    # REVTeX's style prints the DOI as link text when an entry has no volume or pages.
+    doi = _TEX_SPECIAL.sub(r"\\\1", r.get("doi") or "")
     return (
         f"@article{{{key},\n"
         f"  author = {{{authors}}},\n"

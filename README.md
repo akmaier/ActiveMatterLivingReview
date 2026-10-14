@@ -17,17 +17,22 @@ The repo is three artefacts in one:
 
 ## Status
 
-First review cycle in progress (started 2026-10-11).
+First review cycle complete (2026-10-11 to 2026-10-14); author validation in progress.
 
 - Protocol frozen with SHA-256 manifests in `protocol/freeze-*.json`
   (amendments logged in `protocol/PROTOCOL.md`); OSF registration pending.
-- Searches run in NASA ADS, PubMed, IEEE Xplore, arXiv, Crossref, HAL and
-  bioRxiv (via Europe PMC); OpenAlex follows once its daily credits reset.
-  Exact queries, counts and payload hashes: `protocol/search_strategies/`.
-- Title/abstract screening by a three-LLM panel on the NHR@FAU gateway;
-  every vote is recorded in `data/screening/title_abstract-votes.jsonl`.
-- Manuscript prose has not been drafted yet; it will be written by Codex
-  and reviewed by the authors.
+- Searches run in OpenAlex, NASA ADS, PubMed, IEEE Xplore, arXiv, Crossref,
+  HAL and bioRxiv (via Europe PMC). Exact queries, counts and payload hashes:
+  `protocol/search_strategies/`.
+- Screening and extraction by a three-LLM panel on the NHR@FAU gateway; every
+  vote is in `data/screening/` and `data/extraction/`. Latest counts:
+  [PRISMA flow](https://akmaier.github.io/ActiveMatterLivingReview/prisma/).
+- Author validation (blind title/abstract sample, full-text splits, extraction
+  conflicts, seed papers) runs on the site's
+  [human-check page](https://akmaier.github.io/ActiveMatterLivingReview/check/);
+  exports are imported with `amlr human-import`.
+- Manuscript prose is drafted by Codex (`amlr draft <section>`, exchanges in
+  `paper/drafts/`) and reviewed by the authors.
 
 ## Non-redistribution of subscriber content
 

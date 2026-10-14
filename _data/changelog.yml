@@ -1,0 +1,10 @@
+# Append-only; newest first. Rendered by _pages/changelog.md.
+- date: "2026-10-14"
+  title: "First review cycle: snapshot and human check"
+  summary: >-
+    First full snapshot (data/snapshots/2026-10-14/). Of 15,034 records from eight databases,
+    8,702 remained after deduplication, 1,277 passed title/abstract screening, and 528 studies
+    were included after full-text assessment (179 reports assessed on the abstract only because
+    no full text could be obtained). The author's validation queue is open at /check/, and
+    Codex has started drafting the RMP proposal and the manuscript.
+  added: "528 included studies"

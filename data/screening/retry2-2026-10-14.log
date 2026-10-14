@@ -1,0 +1,26 @@
+{
+    'mode': 'adaptive',
+    'votes_cast': 4,
+    'tiebreak_or_audit_votes': 4,
+    'vote_errors': 3,
+    'decided': 1,
+    'skipped_no_full_text': 3,
+    'prompt_sha256': 
+'7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7'
+}
+{
+    'included': 530,
+    'with_text': 530,
+    'extracted': 528,
+    'with_unresolved_fields': 140,
+    'prompt_sha256': 
+'d190d61c3af2d60c692fb7d2a1cb5109ceea9f75fd624a1834485bcaf72ef7dd'
+}
+PRISMA counts and flow written (snapshot 2026-10-14)
+wrote /Users/maier/Documents/code/ActiveMatterLivingReview/_data/corpus.yml, 
+/Users/maier/Documents/code/ActiveMatterLivingReview/paper/refs.bib and 
+/Users/maier/Documents/code/ActiveMatterLivingReview/data/snapshots/2026-10-14/i
+ncluded.csv
+human-check queue: {'ta_sample': 200, 'ft_split': 423, 'extraction': 140, 
+'seeds': 15}
+exit 0

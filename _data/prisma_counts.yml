@@ -19,12 +19,12 @@ not_retrieved: 300
 assessed_on_abstract_only: 179
 abstract_only_included: 34
 assessed: 977
-excluded_eligibility: 619
+excluded_eligibility: 620
 excluded_eligibility_reasons:
   E2: 275
   E1: 24
   E5: 122
-  E3: 179
+  E3: 180
   E4: 7
   E6: 12
 included_studies: 530

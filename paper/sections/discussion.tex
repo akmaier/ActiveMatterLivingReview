@@ -1,2 +1,334 @@
 \section{Discussion}\label{sec:discussion}
-% [CODEX-DRAFT] not drafted yet; run `amlr draft discussion`.
+
+\subsection{A field that can now be assessed critically}
+
+Robotic active matter has moved beyond isolated demonstrations. The evidence snapshot dated 2026-10-14 contains 530 included studies. The search identified 15,034 records, removed 6,332 duplicates, and screened 8,702 records. Reports were sought for 1,277 records. Hence, the included evidence is broad enough to reveal recurring strengths and recurring weaknesses.
+
+The central result is not that one platform, phenomenon, theory, or controller dominates. It is that robotic active matter provides several distinct routes to experimental inference. Macroscopic robots make information flow programmable. Vibration-driven agents expose contact and morphology. Micro- and nano-agents expose field and fluid coupling. Feedback-controlled colloids make interaction rules adjustable. Modular systems and active solids connect local actuation to collective mechanics.
+
+Yet, these platforms do not offer interchangeable evidence. A wheeled flock, a magnetic chain, and a colloidal vortex can share an order parameter while differing in inertia, noise, interaction symmetry, conservation laws, and boundary response. The same visual state may therefore support different physical conclusions.
+
+Our synthesis identifies the condition under which robotic active matter becomes most informative. A strong experiment measures the microscopic response, changes one interaction parameter, records a collective observable, and compares the response with a baseline or theory. A weaker experiment shows that a desired pattern can be produced. Both results may be useful, but only the first constrains mechanism.
+
+This distinction connects objectives O1--O4. Platform choice determines which interactions can be realized. Phenomenon labels state what was observed. Theory comparison asks why it occurred. Control supplies an intervention. Objective O5 then asks whether the reported evidence permits the result to be reproduced and generalized.
+
+\subsection{What the evidence establishes}
+
+The platform map is a robust descriptive result. Platform class is resolved in 520 of 530 studies. Wheeled or legged swarm robots account for 220 studies. Robotic micro- and nano-agents contribute 85, vibration-driven robots 58, modular systems 23, feedback-controlled active colloids 14, smarticles or granular robots 11, and robotic metamaterials or active solids 10. Another 99 systems fall into the residual ``other'' category.
+
+These counts establish diversity, not equivalence. The residual category is nearly as large as the micro- and nano-agent class. Hence, the taxonomy captures the main established platform families but not every important embodiment. Aquatic, aerial, undulatory, and other systems remain combined. The living review should split this category only when a subfamily develops a coherent set of mechanisms and observables.
+
+The evidence also establishes that broad collective outcomes recur. Self-assembly or shape formation appears in 259 studies. Transport or locomotion appears in 220, flocking or polar order in 156, clustering or motility-induced phase separation in 111, and chirality or rotation in 95. Swarming or vortex states occur in 81 studies, synchronization in 70, and boundary accumulation in 66.
+
+These numbers show what researchers repeatedly measure. They do not establish a common mechanism. In particular, self-assembly may result from programmed placement, local attachment, magnetic attraction, steric confinement, or feedback. Clustering may result from attraction, reduced motility, jamming, common forcing, or boundary accumulation. Flocking may be communicated, sensed, imposed, or produced by collision.
+
+Hence, the strongest cross-platform conclusion is modest. Robotic hardware can realize and quantify a wide range of collective phenomena. The evidence for universal laws governing those phenomena is narrower.
+
+Several mechanism-level findings are nevertheless supported by multiple experimental routes. Geometry can act as an interaction rule. Passive bristle-bot collectives can transport a payload without sensing or communication \cite{Arbel2025amechanicalroutef}. Smarticle ensembles can convert internal fluctuations into collective locomotion \cite{Savoie2019arobotmadeofrobo}. Morphological changes can alter collision response and collective transport while retaining the same electronic core \cite{Zion2023morphologicalcomput}. These studies support the broader conclusion that computation may be distributed between controller, body, and environment.
+
+External feedback also works as a causal tool. Optical feedback can tune polar and rotating states \cite{Buerle2020formationofstable}. Controlled delay changes persistence and responsiveness \cite{Chen2024persistentandrespo}. Hydrodynamic coupling can be combined with feedback to tune synchronization and spatial organization \cite{Heuthe2025tunablecolloidalsw}. These results do not establish one universal feedback law. They establish that feedback can vary an interaction while retaining the physical agents.
+
+Robotic active solids provide a third supported mechanism. Programmed nonreciprocity can produce directional transmission in coupled robotic elements \cite{Brandenbourger2019nonreciprocalrobot}. Local sensing and actuation can generate active mechanical response \cite{Chen2020selfsensingmetamat}. Yet, the relevant evidence base remains small. Feasibility is more certain than bulk universality.
+
+Learned policies occupy the opposite end of the evidence spectrum. Only 13 studies use the extracted learned-policy architecture, although 12 appeared from 2020 onward. Hardware transfer has been demonstrated for decentralized and graph-based policies \cite{Batra2021decentralizedcontro,Blumenkamp2022aframeworkforreal}. Still, only one of the 13 studies reports quantitative theory--experiment agreement. The evidence supports learned control as an engineering method more strongly than it supports learning as an interpretable physical mechanism.
+
+\subsection{Theory is common, but decisive tests are not}
+
+Theory or simulation appears throughout the evidence base. Agent-based simulation is coded in 287 studies. Kinetic or hydrodynamic theory appears in 68. Active-Brownian-particle models and other statistical-mechanical models each appear in 28. Vicsek-type models occur in 20, active elasticity in seven, and run-and-tumble theory in two. These labels are multi-valued.
+
+The agreement field gives a stricter result. Quantitative comparison is reported in 134 studies. Qualitative comparison appears in 244, while 129 report no theory comparison. Agreement is missing in 23. Thus, about one quarter of the included literature quantitatively confronts theory with experiment.
+
+Agent-based simulation dominates even within this quantitative subset. It appears in 103 of the 134 quantitative rows. Kinetic or hydrodynamic theory appears in 32, active-Brownian-particle theory in 19, and other statistical-mechanical theory in 19. Vicsek-type theory appears in four quantitative rows. Active elasticity appears in two and run-and-tumble theory in one.
+
+This distribution has two interpretations. Agent-based models are productive because they can incorporate body shape, controller logic, contact, delay, and boundaries. They can reproduce apparatus-specific details that reduced theories omit. Yet, the same flexibility makes agreement less discriminating. A model that copies the controller and fits the experiment may explain less than a reduced model that predicts a response with independently measured parameters.
+
+Reduced theories face the opposite problem. They make stronger abstractions and are easier to falsify. Yet, finite populations, coloured noise, noncircular bodies, controller delay, and boundaries may violate their assumptions. A failed comparison can therefore reveal either missing physics or an inappropriate scale of description.
+
+The evidence supports quantitative agreement most strongly at the apparatus level. It supports fewer cross-platform claims. Rotating robots can connect microscopic motion to collective domains and edge currents \cite{Scholz2018rotatingrobotsmove}. Controlled colloids can connect order and susceptibility to programmed interactions \cite{Buerle2020formationofstable}. Smarticle experiments can connect configuration statistics with collective transport or state selection \cite{Savoie2019arobotmadeofrobo,Chvykov2020lowrattlingapred}. Such studies show that a model captures specified observables under specified conditions.
+
+A stronger claim would require prospective prediction across density, size, geometry, or platform. Few extracted fields record whether parameters were fixed before collective data were inspected. We therefore distinguish numerical consistency from predictive validation. The current evidence supports the former more broadly than the latter.
+
+The same caution applies to phase terminology. An order-parameter change in a finite arena may resemble a transition. Yet, without size dependence and boundary variation, it does not establish a thermodynamic phase transition. Robotic experiments can still test finite-size statistical physics. They should state that scope directly.
+
+\subsection{Programmability is strongest when it isolates a mechanism}
+
+Control architecture is resolved in 483 studies. On-board rules account for 300. External feedback appears in 88, passive or uncontrolled rules in 65, central controllers in 17, and learned policies in 13. The remaining 47 records lack a resolved architecture.
+
+No architecture is superior for every scientific question. Passive systems offer transparent mechanical interactions. On-board rules expose local perception and decision. External feedback permits precise intervention. Central control can implement a prescribed coupling. Learning can search a broad policy space.
+
+The important distinction is between state control and interaction control. A state controller drives the system toward a desired outcome. An interaction controller specifies local responses and leaves the collective state open. Both may produce flocking or assembly. Yet, the second supports a stronger claim about emergence.
+
+The extracted literature contains useful causal designs. Sensorial delay changes aggregation and segregation in phototactic robots \cite{Mijalkov2016engineeringsensoria}. Leader reversal and noise probe collective response \cite{Dizenhaus2026anonymousleadership}. Visual interaction rules can be related to polarization, milling, opacity, and collision \cite{Castro2025visualcollectivebe}. Such studies change one interpretable quantity and measure the resulting state.
+
+Programmability becomes less informative when the controller changes several layers simultaneously. A new policy may change speed, turning, sensing, communication, and collision avoidance. The resulting performance gain does not identify which change altered the collective physics.
+
+Hence, control code is part of the apparatus. The effective interaction cannot be reconstructed from trajectories alone. Conversely, source code cannot establish the realized interaction without sensor, timing, and actuator calibration. Reproducibility requires both.
+
+\subsection{Risk of bias and study quality}
+
+Table~\ref{tab:discussion-rob} summarizes the six prespecified domains. Two records lack ratings in the first five domains. Fourteen lack a resolved rating for quantitative theory comparison. We report domains separately because they concern different inferences.
+
+\begin{table*}
+\caption{Risk-of-bias and study-quality ratings across 530 included studies. D1 assesses replication, D2 agent heterogeneity, D3 finite-size and boundary treatment, D4 measurement validity, D5 public data and code, and D6 quantitative theory comparison. Missing ratings are shown separately.}
+\label{tab:discussion-rob}
+\begin{ruledtabular}
+\begin{tabular}{lrrrr}
+Domain & Low & Some concerns & High & Missing \\
+\hline
+D1 Replication & 133 & 371 & 24 & 2 \\
+D2 Agent heterogeneity & 417 & 104 & 7 & 2 \\
+D3 Finite size and boundaries & 41 & 477 & 10 & 2 \\
+D4 Measurement validity & 409 & 111 & 8 & 2 \\
+D5 Data and code availability & 38 & 65 & 425 & 2 \\
+D6 Quantitative theory comparison & 89 & 151 & 276 & 14 \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+The ratings reveal an asymmetric evidence base. Measurement validity and characterization of agent heterogeneity are usually adequate. Replication, finite-size treatment, open artifacts, and quantitative confrontation with theory are much weaker.
+
+This pattern matters. The typical study can measure a collective state. It is less often able to establish how stable that state is across preparations, sizes, boundaries, or independent implementations. The main weakness is therefore not absence of observation. It is limited generalization.
+
+\subsubsection{Replication}
+
+Only 133 studies receive a low-risk rating for replication. Another 371 raise some concerns, and 24 are high risk. The extraction separately finds an explicit number of independent runs in 188 studies.
+
+These measures are related but not identical. A study can report repeated trials without resolving every replication concern. Conversely, a continuous experiment may provide extensive time-series data while omitting a conventional run count. We therefore do not equate missing run counts with absence of repeated measurements.
+
+Still, reporting is insufficient. A long trajectory is not automatically an independent repetition. Frames from one recording share initial conditions, calibration, agent identities, and environmental drift. Treating them as independent would underestimate uncertainty.
+
+The experimental unit also varies. It may be a complete preparation, one group of robots, one initial condition, one controller seed, or one field cycle. The appropriate unit depends on the claim. A theory of state selection requires independent preparations. A measurement of stationary fluctuations may require sufficiently separated time windows. The report should state the distinction.
+
+Replication is especially important near transitions. Finite systems switch between states. A single trajectory may spend most of its duration in one state by chance. Repeated preparation and a stated observation window are required to estimate switching probability or susceptibility.
+
+The field has not improved uniformly on this item. Sixty-five of 172 studies before 2020 report independent-run counts. Among the 358 studies from 2020 onward, 123 do so. The absolute number increased, but reporting did not become more common in proportion to publication volume.
+
+This result weakens claims of rapid methodological maturation. Hardware, sensing, and analysis have advanced. Yet, explicit replication reporting has not kept pace.
+
+\subsubsection{Agent heterogeneity and measurement validity}
+
+Agent heterogeneity receives the most favourable ratings. It is low risk in 417 studies, raises some concerns in 104, and is high risk in seven. Measurement validity is low risk in 409, raises some concerns in 111, and is high risk in eight.
+
+These ratings support confidence in the basic observations. Most studies use tracking or measurement methods adequate for the reported collective quantity. Many also characterize the agents sufficiently for the immediate analysis.
+
+Still, a low-risk rating does not imply identical agents. It means that heterogeneity was characterized adequately for the extracted judgement. Variation can remain physically important. Battery state, friction, magnetic moment, body asymmetry, sensor gain, and actuator response can create leaders or defects even when the mean behaviour is reported correctly.
+
+Heterogeneity should therefore be used as a perturbation where possible. A collective response measured as heterogeneity increases is more informative than a statement that agents were approximately identical. Robotic platforms make this experiment feasible because parameters can often be assigned deliberately.
+
+Measurement validity has a similar qualification. Accurate trajectories do not guarantee an appropriate observable. Polarization can identify ordered translation but may miss rotating order. Mean cluster size can conceal a broad distribution. A final-state image cannot resolve transient pathways.
+
+The stronger studies align measurement with mechanism. They combine an order parameter with response, fluctuation, spatial, or temporal observables. This reduces the chance that one summary statistic creates a misleading impression of agreement.
+
+\subsubsection{Finite size and boundaries}
+
+Finite-size and boundary treatment is the most widespread physical concern. Only 41 studies receive a low-risk rating. Another 477 raise some concerns, and ten are high risk.
+
+This result should not be read as a defect unique to robotics. Hardware populations and arenas are necessarily finite. The problem is that finite size and confinement are often treated as background rather than as explanatory variables.
+
+Boundaries alter density, collision rate, sensing, hydrodynamic flow, magnetic organization, and communication. They can accumulate agents, align motion, stabilize vortices, create jams, and localize active modes. A state seen near a wall may therefore be a boundary-mediated state rather than a bulk phase.
+
+Population variation does not solve the problem when arena size remains fixed. Adding agents changes density and boundary fraction together. Increasing arena size at fixed population changes interaction frequency. A valid scaling experiment must state which quantity remains constant.
+
+Different platforms require different dimensionless measures. Useful ratios include system size to agent size, interaction range to agent size, boundary length to correlation length, and observation time to persistence time. The evidence table cannot reconstruct these quantities consistently because maximum population is reported in 422 studies, while characteristic agent size is available in 289.
+
+Hence, raw population counts should not be used to rank evidence strength across platforms. A small active lattice may contain several wavelengths of the relevant mode. A larger wheeled swarm may still be dominated by the wall.
+
+Boundaries can also strengthen inference when used deliberately. Changing wall curvature, roughness, compliance, or visibility can separate competing mechanisms. In this role, confinement becomes an intervention rather than a nuisance.
+
+\subsubsection{Data and code availability}
+
+Data and code availability is the weakest reporting domain. It is rated high risk in 425 studies. Only 38 receive a low-risk rating.
+
+Named code repositories occur in 78 studies. Named data repositories occur in 56. Thus, code is available for 14.7\% of the evidence base and data for 10.6\%. All 78 code records come from full-text studies. Fifty-five of the 56 data records do so.
+
+There has been improvement. Before 2020, 13 of 172 studies name code and four name data. From 2020 onward, 65 of 358 name code and 52 name data. The relative increase is substantial, particularly for data.
+
+Yet, most results remain difficult to reconstruct. A trajectory archive without control settings cannot reproduce the interaction. Code without calibration and raw trajectories cannot reproduce the physical outcome. Video alone rarely preserves sufficient numerical information.
+
+The appropriate reproducibility package depends on architecture. Passive systems need trajectories, forcing conditions, geometry, and calibration. On-board systems also need firmware and communication settings. External-feedback systems need tracking, state estimation, commands, timing, and actuator calibration. Learned systems need training environments, rewards, weights, normalization, and deployment interfaces.
+
+Hardware design files are useful but insufficient. The physical result also depends on assembly tolerance, substrate, field geometry, battery state, and control version. A reproducible report should separate immutable design from experiment-specific calibration.
+
+Several included studies show that stronger packages are possible. Smarticle experiments name code and data while connecting configuration statistics to transport \cite{Savoie2019arobotmadeofrobo,Chvykov2020lowrattlingapred}. Morphological-computation experiments release both while reporting collective response \cite{Zion2023morphologicalcomput}. Visual robot collectives similarly provide public artifacts for a quantitative comparison \cite{Castro2025visualcollectivebe}. These examples demonstrate feasibility across different platforms.
+
+\subsubsection{Quantitative theory comparison}
+
+Quantitative theory comparison receives a low-risk rating in 89 studies, some concerns in 151, and high risk in 276. This domain must be interpreted carefully.
+
+A high D6 rating does not mean that the experiment was poorly conducted. A descriptive study can measure a phenomenon accurately without testing a theory. The rating means that the study contributes little to objective O3.
+
+Likewise, a low D6 rating does not guarantee a decisive test. Quantitative agreement may use fitted parameters, one observable, or one experimental regime. The model may not have been compared with alternatives.
+
+Hence, D6 should be applied only to explanatory claims. It should not be used to remove descriptive evidence when mapping platforms or phenomena.
+
+This distinction becomes important in sensitivity analysis. Excluding every study rated high in D1 or D6 removes 279 studies and leaves 251. Of these, 242 were assessed from full text and nine from abstracts.
+
+All named platform classes remain represented. Yet, the composition changes strongly. On-board control falls from 300 studies to 115, external feedback from 88 to 48, passive or uncontrolled rules from 65 to 50, central control from 17 to seven, and learned policies from 13 to three.
+
+Phenomenon frequencies change as well. Transport or locomotion remains in 124 studies, self-assembly or shape formation in 114, chirality or rotation in 66, and clustering or motility-induced phase separation in 62. Flocking or polar order falls from 156 studies in the complete evidence base to 50.
+
+This result does not show that the removed phenomena are false. The sensitivity filter selects for replication and theory comparison. It therefore answers a different question. It shows how much evidence remains for stronger explanatory claims.
+
+The protocol sensitivity analysis is appropriate for theory and mechanism. It is too restrictive for the descriptive platform map. A review that applies one quality filter to every objective would confuse absence of theory with absence of experiment.
+
+\subsection{Certainty of the main conclusions}
+
+The prespecified certainty framework considers reproduction across platforms and independent groups together with D1 and D6. The evidence table supports platform comparisons and domain ratings. It does not contain a resolved research-group identifier. Hence, certainty judgements that depend on independent groups remain provisional.
+
+We can nevertheless separate several levels of claim.
+
+There is high certainty in the descriptive conclusion that robotic active matter spans several physical platform families. The platform field is resolved for 520 studies, and the major classes contain substantial full-text evidence. This statement concerns the composition of the reviewed literature. It does not claim equal scientific maturity.
+
+There is also high certainty that reporting gaps are widespread. Run counts, code, data, boundaries, and quantitative theory comparison are directly extracted from the reports. Their absence from a report is observable even when the underlying experiment may have been stronger.
+
+The existence of broad collective phenomena is supported with moderate to high certainty. Self-assembly, transport, polar order, clustering, rotation, synchronization, and boundary states appear across multiple platforms. The conclusion is that these states can be realized. Certainty falls when the claim changes from occurrence to a shared mechanism.
+
+The role of geometry and contact receives moderate certainty. Passive and controlled systems independently show that body shape, collision response, and confinement can alter collective transport and organization. Yet, the exact reduced theory differs among embodiments.
+
+The causal use of external feedback also receives moderate certainty. Several full-text experiments vary alignment, delay, persistence, activity, or field control and report quantitative collective responses. Repetition and artifact availability remain uneven.
+
+Quantitative theory agreement at the apparatus level receives moderate certainty. There are 134 quantitative comparisons, including 103 involving agent-based simulation. Many establish consistency between a model and one hardware realization. Certainty is lower for predictive transfer to new sizes, boundaries, or platforms.
+
+Universal mechanism claims receive low certainty. Broad phenomenon labels combine several interaction laws. Finite-size treatment is usually incomplete. Independent-group identity is not available as an extracted variable.
+
+Learned policies as interpretable collective mechanisms receive low certainty. The category contains 13 studies, only one with quantitative theory--experiment agreement. Learning clearly produces functional collective behaviour. The evidence does not yet establish general physical laws derived from learned policies.
+
+Run-and-tumble and active-elasticity comparisons also remain low-certainty at the level of generality. Their explicit evidence bases contain two and seven studies, respectively, with only one and two quantitative rows. Individual experiments may be strong, but breadth is limited.
+
+These judgements illustrate why certainty must be attached to a sentence rather than a topic. ``Robots can flock'' and ``robotic flocks obey one universal alignment transition'' are different claims. The first is well supported. The second is not.
+
+\subsection{Reporting and dissemination biases}
+
+The protocol planned a comparison between preprint-only and peer-reviewed reports. The current evidence table contains venue and DOI fields but no dedicated publication-status field. An arXiv venue label does not establish that the work remained a preprint. Hence, the planned numerical comparison cannot yet be completed without linking preprints to later publications.
+
+This missing field limits the assessment of dissemination bias. We cannot determine whether quantitative agreement, null results, or stronger effects are more common in peer-reviewed work. We also cannot identify experiments that were never reported.
+
+The published record is likely selective in several additional ways, but the present review cannot measure their magnitude. Successful collective patterns are visually compelling. Failed controllers and absent transitions may be less likely to appear as primary results. Yet, this remains a plausible bias rather than an extracted finding.
+
+Outcome selection is another concern. Many studies report several observables, parameter regimes, and demonstrations. The evidence table records the reported outcomes. It does not show which outcomes were planned before the data were inspected. Preregistration is not an extracted item.
+
+Hardware survivorship may also shape the evidence. A functioning platform is required before collective measurements can be made. Reports may therefore favour systems that remained stable long enough to produce a clear state. Development attempts that failed mechanically are largely invisible.
+
+Venue dispersion can amplify terminology bias. Robotics papers may describe formation, consensus, or transport. Physics papers may describe order, phases, or response. Materials papers may describe assembly or function. The broad search strategy reduces this problem but cannot guarantee equivalent retrieval across vocabularies.
+
+Citation chasing can reinforce visibility. Highly cited platform families and phenomena produce more references and cited-by links. Supplementary hand-searching and multiple databases reduce this effect. They do not eliminate it.
+
+The English-language restriction creates another reporting boundary. Relevant experiments reported only in other languages were ineligible. We cannot quantify the resulting loss from the included table.
+
+Finally, the 2026 record is incomplete. Recent growth should not be interpreted as a full annual total. Living updates will correct the count, but any time trend near the search date remains provisional.
+
+\subsection{Abstract-only evidence}
+
+Full reports were available for 496 studies. Thirty-four studies, or 6.4\% of the included evidence, were assessed from abstracts. These records expand coverage but provide much weaker support for mechanism and reproducibility.
+
+Only one abstract-only study reports quantitative agreement. One states an independent-run count. None names public code, and one names public data. Thirteen receive a high-risk replication rating. Nine are high risk for finite-size and boundary treatment, eight for measurement validity, 33 for data and code availability, and 23 for quantitative theory comparison.
+
+These ratings partly reflect limited reporting space. An abstract may omit details that appear in an unavailable full report. Hence, the ratings concern accessible evidence, not necessarily the underlying experiment.
+
+Still, an unreported detail cannot support synthesis. Abstract-only studies should contribute to mapping and hypothesis generation. They should not determine a high-certainty mechanism claim.
+
+The planned sensitivity analysis excludes all 34. This is appropriate because the named synthesis examples can then be checked against full text. Where a rare platform or phenomenon depends on abstract-only evidence, the manuscript should state that dependence directly.
+
+\subsection{Unresolved extraction fields}
+
+At least one field remains unresolved in 140 studies. This corresponds to 26.4\% of the evidence base. An unresolved row is not wholly uncertain. It means that one or more fields require author checking.
+
+The distinction matters for denominators. A missing agreement label should not be coded as no theory comparison. A missing control architecture should not be assigned to the passive category. An unresolved maximum population should not be treated as a small experiment.
+
+The main aggregate findings remain broad enough to tolerate some unresolved entries. Yet, rare categories are more sensitive. A few reclassifications could change the apparent size of learned policies, active elasticity, or a small platform family.
+
+Author resolution should therefore prioritize fields that affect low-count conclusions. Control architecture, agreement, theory class, platform, and population size are particularly important. Free-text notes are less likely to change aggregate maps.
+
+The living-review structure can preserve this distinction. Each snapshot should state how many fields were unresolved and which aggregate counts changed after adjudication. Silent replacement would make versions difficult to compare.
+
+\subsection{Limitations of the evidence base}
+
+The first limitation is heterogeneity. The evidence combines particles, mobile robots, modular assemblies, and active structures across several length scales. Their observables cannot be converted into one effect measure. Narrative synthesis is necessary, but it permits more interpretive judgement than meta-analysis.
+
+The second limitation is scale. Many experiments contain modest hardware populations. Yet, raw population alone is not the correct measure. Correlation length, interaction range, boundary fraction, and observation duration are often unavailable. We therefore cannot determine consistently whether a study probes a collective limit.
+
+The third limitation is boundary dependence. Only 41 studies receive a low-risk D3 rating. This prevents strong claims about bulk behaviour in many categories.
+
+The fourth limitation is replication. Most reports do not state enough independent repetitions to quantify between-run uncertainty. Error bars based on temporal samples may therefore appear more precise than the preparation-level evidence.
+
+The fifth limitation is theory flexibility. Agent-based simulation is widespread and useful, but its capacity to reproduce apparatus details can reduce discriminative power. Competing models are rarely tested under the same intervention.
+
+The sixth limitation is artifact availability. Most studies do not provide the trajectories and code needed to reconstruct the analysis. Independent reproduction is consequently more difficult than inspection of the published figures suggests.
+
+The seventh limitation is the small size of several conceptually important categories. Active solids, learned policies, Vicsek-type quantitative tests, active elasticity, and run-and-tumble comparisons remain sparse relative to their prominence in theoretical discussion.
+
+Finally, negative results are poorly represented. The table records published reports that met the eligibility criteria. It cannot show how many platforms failed to generate a target state or how many models failed before the reported comparison was selected.
+
+\subsection{Limitations of this review}
+
+The review boundary is deliberately narrow in some respects and broad in others. We require physical hardware and a quantitative collective or interaction observable. Engineering studies reporting only task performance are excluded. This keeps the synthesis centred on physical evidence but may omit controller studies that contain relevant interaction measurements not emphasized in the title or abstract.
+
+Uncontrolled synthetic colloids are also excluded. Programmable or feedback-controlled colloids qualify, while conventional autonomous active colloids do not. This boundary preserves the focus on robotic programmability. It prevents the review from serving as a complete synthesis of synthetic active matter.
+
+At the lower population boundary, two interacting agents qualify. Pair-interaction studies can reveal mechanisms. Yet, their inclusion broadens the meaning of collective experiment. We therefore distinguish pair evidence from many-body evidence when making claims about phases or collective scaling.
+
+The search spans multiple databases, citation chasing, and hand-searching. Still, source coverage differs. Crossref relevance queries are limited to the first 100 results per query. Google Scholar is supplementary and not reproducible. Database indexing varies across physics, robotics, engineering, and materials science.
+
+The review includes English-language reports only. It also relies on text that could be retrieved. Three hundred sought reports were not retrieved, and 179 were assessed from abstracts only. Thirty-four of those abstract-only assessments entered the included set. Missing full texts may therefore produce retrieval bias.
+
+Screening and extraction used panels of large language models. Stored independent votes and reconciled fields improve traceability. Yet, served models are not bit-for-bit deterministic. Their errors may also be correlated because the models share general training sources and similar language cues.
+
+The protocol requires human validation of a random sample of 200 title-and-abstract decisions and adjudication of specified full-text disagreements. Completion and performance of that validation remain [author-validation status, sensitivity, specificity, and agreement statistics]. Until these values are supplied, residual selection bias cannot be quantified.
+
+The supplied protocol record is marked ``DRAFT---not frozen, not registered.'' Hence, prospective registration cannot be claimed from the available files. The final review must report [protocol freeze tag] and [OSF Registries identifier and date], or state transparently that registration occurred after screening.
+
+The search also awaits [PRESS reviewer and completion date]. These placeholders are material. Search peer review and validation affect confidence in the completeness and correctness of the evidence set.
+
+Extraction itself has limitations. Controlled vocabularies make the evidence comparable, but they compress complex studies. A single control-architecture label cannot simultaneously represent learning method, execution location, state estimation, and communication. The ``other'' platform and phenomenon categories similarly combine dissimilar systems.
+
+Multi-label fields introduce another interpretive constraint. Counts for phenomena, interactions, and theories overlap. They should not be summed or treated as independent observations. One study may contribute several labels but remains one experimental report.
+
+The evidence table also lacks an explicit research-group field. We cannot count independent groups reliably from author names alone without disambiguation. Consequently, the independent-group component of certainty assessment remains incomplete.
+
+We did not contact study authors. Missing details remain missing even when the original experiment may have recorded them. This decision improves procedural consistency but limits the completeness of replication and artifact fields.
+
+Finally, this review uses AI systems both in evidence processing and prose drafting. The methods preserve model identifiers, prompts, decisions, and drafting exchanges. Human authors nevertheless remain responsible for every eligibility decision, adjudication, scientific interpretation, citation, and final statement. The present synthesis requires author verification before submission.
+
+\subsection{Implications for experimental practice}
+
+The evidence suggests that reporting can be improved without imposing one experimental design on every platform.
+
+First, studies should define the experimental unit and state the number of independent preparations. The number of frames, agents, or time points should not substitute for this count.
+
+Second, the report should separate single-agent calibration, pair interaction, and collective response. This gives parameters a clear provenance and prevents the collective fit from determining every microscopic quantity.
+
+Third, population, density, arena size, and boundary geometry should be varied independently where feasible. When they cannot be separated, the limitation should be stated.
+
+Fourth, the realized interaction should be measured. Sensor range, communication graph, delay, field strength, collision response, and actuator bandwidth belong in the physical description.
+
+Fifth, theory comparison should separate fitted and predicted observables. One condition may calibrate the model. Another should test it. Competing models should be compared when they predict different responses.
+
+Sixth, repositories should link code, data, calibration, and metadata. A trajectory file without the control version is incomplete. A controller without the measured trajectory is equally incomplete.
+
+Finally, disagreement should be reported. A failed transfer, shifted phase boundary, unstable controller, or unmatched fluctuation can reveal missing physics. Robotic active matter gains scientific value when failure constrains a mechanism.
+
+\subsection{Implications for the living review}
+
+Monthly updates are appropriate because 358 of the 530 included studies appeared from 2020 onward. Yet, adding records should not be the only purpose of an update.
+
+Each update should report changes in the taxonomy, risk-of-bias profile, and certainty judgements. A new platform class matters when it introduces a distinct interaction or observable. A new phenomenon matters when it is supported beyond one isolated demonstration. A certainty change matters when replication, theory comparison, or cross-platform transfer alters the interpretation.
+
+The update process should also resolve methodological deficits. Publication status should become an explicit field. Research groups should be disambiguated. Controller location should be separated from learning and feedback. Parameter provenance should distinguish measurement from fitting.
+
+Older snapshots must remain available. A living review should show how a conclusion changed, not replace its history. In particular, taxonomy changes can alter counts even when no new study is added.
+
+The field is developing quickly enough that some low-certainty conclusions may change. Learned-policy studies and robotic active solids are obvious candidates. Run-and-tumble comparisons and quantitative Vicsek-type tests may also grow. The living design allows these areas to gain certainty without rewriting the evidential standard.
+
+\subsection{Overall assessment}
+
+Robotic active matter is now a coherent experimental programme, but not a single physical system. Its main strength is the ability to construct, measure, and perturb interactions. Its main weakness is that the resulting evidence often remains tied to one apparatus.
+
+Across O1, platform diversity is established. Across O2, broad collective phenomena recur. Across O3, quantitative theory comparison exists but remains a minority practice. Across O4, programmability works best as an intervention that isolates a mechanism. Across O5, reproducibility is limited by replication reporting, finite-size treatment, and scarce public code and data.
+
+The most reliable result is therefore methodological. Robotic platforms contribute most when they make an interaction testable. A programmed flock is less informative than a flock whose response distinguishes two models. A stable assembly is less informative than an assembly whose failure identifies a boundary or coupling mechanism. A learned policy is less informative than a reduced interaction recovered from its behaviour and tested under perturbation.
+
+Still, the evidence contains the required building blocks. Accurate measurement is common. Agent heterogeneity is usually addressed. Quantitative comparisons appear across all major platform families. Public artifacts, although uncommon, demonstrate that reproducible packages are feasible.
+
+Hence, the next advance does not require one universal robot. It requires a common experimental logic. We should calibrate below the collective scale, perturb one interaction at a time, measure response as well as state, vary size and boundaries, and release the complete apparatus-to-analysis chain.
+
+If these practices become standard, robotic active matter can do more than reproduce the visual repertoire of living and synthetic collectives. It can identify which mechanisms are sufficient, which approximations survive embodiment, and where collective theories fail.

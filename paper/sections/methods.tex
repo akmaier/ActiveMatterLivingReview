@@ -1,2 +1,113 @@
 \section{Methods}\label{sec:methods}
-% [CODEX-DRAFT] not drafted yet; run `amlr draft methods`.
+
+\subsection{Protocol and reporting standard}
+
+We designed this living systematic review according to PRISMA 2020 \todocite{PRISMA 2020 statement}. The living component follows established guidance for continuously updated reviews \todocite{living systematic review guidance}. The protocol defines the objectives, eligibility criteria, search, screening, extraction, quality assessment, synthesis, and update procedure before the corresponding review stage.
+
+The protocol record supplied for this manuscript is marked ``DRAFT---not frozen, not registered.'' We therefore do not imply prospective registration that the repository does not document. The final manuscript will report the immutable protocol tag as [protocol freeze tag] and the registration as [OSF Registries identifier and date]. Amendments after freezing will be appended with their date and rationale. Earlier protocol text will remain unchanged.
+
+The synthesis dataset was locked to the evidence snapshot dated 2026-10-14. Its manifest records the SHA-256 checksum of the included-study table. The matched PRISMA count file was not present in the supplied snapshot. Hence, the study-flow values in Fig.~\ref{fig:prisma} remain [insert PRISMA counts regenerated from the screening audit trail]. This placeholder must be resolved before submission.
+
+\subsection{Eligibility criteria}
+
+We formulated the eligibility question as a PECO framework for engineered systems. The population comprised physical collectives of at least two interacting, self-propelled or actively driven artificial agents. Eligible systems included macroscopic swarm robots, vibration-driven robots, smarticles, modular robots, robotic micro- and nano-agents, and actuated robotic metamaterials or active solids. Janus particles and other synthetic active colloids qualified only when their interactions or motion were subject to programmable or feedback control.
+
+The exposure was interaction among agents and the associated control parameters. Interactions could arise through contact, hydrodynamics, sensing, communication, programmed rules, or a shared environment. A comparator was optional. Where present, it could be a theoretical model, simulation, passive system, or another parameter regime.
+
+An eligible study had to report at least one quantitative collective-behaviour or interaction observable from hardware experiments. Examples include an order parameter, phase diagram, correlation function, density fluctuation, cluster statistic, pair-interaction statistic, transport measure, or mechanical response. Primary research articles, conference papers with results, and preprints were eligible. We included reports in English from any publication year. A theory or simulation study qualified only when it compared its result quantitatively with robotic hardware.
+
+We excluded reviews, editorials, perspectives, duplicate theses, and abstracts without results. Reviews were retained only as sources for citation chasing. Studies of cells, bacteria, animals, or other living active matter were excluded when no artificial agents were present. Synthetic active colloids without programmable or feedback control were also excluded. Further exclusions covered single-agent studies, theory or simulation without comparison to hardware, and swarm-robotics studies that reported task performance alone. In particular, coverage time, success rate, or algorithmic performance did not establish eligibility without a physical collective observable.
+
+Each excluded full-text report received one reason. Where several reasons applied, we used the following precedence: not primary research, biological active matter, uncontrolled synthetic colloids, single agent, theory or simulation only, and task-performance-only swarm robotics. Two-body interaction experiments were eligible. This lower boundary allows the review to include measurements of pair interactions while excluding single-agent locomotion studies.
+
+\subsection{Information sources}
+
+We searched OpenAlex, Crossref, arXiv, bioRxiv, PubMed, IEEE Xplore, HAL, and NASA ADS as primary sources. OpenAlex was accessed through its REST interface with title-and-abstract search. SemOpenAlex served only as a fallback for metadata and citation lookup when OpenAlex credits were exhausted. It was not counted as a separate search source because it lacks abstract and text search and can lag the main OpenAlex index.
+
+Crossref does not support the required Boolean search directly. We therefore issued one relevance query, limited to the first 100 results, for every conjunction and composite phrase. We then applied the same Boolean logic locally to titles and abstracts. Non-report record types, e.g. components, datasets, and peer reviews, were removed before screening and recorded in the search log. We searched bioRxiv through the Europe PMC preprint index because the native bioRxiv interface does not offer the required keyword search.
+
+IEEE Xplore was searched through Command Search using institutional access. Two abstract-field queries were required to remain within its limits of 25 terms per clause and 10 wildcards. Results were exported as comma-separated files. The remaining primary sources were queried through their documented programmatic interfaces.
+
+Google Scholar, backward and forward citation chasing, and journal hand-searching were supplementary sources. Google Scholar results were reported separately because that search is not reproducible. Citation chasing used OpenAlex references and cited-by links for included studies. We hand-searched the tables of contents of \textit{Reviews of Modern Physics}, \textit{Physical Review X}, \textit{Physical Review Letters}, \textit{Physical Review E}, \textit{Soft Matter}, \textit{Science Robotics}, and \textit{Nature Physics} from 2004 onward. Searches covered each database from inception to the run date. The language restriction was English.
+
+\subsection{Search strategy}
+
+The search combined three branches,
+\[
+(\mathrm{ACTIVE\ MATTER}\ \mathrm{AND}\ \mathrm{ROBOTIC\ AGENT})
+\ \mathrm{OR}\
+(\mathrm{COLLOID}\ \mathrm{AND}\ \mathrm{CONTROL})
+\ \mathrm{OR}\
+\mathrm{COMPOSITE\ PHRASES}.
+\]
+The colloid-and-control branch was necessary because programmable Janus particles and related systems are not always described as robots. Yet, the control term also enforces the eligibility boundary against autonomous synthetic colloids.
+
+Source-specific syntax was generated from one version-controlled set of concept blocks. Every search run stored the exact query, timestamp, result count, raw-payload checksum, and software version. Sources without server-side Boolean search were queried phrase by phrase and filtered locally with the same concept logic.
+
+We evaluated sensitivity against a prespecified set of 12 known eligible reports. The pilot search of 2026-10-11 retrieved all 12 through at least one primary source. Before deduplication, the component searches returned 7,115 records from OpenAlex, 983 from PubMed, 695 from arXiv, 147 from HAL, and 44 from bioRxiv. These are search-validation counts rather than study-flow counts. The protocol additionally requires peer review with the PRESS 2015 checklist \todocite{PRESS 2015 guideline}. Its completion is [PRESS reviewer and completion date].
+
+\subsection{Record management and selection}
+
+We first canonicalized digital object identifiers. Records without a shared identifier were compared by normalized title, and pairs with Jaccard similarity of at least 0.9 were merged. A merged record retained every source identifier. The screening audit trail therefore preserves where each record was found.
+
+Three large language models served as independent screeners through the NHR@FAU language-model gateway. Reviewer R1 was \texttt{gpt-oss-120b}, R2 was \texttt{GaleneAI/Magistral-Small-2509-FP8-Dynamic}, and R3 was \texttt{deepseek-ai/DeepSeek-V4-Flash-0731}. Each vote was generated in a fresh context at temperature 0. A reviewer could not inspect the other reviewers' decisions.
+
+For every record, the stored output comprised an include or exclude decision, one exclusion code, a confidence value, and a rationale of at most 40 words. We also stored the reviewer identifier, gateway-reported model string, prompt checksum, timestamp, and raw response. Served models are not bit-for-bit deterministic even at temperature 0. Hence, the stored response is the decision record and is not regenerated. Retirement of a model requires a protocol amendment and renewed calibration.
+
+A record advanced when at least two of the three reviewers voted for inclusion. R1 and R2 assessed every record. R3 assessed cases in which its vote could alter the result. These comprised disagreements between R1 and R2, records without an abstract that both initially excluded, and full-text exclusions for which R1 and R2 selected different reasons. This sequencing gives the same inclusion result as a complete three-vote majority while avoiding unnecessary third-model calls. R3 also assessed a fixed 10\% audit sample selected by a deterministic hash of the record identifier.
+
+At title and abstract screening, a record without an abstract proceeded to full-text retrieval unless all three reviewers excluded it from the title. Full-text screening used the same panel, eligibility criteria, and majority rule. When a full report could not be obtained after all retrieval routes, including author-mediated browser access, we allowed assessment from the abstract. Such reports were marked as abstract-only and were removed in a sensitivity analysis. Conference abstracts with reported results were treated in the same manner. An abstract without results was excluded.
+
+We quantify agreement with Fleiss' \(\kappa\) on records assessed by all three reviewers and pairwise Cohen's \(\kappa\) for each reviewer pair. Before screening, all eligible seed papers had to pass title-and-abstract screening. Failure would have triggered prompt revision and repetition of the calibration before freezing.
+
+Human validation preserves accountability for the final evidence set. The protocol requires an author to label a fixed random sample of 200 title-and-abstract records while blinded to the panel votes. The author must also adjudicate every one-of-three split vote at full text and every disputed seed record. If validation sensitivity is below 0.95, the prompt must be amended and all records rescreened. Author includes at title and abstract advance to full-text assessment. An author exclusion does not override a completed full-text assessment because the latter uses more information. Validation labels are stored in an append-only ledger. Completion and performance of this validation are [author-validation status, sensitivity, specificity, and agreement statistics].
+
+\subsection{Data collection}
+
+We used a structured extraction form with controlled vocabularies. It was piloted on 10 included studies before extraction of the remaining evidence base. Nine pilot studies were extracted, and two retained one unresolved field each after reconciliation. The multi-label reconciliation rule was then amended because comparing whole label sets left disagreements even when most individual labels agreed.
+
+R1 and R3 independently extracted each available full text. Categorical fields had to agree exactly. List-valued fields were compared as sets. Agent counts were considered concordant within 10\%, and physical sizes within 25\%. R2 extracted only disputed fields. For phenomena, interaction modalities, and theories, each label was retained when at least two reviewers selected it. Other disputed values were settled by majority. A single-valued field with three different answers was marked for author resolution. We retained both versions of free-text fields rather than asking a third model to synthesize them.
+
+Missing values were recorded as missing and were not inferred from related quantities. The authors of included studies were not contacted for the initial review. Analyses involving unresolved fields use only resolved observations, and the corresponding denominator is stated. Conclusions based on abstract-only reports are identified and checked in the abstract-exclusion sensitivity analysis.
+
+\subsection{Data items}
+
+We extracted the platform class and name, minimum and maximum number of agents, characteristic agent size, propulsion mechanism, interaction modality, control architecture, environment, and boundary conditions. Platform classes comprised vibration-driven robots, wheeled or legged swarm robots, modular or self-reconfigurable robots, smarticles or granular robots, robotic micro- and nano-agents, feedback-controlled active colloids, robotic metamaterials or active solids, and other systems.
+
+Interaction modalities included steric contact, hydrodynamic and magnetic coupling, optical sensing, communication, programmed rules, and environment-mediated interaction. Control was coded as passive or uncontrolled rules, on-board rules, external feedback, learned policy, central control, or other.
+
+We also extracted collective phenomena, the quantitative observables used to support them, the theoretical frameworks compared, and whether theory--experiment agreement was quantitative, qualitative, or absent. Further items were the number of independent experimental runs and the availability of code and data. Availability was coded as present only when the report named a repository or archive.
+
+\subsection{Risk of bias and study quality}
+
+No validated risk-of-bias instrument exists for robotic active-matter experiments. We therefore prespecified six domains. D1 assesses whether independent experimental repetitions are reported. D2 concerns characterization of agent heterogeneity. D3 addresses finite-size and boundary effects. D4 assesses the validity of tracking and measurement. D5 concerns public data and code. D6 distinguishes quantitative theory comparison from qualitative resemblance.
+
+Each domain was rated as low risk, some concerns, or high risk. All three reviewers rated the domains independently. The majority rating became final. If all three ratings differed, the result was ``some concerns.'' Domain-level judgements remain separate. We do not combine them into a single numerical quality score, as compensation between unrelated weaknesses would be difficult to justify.
+
+\subsection{Effect measures and synthesis}
+
+A common meta-analytic effect measure was not defined because the included experiments report heterogeneous phenomena and observables. We preserve each reported observable and the corresponding agreement metric. In particular, an order parameter, transport coefficient, cluster distribution, and elastic response are not converted into a common scale.
+
+The synthesis is narrative and structured by the extracted taxonomy. We construct evidence maps for platform by phenomenon and phenomenon by theoretical framework. Bibliometric trends describe the development of the field. We do not perform meta-analysis or vote counting. A frequently reported phenomenon is not automatically a strongly supported phenomenon.
+
+For each main claim, we compare platform classes, independent research groups [operational definition of an independent group], interaction mechanisms, and control architectures. We distinguish quantitative prediction from qualitative correspondence. Sensitivity analyses exclude studies rated high risk for replication or quantitative theory comparison. A separate analysis removes abstract-only studies. Unresolved fields are not treated as negative observations.
+
+\subsection{Reporting bias and certainty}
+
+We assess dissemination bias by comparing preprint-only reports with peer-reviewed reports. The comparison covers the direction and type of reported phenomena, theory agreement, and study-quality domains. It cannot detect unpublished experiments. Hence, we describe it as an assessment of publication status rather than a complete test for publication bias.
+
+We grade certainty for each synthesis statement as high, moderate, or low. The judgement considers reproduction by independent platforms and groups together with the D1 replication and D6 theory-comparison ratings. High certainty requires convergent evidence beyond one platform and one group, supported by stronger replication and quantitative comparison. Moderate certainty indicates consistent but narrower evidence or some methodological concerns. Low certainty applies when a claim rests on isolated demonstrations, qualitative agreement, abstract-only evidence, or serious concerns in D1 or D6. The completed manuscript will state the evidence supporting every certainty judgement.
+
+\subsection{Living-review procedure}
+
+Searches are rerun monthly. New records are deduplicated against the cumulative database and screened in batches with the same stored prompts and decision rules. Every update produces a dated evidence snapshot, a new PRISMA flow, and a public change-log entry. Earlier snapshots remain available.
+
+The manuscript is re-versioned when an update changes the synthesis materially. Candidate triggers are a new platform class, a newly observed phenomenon, or reversal of a certainty rating. The final operational trigger is [material-update criterion]. Amendments to sources, models, prompts, eligibility criteria, or synthesis rules are dated and applied prospectively unless the amendment explicitly requires reprocessing the earlier evidence base.
+
+\subsection{Registration, support, competing interests, and availability}
+
+The registration is [OSF Registries identifier]. Financial and material support are [support and funding]. The role of each funder is [funder role]. Competing interests are [competing-interest statement].
+
+Review code, search strategies, screening decisions, extraction data, audit records, and dated snapshots are available at [public repository and archival identifier]. Subscriber-only full texts are not redistributed. Exact queries, raw-payload checksums, prompt checksums, model responses, author-validation labels, and amendment records are retained to make each decision traceable.
+
+Manuscript prose was drafted with the Codex AI system and reviewed and revised by the authors. All drafting exchanges are archived in \texttt{paper/drafts/} and will be disclosed according to APS policy. The AI system did not determine authorship or assume responsibility for the review. Human authors remain responsible for the eligibility criteria, adjudications, scientific interpretation, final wording, and integrity of the manuscript.

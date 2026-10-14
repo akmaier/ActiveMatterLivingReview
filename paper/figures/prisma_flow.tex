@@ -10,7 +10,7 @@
 \node[box, below=of scr] (sou) {Reports sought for retrieval ($n=1277$)};
 \node[side, right=of sou] (nr) {Reports not retrieved ($n=300$)\\ assessed on abstract only ($n=179$)};
 \node[box, below=of sou] (ass) {Reports assessed for eligibility ($n=977$)};
-\node[side, right=of ass] (exe) {Reports excluded ($n=619$)\\ E1: 24\\ E2: 275\\ E3: 179\\ E4: 7\\ E5: 122\\ E6: 12};
+\node[side, right=of ass] (exe) {Reports excluded ($n=620$)\\ E1: 24\\ E2: 275\\ E3: 180\\ E4: 7\\ E5: 122\\ E6: 12};
 \node[box, below=of ass, fill=green!6] (inc) {Studies included ($n=530$)\\ reports of included studies ($n=530$)};
 \foreach \a/\b in {id/scr, scr/sou, sou/ass, ass/inc} \draw[->] (\a) -- (\b);
 \foreach \a/\b in {id/dup, scr/exs, sou/nr, ass/exe} \draw[->] (\a) -- (\b);

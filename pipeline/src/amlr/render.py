@@ -79,14 +79,16 @@ def write_snapshot(records: Iterable[dict], day: date | None = None) -> Path:
     out = snap / "included.csv"
     with out.open("w", encoding="utf-8", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["key", "id", "doi", "year", "first_author", "title", "venue", "basis", *SNAPSHOT_FIELDS, "unresolved"])
+        w.writerow(["key", "id", "doi", "year", "first_author", "title", "venue", "basis", *SNAPSHOT_FIELDS,
+                    "unresolved", "text"])
         for r in included:
             e = r.get("extraction") or {}
             first = (r.get("authors") or [""])[0]
             w.writerow([keys[r["id"]], r["id"], r.get("doi") or "", r.get("year") or "", first,
                         r.get("title") or "", r.get("venue") or "",
                         "abstract" if r.get("assessment_basis") == "abstract_only" else "full_text",
-                        *(_cell(e.get(f)) for f in SNAPSHOT_FIELDS), _cell(e.get("unresolved"))])
+                        *(_cell(e.get(f)) for f in SNAPSHOT_FIELDS), _cell(e.get("unresolved")),
+                        r.get("fulltext_txt_path") or ""])
     manifest = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(snap.iterdir())
                 if p.is_file() and p.name != "MANIFEST.json"}
     (snap / "MANIFEST.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

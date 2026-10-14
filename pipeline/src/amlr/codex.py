@@ -7,7 +7,6 @@ Every exchange is archived under `paper/drafts/` for provenance.
 
 from __future__ import annotations
 
-import csv
 import json
 import os
 import re
@@ -23,8 +22,8 @@ from .config import REPO_ROOT
 BRIDGE_URL = os.environ.get("CODEX_BRIDGE_URL", "http://127.0.0.1:8766")
 # Mirrors MAX_REQUEST_BYTES in CodexCommandServer/server.py.
 MAX_REQUEST_BYTES = 64 * 1024
-# The bridge waits up to 600 s for Codex by default; give it headroom.
-CLIENT_TIMEOUT_S = 900
+# The bridge runs with --timeout 3000 for long sections; wait a little longer than it does.
+CLIENT_TIMEOUT_S = 3300
 
 PAPER = REPO_ROOT / "paper"
 
@@ -68,23 +67,9 @@ def load_sections() -> list[dict]:
         return yaml.safe_load(fh)["sections"]
 
 
-def _evidence_block(budget_bytes: int) -> str:
-    """Latest included-studies snapshot as CSV text, truncated to fit the byte budget."""
-
+def _snapshot() -> Path | None:
     snaps = sorted((REPO_ROOT / "data" / "snapshots").glob("*/included.csv"))
-    if not snaps:
-        return "(No included studies yet. Do not cite any specific study; use \\cite{TODO} placeholders.)"
-    lines: list[str] = []
-    used = 0
-    with snaps[-1].open(encoding="utf-8") as fh:
-        for row in csv.reader(fh):
-            line = ",".join(row)
-            if used + len(line.encode("utf-8")) + 1 > budget_bytes:
-                lines.append("... (truncated)")
-                break
-            lines.append(line)
-            used += len(line.encode("utf-8")) + 1
-    return f"Snapshot: {snaps[-1].parent.name}\n" + "\n".join(lines)
+    return snaps[-1] if snaps else None
 
 
 _FORMAT_RULE = {
@@ -101,34 +86,74 @@ def output_path(section: dict) -> Path:
     return REPO_ROOT / section["out"] if "out" in section else PAPER / "sections" / f"{section['id']}.tex"
 
 
+def _drafted(exclude: str) -> list[Path]:
+    out = []
+    for spec in load_sections():
+        path = output_path(spec)
+        if spec["id"] != exclude and path.exists() and "[CODEX-DRAFT] not drafted yet" not in path.read_text(encoding="utf-8"):
+            out.append(path)
+    return out
+
+
 def build_prompt(section: dict) -> str:
+    """The prompt names the evidence files instead of inlining them: Codex reads them itself
+    (read-only sandbox), so the bridge's 64 KB request limit never truncates the evidence."""
+
     style = (PAPER / "STYLE_WORDS.md").read_text(encoding="utf-8")
-    protocol = (REPO_ROOT / "protocol" / "PROTOCOL.md").read_text(encoding="utf-8")
     fmt = _FORMAT_RULE[section.get("kind", "section")].format(**section)
-    head = f"""You are the sole author of the prose for a PRISMA 2020 living systematic review on
+    snap = _snapshot()
+    if snap is None:
+        raise BridgeError("no data/snapshots/*/included.csv yet; run `amlr render` first")
+    prisma = snap.parent / "prisma_counts.json"
+    drafted = "\n".join(f"  - {p}" for p in _drafted(section["id"])) or "  (none yet)"
+    return f"""You are the sole author of the prose for a PRISMA 2020 living systematic review on
 robotic active matter, to be submitted to Reviews of Modern Physics (REVTeX 4.2).
 RMP expects critical synthesis that identifies what works and sets directions, not a catalogue.
 
 Write "{section['title']}" (id: {section['id']}), about {section['words']} words.
 Scope: {section['brief']}
 
+Before writing, read these files with read-only shell commands. Do not create or modify any file;
+return the text in your reply.
+- Evidence table, one row per included study (snapshot {snap.parent.name}): {snap}
+  `key` is the citation key in {PAPER / 'refs.bib'}. The other columns hold the data items the
+  panel extracted and reconciled; the vocabularies are defined in {REPO_ROOT / 'protocol' / 'extraction_prompt.md'}.
+  `basis=abstract` marks studies assessed on the abstract only. `unresolved` lists fields still
+  awaiting the author's check. `text` is the study's extracted full text, relative to {REPO_ROOT}.
+- PRISMA counts for the same snapshot: {prisma}
+- Frozen protocol: {REPO_ROOT / 'protocol' / 'PROTOCOL.md'}; eligibility criteria: {REPO_ROOT / 'protocol' / 'PICO.md'}
+- Manuscript plan, with every section's brief (avoid overlap): {PAPER / 'sections.yml'}
+- Sections drafted so far (keep terminology, numbers and claims consistent with them):
+{drafted}
+
 Hard rules:
 - {fmt}
-- Cite only with \\cite{{key}} using keys from the evidence table below. Never invent a reference;
-  where a claim needs a source not in the table, write \\cite{{TODO}}.
-- Make no factual claim about the literature that the evidence table does not support.
+- Cite included studies only with \\cite{{key}}, using keys from the `key` column. Never invent a
+  key. Where a claim needs a source outside the table (a theory paper, an earlier review), write
+  \\todocite{{short description}} instead.
+- Compute every count, share or trend you report about the evidence base from the evidence table
+  or the PRISMA counts (you may run read-only scripts), and name the snapshot date once.
+- Claim nothing about a study that its row or its full text does not support. Check specific
+  numbers against the full text before stating them. Quote at most a few words from any paper.
+- Where a point rests on studies assessed on the abstract only, or on fields still unresolved,
+  say so.
+- Facts the files do not contain (author biography, funding, affiliations of others) go in as
+  [placeholders]; never make them up.
 - Follow the voice guide below (didactic first-person plural, short sentences, varied openers).
 
 === VOICE GUIDE (STYLE_WORDS.md) ===
 {style}
-
-=== FROZEN PROTOCOL (for consistency of methods wording) ===
-{protocol}
-
-=== EVIDENCE TABLE (included studies) ===
 """
-    used = len(head.encode("utf-8")) + 2048  # JSON envelope + escaping headroom
-    return head + _evidence_block(MAX_REQUEST_BYTES - used)
+
+
+_FENCE = re.compile(r"^```[a-zA-Z]*\n(.*)\n```$", re.S)
+
+
+def _unfence(reply: str) -> str:
+    """Drop a Markdown code fence around the whole reply (mechanical; the prose is untouched)."""
+
+    m = _FENCE.match(reply.strip())
+    return (m.group(1) if m else reply).strip()
 
 
 _SENT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\\])")
@@ -169,7 +194,7 @@ def draft_section(section: str, dry_run: bool = False) -> Path | None:
     )
     out = output_path(spec)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(reply.strip() + "\n", encoding="utf-8")
+    out.write_text(_unfence(reply) + "\n", encoding="utf-8")
     for issue in lint_style(reply):
         print(f"[style] {issue}")
     print(f"wrote {out}")

@@ -1,1 +1,90 @@
-% [CODEX-DRAFT] not drafted yet; run `amlr draft proposal`.
+\section*{Proposed title}
+
+\textit{Robotic Active Matter: Programmability, Collective Physics, and Experimental Tests of Theory}
+
+\section*{Proposed authors}
+
+[Author names, affiliations, and corresponding author]
+
+\section*{Abstract}
+
+Robotic active matter turns abstract models of collective motion into physical experiments with programmable agents. Robots can expose the roles of inertia, morphology, sensing, communication, feedback, and boundaries. They can also test whether theories developed for particles and living collectives survive embodiment. Yet, the literature now spans swarm robotics, active colloids, microrobots, granular robots, and active solids. The resulting evidence is difficult to compare.
+
+We propose a PRISMA 2020 living systematic review of hardware experiments with interacting, actively driven artificial agents. The evidence snapshot of 2026-10-14 contains 528 included studies, of which 356 appeared from 2020 onward. It covers wheeled and legged swarms, vibration-driven robots, robotic micro- and nano-agents, controlled active colloids, smarticles, modular robots, and robotic metamaterials. We will synthesize which collective phenomena have been demonstrated, which theoretical models have been tested quantitatively, and how programmability changes the physics. The review will not count demonstrations as confirmations. Only 133 studies report quantitative theory--experiment agreement, 186 state a number of independent runs, 78 name available code, and 56 name available data. These contrasts define the central argument. Robotic active matter has become a broad experimental field, but its strongest conclusions depend on a much smaller body of comparative and reproducible evidence. We will identify that evidence, explain where it generalizes, and derive experimental priorities for the next generation of programmable active-matter systems.
+
+\section*{Proposed table of contents}
+
+\begin{enumerate}
+\item Introduction: why robotic active matter requires a common physical framework
+\item Methods: PRISMA 2020 protocol and living-review procedure
+\item Overview of the evidence base
+\item Robotic platforms as active matter
+\item Collective phenomena in robotic experiments
+\item Confronting theory with hardware
+\item Control, sensing, learning, and programmability
+\item Reproducibility, risk of bias, and certainty of evidence
+\item Outlook: experiments that can distinguish competing explanations
+\item Conclusions
+\end{enumerate}
+
+\section*{Main argument and connection between sections}
+
+The review begins with a distinction. A robot swarm does not become active matter merely because several robots share an arena. We include physical collectives only when agent--agent or agent--environment--agent interactions produce a quantitative collective or interaction observable. Hence, task-performance studies without physical collective observables fall outside the review. The same rule applies to synthetic active particles. They enter only when programmable or feedback control is present. This boundary connects active-matter physics to robotics without absorbing either field in full.
+
+The methods section will report the eligibility criteria, searches, screening, extraction, and risk-of-bias assessment according to PRISMA 2020 \todocite{PRISMA 2020 statement}. Monthly searches and dated evidence snapshots implement the living-review design \todocite{living systematic review guidance}. The initial PRISMA flow will report [PRISMA flow counts for the matched review snapshot]. Thirty-three included studies were assessed from abstracts only. Furthermore, 135 rows retain at least one field awaiting author resolution. Analyses that depend on those records will be labelled and repeated without abstract-only studies.
+
+The evidence-base overview then establishes the scale and imbalance of the field. Wheeled or legged swarm robots account for 215 of 528 studies. Robotic micro- and nano-agents account for 83, vibration-driven robots for 58, modular systems for 23, feedback-controlled active colloids for 14, smarticles or granular robots for 11, and robotic metamaterials or active solids for 10. Nineteen records still lack a resolved platform class. These numbers are not a ranking of scientific importance. They show where replication across platforms is possible and where conclusions still rest on a narrow experimental realization.
+
+The platform section asks what each embodiment makes measurable. Vibration-driven robots expose steric interactions, boundary effects, and collective transport at accessible scales. Smarticles and modular particles connect shape change to locomotion and self-organization. Controlled colloids permit continuous tuning of propulsion and coupling. Robotic solids make nonreciprocity and active elasticity directly programmable. We will compare platforms through common quantities rather than through device names. Examples include order parameters, correlation functions, cluster distributions, transport measures, mechanical response, and phase boundaries.
+
+The phenomena section rotates the same evidence map. Self-assembly or shape formation appears in 256 studies, transport or locomotion in 215, flocking or polar order in 153, and clustering or motility-induced phase separation in 109. A study may contribute to several categories. Here, we ask which phenomena recur across unrelated embodiments. A transition seen in colloids, wheeled robots, and vibrated particles carries different evidential weight from a visually similar pattern seen once. Note that visual resemblance alone does not establish a shared mechanism.
+
+The theory section supplies the main critical test. Among the 528 included studies, 133 report quantitative agreement, 238 report qualitative comparison, 123 report no theory comparison, and 34 have no resolved agreement category. Agent-based simulation is the most frequent comparator. Kinetic or hydrodynamic theory, active Brownian particles, Vicsek-type models, active elasticity, and other statistical-mechanical descriptions occur less often. We will distinguish parameter fitting from prediction and agreement in one observable from agreement across regimes. Hence, the review will identify theories that survived experimental variation rather than theories that merely reproduced one pattern.
+
+The control section then asks how programmability changes the experiment. External feedback is coded in 86 studies and learned policies in 13. Other studies use on-board rules, central controllers, or passive mechanical interactions. Control can serve two different purposes. It may stabilize a desired collective state, or it may become an experimental intervention that tests causality. The second use is more powerful. It permits controlled changes to delays, interaction range, anisotropy, noise, or coupling while keeping the physical platform fixed.
+
+Finally, the discussion integrates theory, control, and study quality. Independent runs are stated in only 186 studies. Code is named in 78 and data in 56. Finite-size and boundary treatment raises some concerns in 468 studies and high concerns in 7. Data and code availability receives a high-risk rating in 413 studies. These findings will temper every synthesis statement. We will assign certainty from replication across independent groups and platforms together with the pre-specified replication and theory-comparison ratings. Sensitivity analyses will remove studies rated high risk in these domains.
+
+\section*{Critical synthesis rather than a catalogue}
+
+A catalogue would ask which robots have been built. We ask which physical claims survive comparison.
+
+First, we will construct platform--phenomenon and phenomenon--theory maps. These maps reveal whether apparent universality reflects evidence across embodiments or repeated use of one platform. Second, we will separate observation from explanation. A vortex, cluster, or coherent flock is an observation. A quantitative dependence on density, delay, noise, or coupling can discriminate mechanisms. Third, we will compare controlled interventions. Feedback makes interaction laws adjustable, while learned policies may hide them. We will examine when added programmability strengthens inference and when it reduces interpretability.
+
+Risk of bias is part of the physics, not an appendix. Boundaries can create accumulation, finite populations can shift transitions, and unreported heterogeneity can imitate stochasticity. Missing replication prevents separation of robust phases from singular trajectories. As such, the review will state what works together with the conditions under which it works.
+
+The synthesis will close with experimental directions. Priority will go to multi-platform reproduction of the same scaling law, prospective tests with fixed parameters, systematic changes in system size and boundaries, and public release of trajectories and control code. We will also identify questions suited to robotic experiments, e.g. causal tests of nonreciprocity, delayed coupling, adaptive interactions, and learned collective policies. Monthly updates will track whether new studies change the taxonomy, add a platform class, or reverse a certainty judgement.
+
+\section*{Key references organized by topic}
+
+\subsection*{Macroscopic robots, granular collectives, and emergent transport}
+
+Vibration-driven rotors provide quantitative evidence for collective motion, clustering, and chiral dynamics \cite{Scholz2018rotatingrobotsmove}. Smarticle experiments connect fluctuations and confinement to emergent transport \cite{Savoie2019arobotmadeofrobo} and test low rattling as a predictive principle for self-organization \cite{Chvykov2020lowrattlingapred}. Loosely coupled particle robots demonstrate locomotion from many simple components \cite{Li2019particleroboticsba}. Morphological computation and decentralized adaptation are tested in sterically interacting vibration-driven robots \cite{Zion2023morphologicalcomput}. Larger active lattices connect collective actuation to active-solid behaviour \cite{Baconnier2022selectiveandcollec}. Mechanical interactions alone can also produce cooperative payload transport \cite{Arbel2025amechanicalroutef}. Magnetic rollers extend the evidence to flocking phase separation in inertial active matter \cite{Luo2025flockingphasesepar}.
+
+\subsection*{Programmable colloids and microrobotic collectives}
+
+Magnetically programmed Janus particles show how external fields select colloidal superstructures \cite{Yan2014colloidalsuperstruc}. Optical feedback produces stable and responsive collective states \cite{Buerle2020formationofstable}. Adaptive delay changes persistence and response in controlled particle groups \cite{Chen2024persistentandrespo}. Hydrodynamically coupled swarmalators connect synchronization to clustering and motion \cite{Heuthe2025tunablecolloidalsw}. Acousto-magnetic microswarms demonstrate collective upstream transport \cite{Ahmed2021bioinspiredacousto}. Asymmetry can generate ordered microrobotic oscillators \cite{Yang2022emergentmicroroboti}. Programmable persistent random walks provide a direct bridge to active-Brownian and run-and-tumble descriptions \cite{Raghavendra2026programmablepersist}.
+
+\subsection*{Robotic metamaterials and active solids}
+
+Nonreciprocal robotic chains turn directional response into a measurable material property \cite{Brandenbourger2019nonreciprocalrobot}. Self-sensing structures test odd micropolar elasticity \cite{Chen2020selfsensingmetamat}. Motorized active lattices connect limit cycles to locomotion \cite{Brandenbourger2021limitcyclesturnac}. More recent robotic solids examine how connectivity changes odd-elastic response \cite{Binysh2026moreislessinunpe}.
+
+\subsection*{Control, communication, and learning}
+
+Aquatic robot swarms test the transfer of evolved controllers from simulation to hardware \cite{Duarte2016evolutionofcollect}. Predictive control has been evaluated in physical aerial swarms \cite{Soria2021predictivecontrolo}. Decentralized graph policies provide a hardware test of learned multi-robot control \cite{Blumenkamp2022aframeworkforreal}. Vision-mediated interactions enable controlled comparisons of polarization and milling \cite{Castro2025visualcollectivebe}. Noise can also be used as an intervention in crowded goal-directed collectives \cite{Liu2026noiseenabledgoala}.
+
+\section*{Author expertise and suitability}
+
+[Author 1 name, position, affiliation, and expertise in active matter, statistical physics, robotics, or systematic-review methodology.]
+
+[Author 2 name, position, affiliation, and complementary expertise.]
+
+[Additional authors and roles.]
+
+The author team will combine [experimental active-matter expertise], [robotics and control expertise], [theoretical or statistical-physics expertise], and [systematic-review and reproducible-computing expertise]. Specific prior contributions, relevant reviews, and responsibility for each synthesis section will be supplied here. Support, competing interests, and affiliations will likewise be stated as [placeholders] until confirmed.
+
+\section*{Why the topic is timely}
+
+The evidence base is expanding rapidly, but accumulation alone does not produce consensus. More than two thirds of the included studies appeared from 2020 onward. At the same time, quantitative theory comparison, replication reporting, and public research artifacts remain minority practices. The field has therefore reached the point at which a critical review can change experimental practice.
+
+RMP is the appropriate venue because the central problem is conceptual. Robotic active matter is not simply another platform class. It is a way to make interaction laws programmable and collective theories experimentally refutable. Yet, that promise is realized unevenly. Our review will identify the systems that already support strong inference, expose where conclusions depend on one embodiment or qualitative resemblance, and set a physics-led agenda for reproducible tests. The living-review structure will keep that assessment current as platforms and control methods change.

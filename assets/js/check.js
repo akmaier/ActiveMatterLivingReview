@@ -279,7 +279,7 @@
     return '<h2 class="hc-title">' + title + "</h2>" +
       '<p class="hc-meta">' + esc(it.authors) + (it.venue ? " · <em>" + esc(it.venue) + "</em>" : "") +
       (it.year ? " · " + esc(it.year) : "") + '</p><p class="hc-meta"><code>' + esc(it.id) + "</code> " +
-      badges.join(" ") + "</p>";
+      badges.join(" ") + (it.link ? ' · <a class="hc-open" href="' + esc(it.link) + '" target="_blank" rel="noopener">Open paper ↗</a>' : "") + "</p>";
   }
 
   function abstractHtml(it) {

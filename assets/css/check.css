@@ -61,10 +61,11 @@ body:has(#hc) .wrapper { max-width: 1080px; }
 .hc-pos { font-variant-numeric: tabular-nums; min-width: 5.5rem; text-align: center; color: var(--hc-muted); }
 .hc-filter, .hc-auto { font-size: 0.9rem; color: var(--hc-muted); margin-left: auto; }
 .hc-auto { margin-left: 0.5rem; }
-.hc-filter select { font: inherit; padding: 0.25rem; }
+#hc .hc-filter select { font: inherit; padding: 0.25rem; width: auto; }
+.hc-open { font-weight: 600; white-space: nowrap; }
 
 .hc-card { border: 1px solid var(--hc-line); border-radius: 10px; padding: 1.25rem 1.4rem; background: #fff; }
-.hc-title { font-size: 1.3rem; line-height: 1.35; margin: 0 0 0.4rem; }
+#hc .hc-title { font-size: 1.3rem; font-weight: 600; line-height: 1.35; margin: 0 0 0.4rem; letter-spacing: 0; }
 .hc-title a { color: var(--hc-ink); }
 .hc-title a:hover { color: var(--hc-accent); }
 .hc-meta { margin: 0 0 0.3rem; color: var(--hc-muted); font-size: 0.9rem; }

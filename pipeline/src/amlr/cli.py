@@ -300,15 +300,19 @@ def render(corpus: Path = typer.Option(CORPUS)) -> None:
 def evidence(
     corpus: Path = typer.Option(CORPUS),
     kind: list[str] = typer.Option(["ft_split", "extraction"], help="ft_split and/or extraction"),
+    reviewer: list[str] = typer.Option(["R1", "R2", "R3"], help="Models to ask"),
+    ledger: str = typer.Option("", help="Suffix for a separate ledger file (parallel runs)"),
     limit: int = typer.Option(None),
     workers: int = typer.Option(6),
 ) -> None:
     """Ask each model for verbatim evidence behind its answer on every conflict (for /check/)."""
-    from .evidence import run
+    from .evidence import LEDGER, run
     from .fulltext.dispatch import text_for
     from .human import build_queue
 
-    rprint(run(corpus, text_for, kinds=tuple(kind), limit=limit, workers=workers))
+    path = LEDGER.with_name(f"{LEDGER.stem}-{ledger}.jsonl") if ledger else LEDGER
+    rprint(run(corpus, text_for, kinds=tuple(kind), reviewers=tuple(reviewer), limit=limit,
+               workers=workers, ledger=path))
     rprint(f"human-check queue: {build_queue(corpus)}")
 
 

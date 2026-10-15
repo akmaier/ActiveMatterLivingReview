@@ -127,8 +127,15 @@ def _render(task: dict, prompt: tuple, text: str) -> tuple[str, str]:
 
 
 def _done(ledger: Path, sha: str) -> set[tuple]:
-    return {(v["kind"], v["record_id"], v["reviewer"]) for v in read_jsonl(ledger)
-            if v.get("prompt_sha256") == sha and v.get("error") is None} if ledger.exists() else set()
+    return {(v["kind"], v["record_id"], v["reviewer"]) for v in _rows(ledger)
+            if v.get("prompt_sha256") == sha and v.get("error") is None}
+
+
+def _rows(ledger: Path) -> list[dict]:
+    """The main ledger plus per-run siblings (evidence-<name>.jsonl), so parallel runs never
+    write to the same file."""
+
+    return [v for f in sorted(ledger.parent.glob(ledger.stem + "*.jsonl")) for v in read_jsonl(f)]
 
 
 def _ask(task: dict, prompt: tuple, text: str) -> dict:
@@ -160,7 +167,7 @@ def _ask(task: dict, prompt: tuple, text: str) -> dict:
 
 
 def run(corpus: Path, text_for: Callable[[dict], str | None], *, kinds=("ft_split", "extraction"),
-        limit: int | None = None, workers: int = 6, ledger: Path = LEDGER) -> dict:
+        reviewers=("R1", "R2", "R3"), limit: int | None = None, workers: int = 6, ledger: Path = LEDGER) -> dict:
     from .human import _extraction_votes
 
     prompt = load_prompt()
@@ -171,7 +178,8 @@ def run(corpus: Path, text_for: Callable[[dict], str | None], *, kinds=("ft_spli
     if "extraction" in kinds:
         tasks += extraction_tasks(records, _extraction_votes())
     done = _done(ledger, prompt[-1])
-    tasks = [t for t in tasks if (t["kind"], t["record"]["id"], t["reviewer"]) not in done]
+    tasks = [t for t in tasks if t["reviewer"] in reviewers
+             and (t["kind"], t["record"]["id"], t["reviewer"]) not in done]
     texts = {}
     for t in tasks:
         rid = t["record"]["id"]
@@ -193,11 +201,11 @@ def run(corpus: Path, text_for: Callable[[dict], str | None], *, kinds=("ft_spli
 def latest(ledger: Path = LEDGER) -> dict[tuple, dict]:
     """(kind, record_id, reviewer) -> latest successful answer under the current prompt."""
 
-    if not ledger.exists() or not PROMPT_FILE.exists():
+    if not PROMPT_FILE.exists():
         return {}
     sha = load_prompt()[-1]
     out = {}
-    for v in read_jsonl(ledger):
+    for v in _rows(ledger):
         if v.get("prompt_sha256") == sha and v.get("answer") is not None:
             out[(v["kind"], v["record_id"], v["reviewer"])] = v
     return out

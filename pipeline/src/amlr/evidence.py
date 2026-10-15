@@ -12,6 +12,7 @@ import hashlib
 import json
 import re
 import time
+import unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
@@ -42,10 +43,16 @@ def load_prompt(path: Path = PROMPT_FILE) -> tuple[str, str, str, str, str]:
 
 # ---- quote verification ------------------------------------------------------------------
 
+_DASH = re.compile("[‐‑‒–—−]")
+
+
 def _norm(s: str) -> str:
-    s = re.sub(r"-\s*\n\s*", "", s or "")  # hyphenation across line breaks
-    s = s.lower().replace("’", "'").replace("‘", "'").replace("“", '"').replace("”", '"')
-    return re.sub(r"[^a-z0-9%.,;:'\"()=<>+\-/ ]+", " ", re.sub(r"\s+", " ", s)).strip()
+    """Lower-case letters and digits only, so PDF-extraction noise (ligatures, odd dashes and
+    spaces, line-break hyphenation, punctuation) does not decide whether a quote is found."""
+
+    s = unicodedata.normalize("NFKC", s or "")
+    s = re.sub(r"-\s*\n\s*", "", _DASH.sub("-", s))  # hyphenation across line breaks
+    return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
 
 
 def _grams(words: list[str], n: int = 5) -> set[tuple[str, ...]]:
@@ -53,8 +60,8 @@ def _grams(words: list[str], n: int = 5) -> set[tuple[str, ...]]:
 
 
 def verify(quote: str, text: str, text_grams: set | None = None) -> str:
-    """'verbatim' if the quote occurs in the text, 'close' if >= 80 % of its 5-word sequences do
-    (extraction noise, ligatures), 'not_found' otherwise."""
+    """'verbatim' if the quote occurs in the text, 'close' if >= 80 % of its 5-word sequences do,
+    'partial' if >= 40 % do (quote stitched or partly paraphrased), 'not_found' otherwise."""
 
     q, t = _norm(quote), _norm(text)
     if not q:
@@ -65,7 +72,8 @@ def verify(quote: str, text: str, text_grams: set | None = None) -> str:
     if not qg:
         return "not_found"
     tg = text_grams if text_grams is not None else _grams(t.split())
-    return "close" if sum(g in tg for g in qg) / len(qg) >= 0.8 else "not_found"
+    share = sum(g in tg for g in qg) / len(qg)
+    return "close" if share >= 0.8 else "partial" if share >= 0.4 else "not_found"
 
 
 def _clean_evidence(items, text: str, tg: set) -> list[dict]:
@@ -148,8 +156,14 @@ def _ask(task: dict, prompt: tuple, text: str) -> dict:
     try:
         system, user = _render(task, prompt, text)
         resp = chat(client_for(PANEL[task["reviewer"]]), system, user, max_tokens=8192)
-        key = "decision" if task["kind"] == "ft_split" else "fields"
-        ans = parse_json_object(resp.content, key)
+        row["raw"] = resp.content
+        if task["kind"] == "ft_split":
+            ans = parse_json_object(resp.content, "decision")
+        else:
+            try:
+                ans = parse_json_object(resp.content, "fields")
+            except ValueError:  # some models drop the "fields" wrapper and key by field name
+                ans = {"fields": parse_json_object(resp.content, task["fields"][0]["field"])}
         tg = _grams(_norm(text).split())
         if task["kind"] == "ft_split":
             row["answer"] = {"decision": ans.get("decision"), "reason": ans.get("reason"), "claim": ans.get("claim"),
@@ -209,3 +223,16 @@ def latest(ledger: Path = LEDGER) -> dict[tuple, dict]:
         if v.get("prompt_sha256") == sha and v.get("answer") is not None:
             out[(v["kind"], v["record_id"], v["reviewer"])] = v
     return out
+
+
+def recheck(answer: dict, text: str) -> dict:
+    """Re-run the quote check on a stored answer (the checker improves; the ledger is not rewritten)."""
+
+    tg = _grams(_norm(text).split())
+
+    def fix(items):
+        return [{**e, "check": verify(e["quote"].rstrip(" …"), text, tg)} for e in items or []]
+
+    if "fields" in answer:
+        return {"fields": {f: {**v, "evidence": fix(v.get("evidence"))} for f, v in answer["fields"].items()}}
+    return {**answer, "evidence": fix(answer.get("evidence"))}

@@ -257,7 +257,7 @@
       : '<span class="hc-chip no" title="' + esc(CODE_TEXT[reason] || "") + '">Exclude' + (reason ? " · " + esc(reason) : "") + "</span>";
   }
 
-  var CHECK = { verbatim: ["ok", "found in text"], close: ["mid", "nearly verbatim"], not_found: ["no", "not found in text"] };
+  var CHECK = { verbatim: ["ok", "found in text"], close: ["mid", "nearly verbatim"], partial: ["mid", "partly in text"], not_found: ["no", "not found in text"] };
   function evidenceHtml(ev, original) {
     if (!ev) return "";
     var out = '<div class="hc-ev">';

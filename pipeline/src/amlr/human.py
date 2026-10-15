@@ -169,9 +169,16 @@ def build_queue(corpus: Path, out: Path = QUEUE) -> dict:
     # Panel includes first: an error there changes the synthesis, an error in an exclude does not.
     splits = sorted((r for r in records if _is_split(r)),
                     key=lambda r: (not _votes(r, Stage.full_text.value)["include"], -(r.get("year") or 0)))
-    from .evidence import latest as latest_evidence
+    from .evidence import latest as latest_evidence, recheck
+    from .fulltext.dispatch import text_for
 
     ev = latest_evidence()
+    texts: dict[str, str] = {}
+    for k, row in ev.items():
+        if k[1] not in texts:
+            r = by_id.get(k[1])
+            texts[k[1]] = (text_for(r) if r else None) or ""
+        row["answer"] = recheck(row["answer"], texts[k[1]])
     ft = []
     for r in splits:
         panel = _votes(r, Stage.full_text.value)

@@ -257,13 +257,34 @@
       : '<span class="hc-chip no" title="' + esc(CODE_TEXT[reason] || "") + '">Exclude' + (reason ? " · " + esc(reason) : "") + "</span>";
   }
 
+  var CHECK = { verbatim: ["ok", "found in text"], close: ["mid", "nearly verbatim"], not_found: ["no", "not found in text"] };
+  function evidenceHtml(ev, original) {
+    if (!ev) return "";
+    var out = '<div class="hc-ev">';
+    if (ev.decision !== undefined && original) {
+      var now = ev.decision === "include" ? true : ev.decision === "exclude" ? false : null;
+      if (now !== null && (now !== original.include || (!now && ev.reason && ev.reason !== original.reason))) {
+        out += '<p class="hc-ev-rev">On re-reading: ' + chip(now, ev.reason) + "</p>";
+      }
+    }
+    if (ev.claim) out += '<p class="hc-ev-claim">' + esc(ev.claim) + "</p>";
+    var items = ev.evidence || [];
+    if (!items.length) out += '<p class="hc-muted hc-ev-none">No supporting passage quoted.</p>';
+    else out += "<ul>" + items.map(function (e) {
+      var c = CHECK[e.check] || CHECK.not_found;
+      return "<li>" + (e.criterion ? "<strong>" + esc(e.criterion) + "</strong> " : "") + "“" + esc(e.quote) + "” " +
+        '<span class="hc-chip ' + c[0] + '" title="Automatic check of the quote against the full text">' + c[1] + "</span></li>";
+    }).join("") + "</ul>";
+    return out + "</div>";
+  }
+
   function panelHtml(p, title) {
     if (!p) return '<p class="hc-muted">No panel decision recorded.</p>';
     var rows = (p.reviewers || []).map(function (v) {
       return '<tr><th scope="row">' + esc(v.r) + '<small>' + esc(v.model || "") + "</small></th><td>" +
         chip(v.include, v.reason) + (v.confidence !== null && v.confidence !== undefined
           ? '<small class="hc-conf">' + Math.round(v.confidence * 100) + "%</small>" : "") +
-        "</td><td>" + esc(v.rationale || "") + "</td></tr>";
+        "</td><td>" + esc(v.rationale || "") + evidenceHtml(v.evidence, v) + "</td></tr>";
     }).join("");
     return '<div class="hc-panel"><div class="hc-panel-head"><strong>' + esc(title) + "</strong> " +
       chip(p.include, p.reason) + ' <small class="hc-muted">' + esc(p.votes || "") + " include votes</small></div>" +
@@ -341,7 +362,7 @@
 
   function extractionHtml(it) {
     var out = headerHtml(it);
-    out += '<details class="hc-more"' + (it.abstract ? "" : " hidden") + "><summary>Abstract</summary>" + abstractHtml(it) + "</details>";
+    out += abstractHtml(it);
     var c = it.context || {};
     out += '<dl class="hc-context">' +
       "<dt>Platform</dt><dd>" + esc(human(c.platform_class)) + (c.platform_name ? " · " + esc(c.platform_name) : "") + "</dd>" +
@@ -360,11 +381,16 @@
         return '<button type="button" class="hc-opt' + (on ? " on" : "") + '" data-act="pick" data-field="' + fi + '" data-opt="' + oi + '">' +
           '<small>' + esc(o.by) + "</small>" + esc(human(o.value)) + "</button>";
       }).join("");
+      var evs = f.options.filter(function (o) { return o.evidence; }).map(function (o) {
+        return '<div class="hc-ev-by"><strong>' + esc(o.by) + "</strong> argues for " + esc(human(o.evidence.value)) +
+          evidenceHtml(o.evidence) + "</div>";
+      }).join("");
       var nullOn = cur && cur.chosen_from === "author" && cur.value === null;
       out += '<fieldset class="hc-field" data-field="' + fi + '"><legend>' + esc(FIELD_HELP[f.field] || human(f.field)) +
         " <code>" + esc(f.field) + "</code>" + (cur ? ' <span class="hc-chip ok">set</span> <button type="button" class="hc-link" data-act="clear-field" data-field="' + fi + '">clear</button>' : "") +
         '</legend><div class="hc-opts">' + opts +
         '<button type="button" class="hc-opt' + (nullOn ? " on" : "") + '" data-act="pick-null" data-field="' + fi + '"><small>you</small>not reported</button></div>' +
+        (evs ? '<div class="hc-evs">' + evs + "</div>" : '<p class="hc-muted">Evidence from the models is not in yet.</p>') +
         '<div class="hc-own">Your own value: ' + valueInput(f, cur) + "</div></fieldset>";
     });
     return out;

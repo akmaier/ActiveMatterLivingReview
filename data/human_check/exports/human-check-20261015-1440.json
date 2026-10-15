@@ -1,0 +1,2668 @@
+{
+ "format": "amlr-human-check/1",
+ "queue_sha256": "6d044760f74a27396c0044ce2d0b0db0bdaac71438be1e7e200deaa61d09f628",
+ "queue_built_at": "2026-10-14T21:49:30+00:00",
+ "exported_at": "2026-10-15T14:40:28.720Z",
+ "reviewer": "author",
+ "labels": [
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/robot.2010.5509752",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T13:09:59.854Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1103/physrevlett.120.188002",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:10:39.494Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1038/s41467-018-03154-7",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:10:55.679Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1098/rspa.2012.0637",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:11:01.343Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1109/icra.2012.6224638",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:11:06.833Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1126/science.1254295",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:11:12.792Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1038/s41586-019-1022-9",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:11:27.511Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1126/scirobotics.aax4316",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:11:35.897Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1103/physrevlett.126.108002",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:11:41.531Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1126/scirobotics.abo6140",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:11:48.684Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1126/scirobotics.abd0272",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:11:55.144Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1126/science.abc6182",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:12:01.610Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1038/s41567-022-01704-x",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:12:11.721Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1103/pv3d-7s54",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:13:27.277Z",
+   "stage": "title_abstract",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1063/5.0303152",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:13:33.651Z",
+   "stage": "full_text",
+   "note": ""
+  },
+  {
+   "queue": "seeds",
+   "record_id": "doi:10.1103/rd1t-h2v6",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:13:44.728Z",
+   "stage": "title_abstract",
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.rcim.2017.06.011",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:14:13.202Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1021/acsabm.1c00146",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T13:14:33.123Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1007/978-3-031-78943-4_1",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T13:15:12.222Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2016nsf....1635824M",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:15:28.386Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1353/tech.2019.0117",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T13:15:53.188Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.59400/adecp3096",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:16:08.639Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.jmps.2024.105759",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T13:16:23.812Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1093/humrep/deac105.139",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T13:16:47.030Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/sysose.2011.5966613",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": false,
+   "at": "2026-10-15T13:17:02.808Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1631/fitee.2300295",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": false,
+   "at": "2026-10-15T13:17:22.103Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1093/nsr/nwad040",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T13:17:42.344Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ieee:t6279e0ca3989",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T13:17:56.474Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2409.14707",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T13:18:07.889Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1177/08927057231197160",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:18:19.856Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W2652303076",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T13:18:40.741Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.23919/ecc55457.2022.9838436",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:18:46.831Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.physa.2025.131224",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:19:00.369Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/tia.2022.3174833",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:19:08.064Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1145/2815782.2815808",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T13:19:20.641Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1055/s-0032-1313848",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:19:31.734Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1117/12.335688",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:19:47.863Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.13140/rg.2.2.21601.88163",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T13:20:08.087Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.2139/ssrn.7111325",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:20:17.519Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/cdc.2008.4739442",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T13:20:35.223Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1063/5.0138777",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": false,
+   "at": "2026-10-15T13:20:44.014Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1117/12.2662585",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T13:20:59.576Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/advs.202004037",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:21:07.871Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.cad.2009.09.005",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": false,
+   "at": "2026-10-15T13:21:13.807Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/lcsys.2018.2853641",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": false,
+   "at": "2026-10-15T13:21:23.811Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2504.11827",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:21:30.875Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.2172/919642",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": false,
+   "at": "2026-10-15T13:21:45.182Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/sice.2008.4655219",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T13:21:57.134Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.20517/ss.2026.92",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:22:04.359Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W2973401132",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T13:22:17.223Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2109.07735",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T13:22:32.949Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1149/ma2019-03/2/221",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:22:40.420Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1117/12.403711",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:22:49.815Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.3390/math12132109",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T13:23:03.044Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.xcrp.2023.101639",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T13:23:13.024Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2021plde.confE..58B",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T13:23:24.740Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1073/pnas.2426715122",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:23:33.334Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W2786641724",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T13:23:41.384Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W956380431",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T13:23:53.571Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1007/s11431-025-3191-8",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:24:10.503Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/anie.202004083",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:24:18.530Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/acc.2008.4586476",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T13:24:31.428Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2609.09384",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T13:56:16.777Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.21203/rs.3.rs-10892297/v1",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T13:56:27.108Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2019APS..DFDS27002X",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T13:58:35.128Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.15589/jnn20170306",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:00:15.264Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1017/cbo9780511780929.018",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:00:24.347Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1088/1748-3190/abb86d",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:00:33.525Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.7498/aps.72.20230792",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:00:45.283Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1115/smasis2014-7654",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:01:09.845Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1103/physrevlett.127.268001",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:01:23.231Z",
+   "blind": {
+    "include": false,
+    "reason": "E4"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/ecti-con54298.2022.9795641",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:01:35.765Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/adom.201900262",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:01:58.023Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.powtec.2022.117671",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:02:09.358Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1007/s11548-010-0481-0",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:02:39.241Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1063/5.0061490",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:02:48.093Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/access.2020.3022395",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:03:00.761Z",
+   "blind": {
+    "include": false,
+    "reason": "E4"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/aimera59657.2024.10735741",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:03:08.947Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1140/epje/i2015-15042-3",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:03:19.954Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.56315/pscf6-21fuller",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:03:27.797Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/icra.2014.6906611",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:04:07.990Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/optronix.2017.8349997",
+   "include": false,
+   "reason": "E3",
+   "saw_panel": true,
+   "at": "2026-10-15T14:04:20.807Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/jproc.2020.2985950",
+   "include": false,
+   "reason": "E3",
+   "saw_panel": false,
+   "at": "2026-10-15T14:04:26.947Z",
+   "blind": {
+    "include": false,
+    "reason": "E3"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1080/01691864.2022.2133552",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:04:48.113Z",
+   "blind": {
+    "include": false,
+    "reason": "E4"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1117/12.2058239",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:05:05.573Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/ccnc.2009.4784987",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:05:22.392Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:1509.01957",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:05:38.501Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.6084/m9.figshare.34157106",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:09:06.837Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W2785894210",
+   "include": false,
+   "reason": "E3",
+   "saw_panel": true,
+   "at": "2026-10-15T14:09:26.749Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/smll.202200708",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:09:34.656Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W2947982613",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:09:45.105Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1299/jsmemdt.2024.23.1c2-3",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:09:51.776Z",
+   "blind": {
+    "include": false,
+    "reason": "E4"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W3024023292",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:10:12.175Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/intercon.2018.8526386",
+   "include": false,
+   "reason": "E3",
+   "saw_panel": true,
+   "at": "2026-10-15T14:10:31.323Z",
+   "blind": {
+    "include": false,
+    "reason": "E4"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.65109/saxg2906",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:11:03.305Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/tnsre.2020.2972008",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:11:22.957Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.3410/f.735358013.793558239",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:11:32.616Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.3390/machines11040431",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:11:50.241Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W2728601850",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:11:58.867Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2024APS..MARM29003B",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:12:09.112Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1038/s41598-025-99316-x",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:12:23.348Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1017/s0263574702004691",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:12:29.763Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2021APS..MARC02001H",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:12:47.362Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1162/978-0-262-32621-6-ch053",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:13:01.480Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1299/jsmermd.2015._2a2-s08_1",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:13:14.148Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/rob.70299",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:13:23.285Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1098/rspb.2020.2734",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:13:53.614Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1145/3583131.3590485",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:14:08.443Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.18154/rwth-2017-03275",
+   "include": false,
+   "reason": "E6",
+   "saw_panel": true,
+   "at": "2026-10-15T14:14:17.395Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W2253569408",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:14:26.551Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/maris64137.2025.11139730",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:15:07.177Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2018AGUFM.C33D1595C",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:15:19.998Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/tcst.2016.2581148",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:15:31.731Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2008nsf....0828239B",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:15:44.163Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/tro.2022.3189846",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T14:15:51.551Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2021nsf....2034043M",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:16:05.320Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2005nsf....0448111D",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:16:19.664Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.5281/zenodo.19153000",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:16:33.830Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/adma.201505754",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:16:43.460Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1201/9780429445927-3",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:16:52.913Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/tmech.2025.3572199",
+   "include": false,
+   "reason": "E3",
+   "saw_panel": true,
+   "at": "2026-10-15T14:17:05.291Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1177/02783649261442970",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T14:17:17.262Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1007/978-3-540-30552-1_12",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:17:25.708Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/tvt.2021.3093157",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T14:17:38.459Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.5772/12902",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:17:56.244Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W9163983",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:18:09.260Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:1804.06827",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:18:22.172Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2017APS..MARY12004X",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:18:30.365Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1007/978-3-662-40393-8_8",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:18:37.730Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/047134608x.w8312",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:18:45.025Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/icra.2012.6224638",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T14:18:50.523Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/anbr.202500080",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:18:55.649Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2604.07303",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:19:10.599Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.cocis.2022.101637",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:19:34.447Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/iscas48785.2022.9937572",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T14:19:41.493Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1007/978-3-319-16595-0_23",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:19:49.226Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.7868/s3034519725010101",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:19:58.687Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2307.01062",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:20:10.426Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.4018/979-8-3693-8769-6.ch001",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:20:21.082Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/robot.1989.100065",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:20:26.557Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2011sice.conf..438L",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:20:37.764Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1088/1748-3190/ad9535",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:20:46.528Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/access.2021.3076110",
+   "include": false,
+   "reason": "E3",
+   "saw_panel": true,
+   "at": "2026-10-15T14:21:01.192Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/iciis69028.2026.11450833",
+   "include": false,
+   "reason": "E3",
+   "saw_panel": true,
+   "at": "2026-10-15T14:21:12.291Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.5281/zenodo.20233813",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:21:24.279Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.22271/23957476.2026.v12.i8a.2298",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:21:33.845Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.3390/jmse12050701",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:25:39.603Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W7216937978",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:25:46.636Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.5281/zenodo.20320040",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:26:01.202Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1038/d41586-022-03769-3",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:26:15.304Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/icma61710.2024.10633130",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:26:27.001Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1115/1.2826841",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:26:46.912Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.2139/ssrn.6661342",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:26:53.849Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2011nsf....1067501K",
+   "include": false,
+   "reason": "E6",
+   "saw_panel": true,
+   "at": "2026-10-15T14:27:03.571Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/robio55434.2022.10012026",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:27:13.198Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.23919/ecc.2001.7075965",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:27:23.694Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1063/5.0314289",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:27:32.847Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/stcr51658.2021.9588998",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:27:44.163Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/mhs.2003.1249926",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:28:30.968Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2301.09018",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:28:41.553Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1201/9781032690711-2",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:28:45.873Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "hal:862876",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:28:57.423Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1515/9783110443929-015",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:29:08.950Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1146/annurev-animal-020518-114851",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:29:19.993Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2015nsf....1544578M",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:29:29.026Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.5281/zenodo.17127203",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:29:37.894Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/aisy.202400254",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:29:44.870Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/iccaie.2011.6162131",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:29:53.937Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2013nsf....1317477S",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:30:35.168Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1007/s10015-025-01089-z",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:30:46.474Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.4018/ijsbbt.2015010101",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:31:06.507Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1021/acs.nanolett.5b03716",
+   "include": false,
+   "reason": "E6",
+   "saw_panel": true,
+   "at": "2026-10-15T14:31:14.827Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/robot.1998.680752",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:31:24.402Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2508.19963",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:31:34.114Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1299/jsmermd.2009._2p1-e21_1",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:31:53.091Z",
+   "blind": {
+    "include": false,
+    "reason": "E4"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1299/jsmermd.2021.2a1-b08",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:32:03.618Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1209/0295-5075/ae9008",
+   "include": true,
+   "reason": null,
+   "saw_panel": false,
+   "at": "2026-10-15T14:32:18.124Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.5281/zenodo.17752376",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:32:31.249Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/rose52750.2021.9611763",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:32:44.049Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1137/18m1205327",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:33:03.578Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1103/physrevresearch.6.033070",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:33:32.149Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2010nsf....1024765B",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:33:46.966Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/acc.2012.6315402",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:33:56.516Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.17863/cam.130209",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:34:08.628Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2010nsf....1007068D",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:34:13.191Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.3389/frobt.2022.904341",
+   "include": false,
+   "reason": "E3",
+   "saw_panel": true,
+   "at": "2026-10-15T14:34:23.675Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.cpc.2026.110285",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:34:34.897Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/iotais.2018.8600865",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:34:42.255Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.3390/machines12100739",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:34:50.525Z",
+   "blind": {
+    "include": true,
+    "reason": null
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2017APS..MARY12007L",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:35:47.810Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.ijmecsci.2023.108226",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": false,
+   "at": "2026-10-15T14:36:08.888Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2311.00685",
+   "include": false,
+   "reason": "E6",
+   "saw_panel": true,
+   "at": "2026-10-15T14:36:21.079Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1589/jpts.30.1262",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:36:40.263Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/rose.2008.4669172",
+   "include": true,
+   "reason": null,
+   "saw_panel": true,
+   "at": "2026-10-15T14:36:53.137Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2017APS..MARR14009M",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:37:10.007Z",
+   "blind": {
+    "include": false,
+    "reason": "E6"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2006nsf....0547976W",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:37:39.409Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "openalex:W7216988386",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:37:53.798Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1016/j.molliq.2026.129409",
+   "include": false,
+   "reason": "E4",
+   "saw_panel": true,
+   "at": "2026-10-15T14:38:02.854Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1145/2576768.2598373",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:38:11.135Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "ads:2011nsf....1068997I",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:38:28.587Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1299/jsmermd.2007._2a1-h02_1",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:38:38.122Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1002/aisy.202200429",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:38:52.159Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.30574/ijsra.2024.12.1.1090",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": false,
+   "at": "2026-10-15T14:38:58.382Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.2139/ssrn.5308745",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:39:23.893Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.1109/imccc.2011.253",
+   "include": false,
+   "reason": "E2",
+   "saw_panel": true,
+   "at": "2026-10-15T14:39:42.515Z",
+   "blind": {
+    "include": false,
+    "reason": "E6"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "pmid:21181090",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:39:52.889Z",
+   "blind": {
+    "include": false,
+    "reason": "E2"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "doi:10.36547/sjas.1050",
+   "include": false,
+   "reason": "E5",
+   "saw_panel": true,
+   "at": "2026-10-15T14:40:05.714Z",
+   "blind": {
+    "include": false,
+    "reason": "E1"
+   },
+   "note": ""
+  },
+  {
+   "queue": "ta_sample",
+   "record_id": "arxiv:2412.12347",
+   "include": false,
+   "reason": "E1",
+   "saw_panel": true,
+   "at": "2026-10-15T14:40:26.269Z",
+   "blind": {
+    "include": false,
+    "reason": "E5"
+   },
+   "note": ""
+  }
+ ]
+}

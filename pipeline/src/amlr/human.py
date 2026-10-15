@@ -51,6 +51,21 @@ VOCAB = {
     "data_available": [True, False],
 }
 ROB_LEVELS = ["low", "some_concerns", "high"]
+FIELD_DEFS = {
+    "platform_class": "platform class, one of " + ", ".join(VOCAB["platform_class"]),
+    "propulsion": "propulsion, one of " + ", ".join(VOCAB["propulsion"]),
+    "control_architecture": "control architecture, one of " + ", ".join(VOCAB["control_architecture"]),
+    "agreement": "how theory and experiment were compared: quantitative, qualitative or none",
+    "n_agents_min": "smallest number of agents used in hardware experiments (integer)",
+    "n_agents_max": "largest number of agents used in hardware experiments (integer)",
+    "n_independent_runs": "number of independent experimental repetitions reported (integer)",
+    "agent_size_mm": "characteristic agent size in millimetres",
+    "code_available": "true only if a code repository or archive is named",
+    "data_available": "true only if a data repository or archive is named",
+    **{f"rob.{d}": f"risk of bias, domain {d}: low, some_concerns or high"
+       for d in ("D1_replication", "D2_agent_heterogeneity", "D3_finite_size_and_boundaries",
+                 "D4_measurement_validity", "D5_data_code_availability", "D6_quantitative_theory_comparison")},
+}
 
 
 def _norm_title(t: str | None) -> str:
@@ -154,8 +169,17 @@ def build_queue(corpus: Path, out: Path = QUEUE) -> dict:
     # Panel includes first: an error there changes the synthesis, an error in an exclude does not.
     splits = sorted((r for r in records if _is_split(r)),
                     key=lambda r: (not _votes(r, Stage.full_text.value)["include"], -(r.get("year") or 0)))
-    ft = [{**_item(r), "panel": _votes(r, Stage.full_text.value),
-           "panel_ta": _votes(r, Stage.title_abstract.value)} for r in splits]
+    from .evidence import latest as latest_evidence
+
+    ev = latest_evidence()
+    ft = []
+    for r in splits:
+        panel = _votes(r, Stage.full_text.value)
+        for v in panel["reviewers"]:
+            a = ev.get(("ft_split", r["id"], v["r"]))
+            if a:
+                v["evidence"] = a["answer"]
+        ft.append({**_item(r), "panel": panel, "panel_ta": _votes(r, Stage.title_abstract.value)})
 
     xvotes = _extraction_votes()
     ex = []
@@ -168,7 +192,10 @@ def build_queue(corpus: Path, out: Path = QUEUE) -> dict:
         for f in e["unresolved"]:
             fields.append({"field": f, "kind": _field_kind(f),
                            "vocab": ROB_LEVELS if f.startswith("rob.") else VOCAB.get(f),
-                           "options": [{"by": k, "value": votes[k].get(f)} for k in ("R1", "R3", "R2") if k in votes]})
+                           "options": [{"by": k, "value": votes[k].get(f),
+                                        "evidence": ((ev.get(("extraction", r["id"], k)) or {}).get("answer") or {})
+                                        .get("fields", {}).get(f)}
+                                       for k in ("R1", "R3", "R2") if k in votes]})
         ex.append({**_item(r), "fields": fields,
                    "context": {k: e.get(k) for k in ("platform_class", "platform_name", "n_agents_min",
                                                       "n_agents_max", "propulsion", "control_architecture",

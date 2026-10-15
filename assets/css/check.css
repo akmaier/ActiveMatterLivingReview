@@ -133,3 +133,13 @@ body:has(#hc) .wrapper { max-width: 1080px; }
   #hc .hc-votes td:nth-child(2) { width: auto; white-space: normal; }
   .hc-top { position: static; }
 }
+
+/* Model evidence (quotes checked against the full text). */
+.hc-ev { margin-top: 0.45rem; font-size: 0.88rem; }
+.hc-ev ul { margin: 0.3rem 0 0 1.1rem; }
+.hc-ev li { margin-bottom: 0.3rem; line-height: 1.45; }
+.hc-ev-claim { margin: 0.2rem 0; font-style: italic; }
+.hc-ev-rev { margin: 0.2rem 0; }
+.hc-ev-none { margin: 0.2rem 0; }
+.hc-evs { margin-top: 0.7rem; display: grid; gap: 0.6rem; }
+.hc-ev-by { border-left: 3px solid var(--hc-line); padding-left: 0.7rem; font-size: 0.9rem; }

@@ -69,3 +69,14 @@ def test_author_resolved_fields_survive_reextraction(tmp_path):
     _apply(corpus, {"c": {"record_id": "c", "propulsion": None, "unresolved": ["propulsion"]}})
     e = read_jsonl(corpus)[0]["extraction"]
     assert e["propulsion"] == "wheels" and e["unresolved"] == [] and "author_resolved" in e
+
+
+def test_quote_check_flags_fabricated_evidence():
+    from amlr.evidence import _clean_evidence, _grams, _norm, verify
+
+    text = "We built 12 robots.\nThe polar order para-\nmeter rises above 0.8 at high density."
+    assert verify("the polar order parameter rises above 0.8", text) == "verbatim"
+    assert verify("robots formed a perfect crystal at low density", text) == "not_found"
+    ev = _clean_evidence([{"criterion": "I3", "quote": "We built 12 robots."}, {"quote": 3}], text,
+                         _grams(_norm(text).split()))
+    assert ev == [{"criterion": "I3", "quote": "We built 12 robots.", "check": "verbatim"}]

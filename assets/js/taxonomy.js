@@ -63,31 +63,65 @@
   function depthOf(id) { return id === "root" ? 0 : id.split("/").length - 1; }
 
   // ---- layout ----------------------------------------------------------------------------
-  var margin = { top: 28, right: 230, bottom: 16, left: 16 };
-  var rowH = 24, lastPos = {};
+  var margin = { top: 16, bottom: 16, left: 16, right: 8 };
+  var LINE = 15, MIN_COL = 120, lastPos = {}, height = 0;
+  var ctx = document.createElement("canvas").getContext("2d");
+
+  function labelFont() {
+    var cs = window.getComputedStyle(root);
+    return "12.5px " + cs.fontFamily;
+  }
+
+  // Greedy word wrap measured with the page font, so a label breaks before it reaches the next level.
+  function wrap(text, maxW) {
+    ctx.font = labelFont();
+    var words = String(text).split(/\s+/), lines = [], cur = "";
+    words.forEach(function (w) {
+      var test = cur ? cur + " " + w : w;
+      if (!cur || ctx.measureText(test).width <= maxW) cur = test;
+      else { lines.push(cur); cur = w; }
+    });
+    if (cur) lines.push(cur);
+    return lines;
+  }
 
   function render(animate) {
     var h = build();
-    var width = Math.max(560, root.querySelector(".tx-canvas").clientWidth);
-    var nLeaves = h.leaves().length;
-    var height = Math.max(240, nLeaves * rowH);
+    var avail = root.querySelector(".tx-canvas").clientWidth;
     var depthMax = Math.max(1, levels.length);
-    var colW = Math.min(300, (width - margin.left - margin.right) / depthMax);
-    tree = d3.tree().size([height, colW * depthMax]).separation(function (a, b) { return a.parent === b.parent ? 1 : 1.25; });
-    tree(h);
-    // Fixed column per level, so the tree grows rightwards as branches unfold.
-    h.each(function (d) { d.y = d.depth * colW; });
+    // One column per level plus one for the labels of the deepest level; scroll only when narrow.
+    var colW = Math.max(MIN_COL, (avail - margin.left - margin.right) / (depthMax + 1));
+    var width = Math.ceil(margin.left + margin.right + colW * (depthMax + 1));
     var n = d3.max(h.descendants(), function (d) { return d.data.studies.length; }) || 1;
     var r = d3.scaleSqrt().domain([1, n]).range([3.5, 15]);
-
-    svg.transition().duration(animate ? DUR : 0).attr("height", height + margin.top + margin.bottom).attr("viewBox", [0, 0, width, height + margin.top + margin.bottom]);
+    h.each(function (d) {
+      d.rad = r(d.data.studies.length);
+      d.lines = wrap(d.data.label + " (" + d.data.studies.length + ")", d.depth === 0 ? colW - 12 : colW - d.rad - 18);
+    });
+    tree = d3.tree().nodeSize([LINE, colW]).separation(function (a, b) {
+      var need = (a.lines.length + b.lines.length) / 2 + 0.7;
+      return a.parent === b.parent ? need : need + 0.5;
+    });
+    tree(h);
+    var minX = Infinity, maxX = -Infinity;
+    h.each(function (d) {
+      d.y = d.depth * colW; // fixed column per level, so the tree grows rightwards as it unfolds
+      var half = Math.max(d.rad, (d.lines.length * LINE) / 2);
+      minX = Math.min(minX, d.x - half - (d.depth === 0 ? d.lines.length * LINE + 6 : 0));
+      maxX = Math.max(maxX, d.x + half);
+    });
+    h.each(function (d) { d.x -= minX; });
+    height = Math.ceil(maxX - minX);
+    var H = height + margin.top + margin.bottom;
+    svg.attr("width", width).attr("viewBox", [0, 0, width, H]);
+    svg.transition().duration(animate ? DUR : 0).attr("height", H);
     var t = svg.transition().duration(animate ? DUR : 0).ease(d3.easeCubicInOut);
 
     var nodes = h.descendants(), links = h.links();
     var origin = function (d) {
       // Enter from the nearest ancestor's previous position, so new branches unfold out of their parent.
       for (var a = d.parent; a; a = a.parent) if (lastPos[a.data.id]) return lastPos[a.data.id];
-      return { x: height / 2, y: 0 };
+      return { x: lastPos.root ? lastPos.root.x : height / 2, y: 0 };
     };
 
     var link = gLinks.selectAll("path").data(links, function (d) { return d.target.data.id; });
@@ -118,7 +152,7 @@
           .on("keydown", function (ev, d) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); toggle(d); } })
           .attr("tabindex", 0).attr("role", "button");
         g.append("circle");
-        g.append("text").attr("class", "tx-label").attr("dy", "0.32em");
+        g.append("text").attr("class", "tx-label");
         g.append("title");
         return g;
       },
@@ -139,10 +173,13 @@
           .attr("r", function (d) { return r(d.data.studies.length); })
           .attr("fill", function (d) { return d.data.children && !d.children ? tint(d) : "#fff"; })
           .attr("stroke", function (d) { return tint(d); });
-        g.select("text")
-          .attr("x", function (d) { return d.depth === 0 ? -r(d.data.studies.length) : r(d.data.studies.length) + 6; })
-          .attr("y", function (d) { return d.depth === 0 ? -r(d.data.studies.length) - 8 : 0; })
-          .text(function (d) { return d.data.label + "  " + d.data.studies.length; });
+        g.select("text").each(function (d) {
+          // Root: label above its circle. Others: label to the right, centred on the node.
+          var x = d.depth === 0 ? -d.rad : d.rad + 6;
+          var y0 = d.depth === 0 ? -d.rad - 6 - (d.lines.length - 1) * LINE : -((d.lines.length - 1) * LINE) / 2 + 4;
+          d3.select(this).selectAll("tspan").data(d.lines).join("tspan")
+            .attr("x", x).attr("y", function (l, i) { return y0 + i * LINE; }).text(function (l) { return l; });
+        });
         g.select("title").text(function (d) {
           return d.data.label + " — " + d.data.studies.length + " studies" + (d.data.other ? "\n" + d.data.other.join(", ") : "") +
             (d.data.children ? (d.children ? "\nClick to fold" : "\nClick to unfold") : "");
@@ -261,11 +298,15 @@
       color = d3.scaleOrdinal(["#3366cc", "#dc7633", "#239b56", "#c0392b", "#7d3c98", "#a04000", "#d4ac0d", "#2e86c1", "#1abc9c", "#6c3483", "#7b7d7d", "#b03a2e"]);
       controls();
       render(false);
-      var w = root.querySelector(".tx-canvas").clientWidth;
-      window.addEventListener("resize", function () {
-        var now = root.querySelector(".tx-canvas").clientWidth;
-        if (Math.abs(now - w) > 40) { w = now; render(false); }
-      });
+      var canvas = root.querySelector(".tx-canvas"), w = canvas.clientWidth, pending = false;
+      var onResize = function () {
+        var now = canvas.clientWidth;
+        if (Math.abs(now - w) < 8 || pending) return;
+        pending = true;
+        window.requestAnimationFrame(function () { pending = false; w = canvas.clientWidth; render(false); });
+      };
+      if (window.ResizeObserver) new ResizeObserver(onResize).observe(canvas);
+      else window.addEventListener("resize", onResize);
     })
     .catch(function (e) { root.innerHTML = '<p class="tx-muted">The taxonomy could not be loaded (' + esc(e.message) + ").</p>"; });
 })();

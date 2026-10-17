@@ -28,7 +28,8 @@ body:has(#tx) .wrapper { max-width: 1240px; }
 
 .tx-main { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 1.2rem; margin-top: 0.8rem; }
 .tx-canvas { overflow-x: auto; }
-.tx-canvas svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.tx-canvas { min-width: 0; }
+.tx-canvas svg { display: block; max-width: none; }
 .tx-link { stroke-width: 1.4px; }
 .tx-node { cursor: pointer; }
 .tx-node circle { stroke-width: 2px; transition: stroke-width 0.15s; }

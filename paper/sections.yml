@@ -1,84 +1,78 @@
 # Section plan for the RMP manuscript. Each entry is drafted by Codex via `amlr draft <id>`.
 # kind: section (default) — starts with \section; plain — paragraphs only; body — standalone
 # document body that may use \section. `out` overrides paper/sections/<id>.tex.
-# Results-section split (platforms/phenomena/theory/control) is provisional until the
-# extracted taxonomy exists. Word total ≈ 43.5k (RMP article cap: 50k).
 sections:
-  - id: abstract
-    kind: plain
-    title: Abstract
-    words: 250
-    brief: >-
-      Structured per PRISMA 2020 for Abstracts: background, objectives, sources, eligibility,
-      methods, results, limitations, conclusions, registration.
-  - id: introduction
-    title: Introduction
-    words: 3000
-    brief: >-
-      Motivate robots as experimental realizations of active matter, position the review
-      against existing active-matter and swarm-robotics reviews, state objectives O1-O5 from
-      the protocol, and outline the review and its living-update model.
-  - id: methods
-    title: Methods
-    words: 2500
-    brief: >-
-      Report PRISMA 2020 items 5-15 and 24-27 consistently with the frozen protocol, including
-      the living-update procedure and the AI-use statement for drafting.
-  - id: results_overview
-    title: Overview of the evidence base
-    words: 2000
-    brief: >-
-      Study selection with the PRISMA flow (Fig.~\ref{fig:prisma}), study characteristics,
-      and bibliometric trends.
-  - id: platforms
-    title: Robotic platforms as active matter
-    words: 6000
-    brief: Synthesis for objective O1, organized by the extracted platform taxonomy.
-  - id: phenomena
-    title: Collective phenomena in robotic active matter
-    words: 8000
-    brief: Synthesis for objective O2, organized by phenomenon.
-  - id: theory
-    title: Confronting theory with robotic experiments
-    words: 8000
-    brief: >-
-      Synthesis for objective O3: which theoretical frameworks were tested quantitatively
-      against robots, and with what agreement.
-  - id: control
-    title: Control, sensing, and programmability
-    words: 5000
-    brief: >-
-      Synthesis for objective O4: feedback, sensing, communication, and learning as tuning
-      knobs of collective behavior.
-  - id: discussion
-    title: Discussion
-    words: 5000
-    brief: >-
-      Critical synthesis across O1-O5: risk of bias, reporting biases, certainty of evidence,
-      and limitations of the evidence and of this review (objective O5).
-  - id: outlook
-    title: Outlook
-    words: 3000
-    brief: Open problems and future directions; what the living updates will track.
-  - id: conclusion
-    title: Conclusions
-    words: 800
-    brief: Main conclusions per objective.
-  - id: acknowledgments
-    kind: plain
-    title: Acknowledgments
-    words: 200
-    brief: >-
-      Support and competing interests (leave [placeholders] where unknown), and the APS-required
-      disclosure that manuscript prose was drafted with an AI system (Codex) and reviewed and
-      revised by the authors, with all exchanges archived in the public repository.
-  - id: proposal
-    kind: body
-    title: RMP proposal
-    out: paper/proposal/proposal_body.tex
-    words: 2000
-    brief: >-
-      Proposal to the RMP editors (2-5 pages): title, authors, abstract, table of contents,
-      outline of the main sections and how they connect, 20-30 key references organized by
-      topic, author expertise, why the topic is timely, and how the review delivers critical
-      synthesis rather than a catalogue.
+- id: abstract
+  kind: plain
+  title: Abstract
+  words: 250
+  brief: 'Structured per PRISMA 2020 for Abstracts: background, objectives, sources, eligibility, methods,
+    results, limitations, conclusions, registration.'
+- id: introduction
+  title: Introduction
+  words: 3000
+  brief: Motivate robots as experimental realizations of active matter, position the review against existing
+    active-matter and swarm-robotics reviews, state objectives O1-O5 from the protocol, and outline the
+    review and its living-update model.
+- id: methods
+  title: Methods
+  words: 2500
+  brief: Report PRISMA 2020 items 5-15 and 24-27 consistently with the frozen protocol, including the
+    living-update procedure and the AI-use statement for drafting. Include the author validation on the
+    200-record sample (final labels count, amendment 7; blind first labels reported alongside), the evidence-based
+    conflict resolution (amendment 5), the delegation of remaining conflicts to a Claude Opus judge (amendment
+    6, with its agreement with the panel majority), and Claude Opus as an additional blind rater on the
+    validation sample. Place Fig. validation (see FIGURES.md).
+- id: results_overview
+  title: Overview of the evidence base
+  words: 2000
+  brief: Study selection with the PRISMA flow (Fig.~\ref{fig:prisma}), study characteristics, and bibliometric
+    trends. Refer to the PRISMA flow (Fig. prisma) and place Fig. growth.
+- id: platforms
+  title: Robotic platforms as active matter
+  words: 6000
+  brief: 'Synthesis for objective O1, organized by the extracted platform taxonomy. Place Fig. taxonomy
+    (overview) and Fig. interaction (sub-taxonomy). Include a table (longtable-free: use table* with p{}
+    columns) listing every included study per platform class by citation key.'
+- id: phenomena
+  title: Collective phenomena in robotic active matter
+  words: 8000
+  brief: Synthesis for objective O2, organized by phenomenon.
+- id: theory
+  title: Confronting theory with robotic experiments
+  words: 8000
+  brief: 'Synthesis for objective O3: which theoretical frameworks were tested quantitatively against
+    robots, and with what agreement. Place Fig. theory (sub-taxonomy).'
+- id: control
+  title: Control, sensing, and programmability
+  words: 5000
+  brief: 'Synthesis for objective O4: feedback, sensing, communication, and learning as tuning knobs of
+    collective behavior. Place Fig. control (sub-taxonomy).'
+- id: discussion
+  title: Discussion
+  words: 5000
+  brief: 'Critical synthesis across O1-O5: risk of bias, reporting biases, certainty of evidence, and
+    limitations of the evidence and of this review (objective O5).'
+- id: outlook
+  title: Outlook
+  words: 3000
+  brief: Open problems and future directions; what the living updates will track.
+- id: conclusion
+  title: Conclusions
+  words: 800
+  brief: Main conclusions per objective.
+- id: acknowledgments
+  kind: plain
+  title: Acknowledgments
+  words: 200
+  brief: Support and competing interests (leave [placeholders] where unknown), and the APS-required disclosure
+    that manuscript prose was drafted with an AI system (Codex) and reviewed and revised by the authors,
+    with all exchanges archived in the public repository.
+- id: proposal
+  kind: body
+  title: RMP proposal
+  out: paper/proposal/proposal_body.tex
+  words: 2000
+  brief: 'Proposal to the RMP editors (2-5 pages): title, authors, abstract, table of contents, outline
+    of the main sections and how they connect, 20-30 key references organized by topic, author expertise,
+    why the topic is timely, and how the review delivers critical synthesis rather than a catalogue.'

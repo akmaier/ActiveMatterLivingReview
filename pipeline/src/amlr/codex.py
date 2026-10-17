@@ -122,9 +122,18 @@ return the text in your reply.
   awaiting the author's check. `text` is the study's extracted full text, relative to {REPO_ROOT}.
 - PRISMA counts for the same snapshot: {prisma}
 - Frozen protocol: {REPO_ROOT / 'protocol' / 'PROTOCOL.md'}; eligibility criteria: {REPO_ROOT / 'protocol' / 'PICO.md'}
+- Validation and adjudication: rater agreement on the 200-record sample in the newest
+  {REPO_ROOT / 'data' / 'human_check'}/agreement-*.json (keys final:<rater> and blind:<rater>);
+  the Opus judge's instructions, decisions and flags in {REPO_ROOT / 'data' / 'conflicts' / 'judge'}/
+  (INSTRUCTIONS.md, decisions-*.jsonl, FLAGS.md); the amendment log at the end of PROTOCOL.md.
+- Figures you may place (files, labels, owner sections): {PAPER / 'figures' / 'FIGURES.md'}
 - Manuscript plan, with every section's brief (avoid overlap): {PAPER / 'sections.yml'}
-- Sections drafted so far (keep terminology, numbers and claims consistent with them):
+- Other sections (keep terminology consistent; where their numbers differ from the current
+  snapshot, the snapshot wins, because those drafts may predate it):
 {drafted}
+
+This is a full redraft for the current snapshot. Earlier drafts may cite studies that are no
+longer included or counts that have changed; rewrite rather than patch.
 
 Hard rules:
 - {fmt}
@@ -137,6 +146,11 @@ Hard rules:
   numbers against the full text before stating them. Quote at most a few words from any paper.
 - Where a point rests on studies assessed on the abstract only, or on fields still unresolved,
   say so.
+- Cite broadly: every study that supports a statement belongs in its \\cite list, and the
+  synthesis sections together should cite most of the included studies, not a few exemplars.
+- Typeset for a two-column REVTeX page without overfull lines: no long unbreakable tokens in
+  running text (wrap file paths or identifiers in \\path{{...}}, avoid \\texttt for long strings),
+  tables with p{{}} columns sized to fit \\columnwidth or, in table*, \\textwidth.
 - Facts the files do not contain (author biography, funding, affiliations of others) go in as
   [placeholders]; never make them up.
 - Follow the voice guide below (didactic first-person plural, short sentences, varied openers).

@@ -348,6 +348,15 @@ def human_report(corpus: Path = typer.Option(CORPUS)) -> None:
 
 
 @app.command()
+def figures() -> None:
+    """Regenerate the manuscript figures in paper/figures/ from the latest snapshot."""
+    from .figures import make_all
+
+    for p in make_all():
+        rprint(f"wrote {p}")
+
+
+@app.command()
 def draft(
     section: str = typer.Argument(..., help="Section id from paper/sections.yml"),
     dry_run: bool = typer.Option(False, "--dry-run", help="Print the prompt instead of sending it"),

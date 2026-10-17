@@ -88,13 +88,6 @@ group, with 41 studies. Other implementations contribute
 and modular robots two each, and smarticles and
 wheeled or legged systems the remaining three.
 
-This classification should not be interpreted as
-absence of external energy input. An actively driven
-robot is not passive in the thermodynamic sense.
-Rather, the label indicates that the extracted
-primary architecture does not use explicit feedback
-to prescribe collective behavior.
-
 \paragraph*{What becomes experimentally accessible?}
 
 Mechanically driven robots offer direct access to
@@ -103,13 +96,6 @@ interaction-mediated motion. Their collective states
 include clustering, transport, boundary accumulation,
 rotation, and spatial organization
 \cite{Welch2018aggregatesuppressio,Welch2019activereorientation,Deblais2019howtoforceanarmy,Xi2024beamsbotsandbey,Balda2022playingwithactive,Xi2024emergentintelligenc,Mohanty2025multimodalmotionan,GuzmnLastra2026emergenceofbeating,Edwards2026robusttopologically,Musacchio2026activeembracemente,Escobar2025effectofparticlec,Scholz2018rotatingrobotsmove,Arbel2025amechanicalroutef,Antonov2025selfsustainedfrict,Baconnier2022selectiveandcollec,Boudet2025nonmarkoviandynami}.
-
-The important advantage is that collective order need not be
-encoded in a controller. If collisions produce alignment
-or crowding produces spatial organization, those effects
-must arise through the physical implementation. This
-provides a useful contrast to systems that explicitly
-calculate desired neighbor-dependent velocities.
 
 Mechanical activity can nevertheless involve complex
 single-agent dynamics. Vibration may produce correlated
@@ -151,16 +137,6 @@ coupling in twelve. These modalities often
 occur together. Thus, an observed collective
 state may be compatible with several
 mechanistic explanations.
-
-For example, boundary accumulation may depend
-on persistent propulsion, wall collisions,
-substrate friction, or particle geometry.
-A rotating cluster may reflect intrinsic
-chirality, magnetic forcing, or
-interaction-induced collective circulation.
-Without independently varying or measuring
-these ingredients, the experiment cannot
-uniquely identify its mechanism.
 
 The relevant studies include mechanically
 and environmentally coupled systems
@@ -205,15 +181,6 @@ is reduced independence between
 propulsion, interactions, and
 environmental conditions.
 
-Hence, the best experimental strategy
-is to characterize the physical
-interaction law and vary confinement,
-density, or driving systematically.
-This would make passive-rule systems
-stronger tests of active-matter theory
-rather than merely simpler
-alternatives to programmable swarms.
-
 \subsection{On-board rules}
 \label{sec:control-onboard}
 
@@ -231,14 +198,6 @@ rules. Wheeled or legged swarm robots contribute
 robots, nine smarticles, seven active solids,
 two microscopic robotic systems, and one
 record without a platform classification.
-
-The prevalence of on-board control reflects a
-fundamental strength of robotics: microscopic
-interaction rules can be implemented in
-individually operating physical agents.
-This makes such systems especially suitable
-for experimental realizations of distributed
-collective-motion models.
 
 \paragraph*{Programmable local interactions.}
 
@@ -260,27 +219,10 @@ $\mathcal I_i$ denotes accessible information,
 and $\boldsymbol{\lambda}$ contains
 adjustable parameters.
 
-The physical significance of this expression
-lies in the distinction between the controller
-output and the resulting collective motion.
-The policy determines how an agent attempts to
-move. Its realized trajectory also depends
-on actuation, collisions, sensing errors,
-and interactions with the environment.
-
 The included studies investigate alignment,
 collective motion, aggregation, and programmed
 coordination through local rules
 \cite{Miki2010asimplerulebased,Chen2013aflockingalgorithm,Wang2021fielddriverobotsw,Fruchart2022nonreciprocalphase,Yang2023collectivechaseem,Paramanick2024emergenceofrunand,Kernbach2011threecasesofconne,Tran2022frontierledswarmin,Giardina2022collectivephototact,Vega2023simulatelessexpec,Vega2023indirectswarmcontr,Vega2024agentbasedemulatio,Varadharajan2026programmableflocks,Gao2023robustdistributedc,Lee2022distributedcohesive,Garnier2005aggregationbehaviou,Baumann2024hybridflockforma,Guzzi2014bioinspiredobstacle,Turgut2008modelingphasetrans,Navarro2008anapproachtoflock,Ercan2011swarmrobotflocking,Ferrante2013aselfadaptivecomm,Turgut2008selforganizedflocka,Vsrhelyi2018optimizedflockingo}.
-
-In these systems, programmability can separate
-the intended interaction rule from the
-observed physical collective response.
-For example, one may change the effective
-alignment range without rebuilding the
-robots. One may also introduce directional
-interactions, delays, or changes in
-neighbor selection.
 
 Such interventions are useful because they
 can discriminate between theoretical
@@ -290,16 +232,6 @@ but also the dependence of collective
 order on interactions and fluctuations
 \cite{Vicsek1995novel}
 \cite{Toner1995longrange}.
-
-The difficulty is that the rule itself
-can make the outcome unsurprising.
-If every robot calculates a target
-velocity aligned with its neighbors,
-observing alignment confirms that the
-hardware broadly realizes the controller.
-A stronger physical test concerns the
-resulting fluctuations, stability,
-correlations, and transitions.
 
 Studies investigating collective response,
 group deformation, indirect interaction,
@@ -328,16 +260,6 @@ The relevant physical variables are then
 deformation, mechanical response,
 and structural dynamics rather than
 flocking polarization alone.
-
-This reveals an important generalization.
-On-board rules need not represent
-social or informational interactions
-between freely moving agents.
-They can also determine actuation
-within a mechanically connected
-structure. The resulting theory
-should describe the appropriate
-physical degrees of freedom.
 
 \paragraph*{Scale and robustness.}
 
@@ -487,14 +409,6 @@ while retaining comparable particles.
 This permits tests of collective states
 under controlled changes in coupling.
 
-Yet, the feedback loop becomes part of
-the active-matter dynamics. Measurement
-noise, update frequency, and latency
-can influence the resulting motion.
-A theory of instantaneous interactions
-may therefore fail even when the
-nominal feedback rule resembles it.
-
 The strongest experiments characterize
 the implemented effective interaction
 independently and then compare
@@ -517,17 +431,6 @@ These experiments extend control toward
 physical regimes dominated by magnetic,
 hydrodynamic, and other microscopic
 interactions.
-
-An important distinction is whether
-the applied field is uniform or
-spatially structured. A common
-field may synchronize propulsion
-without generating an independently
-programmable interaction between agents.
-Feedback based on individual or
-collective configuration offers
-a more direct route to
-state-dependent coupling.
 
 Other included microscopic studies
 investigate controlled assembly,
@@ -608,8 +511,6 @@ under independently
 varied control
 parameters.
 
-
-
 \subsection{Central control}
 \label{sec:control-central}
 
@@ -679,16 +580,6 @@ coupling while holding the
 physical hardware approximately
 constant.
 
-This permits controlled studies
-of collective response. However,
-the resulting system is not
-equivalent to one with purely
-local interactions. The central
-controller may introduce
-information transfer over
-distances that exceed the
-physical interaction range.
-
 Hence, the range and symmetry
 of the effective interaction
 must be described as properties
@@ -706,16 +597,6 @@ These implementations support experimental
 investigations of coordinated movement,
 collective structure, and responses
 under programmable interactions.
-
-Nevertheless, the physical conclusion
-depends on the observables that are
-measured. A stable target formation
-establishes successful collective
-control. A phase diagram,
-correlation function, or
-measured response to perturbations
-can provide stronger evidence
-about the resulting active dynamics.
 
 \paragraph*{Global actuation at microscopic scales.}
 
@@ -760,19 +641,6 @@ Deviations can reveal
 the contribution of
 interparticle interactions.
 
-Furthermore, external
-field control may
-modify propulsion
-and coupling simultaneously.
-In magnetic assemblies,
-for example, changes
-in the driving conditions
-may alter individual
-movement and relative
-particle interactions.
-A quantitative model
-must account for both.
-
 \paragraph*{Connected and modular systems.}
 
 Central control also appears
@@ -783,19 +651,6 @@ These experiments investigate
 configuration and collective
 locomotion through coordinated
 components.
-
-Here, the main interpretive
-distinction concerns control
-and mechanical emergence.
-A prescribed sequence
-of module movements
-can generate a complex
-collective deformation.
-However, the same outcome
-may depend on contact
-forces and connectivity
-that are not explicitly
-specified by the controller.
 
 This creates an opportunity
 to study how imposed
@@ -880,19 +735,6 @@ requires particular
 care in theoretical
 interpretation.
 
-We therefore distinguish
-controlled realization
-from explanatory validation.
-A central controller
-can implement a proposed
-interaction law accurately.
-The physical test concerns
-whether the resulting
-collective observables
-follow predictions that
-were not directly
-specified by that law.
-
 Future experiments
 should report the
 actual control inputs,
@@ -927,13 +769,6 @@ obtained through optimization, imitation, or
 reinforcement. Its actions can depend on local
 observations, collective state, or an internally
 learned representation.
-
-For robotics, this provides a flexible means
-of generating behavior. For active-matter physics,
-the implications are more subtle. A learned policy
-may discover collective responses not anticipated
-by a hand-designed controller. Yet, the resulting
-interaction law may be difficult to interpret.
 
 The extraction identifies eleven studies with
 a learned policy as their primary control
@@ -981,19 +816,6 @@ experiment may suggest
 new mechanisms for
 theoretical investigation.
 
-However, the policy itself
-does not explain the
-resulting behavior.
-An observed flock or
-vortex may arise through
-a complicated mapping
-from observations to actions.
-Without further analysis,
-the physical interaction
-responsible for the
-collective state remains
-underdetermined.
-
 This is a particularly
 important distinction
 between learning for
@@ -1034,21 +856,6 @@ experimental performance
 without supporting
 a general physical
 principle.
-
-For example, a policy
-trained in one arena
-may rely on boundary
-cues. A controller
-optimized for one
-population size
-may behave differently
-when the number
-of agents changes.
-A response learned
-under one sensing
-configuration may
-not transfer to
-another.
 
 These possibilities
 are scientifically
@@ -1191,109 +998,51 @@ contact. A central controller may reproduce an
 interaction that would otherwise be implemented
 locally.
 
-For active-matter physics, this distinction
-matters because information itself can mediate
-effective interactions. Agents may change
-their motion in response to signals,
-observations, or communicated states,
-even when no corresponding mechanical
-force acts between them.
-
-Such systems are often described by
-effective alignment, attraction,
-repulsion, or response laws.
-Yet, the information-processing
-mechanism can introduce asymmetry,
-delay, finite perception range,
-and state dependence that are
-absent from simple particle models.
+For active-matter physics, information can mediate
+effective interactions. Agents change their motion
+in response to signals, observations, or communicated
+states even without a corresponding mechanical force.
+The resulting alignment, attraction, repulsion,
+or response laws may include asymmetry, delay,
+limited perception, and state dependence absent
+from simple particle models.
 
 \paragraph*{Local sensing as an interaction mechanism.}
 
 The extracted interaction vocabulary identifies
 150 studies with optical or other sensing.
-These are predominantly on-board systems:
-121 use on-board rules, fourteen external
+Of these, 121 use on-board rules, fourteen external
 feedback, nine learned policies, five
 central control, and one passive rules.
 
-The category includes experiments on
-visual alignment, collective coordination,
-sensing-dependent motion, and
-perception-mediated interactions
+The category includes visual alignment,
+collective coordination, sensing-dependent
+motion, and perception-mediated interactions
 \cite{Schilling2019learningvisionbase,Choi2026communicationfreec,Wu2024adversarialimitatio,Liu2025collectivemotionmo,Zhu2025amillingswarmofg,Zhu2025fromspikestoswarm,Jia2025adeepreinforcement,Mijalkov2016engineeringsensoria,Castro2025visualcollectivebe,Zhou2025gazingpreferencein,Zheng2024emergenceofcollect,Zheng2025shapingcollectiveb,Li2026onfeedbackspeedco,Zhang2025learningefficientf,Kraus2026generativeadversari}.
 
-The physical effect of sensing
-depends on what is measured.
-A robot may estimate
-neighbor position,
-relative velocity,
-orientation, or
-the structure of
-its environment.
+The physical effect depends on whether
+the sensor measures neighbor position,
+relative velocity, orientation, or
+environmental structure. Different
+measurements can generate different
+effective interactions even when
+collective trajectories look similar.
 
-These quantities
-can generate different
-effective interaction
-laws even when the
-resulting collective
-motion looks similar.
+Orientation-dependent perception, for example,
+can produce nonreciprocal coupling when
+one agent detects another without being
+detected in return. This makes robotic
+sensing a useful way to investigate
+nonreciprocal collective dynamics.
 
-For example,
-orientation-dependent
-perception can produce
-asymmetric responses.
-One agent may detect
-another without
-being detected
-in return.
-The resulting
-coupling is then
-nonreciprocal
-at the level
-of the controller.
-
-This creates
-a useful experimental
-route to investigating
-nonreciprocal collective
-dynamics. However,
-the implementation
-must be characterized
-carefully.
-
-Camera geometry,
-occlusion,
-measurement frequency,
-and finite processing
-time may affect
-the effective interaction.
-If these features
-are omitted from
-the theoretical model,
-agreement may depend
-on accidental
-compensation between
-parameters.
-
-The most informative
-experiments therefore
-measure the response
-of an individual
-robot to controlled
-sensory inputs before
-examining collective
-behavior.
-
-This permits the
-effective interaction
-law to be estimated
-independently.
-Collective observables
-can then provide
-a genuine test
-of the resulting
-model.
+The implementation nevertheless matters.
+Camera geometry, occlusion, sampling frequency,
+and processing latency can change the
+effective interaction. The strongest
+experiments measure an individual robot's
+response to controlled sensory inputs,
+then test whether the resulting interaction
+law predicts collective observables.
 
 \paragraph*{Communication and collective coupling.}
 
@@ -1303,255 +1052,121 @@ on-board rules, sixteen central control,
 six external feedback, and two
 learned policies.
 
-This distribution reflects the importance
-of information exchange in conventional
-swarm-robotics experiments.
-
-The included literature contains
-collective coordination,
+The included literature examines
 communication-dependent flocking,
 distributed interaction rules,
-and changes in collective
-configuration
+collective coordination, and
+configuration changes
 \cite{Cianci2007communicationinas,Christensen2008swarmorphscripta,Ferrante2013aselfadaptivecomm,Valentini2015collectivedecision,Kernbach2011threecasesofconne,Drew2021acousticcommunicati,Cazenille2024hearingtheshapeof,Gao2023robustdistributedc,Lee2022distributedcohesive,Zhou2024anticipationpromote,Turgut2008selforganizedflocka,Vsrhelyi2018optimizedflockingo,Tran2022frontierledswarmin,Maffettone2024mixedrealityenviro,Santos2014cohesionandsegrega,Min2011designandanalysis,Beattie2025realizingemergentc,MendozaRobles2026distributedformatio}.
 
-Communication permits agents
-to respond to information
-that is not available
-through direct physical
-contact.
-It can therefore
-increase the effective
-interaction range
-or alter the
-topology of coupling.
+Communication permits responses to
+information unavailable through contact.
+It can extend effective interaction range
+or modify coupling topology without
+changing mechanical hardware.
 
-This makes communication
-a physical control
-parameter in a
-broader sense.
-Changing which
-agents exchange
-information can
-change the collective
-state without
-changing mechanical
-hardware.
+Yet, receiving a signal is not equivalent
+to experiencing a mechanical force.
+The resulting dynamics depend on how
+information is converted into actuation.
 
-However, a communicated
-state is not equivalent
-to a mechanical
-interaction force.
-The resulting
-collective dynamics
-depend on how
-the received information
-is converted into
-actuation.
+Delay can also affect stability,
+oscillations, and collective response.
+An instantaneous interaction model
+may be inappropriate when robots
+act on earlier neighbor measurements.
 
-Communication delay
-is another important
-difference. In
-an instantaneous
-interaction model,
-agents respond
-to the current
-state of their
-neighbors.
-A communicating
-robot may respond
-to an earlier
-measurement.
-
-This delay can
-alter stability,
-oscillations,
-and collective
-response.
-Hence, the
-effective theory
-should include
-delay when it
-is dynamically
-relevant.
-
-Communication
-also raises
-the question
-of network topology.
-A group can
-interact through
-a fixed information
-graph even while
-its physical
-positions change.
-Conversely,
-distance-dependent
-communication may
-generate a graph
-that evolves
-with collective
-motion.
-
-These alternatives
-need not produce
-the same active
-dynamics.
-A meaningful
-comparison should
-therefore distinguish
-spatial proximity
-from information
+Network topology introduces another
+distinction. A fixed communication graph
+can persist as robots change position,
+whereas distance-dependent communication
+produces a graph coupled to motion.
+The two architectures need not yield
+equivalent collective dynamics.
+Experiments should therefore distinguish
+spatial proximity from information
 connectivity.
 
 \paragraph*{Programmed rules and physical interactions.}
 
 The interaction vocabulary identifies
-161 studies containing programmed rules.
-Among them, 120 use on-board rules,
+161 studies containing programmed rules:
+120 use on-board rules,
 nineteen external feedback,
 seventeen central control,
 four passive rules,
 and one a learned policy.
 
-These counts demonstrate that
-programmed interactions are not
-restricted to one control
-architecture. Nevertheless,
-the extracted label does not
-specify whether the rule
-implements alignment,
-attraction, repulsion,
+These counts show that programmed
+interactions span control architectures.
+The extracted label does not, however,
+specify whether the rule implements
+alignment, attraction, repulsion,
 state-dependent switching,
-or another interaction.
+or another mechanism.
 
-The relevant physical interpretation
-therefore requires examination
-of the actual controller
-and its observables.
+Programmability allows such rules
+to be changed on the same hardware.
+Experiments can compare reciprocal
+and nonreciprocal alignment, vary
+interaction range, introduce delay,
+or alter density-dependent responses.
+These interventions can distinguish
+competing theoretical predictions.
 
-The theoretical opportunity
-is considerable.
-A programmed interaction
-can be changed systematically
-while keeping the same
-physical platform.
-
-For example, one could
-compare reciprocal and
-nonreciprocal alignment
-or vary the effective
-interaction range.
-One could also introduce
-controlled delay
-or modify the response
-to local density.
-
-These interventions
-would permit experiments
-that distinguish
-competing theoretical
-predictions.
-
-Yet, a change in
-programmed rules
-may also alter
-the collective
-operating regime
-through actuator
-constraints or
-sensing limitations.
-The nominal software
-parameter is therefore
-not always identical
-to the effective
-physical parameter.
-
-The relevant experiment
-should measure
-the implemented
-response law
-rather than assume
-perfect realization
-of the controller.
+The nominal software parameter
+is not always the effective physical
+parameter. Actuator limits, sampling,
+and sensing errors may change the
+implemented response. Quantitative
+tests should therefore characterize
+the actual interaction law rather
+than assume perfect execution.
 
 \paragraph*{Quality of information-mediated evidence.}
 
-The extracted agreement ratings
-show that 28 of the
-150 sensing-labelled
-studies report
-quantitative theory
-comparison, while
-70 report qualitative
-comparison and 52
-no comparison.
+Among the 150 sensing-labelled studies,
+28 report quantitative theory comparison,
+70 qualitative comparison,
+and 52 no comparison.
 
-For communication,
-25 of 156 studies
-report quantitative
-comparison, 86
-qualitative comparison,
-and 45 no comparison.
+For communication, the corresponding
+counts are 25, 86, and 45
+among 156 studies.
 
-Programmed-rule studies
-contain 36 quantitative,
-84 qualitative,
-and 41 without
-a recorded comparison.
+The 161 programmed-rule studies contain
+36 quantitative comparisons,
+84 qualitative comparisons,
+and 41 without a recorded comparison.
 
-These modality
-categories overlap.
-Their counts must
-not be added
-to calculate
-the number of
-distinct studies.
+These categories overlap and must
+not be added to obtain the number
+of distinct studies.
 
-Risk-of-bias
-ratings reveal
-the same limitation.
-Among sensing-labelled
-studies, eighteen
-receive low-risk
-D6 ratings,
+Risk-of-bias ratings show a similar
+pattern. For sensing, eighteen studies
+receive low-risk D6 ratings,
 25 have some concerns,
 and 107 are high risk.
 
-For communication,
-the corresponding
-counts are seventeen,
-43, and 96.
-For programmed rules,
-they are 22,
-47, and 92.
+For communication, the corresponding
+counts are seventeen, 43, and 96.
+For programmed rules, they are
+22, 47, and 92.
 
-Thus, the widespread
-use of information-mediated
-interactions has not
-yet produced an
-equally widespread
-body of low-risk
-quantitative
-theory tests.
+Thus, information-mediated interactions
+are widespread, but low-risk
+quantitative theory tests remain
+comparatively uncommon.
 
-The pattern is
-consistent with
-the broader
-control-architecture
-analysis. Robotic
-systems offer
-many ways to
-program collective
-behavior, but
-implementation
-success is often
-more thoroughly
-demonstrated than
-the predictive
-validity of the
-corresponding
-physical model.
+The central opportunity is to use
+sensing and communication to vary
+effective physical interactions
+independently. Doing so can turn
+a programmable collective from
+a demonstration of coordinated
+behavior into a test of the
+mechanism responsible for it.
 
 \subsection{Synthesis: control as an experimental variable}
 \label{sec:control-synthesis}
@@ -1948,4 +1563,5 @@ and which
 remain relevant
 at collective
 scales.
+
 

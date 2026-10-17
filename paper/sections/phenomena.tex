@@ -1,501 +1,4415 @@
-\section{Collective phenomena in robotic active matter}\label{sec:phenomena}
+\section{Collective phenomena in robotic active matter}
+\label{sec:phenomena}
 
-\subsection{From observed patterns to collective phenomena}
+The platform taxonomy describes how activity is implemented.
+We now turn to what these systems actually do. This distinction
+is central to active-matter physics. Two robotic collectives may
+exhibit similar motion despite using different propulsion and
+interaction mechanisms. Conversely, changing a single control
+parameter may produce qualitatively different collective states
+on the same hardware.
 
-The same visible pattern can arise through different mechanisms. A compact group may reflect attraction, motility-induced phase separation, confinement, magnetic binding, or a controller that explicitly commands aggregation. Likewise, circular motion may represent spontaneous chirality, milling around a sensed centre, hydrodynamic coupling, or rotation imposed by an external field. Robotic experiments are valuable because these alternatives can often be changed independently. Yet, a robot does not make a phenomenon mechanistic merely by displaying it. The experiment must relate the collective state to a controlled interaction, perturbation, or model.
+We organize the evidence by ten families of collective phenomena.
+The categories follow the reconciled extraction vocabulary and
+are not mutually exclusive. A rotating cluster, for example, may
+contribute to clustering, swarming, and chirality. We therefore
+interpret each family through its reported observables and
+theoretical comparisons, rather than treating the number of
+classified studies as independent confirmations of a physical law.
 
-We organize objective O2 by the phenomenon taxonomy extracted from the included studies. The categories are not mutually exclusive. Of the 528 studies in the 2026-10-14 snapshot, 366 carry at least two phenomenon labels. Self-assembly or shape formation and transport or locomotion coincide in 134 studies. Self-assembly also overlaps with clustering in 61, chirality in 49, and flocking in 46. These overlaps are physically meaningful. Assembly may create the object that later moves. Clustering can precede crystallization. Rotation can generate transport. Still, the overlaps also warn against counting a single experiment as independent evidence for several mechanisms.
+The evidence base contains 491 studies in the corrected snapshot
+of October 17, 2026. Within this corpus, our central question
+is not whether a phenomenon has been demonstrated. It is which
+mechanism the experiment establishes, which predictions have
+been tested, and whether the finding survives changes in
+platform, scale, and experimental conditions.
 
-The most frequent label is self-assembly or shape formation, with 256 studies. Transport or locomotion follows with 215, flocking or polar order with 153, clustering or motility-induced phase separation with 109, and chirality or rotation with 93. Swarming or vortex states occur in 81 studies, synchronization in 66, boundary accumulation in 65, jamming or crystallization in 30, and active-solid or odd-elastic behaviour in 15. Another 53 studies use the residual label ``other.''
-
-Table~\ref{tab:phenomenon-evidence} gives the composition of these overlapping bodies of evidence. A quantitative comparison means that experiment and theory were compared through a numerical observable rather than visual similarity alone. The code and data columns count only explicitly named public resources. Publication after 2019 is shown as a descriptive trend, not as a measure of quality.
-
-\begin{table*}[t]
-\caption{Evidence by collective phenomenon. Categories overlap because one study may report several phenomena. ``Since 2020'' includes publication years 2020--2026. Quantitative agreement, code, and data are study counts.}
-\label{tab:phenomenon-evidence}
-\begin{ruledtabular}
-\begin{tabular}{lrrrrrr}
-Phenomenon & Studies & Abstract only & Since 2020 & Quantitative agreement & Code & Data \\
-\hline
-Self-assembly or shape formation & 256 & 7 & 176 & 71 & 40 & 23 \\
-Transport or locomotion & 215 & 10 & 164 & 70 & 32 & 33 \\
-Flocking or polar order & 153 & 4 & 87 & 19 & 22 & 9 \\
-Clustering or motility-induced phase separation & 109 & 4 & 74 & 39 & 22 & 21 \\
-Chirality or rotation & 93 & 5 & 77 & 41 & 13 & 12 \\
-Swarming or vortex & 81 & 0 & 61 & 21 & 10 & 6 \\
-Synchronization & 66 & 3 & 52 & 18 & 10 & 6 \\
-Boundary accumulation & 65 & 1 & 52 & 28 & 10 & 13 \\
-Jamming or crystallization & 30 & 1 & 21 & 9 & 3 & 4 \\
-Active solid or odd elasticity & 15 & 2 & 14 & 7 & 4 & 6 \\
-Other & 53 & 6 & 44 & 19 & 8 & 7 \\
-\end{tabular}
-\end{ruledtabular}
-\end{table*}
-
-Several broad conclusions follow. First, self-assembly and transport dominate the evidence base, but their breadth comes at the cost of conceptual heterogeneity. Second, the newer phenomena are not simply smaller versions of the older ones. Chirality, boundary effects, and active-solid response contain comparatively high proportions of quantitative comparisons. Third, flocking is common but rarely confronted quantitatively with theory. Only 19 of 153 flocking studies report quantitative agreement. Finally, evidence availability remains poor across all phenomena. Even self-assembly, the largest category, provides public data in only 23 studies.
-
-In the following, we ask three questions for each phenomenon. What physical observation qualifies? Which experimental strategies produce the most persuasive evidence? And what remains unsupported? This separation is important. Producing a state, explaining its mechanism, and showing that the mechanism transfers across platforms are three different achievements.
-
-\subsection{Self-assembly and shape formation}
-
-\subsubsection{One label covers three distinct problems}
-
-Self-assembly or shape formation is coded in 256 studies. Yet, the category joins three different scientific problems. The first is spontaneous aggregation or ordering under fixed local interactions. The second is programmable shape formation, where agents execute rules chosen to realize a target. The third is physical construction, where modules attach into a persistent structure. All produce spatial organization, but they answer different questions.
-
-Spontaneous assembly asks which state follows from the interaction law. Programmable assembly asks whether local computation can realize a specified global geometry. Modular construction asks whether bonds can form reliably and whether the resulting body can function. We should not interpret evidence from one problem as evidence for another. A robot swarm that draws a prescribed shape demonstrates distributed coordination. It does not necessarily demonstrate spontaneous symmetry breaking.
-
-The category spans every resolved platform class. Wheeled or legged robots account for 90 studies and robotic micro- or nano-agents for 69. Vibration-driven robots contribute 25, modular robots 18, smarticles seven, and feedback-controlled colloids seven. Steric contact appears in 164 studies, while communication and programmed rules each appear in 78. Magnetic interaction appears in 77. Hence, self-assembly is not tied to a single microscopic mechanism.
-
-\subsubsection{What works}
-
-The strongest evidence isolates a local interaction and measures the resulting structure. Early aggregation experiments linked neighbour detection and residence under shelters to aggregate size and collective choice \cite{Garnier2005collectivedecision}. Here, the assembled state was not only displayed. Aggregate number, isolated agents, shelter occupancy, and choice distribution were compared quantitatively with an agent-based model. Such experiments establish a causal chain from local sensing to collective state.
-
-Mechanical state selection offers a second strong design. A confined group of shape-changing smarticles was used to relate the probability of observed configurations to a low-rattling description \cite{Chvykov2020lowrattlingapred}. The population was small, but the configuration space was sampled and compared quantitatively with theory. For a hypothesis about local mechanical state selection, repeated access to the state space can be more informative than a large one-time demonstration.
-
-Field-mediated systems provide a third route. Magnetic, hydrodynamic, optical, and steric interactions can jointly generate chains, lattices, clusters, or rotating superstructures. Quantitative observables include pair distance, lattice spacing, cluster area, rotation frequency, and assembly time \cite{Yan2014colloidalsuperstruc,Calabr2026interactiondrivena}. These measurements distinguish a structure from a photograph. Still, field-induced assembly and spontaneous assembly must be separated. If the external field encodes the target morphology, the experiment demonstrates controllable construction rather than autonomous selection.
-
-Programmable robot swarms have shown that local sensing and communication can produce prescribed shapes at large agent number \cite{Rubenstein2014programmableselfas}. Their main contribution is scalability under limited local information. The same experiments also reveal congestion and traffic jams. Thus, the route to the target matters as much as the final shape. Assembly time, positional error, flow through bottlenecks, and failure recovery are necessary observables when the claim concerns distributed self-organization.
-
-Modular systems make connectivity explicit. Magnetic cubes can be assembled into chains and moved under visual feedback and field control \cite{Rogowski2026coordinatedselfass}. Entangled soft robots can form collective bodies whose force and displacement differ from those of isolated units \cite{Kaeser2025individualandcolle}. These systems demonstrate that assembly can create a new mechanical object. Yet, externally planned attachment is closer to automated fabrication than to spontaneous self-assembly. Its active-matter relevance lies in the relation between local actuation, connectivity, and emergent material response.
-
-A recent line of work joins assembly with active structure. Magnetic spinners form rotating networks whose structure is quantified through pair correlations, number variance, and structure factors \cite{Wang2025hyperuniformnetwork}. Active elements connected into chains can learn or execute shape changes and thereby become multistable or mobile structures \cite{Du2026metamaterialsthatl}. These experiments cross the boundary between particles and materials. They are especially useful because the assembled state changes the system's mechanical degrees of freedom.
-
-\subsubsection{Where the evidence is weak}
-
-The evidence is broad but uneven. Of the 256 studies, 71 report quantitative agreement, 107 qualitative agreement, and 67 no agreement. Agreement is unresolved or absent from the extracted field in the remainder. Agent-based simulation is compared in 128 studies, while 73 report no theoretical comparison. Only 89 state a number of independent runs.
-
-Finite-size and boundary treatment raises some concerns in 235 studies. This is not surprising. Assembly is commonly observed in a bounded arena or finite field of view. Yet, it limits claims about state selection. A compact group at the centre of an arena and a group trapped by a wall are different outcomes. Likewise, a target shape stabilized by an arena boundary cannot establish that the same geometry is stable in open space.
-
-The label also risks conflating aggregation with assembly. An aggregate may be transient, internally disordered, and mechanically incoherent. A shape may be defined only by a controller's target coordinates. A material assembly may require persistent bonds and a load-bearing response. Future reports should state which of these meanings is intended.
-
-Three measurements would strengthen the field. First, studies should report a structural observable beyond occupancy, e.g. bond order, connectivity, shape error, or a correlation function. Second, the formation pathway should be measured, including time, jams, mergers, and reversibility. Third, the state should be perturbed after formation. A structure that reforms after disruption supports self-organization more strongly than one produced once from a favourable initial condition.
-
-The most transferable conclusion is therefore conditional. Local mechanical, magnetic, hydrodynamic, and programmed interactions can all generate reliable organization. What transfers is the design principle of local interaction plus measurable state selection. The particular assembled state does not transfer without calibration of the interaction and boundary conditions.
-
-\subsection{Collective transport and locomotion}
-
-\subsubsection{Transport is an outcome, not one mechanism}
-
-Transport or locomotion appears in 215 studies. It spans robotic micro- and nano-agents in 71 studies, wheeled or legged robots in 49, vibration-driven robots in 29, modular robots in 19, smarticles in nine, feedback-controlled colloids in five, and active solids in five. The category therefore includes cargo transport, collective migration, motion of an assembled body, obstacle traversal, rheotaxis, and locomotion generated by internal deformation.
-
-These outcomes should be separated from simple motion. Every active agent moves or expends energy, but collective transport requires a group-level displacement, a transported object, or a collective body whose motion cannot be reduced to an isolated agent. The relevant comparison is often not moving versus stationary. It is whether interaction improves speed, persistence, load, accuracy, or robustness.
-
-Transport overlaps with self-assembly in 134 studies. This is the largest pairwise overlap in the taxonomy. Assembly can precede motion, as in a magnetic chain or entangled body. Alternatively, transient collisions can move a payload without stable assembly. The distinction determines which variables matter. A persistent body requires connectivity and internal phase. A collision-driven carrier requires density, contact geometry, and persistence.
-
-\subsubsection{Mechanical transport without explicit coordination}
-
-Some of the clearest evidence comes from systems with no sensing or communication. Vibration-driven bristle bots can collectively move a payload through steric contact and environmental coupling \cite{Arbel2025amechanicalroutef}. The experiment relates payload speed to persistence, density, and local contact geometry. This design supports a mechanical explanation because the candidate information channels are absent.
-
-Smarticle ensembles offer a complementary mechanism. Internal shape changes agitate a confined group, while selective inactivation biases fluctuations and produces drift \cite{Savoie2019arobotmadeofrobo}. The collective carrier emerges from a group whose members do not individually possess the observed locomotion mode. Repeated runs and measures of displacement, granular temperature, and inequality of motion support the claim that controlled asymmetry converts fluctuations into transport.
-
-Morphology can also transform contact into navigation. Exoskeleton geometry changes collision response, wall residence, persistence, and phototactic transport in vibration-driven robots \cite{Zion2023morphologicalcomput}. Here, the body performs part of the computation. The controller need not reconstruct the complete environment if shape and contact already bias the motion.
-
-These experiments identify a robust principle. Collective transport can be generated by symmetry breaking in mechanical interactions. The broken symmetry may come from agent shape, selective activity, payload geometry, or confinement. Communication is not required. Yet, the resulting transport remains sensitive to surface friction and boundaries.
-
-\subsubsection{Transport under fields and feedback}
-
-Small-scale systems use a different route. Magnetic, acoustic, optical, and hydrodynamic forcing can assemble and move groups through flow or confinement. Acousto-magnetic microswarms link assembly, rotation, and upstream transport to field and flow parameters \cite{Ahmed2021bioinspiredacousto}. Magnetic helical nanobots can be selected and steered through intermittent randomization and external feedback \cite{Goyal2025externallycontrolle}. Dynamic optical or electric landscapes can assemble microscopic particles, disassemble them, and guide the resulting group \cite{Wang2026reconfigurableassem}.
-
-These systems show that transport remains possible when individual actuation is highly underdetermined. Feedback converts a shared field into selective motion. However, the controller, field, and fluid form part of the active system. A trajectory produced by complete external state estimation is not equivalent to autonomous collective navigation. The correct claim concerns controllability under shared actuation.
-
-Modular robots add connectivity. Particle robots can translate through phase differences among expanding and contracting units \cite{Li2019particleroboticsba}. Magnetic modules can assemble and then move as a chain \cite{Rogowski2026coordinatedselfass}. Soft entangled robots can pull and displace as a collective body \cite{Kaeser2025individualandcolle}. In these systems, transport is a property of the assembled graph.
-
-Active solids extend the same idea to distributed deformation. Limit-cycle motion in a lattice can turn internal oscillation into translation or rotation \cite{Brandenbourger2021limitcyclesturnac}. The scientific gain is the ability to relate motion to modes and constitutive response, rather than treating locomotion as an isolated performance score.
-
-\subsubsection{Navigation, noise, and obstruction}
-
-Transport experiments often become most informative when motion fails. Congestion, narrow passages, obstacles, and competing goals expose the collective mechanism. Perception-mediated interactions can change alignment and evacuation time in dense wheeled swarms \cite{Xiao2023perceptionofmotion}. Injected noise can reduce persistent jams and improve goal attainment over an intermediate range \cite{Liu2026noiseenabledgoala}. These results do not imply that noise universally helps transport. They show that a perturbation can move a finite system out of mechanically trapped configurations.
-
-Field-mediated wheeled robots on deformable surfaces provide another example. The shared surface creates cohesion and precessing collective trajectories without direct communication \cite{Li2022fieldmediatedlocom}. The transported quantity is then the collective itself, and the environment carries the interaction. Such systems demonstrate that the arena can be an active coupling medium.
-
-\subsubsection{Strength of evidence}
-
-Seventy transport studies report quantitative agreement, 92 qualitative agreement, and 45 none. Agent-based simulation appears in 113, kinetic or hydrodynamic theory in 41, and no theory in 48. Independent run counts are reported in 73 studies. Public code is named in 32 and data in 33.
-
-The principal weakness is ambiguity about the baseline. A group moving farther than zero has not necessarily achieved collective enhancement. Suitable baselines include an isolated agent, noninteracting agents at the same density, randomized phase, a passive payload, or a controller without the proposed interaction. Without such a comparison, the observed displacement may reflect ordinary propulsion.
-
-A second weakness is scale. Some studies concern a few modules or microrobots. Others concern many particles or a payload surrounded by dozens of agents. These regimes should not be combined through a single efficiency measure. The relevant dimensionless quantities may involve payload size, packing fraction, persistence length, field penetration, or bond topology.
-
-What works is again more specific than ``swarming improves transport.'' Contact-mediated groups transport loads when geometry creates a directional bias. Shared fields transport microscopic groups when forcing, hydrodynamics, and feedback are calibrated together. Connected active bodies move when phase or mode structure breaks reciprocity. Future experiments should compare these mechanisms through common outcomes such as displacement per input energy, load per active element, perturbation recovery, and performance across boundaries.
+We distinguish three levels of evidence. A direct experimental
+measurement establishes a collective response under the reported
+conditions. A quantitative comparison can connect that response
+to a proposed model. Independent reproduction across platforms
+provides additional support for a more general physical
+interpretation. These levels are related but not interchangeable.
+In particular, multiple studies reporting similar images or
+trajectories do not necessarily establish the same collective
+phase.
 
 \subsection{Flocking and polar order}
+\label{sec:phenomena-flocking}
 
-\subsubsection{The state and its mechanism}
+Flocking is among the most recognizable signatures of collective
+active matter. Individual agents move in different directions,
+yet their interactions may produce a common orientation or
+direction of travel. At the microscopic level, a common
+description involves local alignment and fluctuations.
+At the collective level, we seek a nonzero polarization
+and correlations that persist over relevant spatial
+and temporal scales.
 
-Flocking or polar order appears in 153 studies. Wheeled or legged robots dominate with 89, followed by 55 systems in the residual platform class. Only four feedback-controlled colloid studies, four vibration-driven studies, and one smarticle study carry the label. The evidence is therefore concentrated in programmable mobile robots.
+A useful starting point is the polarization
+\begin{equation}
+P(t)=\left|
+\frac{1}{N}\sum_{i=1}^{N}\hat{\mathbf v}_i(t)
+\right|,
+\label{eq:phenomena-polarization}
+\end{equation}
+where $\hat{\mathbf v}_i$ denotes the unit velocity
+direction of agent $i$. This definition separates
+directional coherence from absolute speed. For
+agents with well-defined headings, an analogous
+orientational order parameter may be used.
 
-Polar order is a directional correlation. It should be distinguished from aggregation, formation keeping, and common motion imposed by a leader or central controller. A compact group can lack polar order. Several robots can point in the same direction because they all receive the same command. Conversely, a polar group can be spatially extended. The necessary observable is an order parameter or an equivalent distribution of headings and velocities.
+Note that a nonzero polarization in a finite
+system is not sufficient evidence for a
+thermodynamic ordered phase. A small group can
+remain aligned through direct control, geometric
+constraints, or transient correlations. Claims
+about collective ordering therefore require
+attention to system size, fluctuations, and
+the dependence on interaction parameters
+\todocite{Vicsek et al., original flocking
+model and collective ordering transition}
+\todocite{Toner and Tu, hydrodynamic theory
+of polar flocks}.
 
-Programmed local rules are coded in 87 flocking studies, communication in 81, and optical or other sensing in 74. On-board rules appear in 115. This composition explains why flocking became a central robotic phenomenon. The interaction law can be represented as a local sensing or communication rule and deployed repeatedly.
+Flocking or polar order is recorded in 155
+studies. Wheeled or legged swarm robots account
+for 93, while 52 belong to the heterogeneous
+``other'' category. Vibration-driven robots
+contribute five studies, feedback-controlled
+colloids four, and smarticles or granular
+robots one. Thus, approximately nine tenths
+of the classified flocking literature lies
+in conventional mobile swarms and residual
+robotic implementations.
 
-\subsubsection{What the experiments establish}
+This concentration is important for interpreting
+the evidence. Flocking has been realized through
+many different robot designs, but much of the
+literature uses programmed sensing, communication,
+or alignment. A repeated observation on such
+systems supports the feasibility of physical
+flocking implementations. It does not necessarily
+establish that polar order arises through the
+same microscopic mechanism as in mechanically
+interacting active particles.
 
-Hardware experiments have compared explicit communication with implicit coordination through local motion and contact \cite{Ferrante2012explicitandimplici}. Measures of order, cohesion, accuracy, and distance travelled show that information transfer changes more than the final formation. Such designs are valuable because they compare interaction channels within one platform.
+\paragraph*{Programmed alignment and local information.}
 
-Feedback-controlled colloids provide a different test. Video feedback can impose local steering rules on physical particles and produce polar or rotating collective states \cite{Buerle2020formationofstable}. The same apparatus can vary the rule while retaining particle chemistry and geometry. This supports causal tests of alignment. However, it also means that the effective interaction is partly synthetic.
+Early robotic flocking experiments established
+that relatively simple interaction rules could
+produce coordinated movement in physical
+collectives
+\cite{Hayes2003selforganizedflock,
+Kelly2004ascalableonboard,
+Regmi2005experimentalimpleme,
+Sugawara2006collectivemotionan,
+Turgut2008modelingphasetrans,
+Turgut2008selforganizedflocka,
+Navarro2008anapproachtoflock,
+Turgut2008selforganizedflockb,
+Wang2008alocalsensorbased,
+Gu2009leaderfollowerfloc,
+Wang2009leaderfollowerfloc,
+Gke2010theprosandconsof,
+Miki2010asimplerulebased,
+Ercan2011swarmrobotflocking,
+Tarcai2011patternstransition,
+Fine2011flockingdontneed,
+Hauert2011reynoldsflockingin}.
+These systems demonstrate that local rules can
+generate coordination despite real actuator,
+sensor, and environmental constraints.
 
-Visual robotic systems extend this intervention to embodied sensors. Reconstructed visual fields can be linked to polarization, milling, opacity, and collision rate \cite{Castro2025visualcollectivebe}. The experiment is strongest when latency and field reconstruction are included in the physical model. A visual rule implemented through delayed external reconstruction differs from instantaneous neighbour alignment.
+The strongest physical interpretation is obtained
+when the experiment measures more than a successful
+group trajectory. Polarization, orientation
+distributions, and velocity correlations can
+establish the degree of collective alignment.
+Their dependence on local density, interaction
+range, or noise can then distinguish different
+mechanisms.
 
-Three-dimensional flight adds another requirement. Decentralized aerial systems can maintain order and formation through communicated relative information \cite{Albani2022distributedthreedi}. Predictive control can maintain velocity and spacing while avoiding obstacles \cite{Soria2021predictivecontrolo}. These systems demonstrate controlled collective flight. Yet, they are not direct evidence that polar order emerges spontaneously. The controller is designed to stabilize it.
+Studies with experimentally reported flocking
+observables include investigations of alignment,
+collective trajectories, and order-related
+statistics
+\cite{Tarcai2011patternstransition,
+Virgh2014flockingalgorithmf,
+Vsrhelyi2014outdoorflockingand,
+Zoss2018distributedsystemo,
+Vsrhelyi2018optimizedflockingo,
+Berlinger2021selforganizedevasi,
+Barone2024experimentalandnum,
+Zhou2024anticipationpromote,
+Castro2025visualcollectivebe,
+Paramanick2025spontaneousemergenc}.
+These measurements provide a more direct connection
+to active-matter models than endpoint performance
+alone.
 
-Contact-dominated systems test a more physical route. Geometry can alter collision outcomes and thereby change cohesion, clustering, and polar order in vibration-driven robots \cite{Casiulis2025ageometricconditio}. Magnetic rollers can combine flocking with phase separation without on-board sensing \cite{Luo2025flockingphasesepar}. These experiments are closer to minimal active-particle dynamics because alignment follows from forces and collisions rather than explicit heading exchange.
+Yet, even a measured order parameter must be
+interpreted with respect to the implemented
+interaction. Many robotic systems deliberately
+compute a desired direction from neighboring
+agents. Collective alignment then follows
+partly from the controller's design.
+The nontrivial experiment concerns whether
+the realized collective response agrees
+with predictions that are not explicitly
+imposed by that controller.
 
-\subsubsection{Why the evidence remains mostly qualitative}
+Examples include the stability of an ordered
+state under disturbances, the onset of
+collective coherence, spatial fluctuations,
+and the response to interaction asymmetry.
+These properties can distinguish a merely
+functional flocking algorithm from an
+experimental model of active-matter physics.
 
-Only 19 of 153 flocking studies report quantitative agreement between experiment and theory. Eighty-two report qualitative agreement, 46 none, and six lack a resolved agreement category. Agent-based simulation is used in 88, while 51 report no theory. Vicsek-type models are compared in 15.
+More recent systems extend the range of
+information and control mechanisms.
+The included literature covers predictive
+coordination, visual interaction,
+learning-based approaches, and
+decentralized collective response
+\cite{Schilling2019learningvisionbase,
+Brandsttter2022multiagentspatial,
+Lee2022distributedcohesive,
+Gao2023robustdistributedc,
+Baumann2024hybridflockforma,
+Karagzel2024selforganizedflock,
+Horyna2024fastswarmingofuav,
+Zheng2024emergenceofcollect,
+Liu2024optimizationbasedf,
+Wu2024adversarialimitatio,
+Li2025llmflockdecentral,
+Tan2025goflockgoalorien,
+Zhang2025learningefficientf,
+Zheng2025shapingcollectiveb,
+Choi2026communicationfreec,
+Jond2026positionbasedflock}.
+Their diversity reveals that common collective
+patterns can be obtained using substantially
+different information-processing architectures.
 
-This gap has several causes. Hardware populations are often small. Boundaries can align or turn the group. Communication delay changes the effective interaction. Collision avoidance may dominate the nominal flocking rule. Finally, a controller tuned to create high order can agree with a simulation that uses the same code without testing a broader theory.
+This is an opportunity for controlled comparison.
+For example, visual perception, direct
+communication, and local mechanical interaction
+need not generate identical effective alignment
+laws. Their sensing range, delay, noise,
+and directionality may differ. Comparing
+the resulting fluctuations and correlations
+would help determine which features of
+flocking depend on microscopic implementation.
 
-A persuasive flocking experiment requires more than a high mean order parameter. It should measure fluctuations, susceptibility, correlation length, finite-size dependence, and response to perturbation. It should also show the disordered regime. A transition cannot be inferred from the ordered side alone.
+\paragraph*{Order, response, and the meaning of a transition.}
 
-Boundary treatment raises some concerns in 141 flocking studies. Replication raises some concerns in 108 and high risk in seven. Only 55 state an independent run count. These limitations are particularly important near transitions, where finite populations can switch between states.
+A genuine collective ordering transition
+requires a distinction between ordered
+and disordered regimes. In an idealized
+alignment model, this may be investigated
+by varying noise, density, or interaction
+strength. For physical robots, these
+parameters are often coupled.
 
-The most secure conclusion is that several interaction channels can sustain polar motion in robotic collectives. Explicit communication, visual sensing, mechanical collision, magnetic coupling, and external feedback all work under suitable conditions. The evidence is weaker on universality. Robotic studies rarely establish that the same scaling or transition law survives changes of population, arena, delay, and embodiment.
+Changing communication radius may alter
+both the number of neighbors and the
+frequency of control updates. Increasing
+robot speed may change collision frequency,
+turning accuracy, and the influence
+of boundaries. Consequently, a measured
+change in polarization cannot always
+be attributed to one theoretical parameter.
 
-Future experiments should use the programmability of robots to perform controlled model discrimination. One can implement two interaction laws that generate similar mean order but predict different fluctuations or responses. The experiment should then measure the observable on which they disagree. This would move robotic flocking from reproducing a canonical pattern to testing the physics of collective order.
+Experiments involving collective ordering,
+gradient response, and spatial organization
+provide several approaches to this problem
+\cite{Ferrante2013aselfadaptivecomm,
+Karagzel2022collectivegradient,
+Lee2022distributeddeformab,
+PliegoJimnez2023flockingandformati,
+Chen2024synchronousandfull,
+Zheng2024bodyorientationcha,
+Verdoucq2025flockingphasetrans,
+Zhou2025activesearchpromot,
+PitaRomero2026flockingbehaviorfo,
+Rezeck2026decentralizedemerge,
+Yan2026flockingbehaviorfo}.
+However, the extraction fields do not establish
+that every such study measured a phase
+transition or performed finite-size scaling.
+The strength of each physical conclusion
+must be determined from its specific
+observables and comparisons.
+
+The distinction between polar order and
+coordinated formation is particularly
+important. Robots may maintain a prescribed
+formation while moving in a common direction.
+This produces collective coherence, but
+the formation is maintained by feedback
+designed for that purpose.
+
+Such experiments are informative about
+the physical implementation of
+distributed interactions. They are
+less decisive as tests of spontaneous
+symmetry breaking unless the collective
+state emerges without directly prescribed
+global organization.
+
+Studies involving leader--follower
+coordination, formation response,
+and distributed flocking illustrate
+the range of this distinction
+\cite{Lei2006asequencableflocki,
+La2011decentralizedflocki,
+Min2011designandanalysis,
+Wang2012flockingbaseddistr,
+Jia2014experimentalimpleme,
+Mao2014flockingofmultiro,
+Lee2014distributedcohesive,
+Savkin2015distributedformatio,
+Jia2015leaderfollowerfloc,
+Sakai2016flockingformultiro,
+Shirazi2017astrategyforself,
+Khaledyan2019flockingandtarget,
+Zheng2020experimentalimpleme,
+Ibuki2020optimizationbasedd,
+Zheng2021optimizingparameter,
+Zhang2022collectivefissionb,
+MendozaRobles2026distributedformatio}.
+The broader literature also examines how
+adaptive control, environmental information,
+and collective objectives influence
+group motion
+\cite{Fine2012examiningtheinform,
+elikkanat2010steeringselforgani,
+Toshiyuki2016adaptiveroleassign,
+Yasuda2018generatingandanaly,
+OrdazRivas2018collectivetasksfor,
+Horyna2022decentralizedswarms,
+nr2022mindthegappredic,
+nr2024predictivesearchmo,
+CetinaDenis2025flockingcontrolfor,
+Bahaidarah2024swarmflockingusing,
+Soria2021predictivecontrolo,
+Huang2024atiassembletopolo,
+Petrek2020bioinspiredcompact,
+Novk2021fastcollectiveevas,
+Ahmad2022pacnavacollective,
+Balzs2020adaptiveleadership,
+Liu2020computationalandro}.
+These studies should be interpreted through
+their actual collective observables rather
+than through the common term ``flocking''
+alone.
+
+\paragraph*{Nonreciprocity and physical realization.}
+
+Flocking is especially interesting when
+the effective interaction is not reciprocal.
+One agent may respond to another more
+strongly than the reverse, or its response
+may depend on relative orientation and
+perception. Such asymmetry can change
+the stability and dynamics of collective
+states.
+
+The included literature contains experiments
+addressing nonreciprocal or asymmetric
+collective responses
+\cite{Fruchart2022nonreciprocalphase,
+Buerle2020formationofstable,
+Chen2022collectiveresponse,
+Lffler2023collectiveforaging,
+Jianchao2024emergentchiralitya,
+Luo2025flockingphasesepar,
+Casiulis2025ageometricconditio}.
+These studies are particularly relevant
+because interaction asymmetry provides
+a possible distinction from simplified
+reciprocal alignment models.
+
+However, a nonreciprocal controller
+does not automatically establish
+a new universal collective state.
+The experimentally relevant quantities
+include response asymmetry,
+polarization, correlations, and
+the stability of collective motion.
+A quantitative description must
+connect these measurements to
+the implemented interaction.
+
+Mechanically driven systems offer
+a complementary perspective.
+Experiments on vibration-driven
+collectives investigate motion
+and ordering arising through
+physical coupling rather than
+explicit communication
+\cite{Welch2019activereorientation,
+Deblais2018boundariescontrolc,
+Escobar2025effectofparticlec,
+Boudet2021fromcollectionsof}.
+Although the number of such
+studies is small relative to
+programmed robot swarms,
+they broaden the range of
+physical mechanisms associated
+with flocking.
+
+Likewise, controlled colloidal
+systems offer access to
+particle-scale orientation
+and collective order
+\cite{Chen2024synchronousandfull,
+Buerle2020formationofstable,
+Lffler2023collectiveforaging,
+Chen2022collectiveresponse}.
+Their importance lies in
+providing collective observables
+under different driving
+and interaction conditions,
+rather than simply increasing
+the number of reported
+flocking demonstrations.
+
+Additional included experiments
+investigate group motion and
+coordination in aerial,
+distributed, and other
+robotic implementations
+\cite{Zhou2021synchronizedswimmin,
+Beaver2022aconstraintdriven,
+Amorim2024aminimalistic3dse,
+Rezeck2021flockingsegregative,
+Albani2022distributedthreedi,
+Fernando2021onlineflockingcont,
+Brandsttter2023multiagentspatial,
+Brandstatter2024flockformationcont,
+Yu2024grfbasedpredictive,
+Amorim2021selforganizeduavf,
+Cioarg2010evaluationoffishs,
+Baek2011flightcontrolfort,
+Klotzbucher2011reusablehybridforc,
+nr2023onboardpredictivef,
+Iacone2024decentralizedaccele,
+Wang2022optiswarmopticals,
+Abpeikar2025adualtaskdeeprei,
+Zhang2026noiseresilientimpl,
+Wang2026t2rswarmtransferr}.
+These examples reinforce the breadth
+of robotic alignment experiments,
+but they do not remove the need
+for platform-independent tests.
+
+\paragraph*{Strength and limitations of the evidence.}
+
+The 155 studies classified under flocking
+or polar order contain 18 quantitative
+theory comparisons, 87 qualitative
+comparisons, and 50 without a recorded
+comparison. Thus, fewer than one in
+eight provide an extracted quantitative
+comparison.
+
+The risk-of-bias assessment gives a
+similarly cautious picture.
+For D6, 13 studies are rated low risk,
+35 have some concerns, and 107
+are rated high risk. Consequently,
+the prevalence of experimental
+flocking demonstrations greatly
+exceeds the number of studies
+providing strong quantitative
+tests of theoretical predictions.
+
+Replication evidence is more
+substantial but still incomplete.
+For D1, 39 studies are rated low
+risk, 110 have some concerns,
+and six are high risk.
+Independent-run counts are
+reported in 67 studies.
+Explicit code availability
+is recorded in 21,
+and data availability in nine.
+
+All 155 studies carrying the
+flocking label were assessed
+on a full-text basis in the
+supplied extraction table.
+This avoids the additional
+uncertainty of abstract-only
+assessment for this
+particular phenomenon family.
+Nevertheless, missing
+replication and validation
+information remains important.
+
+The breadth of experimental
+implementations provides
+moderate support for the
+feasibility and robustness
+of coordinated collective
+motion in robotic systems.
+The evidence for a common
+physical ordering mechanism
+is more limited. Most
+experiments use programmed
+or informational interactions,
+and comparatively few
+report low-risk quantitative
+theory comparisons.
+
+We therefore distinguish
+the established experimental
+capability to realize flocks
+from the stronger physical
+claim that a particular
+universality class has
+been demonstrated.
+
+The most informative future
+experiments will measure
+polarization, fluctuations,
+and correlation functions
+across controlled parameter
+ranges and several system
+sizes. Comparisons between
+programmed, mechanical,
+and feedback-mediated
+alignment would be
+especially valuable.
+
+Such studies could establish
+which aspects of polar
+collective motion depend
+on interaction details
+and which survive changes
+in robotic implementation.
+This would turn the
+experimental diversity
+of flocking systems into
+direct evidence about
+active-matter theory.
 
 \subsection{Clustering and motility-induced phase separation}
-
-\subsubsection{A necessary terminological separation}
-
-Clustering or motility-induced phase separation is coded in 109 studies. The combined label does not mean that all 109 demonstrate motility-induced phase separation. Clusters may arise from explicit attraction, magnetic binding, environmental traps, hydrodynamic flow, programmed aggregation, or reduced motility at high density. Only the last mechanism is closely related to the canonical MIPS picture.
-
-Wheeled or legged robots contribute 52 studies, vibration-driven robots and micro- or nano-agents 21 each, feedback-controlled colloids four, and smarticles and modular robots two each. Steric contact appears in 76, environmental mediation in 44, and optical sensing in 38. Thus, the evidence spans both programmed aggregation and physical crowding.
-
-The first task is to ask whether the interaction contains attraction. If it does, a dense phase is unsurprising and should not be described as MIPS without an additional argument. The second task is to determine whether motility decreases with local density or collision rate. The third is to distinguish a steady two-phase state from transient coarsening or wall accumulation.
-
-\subsubsection{Mechanisms that are supported}
-
-Aggregation through local sensing and shelter occupancy is supported by controlled robot experiments and quantitative agent-based comparison \cite{Garnier2005collectivedecision}. This mechanism is explicit. Robots slow or remain in favourable regions and thereby build aggregates. It is collective, but it is not attraction-free phase separation.
-
-Contact-driven rotating systems provide stronger access to phase-separation physics. Dense vibration-driven rotors display domains, edge currents, diffusion, and changing structural scales \cite{Scholz2018rotatingrobotsmove}. Measurements of domain growth, pair correlations, and motion permit comparison with particle and continuum descriptions. The result connects microscopic chirality and steric interaction to macroscopic segregation.
-
-Cohesive active colloids allow the role of attraction to be varied directly. Flow through a constriction, burst sizes, and clogging statistics can then be related to cohesion and active motion \cite{Knippenberg2022roleofcohesionin}. Such studies are useful because they do not hide attraction under the label of phase separation.
-
-Programmable persistence provides another clean intervention. Light and magnetic steering can switch the trajectory statistics of microscopic swimmers and alter cluster-size distributions \cite{Raghavendra2026programmablepersist}. Here, persistence is a controlled microscopic variable. The remaining challenge is to separate the effect of persistence from hydrodynamic and field-mediated interactions.
-
-Mechanical geometry can also create clustering. Active star-like structures built from vibration-driven robots collapse, aggregate, and capture passive objects, with structural observables compared with active-particle simulations \cite{Musacchio2026activeembracemente}. Magnetic interaction can instead fluidize a boundary-associated cluster \cite{Musacchio2026fluidizationinduced}. Together, these experiments show that clustering and fluidization are tunable outcomes of competing contact and cohesive effects.
-
-Environmental mediation produces yet another route. Wheeled robots on a deformable surface can cohere because each robot changes the substrate experienced by the others \cite{Li2022fieldmediatedlocom}. A flexible boundary can feed back on a collection of vibration-driven rods and stabilize or destabilize clustered motion \cite{Boudet2021fromcollectionsof}. The environment is therefore not a neutral container.
-
-\subsubsection{Evidence strength}
-
-Thirty-nine of the 109 clustering studies report quantitative agreement, 43 qualitative agreement, and 21 none. Seventy-one compare with agent-based simulations. Kinetic or hydrodynamic theory appears in 28, active-Brownian-particle models in 15, and no theory in 24. Independent run counts are reported in 50 studies.
-
-Compared with flocking, clustering has a larger proportion of quantitative tests. The usual observables are also closer to those used in statistical physics, including cluster-size distributions, radial distribution functions, local density, structure factors, and coarsening scales. This makes cross-platform comparison possible in principle.
-
-Yet, finite-size and boundary treatment raises some concerns in 98 studies. The issue is fundamental. A cluster whose radius is comparable with the arena cannot establish bulk coexistence. Nor can an accumulation layer at the wall be treated as a dense bulk phase without spatial separation of boundary and interior.
-
-The term MIPS should therefore be reserved for evidence that addresses mechanism. Useful signatures include a density-dependent reduction of motility, coexistence between dense and dilute regions, coarsening, structural characterization of both regions, and an appropriate control without attraction. A bimodal density distribution alone is insufficient when fields or boundaries impose the pattern.
-
-The evidence supports a broad but careful statement. Robotic active systems reproduce many routes to clustering, and their controls can distinguish several of them. The claim that robots realize MIPS is well supported only in the subset that excludes explicit attraction and measures the density--motility feedback. Future studies should make this subset identifiable in their title, observables, and controls.
-
-\subsection{Chirality and collective rotation}
-
-\subsubsection{Sources of handedness}
-
-Chirality or rotation appears in 93 studies. Seventy-seven were published from 2020 onward. Robotic micro- and nano-agents contribute 26, vibration-driven robots 23, wheeled or legged robots 21, and feedback-controlled colloids nine. The category therefore represents a rapidly growing bridge between microscopic active particles and programmable robot collectives.
-
-A rotating state can arise in at least four ways. Individual agents may have an intrinsic turning bias. Pair collisions may create effective torques. A boundary may convert propulsion into circulation. Finally, an external controller or field may prescribe rotation. These mechanisms can produce similar trajectories but different perturbation responses.
-
-Steric contact appears in 71 chirality studies, environmental mediation in 39, hydrodynamics in 29, and magnetic interaction in 28. No-control or passive rules appear in 24, on-board rules in 29, and external feedback in 26. Hence, the category contains both spontaneous and imposed handedness.
-
-\subsubsection{What works}
-
-Vibration-driven rotors provide direct evidence that microscopic handedness can reorganize a dense population. Their phase separation, angular motion, domain structure, and edge currents have been quantified and compared with theory \cite{Scholz2018rotatingrobotsmove}. The experiment links an agent-level rotational bias to several collective observables.
-
-Magnetic and hydrodynamic systems show how rotation couples to assembly and transport. Rotating magnetic particles can form ordered superstructures whose rotation rate and spacing are measurable \cite{Yan2014colloidalsuperstruc}. Acousto-magnetic microswarms use rotation as part of their assembly and upstream motion \cite{Ahmed2021bioinspiredacousto}. Magnetically driven active chains can cross between solid-like and liquid-like collective states while retaining rotational dynamics \cite{Yigit2020cohesiveselforgani}.
-
-Feedback-controlled colloids offer a controlled route to circulating states. The same physical particles can be steered into swirls, polar states, or rotating swarms by changing the feedback law \cite{Buerle2020formationofstable,Chen2024persistentandrespo}. This makes the apparatus suitable for testing stability and switching. Yet, the existence of rotation alone does not establish spontaneous chirality because the feedback may encode the handedness.
-
-Visual wheeled robots demonstrate collective rotation through another interaction channel. Polarization, milling, opacity, and collision rate can be measured under reconstructed visual coupling \cite{Castro2025visualcollectivebe}. Leader reversal and noise can change the direction or persistence of collective circulation \cite{Dizenhaus2026anonymousleadership}. These experiments identify information and delay as physical parameters of a chiral state.
-
-More complex states combine spatial and phase order. Colloidal swarmalator systems relate particle phase, rotation, displacement, and cluster formation through hydrodynamic interaction and feedback \cite{Heuthe2025tunablecolloidalsw}. Robotic swarmalators likewise couple position and internal phase \cite{Beattie2025realizingemergentc}. Such systems show that collective rotation can be an order parameter coupled to another dynamical degree of freedom rather than an isolated phenomenon.
-
-\subsubsection{Evidence and remaining tests}
-
-Chirality contains 41 quantitative comparisons and 40 qualitative ones. Twelve report no agreement. Agent-based simulation appears in 55 studies, kinetic or hydrodynamic theory in 23, and active-Brownian-particle models in eight. Only 26 studies report independent run counts.
-
-The balance of quantitative and qualitative comparison is stronger than for flocking. Angular velocity, rotation order, circulation, radial density, and direction-switching time are readily measured. Chirality also produces clear symmetry-based hypotheses.
-
-Still, spontaneous symmetry breaking is often not demonstrated. If every agent has the same built-in handedness, collective rotation reflects amplification rather than spontaneous selection. If an external field rotates, the driving already defines a direction. A stronger test begins from a reflection-symmetric system and measures the distribution and switching of clockwise and counter-clockwise states.
-
-Boundary effects require equal care. Circular arenas naturally support milling. Changing boundary curvature or removing the wall is therefore a mechanistic test, not a secondary robustness check. Bulk chiral order, edge current, and wall-following should be reported separately.
-
-The most convincing studies perturb handedness, delay, field rotation, or geometry and observe a quantitative response. Future work should additionally report chirality reversals, state lifetimes, finite-size dependence, and the energetic cost of maintaining circulation. These measurements would separate an imposed rotor from an emergent chiral phase.
-
-\subsection{Swarming, milling, and vortex states}
-
-\subsubsection{A mesoscopic category}
-
-Swarming or vortex behaviour appears in 81 studies. Unlike flocking, the category permits circulating or spatially inhomogeneous motion. Unlike clustering, it requires a dynamical collective pattern rather than density alone. Thirty studies use micro- or nano-agents, 26 wheeled or legged robots, 14 platforms in the residual class, seven feedback-controlled colloids, and four vibration-driven systems.
-
-External feedback is the most common control architecture, with 35 studies. On-board rules appear in 24. Magnetic interaction appears in 29 and hydrodynamic interaction in 25. The category is therefore strongly associated with fields, fluids, and closed-loop steering.
-
-A vortex should be identified through velocity or angular-momentum structure. A compact rotating image is insufficient. Relevant observables include circulation, rotational order, vorticity, radial density, angular speed, persistence, and switching between vortex and polar states.
-
-\subsubsection{Supported mechanisms}
-
-Feedback-controlled colloids provide some of the clearest state transitions. Stable swirls and flocking states can be generated and characterized by rotational and orientational order parameters \cite{Buerle2020formationofstable}. Density-dependent switching between polar and rotating states can then be compared with Vicsek-type and agent-based models \cite{Chen2024synchronousandfull}. Time-dependent feedback changes persistence and response within a rotating swarm \cite{Chen2024persistentandrespo}.
-
-Visual robot collectives reproduce milling through a distinct embodiment \cite{Castro2025visualcollectivebe}. Agreement between the observed order parameters and an agent-based model supports the implemented interaction. The transfer from colloids to wheeled robots is useful because the dominant uncontrolled interactions differ. Similar states across both platforms suggest that the feedback rule can be more important than microscopic propulsion.
-
-Aquatic robots add three-dimensional sensing and fluid-mediated disturbance. Small groups of underwater robots exhibit aggregation, milling, synchronization, and search under local optical cues \cite{Berlinger2021implicitcoordinatio}. These experiments show that vortex-like organization can coexist with a task. Yet, their small populations make continuum interpretations premature.
-
-Flexible confinement can itself create persistent rotation. Vibration-driven rods inside deformable rings couple their motion to the boundary and display collective translation or circulation \cite{Boudet2021fromcollectionsof}. Magnetic microparticle swarms can be reduced to evolving ellipsoidal or vortex-like shapes and compared quantitatively with a low-dimensional model \cite{Boudehane2026physicsbasedreduce}. These studies treat the collective state as a dynamical object rather than a set of individual trajectories.
-
-\subsubsection{Limits of the category}
-
-Twenty-one studies report quantitative agreement, 32 qualitative agreement, and 21 none. Seven lack a resolved agreement field. Agent-based simulation appears in 47, while 25 report no theory. No abstract-only records occur in this category, but 23 rows retain at least one unresolved extraction field.
-
-The central limitation is definitional. ``Swarm'' is often used for any group of robots. Here, the extracted phenomenon should denote a dynamical state. Future reports should state whether they mean disordered swarming, polar motion, milling, a hydrodynamic vortex, or a controller-defined formation.
-
-A second limitation is control dependence. External feedback can create an effective all-to-all interaction even when the programmed rule is local. Field actuation can correlate every agent through a common input. The resulting state remains physically real, but its locality must be stated.
-
-The strongest direction is controlled switching among states. An experiment that moves reversibly between disorder, polar motion, milling, and clustering under one calibrated parameter can discriminate mechanisms. A set of separate demonstrations on different platforms cannot do so. Robotic programmability makes such state-space exploration possible.
-
-\subsection{Synchronization}
-
-\subsubsection{What is synchronizing?}
-
-Synchronization appears in 66 studies. The synchronized variable may be heading, oscillation phase, gait, flashing, internal actuation, or rotation. We therefore reserve the term for locking or coherence of an explicitly defined dynamical variable. Common motion alone is not sufficient.
-
-Wheeled or legged robots contribute 21 studies, residual platforms 15, micro- or nano-agents 12, modular robots seven, vibration-driven robots five, and active solids, controlled colloids, and smarticles one each. Communication appears in 25 studies, programmed rules in 17, environmental mediation in 17, and hydrodynamic coupling in 11. Steric contact leads with 31.
-
-This diversity is scientifically useful. Synchronization can be compared across digital messages, collisions, hydrodynamics, and elastic coupling. Yet, the observable must remain comparable. Phase coherence and heading alignment are related but distinct.
-
-\subsubsection{Mechanical and environmental synchronization}
-
-Undulatory robots demonstrate synchronization through direct collision. Contact force, phase difference, collision rate, and relaxation time can be measured over many repeated interactions \cite{Wei2020densitydependentsy,Zhou2021collectivesynchroni}. The agents need no explicit phase communication. Mechanical contact supplies the coupling.
-
-Catalytic microrobots provide a different physical oscillator. Collective low-frequency oscillations arise through bubble dynamics at an interface, with recurrence, period, and phase-space observables used to characterize the state \cite{Yang2022emergentmicroroboti}. Here, synchronization is tied to the reaction and medium rather than a digital clock.
-
-Elastic active lattices extend phase locking to a constrained material. Vibration-driven active units coupled by springs can condense into collective modes whose frequencies and spectral content are measurable \cite{Baconnier2022selectiveandcollec}. The synchronized variable becomes a material mode.
-
-Hydrodynamically coupled, feedback-controlled colloids combine spatial and phase dynamics \cite{Heuthe2025tunablecolloidalsw}. Their relevance lies in the coupled order parameters. Phase synchronization changes motion and clustering, while spatial organization changes phase coupling. A single scalar coherence measure would miss this feedback.
-
-\subsubsection{Information-mediated synchronization}
-
-Communication can also synchronize internal states or collective direction. In wheeled swarms, a reversing leader can entrain or destabilize collective rotation depending on noise and response \cite{Dizenhaus2026anonymousleadership}. In robotic swarmalator experiments, phase coherence and spatial correlation are controlled and measured together \cite{Beattie2025realizingemergentc}. Underwater robots synchronize visual signals while also aggregating or milling \cite{Berlinger2021implicitcoordinatio}.
-
-These systems permit direct manipulation of network topology and delay. Their limitation is that a shared clock, central computer, or common command can create trivial synchrony. A synchronization claim should therefore report what timing information is shared before the interaction begins.
-
-\subsubsection{Evidence strength}
-
-Eighteen synchronization studies report quantitative agreement, 35 qualitative agreement, and 13 none. Agent-based simulation appears in 39, kinetic or hydrodynamic theory in seven, and no theory in 12. Only 19 studies state independent run counts.
-
-The field would benefit from standard observables. A phase order parameter should be accompanied by frequency distributions, transient locking time, and response to detuning. Mechanical systems should report contact statistics. Communicating systems should report latency and packet loss. Hydrodynamic systems should report separation and confinement.
-
-What works is coupling matched to the oscillator. Contact synchronizes when collisions shift phase. Communication synchronizes when timing information arrives faster than phase decorrelation. Hydrodynamic coupling synchronizes when flow-induced perturbations exceed noise and heterogeneity. Elastic coupling selects collective modes when the active elements inject energy near compatible frequencies.
-
-The next question is robustness to heterogeneity. Agent heterogeneity was rated low risk in 52 synchronization studies, but this commonly reflects nominally identical hardware rather than a deliberate spread of frequencies. Controlled detuning would test whether the synchronized state is a robust collective phase or a consequence of factory-matched components.
-
-\subsection{Boundary accumulation and boundary-mediated states}
-
-\subsubsection{The boundary is often part of the mechanism}
-
-Boundary accumulation appears in 65 studies. Vibration-driven robots contribute 27, wheeled or legged robots 17, and micro- or nano-agents 15. Steric contact appears in 53 and environmental mediation in 38. Twenty-five systems use no control beyond passive rules.
-
-Active particles tend to spend time at boundaries because persistent propulsion continues after contact. Robotic systems add body geometry, controller response, wheel slip, and sensing. Hence, boundary residence is not a nuisance correction. It can reveal the interaction between persistence and embodiment.
-
-At the same time, the extracted category includes broader boundary phenomena, such as edge following, boundary states in active networks, accumulation against obstacles, and flexible-boundary coupling. These should not be reduced to one mechanism.
-
-\subsubsection{Physical accumulation and morphological control}
-
-Vibration-driven systems provide direct access to wall residence and reflection. Morphobots relate collision orientation, persistence, and boundary interaction to collective phototaxis and transport \cite{Zion2023morphologicalcomput}. Designed body geometry can therefore convert a wall collision into useful reorientation.
-
-Linked vibration-driven robots follow walls, pass through slits, and accumulate near obstacles depending on deformation and trajectory \cite{Xi2024emergentintelligenc}. Bristlebots with controlled geometry permit comparison of wall residence with single-agent angular dynamics \cite{Wagner2026geometryinducedtra}. These experiments show that boundary accumulation can be tuned through morphology before any sensing rule is added.
-
-Magnetic interaction can fluidize or reorganize boundary clusters \cite{Musacchio2026fluidizationinduced}. Flexible rings can instead couple to the active population and sustain collective motion \cite{Boudet2021fromcollectionsof}. In both cases the wall responds indirectly or directly to the agents. The boundary condition is dynamical.
-
-Microscopic systems add edge-following and confinement-dependent transport. Acousto-magnetic swarms move through confined flows and interact with walls while maintaining collective structure \cite{Ahmed2021bioinspiredacousto}. Dynamic fields can produce edge-following particle assemblies and reconfigure them \cite{Wang2026reconfigurableassem}. These behaviours may be useful for navigation, but their mechanism includes the applied field.
-
-\subsubsection{Boundary modes beyond accumulation}
-
-Robotic networks can also realize boundary-localized dynamical states. Programmable nonreciprocal couplings generate spatially localized responses in hybrid physical--digital robot networks \cite{Zhang2026emergentnonhermiti}. Noise can enhance a temporal boundary-state response in a small robotic metamaterial network \cite{Zhang2026noiseenhancedtempo}. These studies share a boundary label with wall accumulation but concern modes of a coupled network rather than persistent particles at a container wall.
-
-This distinction reveals a weakness in the present phenomenon taxonomy. Boundary accumulation and boundary localization are physically different. The living review should separate them when the evidence base grows. For the present snapshot, the study-level observables preserve the distinction.
-
-\subsubsection{Evidence strength and direction}
-
-Twenty-eight boundary studies report quantitative agreement and 28 qualitative agreement. Seven report none, while two lack a resolved agreement field. Agent-based simulation appears in 43, kinetic or hydrodynamic theory in 17, and active-Brownian-particle models in 13. Public data are named in 13 studies, a relatively high count for a category of this size.
-
-Finite-size and boundary treatment was nevertheless rated as some concerns in 51 studies. The apparent contradiction is instructive. A study may measure a boundary phenomenon well while remaining unable to separate it from arena-scale effects elsewhere in the system.
-
-Future work should treat boundary geometry as an experimental parameter. Curvature, roughness, compliance, permeability, and moving walls can distinguish persistence-driven accumulation from controller-mediated following. Bulk and boundary densities should be reported separately. The observation time should exceed the wall-residence time. For responsive boundaries, forces and boundary deformation should be measured together with agent trajectories.
-
-The broader lesson is that robotic active matter can turn boundary conditions into programmable matter. Yet, a boundary-generated state should be named as such. It does not establish the same phenomenon in an unbounded system.
+\label{sec:phenomena-clustering}
+
+Clustering is another widely observed phenomenon
+in active systems. Interacting agents may form
+dense aggregates, coexist with dilute regions,
+or exhibit persistent structures whose size
+depends on density and propulsion. The visual
+outcome can resemble phase separation.
+
+Yet, clustering and motility-induced phase
+separation are not synonymous.
+An aggregate can form through programmed
+attraction, mechanical adhesion,
+magnetic forces, geometric confinement,
+or a reduction in motility caused
+by collisions. Only some of these
+mechanisms correspond to motility-induced
+phase separation.
+
+In the idealized picture of motility-induced
+phase separation, persistent motion and
+crowding can generate an effective
+instability toward dense and dilute regions
+even without conventional attractive forces
+\todocite{foundational theory of
+motility-induced phase separation
+in active Brownian particles}.
+The decisive physical question is
+whether the observed clustering
+is consistent with this mechanism,
+rather than merely whether
+clusters are present.
+
+The extracted phenomenon category combines
+clustering and MIPS, reflecting the
+terminology and observables reported
+by the included studies. It contains
+109 records in the supplied extraction.
+Wheeled or legged robots account for 50,
+vibration-driven robots for 24,
+robotic micro- and nano-agents for 21,
+and other platforms for seven.
+Feedback-controlled colloids contribute
+three, while smarticles and modular
+robots contribute two each.
+
+This distribution is broader than that
+of flocking. Clustering appears in
+systems with informational interactions,
+mechanical contact, magnetic actuation,
+and feedback-mediated motion.
+Such diversity is useful because
+it provides several experimental
+routes to similar spatial structures.
+
+However, the number of platforms
+demonstrating clustering cannot
+be interpreted as the number
+independently confirming MIPS.
+The underlying attraction,
+persistence, and interaction
+laws must be examined separately.
+
+\paragraph*{What constitutes evidence for phase separation?}
+
+A cluster-size distribution can establish
+the formation and statistics of aggregates.
+Pair-correlation functions characterize
+spatial organization, while density
+distributions reveal differences between
+dense and dilute regions.
+Mean-squared displacement and
+velocity measurements help establish
+how motility changes with local
+environment.
+
+For phase separation, the stronger
+evidence involves systematic changes
+in density, driving, or persistence.
+One should observe how collective
+structure develops across these
+parameters and, where possible,
+investigate its dependence on
+system size.
+
+The extraction contains several
+studies reporting cluster statistics,
+density-related observables,
+pair correlations, or collective
+transport responses
+\cite{Welch2018aggregatesuppressio,
+Welch2019activereorientation,
+Deblais2019howtoforceanarmy,
+Sun2021swarmingmicrodrople,
+Pauer2021programmabledesign,
+Yigit2019programmablecollect,
+Boudet2025effectsofboundarie,
+Boudet2025nonmarkoviandynami,
+Luo2025flockingphasesepar,
+Musacchio2026fluidizationinduced}.
+These observables are relevant
+to distinguishing aggregation
+from a collective instability.
+
+Nevertheless, the coded
+phenomenon label alone does
+not establish whether each
+study measured coexistence,
+identified a transition,
+or ruled out effective
+attraction. We therefore
+treat the combined category
+as evidence for clustering
+phenomena, with stronger
+MIPS claims requiring
+specific measurements.
+
+\paragraph*{Mechanically driven clustering.}
+
+Vibration-driven robots offer
+an especially useful regime
+because collective aggregation
+can arise through physical
+contact and changes in
+individual motility.
+The relevant experiments
+include mechanically driven
+particles, confinement-dependent
+aggregation, and density-related
+collective dynamics
+\cite{Welch2018aggregatesuppressio,
+Welch2019activereorientation,
+Deblais2019howtoforceanarmy,
+Scholz2018rotatingrobotsmove,
+Antonov2025selfsustainedfrict,
+Casiulis2025ageometricconditio,
+Tian2018flowratebehavioran,
+Porvatov2021optimizingselfrota,
+Giomi2013swarmingswirlinga,
+Deblais2018boundariescontrolc,
+Escobar2025effectofparticlec,
+Smith2026fromswarmtoindivi}.
+These studies illustrate that
+aggregation need not depend
+on an explicit software
+instruction to approach
+nearby agents.
+
+The central interpretation
+depends on how mechanical
+interactions modify propulsion.
+If collisions reduce particle
+speed or increase the time
+spent in crowded regions,
+aggregation may resemble
+mechanisms proposed for
+MIPS. Yet, substrate
+effects, particle geometry,
+and boundary confinement
+can produce alternative
+explanations.
+
+Further experiments investigate
+clustering, collective contact
+dynamics, and driven
+particle organization
+\cite{Musacchio2026activeembracemente,
+Fersula2026aggregatingswarmst,
+Fersula2026leveragingdesignfo,
+MuozObreque2026dynamicsofmagnetic,
+Molodtsova2025micellizationinact,
+Rozenblit2025trafficjamformatio,
+Lvay2026collectivedynamics,
+Li2020selfpropulsiononsa,
+Li2020selfpropulsiononsb,
+Li2020programmingactiveg}.
+These systems offer opportunities
+to connect observed spatial
+structures to microscopic
+collision and persistence
+statistics.
+
+A useful quantitative test
+would measure the density
+dependence of propulsion
+and compare the resulting
+phase behavior with an
+independently specified
+model. If the model
+parameters are adjusted
+after observing the
+clusters, agreement is
+less informative than
+prediction across
+different densities
+or driving conditions.
+
+\paragraph*{Programmed and feedback-mediated aggregation.}
+
+In wheeled or legged robot
+collectives, clustering often
+arises through prescribed
+local interactions or
+distributed control.
+The included experiments
+cover aggregation,
+collective cohesion,
+group splitting, and
+environment-mediated
+organization
+\cite{Garnier2005aggregationbehaviou,
+Guzzi2014bioinspiredobstacle,
+Arvin2014comparisonofdiffer,
+Cazenille2016automatedoptimisati,
+Hu2018ahybridvisualmode,
+OrdazRivas2018collectivetasksfor,
+OrdazRivas2021flockofrobotswith,
+Li2016turinglearningam,
+Spears2004distributedphysics,
+Zhang2022collectivefissionb,
+Kernbach2011threecasesofconne,
+Giardina2022collectivephototact,
+Yang2023collectivechaseem,
+Wang2021fielddriverobotsw,
+Rezeck2026decentralizedemerge,
+Pan2026exploringthephysic,
+Kraus2026generativeadversari}.
+These studies establish that
+programmable interaction rules
+can produce collective
+aggregation in physical
+hardware.
+
+However, an algorithm
+that explicitly attracts
+robots toward neighbors
+cannot serve as an
+independent demonstration
+that persistent motion
+alone produces MIPS.
+It instead realizes
+a different effective
+interaction mechanism.
+
+This distinction is
+not a criticism of
+programmed aggregation.
+Such experiments can
+be valuable tests of
+collective stability,
+response, and
+interaction design.
+Their physical
+interpretation simply
+depends on the
+implemented rules.
+
+More recent studies
+explore controlled
+aggregation, collective
+density patterns, and
+changes in organization
+\cite{Alaviani2024visionbasedlearnin,
+Pan2024applyingtheintrins,
+Li2022fieldmediatedlocom,
+Ceron2023programmableselfor,
+Salman2024automaticdesignof,
+Jin2023bioinspiredenviron,
+Rezeck2021flockingsegregative,
+Beattie2025realizingemergentc,
+Boudehane2026physicsbasedreduce,
+Zheng2025shapingcollectiveb,
+Zhu2025fromspikestoswarm,
+Hao2022controllingcollisio,
+Hart2022unifyingcontrolarc}.
+The breadth of possible
+controllers reinforces
+the need to distinguish
+phenomenological clustering
+from a particular
+physical origin.
+
+Feedback-controlled
+colloids provide another
+approach by allowing
+effective interactions
+to depend on measured
+configurations
+\cite{Heuthe2025tunablecolloidalsw,
+Knippenberg2022roleofcohesionin,
+Guo2026afeedbackcontrolle}.
+Such experiments can
+probe how changes in
+interaction rules alter
+collective organization.
+Yet, an externally
+implemented attraction
+must still be separated
+from spontaneous
+motility-induced
+instability.
+
+\paragraph*{Microscopic and hybrid realizations.}
+
+Robotic micro- and nano-agent
+systems extend clustering
+experiments toward magnetic,
+hydrodynamic, and other
+interaction mechanisms.
+The included studies
+investigate aggregation,
+assembly, and collective
+reconfiguration
+\cite{Calabr2026interactiondrivena,
+Rivas2023spatialpatterningo,
+Feng2023weakionexchangeba,
+Chen2020temporallightmodul,
+Chen2023nanorobotmediateds,
+Xia2025artificialintellige,
+Baker2019shapeprogrammed3d,
+Gardi2022microrobotcollectiv,
+Urso2023reconfigurableself,
+Raghavendra2026programmablepersist,
+Yan2024programmingstructur,
+Yigit2020cohesiveselforgani}.
+These systems provide experimental
+access to particle-level
+organization under physical
+and programmed interactions.
+
+The interpretation is often
+challenging because several
+interactions coexist.
+For example, externally
+driven particles may
+experience magnetic
+forces and hydrodynamic
+coupling simultaneously.
+A dense aggregate can
+therefore result from
+several distinct
+microscopic mechanisms.
+
+Additional experiments
+investigate clustering
+and spatial organization
+in mechanically coupled,
+environment-mediated,
+and specialized robotic
+systems
+\cite{Newbolt2019flowinteractionsbe,
+Hamann2008spatialmacroscopic,
+Fine2013elicitingcollective,
+Mayya2019nonuniformrobotde,
+Nilles2019ahardwareandsoftw,
+Miyashita2008howmorphologyaffec,
+Garnier2005collectivedecision,
+Maffettone2024mixedrealityenviro,
+Chen2023understandingcollec,
+Li2021programmingactivec,
+Aguilar2018collectiveclogcont,
+Berlinger2021implicitcoordinatio,
+Kernbach2013adaptivecollective,
+Na2020bioinspiredartific,
+Duarte2016evolutionofcollect,
+ICHIKAWA2004emergentbehaviorso,
+Arvin2011imitationofhoneybe,
+Aina2022towardtaskcapable,
+Sun2023translatingvirtual,
+Luan2023selforganizedaggre,
+Fan2022solitaryandcollect,
+Fats2012arobustschemefor,
+Doimo2025sonoroaswarmrobo,
+Standish2016roboticswarmingwit,
+Zion2021distributedonline}.
+Their common contribution
+is the experimental
+realization of collective
+spatial organization.
+The available extraction
+does not justify assigning
+all of them to a common
+phase-separation mechanism.
+
+\paragraph*{Strength and limitations of the evidence.}
+
+The 109 clustering/MIPS-labelled
+studies include 41 quantitative
+theory comparisons, 47 qualitative
+comparisons, and 21 without
+a recorded comparison.
+Quantitative comparisons
+are therefore more common
+than in the flocking family.
+
+For D6, 25 studies are
+rated low risk, 35 have
+some concerns, and 49
+are high risk.
+This distribution supports
+a mixed assessment.
+A meaningful subset
+provides quantitative
+physical evidence,
+but many studies
+remain primarily
+descriptive or
+model-dependent.
+
+For D1, 32 studies
+are rated low risk,
+75 have some concerns,
+and two are high risk.
+Independent-run counts
+are recorded in
+53 studies.
+Explicit code
+availability occurs
+in 21, and data
+availability in 20.
+
+No clustering-labelled
+study is marked
+abstract-only in the
+supplied extraction.
+Thus, the present
+uncertainty arises
+principally from
+experimental design,
+theoretical interpretation,
+and reporting completeness,
+rather than from
+abstract-only assessment.
+
+The variety of
+experimental platforms
+provides substantial
+support for the
+reproducibility of
+clustering as a
+broad collective
+phenomenon. However,
+the evidence that
+a single physical
+mechanism underlies
+these observations
+is considerably weaker.
+
+In particular,
+the combined
+clustering/MIPS
+extraction label
+does not support
+a numerical claim
+about how many
+studies conclusively
+demonstrated MIPS.
+Such a claim would
+require a separate
+classification based
+on the reported
+phase behavior,
+interaction mechanism,
+and quantitative
+theory comparison.
+
+A decisive future
+program would compare
+systems with and
+without explicit
+attraction, vary
+persistence and
+density independently,
+and measure cluster
+statistics together
+with dynamic and
+spatial correlations.
+
+For programmed
+robots, this would
+separate aggregation
+caused by a controller
+from collective
+instability arising
+through motility.
+For mechanically
+driven particles,
+it would distinguish
+crowding-induced
+slowdown from
+boundary and
+substrate effects.
+For microscopic
+systems, it would
+clarify the relative
+contributions of
+field-mediated,
+hydrodynamic,
+and steric coupling.
+
+Hence, clustering
+is experimentally
+well represented
+across robotic
+active matter.
+The more demanding
+claim of
+motility-induced
+phase separation
+requires stronger
+mechanistic tests.
+Maintaining this
+distinction is
+essential if robotic
+experiments are to
+discriminate between
+competing theories
+rather than simply
+reproduce similar
+spatial patterns.
+
+\subsection{Swarming and vortices}
+\label{sec:phenomena-swarming}
+
+Swarming and vortex formation describe collective motion in which
+agents remain spatially associated while exhibiting coordinated
+translation, circulation, or persistent changes in direction.
+These states differ from simple polar flocking. A flock may have
+a common direction of motion, whereas a vortex can possess
+substantial angular momentum even when its net polarization
+is small. Consequently, the same visual impression of
+collective coherence may correspond to different order
+parameters and physical mechanisms.
+
+A useful distinction is between translational and rotational
+collective motion. For an assembly with center of mass
+$\mathbf R$ and particle positions $\mathbf r_i$, we may
+define an instantaneous measure of collective rotation as
+\begin{equation}
+L_z =
+\frac{1}{N}
+\sum_{i=1}^{N}
+\left[
+(\mathbf r_i-\mathbf R)
+\times
+(\mathbf v_i-\mathbf V)
+\right]_z ,
+\label{eq:phenomena-angular-momentum}
+\end{equation}
+where $\mathbf V$ is the center-of-mass velocity.
+This quantity measures circulation about the moving
+collective center. It must not be confused with
+intrinsic rotation of an individual agent.
+
+The extracted swarming or vortex category contains
+11 studies. Six involve robotic micro- and nano-agents,
+four involve wheeled or legged robots, and one involves
+feedback-controlled active colloids. The category is
+therefore smaller than the broader classes of flocking,
+clustering, or collective transport.
+
+The microscopic studies include field-driven and
+reconfigurable assemblies in which collective
+configuration and motion are coupled
+\cite{Tural2025dropletbasedmicrof,
+Chen2023nanorobotmediateds,
+Hanson2025electrokineticpropu,
+Liu2026magneticcompartment,
+Wang2022reconfigurablemagne,
+Yu2019reconfigurablecollo}.
+The reported observables include translational and
+angular velocities, collective dimensions, particle
+separations, and geometrical descriptors of the
+resulting assemblies.
+
+These measurements establish different aspects
+of collective motion. Angular velocity describes
+rotation, while cluster dimensions and relative
+particle positions characterize the organization
+of the moving group. Their simultaneous
+measurement is useful because an externally
+driven assembly can rotate without exhibiting
+a self-organized vortex in the sense of
+a collective instability.
+
+In microscopic systems, common external forcing
+requires particular attention. Magnetic or
+electric fields may produce correlated motion
+because the agents experience similar driving
+conditions. Interparticle interactions may
+then determine whether the resulting motion
+remains coherent or reorganizes the assembly.
+
+Hence, a mechanistic interpretation should
+separate the response of isolated particles
+to the imposed field from the additional
+behavior observed when particles interact.
+Measurements of relative motion, angular
+correlations, and the dependence on particle
+density are especially useful for this purpose.
+
+Macroscopic robotic experiments provide
+a complementary approach
+\cite{Vega2023simulatelessexpec,
+Zhou2025gazingpreferencein,
+Zhu2025amillingswarmofg,
+Abpeikar2023iterativetransferl}.
+These studies include implementations
+of collective milling, configuration-dependent
+motion, and controlled swarm behavior.
+Their observables cover quantities such as
+turning rate, group geometry, relative motion,
+and measures of circular organization.
+
+In an explicitly controlled milling swarm,
+the distinction between imposed and emergent
+circulation becomes important. A controller
+may prescribe a turning response, while
+the resulting collective trajectory depends
+on local sensing and agent interactions.
+Such a system can be a useful physical
+realization of a collective-motion model.
+Yet, confirmation of the intended trajectory
+is not equivalent to an independent test
+of the stability of a vortex state.
+
+Feedback-controlled active colloids permit
+a more direct connection between collective
+rotation and response measurements
+\cite{Lffler2021behaviordependentc}.
+The extracted observables include a rotational
+order parameter, autocorrelation, relaxation
+time, susceptibility, and hysteresis.
+These quantities are especially informative
+because they characterize not only the
+existence of collective circulation but
+also its response and temporal stability.
+
+For example, a susceptibility peak may
+identify a regime of enhanced response.
+A hysteresis loop can reveal history
+dependence under parameter variation.
+Neither automatically establishes
+a particular phase transition, but
+both constrain possible theoretical
+descriptions more strongly than
+a trajectory plot alone.
+
+Across the 11 studies, four report
+quantitative theoretical agreement,
+three qualitative agreement, and
+four no comparison. The D6 ratings
+are low risk for two studies,
+some concerns for two, and
+high risk for seven.
+
+Thus, the evidence is sufficient
+to establish that several robotic
+implementations can realize
+coordinated circulation or
+swarming-like collective motion.
+It is substantially weaker
+for identifying a general
+mechanism of vortex formation
+across those implementations.
+
+Replication documentation is also
+limited. Two studies receive
+low-risk D1 ratings, eight
+have some concerns, and one
+is high risk. Independent-run
+counts are reported in three
+studies. None has explicit
+code or data availability
+recorded in the extraction.
+All 11 were assessed on
+a full-text basis.
+
+We therefore regard the existence
+of experimentally realized
+swarming and milling states
+as established within the
+reported platforms, but their
+cross-platform theoretical
+equivalence remains uncertain.
+
+A particularly useful future
+test would compare rotational
+order, collective radius,
+angular-velocity distributions,
+and temporal correlations
+under independently varied
+density and driving conditions.
+For programmed robots, one
+could additionally perturb
+the sensing and turning rules.
+For microscopic assemblies,
+one could vary the forcing
+while measuring the
+isolated-agent response.
+
+Such experiments would help
+distinguish externally imposed
+rotation, interaction-mediated
+circulation, and spontaneous
+collective symmetry breaking.
+The distinction is essential
+because these mechanisms can
+produce superficially similar
+vortex patterns.
 
 \subsection{Jamming and crystallization}
+\label{sec:phenomena-jamming}
 
-\subsubsection{Opposite outcomes under one label}
+Jamming and crystallization concern the relationship
+between microscopic constraints and collective
+organization. In a jammed system, local interactions
+can suppress motion or prevent rearrangements.
+In a crystallized system, particle positions
+develop spatial order. These properties may
+coexist, but neither necessarily implies
+the other.
 
-Jamming or crystallization appears in 30 studies. These phenomena are grouped because both concern arrested or strongly ordered states, but they are not the same. Crystallization produces spatial order. Jamming produces mechanical arrest and may be disordered. A traffic jam in a robot swarm can even be highly dynamic at the agent level while blocking collective transport.
+For active matter, the distinction becomes
+particularly interesting because energy
+continues to enter the system. A driven
+assembly may become mechanically constrained,
+while individual constituents remain active.
+Alternatively, persistent motion may promote
+rearrangement and allow an ordered structure
+to emerge.
 
-Wheeled or legged robots account for 14 studies, vibration-driven robots seven, and micro- or nano-agents four. Steric contact appears in 25. On-board rules occur in 16, passive rules in seven, and external feedback in five.
+Consequently, we must distinguish dynamical
+arrest, geometric packing, and structural
+order. A collective that stops moving
+has not necessarily crystallized.
+Likewise, an ordered configuration
+need not be mechanically jammed.
 
-The small evidence base includes programmable assembly, evacuation, active colloids, magnetic chains, lattices, and granular entanglement. This diversity makes a common terminology essential.
+The extracted category contains ten studies.
+Five use wheeled or legged swarm robots,
+three use vibration-driven robots,
+one involves a robotic metamaterial
+or active solid, and one belongs
+to the residual platform category.
 
-\subsubsection{Jamming during collective tasks}
+The relevant observables include
+packing fraction, collision frequency,
+mean-squared displacement,
+pair correlations, structural
+order parameters, transport
+throughput, and measures
+of jam formation or escape.
+These measurements address
+different aspects of the
+relationship between activity
+and constrained motion.
 
-Large programmable robot swarms reveal traffic jams during shape formation \cite{Rubenstein2014programmableselfas}. The jam is not an incidental hardware failure. It follows from local routing, finite robot size, and congestion near target regions. Yet, the original goal is construction rather than a systematic jamming transition.
+A useful example of spatial order
+is the sixfold bond-orientational
+parameter,
+\begin{equation}
+\psi_6 =
+\left|
+\frac{1}{N}
+\sum_{i=1}^{N}
+\frac{1}{n_i}
+\sum_{j\in\mathcal N_i}
+e^{6\mathrm{i}\theta_{ij}}
+\right|,
+\label{eq:phenomena-hexatic}
+\end{equation}
+where $\mathcal N_i$ denotes the
+neighbors of particle $i$ and
+$\theta_{ij}$ their bond orientation.
+This quantity is relevant to
+local sixfold ordering, but
+a nonzero value alone
+does not establish
+long-range crystalline order.
 
-Evacuation experiments make the obstruction explicit. Perception-mediated rules can change local alignment and passage through a constriction \cite{Xiao2023perceptionofmotion}. Noise can shorten escape from jammed states and improve goal attainment over a finite range \cite{Liu2026noiseenabledgoala}. Vibration-driven robots in constrictions show persistent and reversible traffic jams as population, drive, and opening width change \cite{Rozenblit2025trafficjamformatio}.
+Likewise, dynamical arrest
+can be investigated through
+mean-squared displacement
+and time-dependent correlations.
+The appropriate conclusion
+depends on the temporal
+and spatial scales accessible
+to the experiment.
 
-These studies support a practical conclusion. Local order is not always beneficial. Strong alignment or attraction can increase congestion at a bottleneck. Moderate fluctuations can help the system explore escape configurations. The relevant outcome is not maximum order but throughput or successful passage.
+\paragraph*{Physical constraints and active rearrangement.}
 
-A rigorous jamming study should measure flow rate, waiting-time distribution, force chains or contact network, persistence of arrest, and recovery after perturbation. A blocked video alone cannot distinguish jamming from controller deadlock or mechanical failure.
+Vibration-driven systems provide
+a direct experimental route
+to active jamming because
+particle motion is generated
+mechanically while contacts
+constrain rearrangements.
+The included studies address
+diffusive motion, collective
+ordering, and jam formation
+\cite{Rozenblit2020diffusivedynamicsa,
+Dmitriev2021statisticalcorrelat,
+Rozenblit2025trafficjamformatio}.
 
-\subsubsection{Crystallization and solidification}
+Their extracted observables include
+mean-squared displacement,
+diffusion exponents, spatial
+ordering, pair correlations,
+and measures of jamming
+efficiency and mobility.
+Together, these quantities
+connect transport to
+collective structure.
 
-Programmed local-force rules can organize wheeled robots into lattice-like states and compare their energy and structural error with a model \cite{Spears2004distributedphysics}. Magnetic chains of microscopic particles can cross from fluctuating liquid-like arrangements to solid-like clusters \cite{Yigit2020cohesiveselforgani}. Light-controlled active colloids can clog and release at constrictions, linking cohesive assembly to arrest \cite{Knippenberg2022roleofcohesionin}.
+The important physical question
+is whether activity changes
+the onset or stability
+of a constrained state.
+For example, increasing
+driving may enhance
+particle rearrangements
+in one regime but
+increase collisions
+and effective crowding
+in another.
 
-Vibration-driven particles show ordering and arrest through another route. Active robotic grains exhibit changes in speed, packing, and hexatic order across dynamical states \cite{Antonov2025selfsustainedfrict}. Magnetic rollers combine flocking with phase separation and structural order \cite{Luo2025flockingphasesepar}. Geometry-controlled robots connect pair cohesion, cluster formation, and hexatic order \cite{Casiulis2025ageometricconditio}.
+Yet, the observed outcome
+can depend strongly on
+particle geometry, substrate
+friction, and confinement.
+A quantitative interpretation
+must account for these
+factors rather than
+treating all changes
+in mobility as evidence
+for a universal jamming
+transition.
 
-Hydrodynamic robot analogues add ordered spacing and propagating modes. Flapping foils can form crystal-like arrangements whose spacing and waves are coupled through flow \cite{Newbolt2024flowinteractionsle}. Entangling active grains instead achieve mechanical integrity through topological constraints rather than positional order \cite{Rezanejad2025programmableentangl}. Both are solid-like, but their rigidity has different origins.
+Robotic assemblies with
+programmable interactions
+provide different tests.
+The included studies cover
+large-scale programmable
+aggregation, mechanically
+constrained collective
+motion, and jam-related
+transport
+\cite{Linevich2016robophysicalstudyo,
+Xiao2023perceptionofmotion,
+Liu2026noiseenabledgoala,
+Guzzi2013humanfriendlyrobot,
+Rubenstein2014programmableselfas}.
 
-\subsubsection{Evidence strength}
+Some of the extracted observables
+measure collective arrangement,
+while others characterize
+collision rates, escape times,
+or task-related consequences
+of restricted motion.
+Their interpretation depends
+on whether the measured
+quantity directly establishes
+a physical jammed state.
 
-Nine of the 30 studies report quantitative agreement, 14 qualitative agreement, and six none. One lacks a resolved agreement field. Agent-based simulation appears in 22, kinetic or hydrodynamic theory in eight, and no theory in six. Fifteen report independent run counts. Only three name code and four data.
+For example, a high collision
+frequency or reduced evacuation
+rate can indicate congestion.
+However, these measures alone
+do not distinguish persistent
+mechanical arrest from inefficient
+control. A stronger diagnosis
+requires spatial and temporal
+measurements of relative motion,
+contact structure, or
+collective relaxation.
 
-Measurement validity is comparatively strong, with 29 studies rated low risk in that domain. Finite-size and boundary treatment still raises some concerns in 25. This pattern reflects clear observables within small or confined systems.
+The residual platform category
+includes an experiment involving
+flow-mediated interaction and
+collective constraints
+\cite{Newbolt2024flowinteractionsle}.
+Such systems illustrate that
+congestion or restricted
+motion can arise through
+environment-mediated
+coupling as well as
+through direct contact.
 
-The field now needs a sharper separation between structural order and mechanical arrest. Pair correlations and bond order quantify crystallization. Persistent zero flow under load, contact networks, and response to perturbation quantify jamming. A system may exhibit both, but one should not substitute for the other.
+\paragraph*{Active structures and entanglement.}
 
-Robotic platforms are especially suited to controlled unjamming. Noise, communication, turning rules, softness, or morphology can be changed without altering the macroscopic obstacle. These interventions can identify whether arrest is geometric, informational, or mechanical. Such experiments would connect practical congestion control with active-matter theory.
+An additional realization occurs
+in programmable active structures
+\cite{Rezanejad2025programmableentangl}.
+The extracted measurements include
+packing fraction, entanglement-related
+quantities, and escape or
+transport statistics.
+
+This broadens the meaning of
+jamming beyond the loss of
+mobility in a crowd of
+independently translating
+agents. Mechanical connectivity,
+entanglement, and geometric
+constraints may themselves
+become collective variables.
+
+However, entanglement-mediated
+arrest and crystallization
+are distinct phenomena.
+An experiment demonstrating
+a stable mechanically
+interlocked assembly
+does not necessarily
+establish crystalline order.
+Similarly, an ordered
+configuration need not
+possess substantial
+resistance to rearrangement.
+
+We therefore treat the
+combined extraction category
+as evidence of constrained
+collective dynamics and
+spatial ordering, rather
+than as evidence that
+every included study
+demonstrates both
+jamming and crystallization.
+
+\paragraph*{Strength and limitations of the evidence.}
+
+Of the ten studies, four report
+quantitative agreement,
+two qualitative agreement,
+and four no comparison.
+For D6, three receive
+low-risk ratings,
+three have some concerns,
+and four are high risk.
+
+The relatively high proportion
+of quantitative comparisons
+is encouraging, although
+the total evidence base
+is small. More importantly,
+the experiments examine
+different quantities:
+structural order,
+collective congestion,
+mechanical trapping,
+and restricted transport.
+
+These outcomes should not
+be combined into one
+claim about the existence
+of a common active
+jamming transition.
+
+Replication indicators
+are comparatively favorable.
+Seven studies are rated
+low risk for D1,
+and three have
+some concerns.
+Independent-run counts
+are reported in seven
+studies. Explicit
+code and data
+availability are each
+recorded for one study.
+All ten records were
+assessed on full text.
+
+The strongest conclusion
+is that robotic systems
+provide experimentally
+accessible realizations
+of active congestion,
+structural organization,
+and constraint-mediated
+arrest. The evidence
+for a universal
+jamming or crystallization
+scenario remains limited
+by the small number
+of studies and their
+heterogeneous observables.
+
+A decisive comparison
+would measure structural
+order, transport,
+relaxation, and
+mechanical response
+within the same
+controlled experiment.
+Such measurements
+could establish whether
+changes in mobility
+coincide with
+structural organization
+or arise through
+different mechanisms.
+
+Finite-size variation
+would be particularly
+valuable. Robotic
+platforms can sometimes
+change the number
+of agents while
+preserving their
+interaction rules.
+This offers a direct
+way to distinguish
+small-system congestion
+from collective
+behavior approaching
+a macroscopic limit.
+
+Finally, experiments
+should vary driving
+and packing independently
+where possible.
+This would test
+whether activity
+primarily fluidizes
+the system, promotes
+ordering, or enhances
+the formation of
+persistent constraints.
+
+\subsection{Chirality and rotation}
+\label{sec:phenomena-chirality}
+
+Chirality introduces a preferred handedness into
+active motion or interaction. Individual agents
+may rotate persistently, interact asymmetrically,
+or generate collective states with a preferred
+direction of circulation. Such systems provide
+a useful test of how microscopic symmetry
+properties influence macroscopic organization.
+
+We must distinguish intrinsic particle rotation
+from collective rotation. A population of
+identically rotating particles need not
+form a circulating collective. Conversely,
+a group may develop collective angular
+motion even when the individual agents
+have no prescribed intrinsic chirality.
+
+Similarly, a clockwise or counterclockwise
+collective trajectory does not by itself
+demonstrate broken chiral symmetry.
+The direction may be imposed by
+a controller, an external field,
+or the experimental geometry.
+
+The stronger physical questions concern
+how rotational dynamics couple to
+translation, spatial structure,
+and collective response. Relevant
+observables include angular velocity,
+rotational order, orientation
+distributions, angular correlations,
+and response under changes
+in driving or interaction asymmetry.
+
+The extracted chirality or rotation
+category contains 55 studies.
+Robotic micro- and nano-agents
+contribute 14, wheeled or legged
+robots 15, vibration-driven
+robots nine, feedback-controlled
+colloids seven, residual
+platforms six, and modular
+robots three. One additional
+study has no assigned
+platform class.
+
+This distribution is relatively
+broad. It includes microscopic
+field-driven systems, mechanically
+driven active particles,
+programmable collective motion,
+and feedback-controlled
+colloidal assemblies.
+
+The range of implementations
+is valuable because rotational
+dynamics can arise through
+different microscopic mechanisms.
+Yet, this same diversity
+prevents a single interpretation
+of the combined phenomenon label.
+
+\paragraph*{Rotating microscopic assemblies.}
+
+Micro- and nano-agent systems provide
+several ways to control rotational
+motion and chiral collective states.
+The included studies investigate
+collective reconfiguration,
+magnetic or optical actuation,
+and coupling between translation
+and rotation
+\cite{Sun2021swarmingmicrodrople,
+MayorgaMartinez2023multimodaldrivenma,
+McGovern2024multifunctionalchir,
+Xu2023multiplecilialike,
+Gong2025collectivereconfigu,
+Chen2022programmablespatio,
+Aubret2021metamachinesofplura,
+Gao2025softmagneticmicror,
+Aubret2018targetedassemblyan,
+Raghavendra2026programmablepersist,
+Boudehane2026physicsbasedreduce,
+Wang2021precisecontrolofm,
+Dong2020controllingtwodime,
+Li2022vectorcontrolledwh}.
+
+Their observables include
+rotational frequency,
+angular displacement,
+collective geometry,
+orientation, and
+transport-related
+measurements. These
+quantities can characterize
+the relationship between
+individual actuation
+and collective motion.
+
+For example, a field-driven
+assembly may rotate because
+the external drive
+directly supplies a torque.
+Interparticle interactions
+may then stabilize a
+particular spatial
+configuration or modify
+the rotational response.
+
+A different mechanism
+would arise if the
+collective spontaneously
+selected a rotation
+direction despite
+symmetric external
+conditions. These
+possibilities are
+physically distinct,
+even when the resulting
+trajectories look similar.
+
+The extracted observables
+therefore need to be
+interpreted relative to
+the actuation protocol.
+Measurements of isolated
+particles, pairs, and
+larger assemblies can
+help determine which
+aspects of rotation
+depend on interactions.
+
+\paragraph*{Feedback-mediated chirality.}
+
+Feedback-controlled colloids
+provide a particularly useful
+route toward quantitative
+tests of collective rotational
+dynamics
+\cite{Martinet2022rotationcontrolin,
+Yan2014colloidalsuperstruc,
+Buerle2020formationofstable,
+Heuthe2025tunablecolloidalsw,
+Lffler2023collectiveforaging,
+Han2020programmablechiral,
+Chen2024persistentandrespo}.
+
+These studies include
+measurements of rotational
+order, angular velocity,
+orientation distributions,
+collective configuration,
+and response to controlled
+changes in interaction
+or driving.
+
+The important experimental
+advantage is that the
+programmed interaction
+can, in principle,
+be varied without
+changing the particles
+themselves. This
+permits more direct
+tests of how rotational
+behavior depends on
+interaction symmetry.
+
+Yet, a feedback controller
+may explicitly impose
+a preferred rotation
+direction. Demonstrating
+such a state establishes
+programmable chirality,
+not necessarily
+spontaneous chiral
+symmetry breaking.
+
+To distinguish these
+cases, we need
+measurements of state
+selection and response
+under controlled
+reversal or removal
+of the imposed bias.
+Temporal correlations
+and switching statistics
+are especially useful
+when several rotating
+states are accessible.
+
+\paragraph*{Mechanical and programmed rotation.}
+
+Vibration-driven systems
+provide examples of rotational
+motion generated through
+mechanical actuation and
+contact-mediated dynamics
+\cite{Xi2024beamsbotsandbey,
+Li2022chiralseparationof,
+Scholz2018rotatingrobotsmove,
+Ma2025simplerobotswarmw,
+Noirhomme2024brainbotsassmarta,
+Callegari2024activematterexperi,
+Li2013asymmetricgearrect,
+Bashkova2026differentialequatio,
+He2022dynamicbehaviorof}.
+
+Here, geometry, substrate
+interaction, and driving
+can influence the
+relationship between
+individual rotation
+and collective movement.
+
+The scientific opportunity
+is to investigate
+whether chiral motion
+produces robust collective
+states through physical
+interactions alone.
+The limitation is
+that changes in
+driving may also
+alter translational
+speed, collision
+statistics, and
+effective fluctuations.
+
+For this reason,
+experiments should
+characterize both
+linear and angular
+single-agent dynamics.
+Otherwise, differences
+between collective
+states may be
+incorrectly attributed
+to interaction
+chirality.
+
+Wheeled or legged
+systems approach
+rotational collective
+behavior through
+programmable interactions
+and local response rules
+\cite{Fruchart2022nonreciprocalphase,
+Paramanick2024emergenceofrunand,
+Vega2023indirectswarmcontr,
+Zhou2024anticipationpromote,
+Zheng2024bodyorientationcha,
+Castro2025visualcollectivebe,
+Jianchao2024emergentchiralitya,
+Dizenhaus2026anonymousleadership,
+Beattie2025realizingemergentc,
+Zheng2024emergenceofcollect,
+Raoufi2023individualityinswa,
+Zheng2020experimentalcapabil,
+Makino2004collectivebehavior,
+Fruchart2020phasetransitionsin,
+Li2020selfpropulsiononsa}.
+
+These experiments make
+information asymmetry,
+turning rules, and
+collective orientation
+accessible to controlled
+variation. They are
+particularly useful
+for testing how
+nonreciprocal interactions
+modify collective motion.
+
+However, the presence
+of programmed asymmetry
+does not establish
+the quantitative
+validity of a
+nonreciprocal
+active-matter theory.
+The decisive comparison
+concerns predicted
+collective observables,
+their stability,
+and their response
+across parameter regimes.
+
+Other implementations
+investigate rotational
+and chiral behavior
+through specialized
+mechanical or driven
+systems
+\cite{Li2024memoryinducedspont,
+Hu2026phototunablenonreci,
+Deng2022lightfuelednonreci,
+Zhou2025activesearchpromot,
+Ren2025chlamydomonasinspir,
+Leech2026spincoupledhydrody,
+Smith2025loopymovementseme,
+Wang2026oscillatingeelrobo,
+ICHIKAWA2004emergentbehaviorso,
+Fruchart2021nonreciprocalphase}.
+The unclassified record
+in this group is retained
+without inferring a
+platform assignment.
+
+\paragraph*{Strength and limitations of the evidence.}
+
+Among the 55 studies,
+20 report quantitative
+theoretical agreement,
+26 qualitative agreement,
+and nine no comparison.
+Thus, quantitative
+comparisons account
+for a substantial
+minority of the
+chiral and rotational
+literature.
+
+The D6 assessment
+rates 16 studies
+low risk, 24 as
+having some concerns,
+and 15 high risk.
+This profile is
+more favorable
+than that of
+flocking, although
+the physical questions
+and experimental
+systems differ.
+
+Replication documentation
+remains less complete.
+Nine studies are
+rated low risk for D1,
+43 have some concerns,
+and three are high risk.
+Independent-run counts
+are reported in
+17 studies. Explicit
+code availability
+occurs in six,
+and data availability
+in five.
+
+Five studies were
+assessed from abstracts
+only. Their contributions
+must be interpreted
+cautiously where
+the distinction between
+imposed and emergent
+rotational behavior
+requires detailed
+experimental information.
+
+The cross-platform
+evidence strongly supports
+the experimental
+realizability of
+chiral and rotational
+collective motion.
+However, the variety
+of driving mechanisms
+makes it difficult
+to identify a common
+physical mechanism
+from the phenomenon
+label alone.
+
+The clearest future
+tests will separate
+intrinsic rotation,
+interaction chirality,
+and collective
+circulation.
+Independent measurements
+of these quantities
+would permit direct
+comparisons between
+mechanical, programmed,
+and field-driven
+systems.
+
+Particularly useful
+would be experiments
+that reverse microscopic
+chirality while
+preserving other
+control parameters.
+One could then ask
+whether collective
+rotation reverses,
+disappears, or
+changes its spatial
+structure.
+
+Such tests would
+help distinguish
+externally imposed
+motion from genuinely
+interaction-mediated
+chiral organization.
+They would also
+provide more demanding
+tests of theoretical
+models predicting
+new nonequilibrium
+collective states.
 
 \subsection{Active solids and odd elasticity}
+\label{sec:phenomena-active-solids}
 
-\subsubsection{A small but distinct evidence base}
+Active solids extend collective active-matter
+physics from transport and spatial organization
+to mechanical response. In these systems,
+internally generated forces or programmed
+actuation can change how a material
+deforms, propagates disturbances,
+or responds to externally imposed
+loads.
 
-Active-solid or odd-elastic behaviour appears in only 15 studies. Fourteen were published from 2020 onward. Seven use robotic metamaterials or active solids, four vibration-driven robots, and one each a wheeled swarm, modular platform, and residual platform. One platform classification is unresolved.
+A particularly important possibility
+is nonreciprocal elastic response.
+In passive equilibrium elasticity,
+the constitutive relation between
+stress and strain is constrained
+by the existence of an elastic
+energy under the usual assumptions.
+Active systems can violate these
+constraints because their forces
+need not derive from a conservative
+potential
+\todocite{Scheibner and collaborators,
+foundational theory of odd elasticity}.
 
-The category differs from clustering and crystallization. An active solid has persistent mechanical coupling and supports stresses, strains, waves, or modes. Activity modifies this response. Odd elasticity further denotes nonconservative linear response in which cyclic deformation can perform work. A group that merely retains a compact shape is not sufficient.
+For a linearized system, we may write
+\begin{equation}
+\sigma_{ij}=C_{ijkl}u_{kl},
+\label{eq:phenomena-active-elasticity}
+\end{equation}
+where $u_{kl}$ is strain and
+$C_{ijkl}$ the effective
+response tensor. In an
+active solid, the
+constitutive coefficients
+may contain components
+that cannot be derived
+from an equilibrium
+elastic energy.
 
-Steric contact appears in 14 studies, programmed rules in six, and environmental mediation in seven. Ten use on-board rules and four passive rules. Active-elasticity theory is explicitly compared in four studies, while agent-based simulation appears in 11.
+The experimentally decisive
+question is whether such
+components can be measured,
+rather than simply whether
+the structure undergoes
+active motion.
 
-\subsubsection{Nonreciprocal response}
+The extracted active-solid
+or odd-elasticity category
+contains 14 studies.
+Seven use robotic metamaterials
+or active solids, four use
+vibration-driven robots,
+one uses a modular system,
+one a wheeled or legged
+robotic platform, and
+one belongs to the
+residual category.
 
-Robotic chains provide direct control of reciprocal and nonreciprocal coupling. A sequence of actively controlled cells exhibits directional transmission and attenuation that can be measured through wave amplitude and spatial decay \cite{Brandenbourger2019nonreciprocalrobot}. The experiment realizes a response unavailable to a passive reciprocal chain.
+The reported observables
+include stiffness matrices,
+elastic moduli,
+deformation fields,
+vibrational spectra,
+mechanical susceptibility,
+strain correlations,
+and collective
+structural organization.
 
-Self-sensing metamaterial beams combine local measurement and actuation and relate wave localization to an active continuum description \cite{Chen2020selfsensingmetamat}. Their contribution lies in the response function. Wave number, decay length, frequency, and amplitude permit a quantitative theory test.
+These measurements differ
+fundamentally from
+trajectory-based order
+parameters. They permit
+the experimental system
+to be characterized
+through its response
+to perturbations.
+Consequently, they
+provide a direct route
+to quantitative tests
+of active mechanical
+theory.
 
-Motorized active lattices extend nonreciprocal response to collective deformation and locomotion \cite{Brandenbourger2021limitcyclesturnac}. Internal limit cycles generate modes, translation, or rotation. The active solid is therefore both a material and a machine.
+\paragraph*{Nonreciprocal response in robotic structures.}
 
-More recent robotic metamaterials investigate how connectivity and local rules shape odd response \cite{Binysh2026moreislessinunpe}. Locally learning hinge chains connect multistability, nonreciprocity, shape change, and locomotion \cite{Du2026metamaterialsthatl}. These systems show that a constitutive response can become programmable.
+Robotic metamaterials
+provide controlled
+realizations of
+mechanically coupled
+active degrees of freedom
+\cite{Baconnier2022tensioncontrolledc,
+Brandenbourger2019nonreciprocalrobot,
+Du2026metamaterialsthatl,
+Brandenbourger2021limitcyclesturnac,
+Binysh2026moreislessinunpe,
+Coulais2025activemetamaterials,
+Chen2020selfsensingmetamat}.
 
-\subsubsection{Collective modes in constrained active matter}
+These studies investigate
+different aspects of
+active mechanical
+response, including
+nonreciprocal coupling,
+oscillatory dynamics,
+programmable response,
+and collective deformation.
 
-Not all active solids begin as conventional metamaterials. Many vibration-driven agents can be confined in an elastic lattice, producing collective oscillation modes selected by activity and coupling \cite{Baconnier2022selectiveandcollec}. Large networks of magnetic spinners form rotating hyperuniform structures with measurable bond and density statistics \cite{Wang2025hyperuniformnetwork}. These experiments connect particulate activity to material-scale response.
+The principal strength
+of such platforms is
+that response can be
+measured directly.
+Rather than inferring
+an interaction law
+from collective
+trajectories alone,
+the experimenter
+can impose a
+perturbation and
+measure the resulting
+mechanical response.
 
-The distinction between a constrained active bath and an active solid depends on mechanical persistence. An elastic lattice supplies fixed connectivity. A self-assembled spinner network may continually exchange neighbours. Both can support collective modes, but their constitutive descriptions differ.
+This makes it possible
+to test predicted
+relationships between
+actuation, deformation,
+and propagation.
+For example, a
+frequency-dependent
+transmission measurement
+can reveal modes
+that are enhanced
+or suppressed by
+active coupling.
 
-\subsubsection{Evidence and open tests}
+Similarly, a stiffness
+matrix can be examined
+for asymmetry, while
+the eigenvalue spectrum
+can characterize the
+dynamics of a coupled
+active structure.
 
-Seven studies report quantitative agreement, six qualitative agreement, and one none. One agreement field is unresolved. This is a high proportion of quantitative comparison, although the denominator is small. Six studies have low risk for quantitative theory comparison, six some concerns, and three high risk.
+Yet, mechanical
+nonreciprocity can
+also result from
+explicitly programmed
+controllers. Such
+an implementation
+provides a physical
+realization of
+nonreciprocal response,
+but a stronger
+theoretical test
+requires predictions
+for observables
+that were not
+directly imposed.
 
-Replication is the major weakness. Fourteen of the 15 studies raise some concerns in that domain. Only two report abstract-only assessment, but five contain unresolved extraction fields. Four name code and six data. No study in the category was rated low risk for finite-size and boundary treatment.
+The distinction
+is especially
+important when
+the same model
+determines the
+control architecture
+and describes the
+experimental results.
+Agreement may then
+reflect successful
+implementation,
+rather than
+independent validation
+of a general
+constitutive law.
 
-Finite size is particularly important here. A short chain can show directional transmission without defining a bulk modulus. A finite lattice can localize a mode whose decay length is comparable with the system size. The correct claim may concern a designed finite network rather than a continuum material.
+\paragraph*{Active ordering and mechanically driven media.}
 
-Three tests would strengthen the evidence. First, the response should be measured across size and geometry. Second, local active parameters should be calibrated independently of the collective fit. Third, a closed deformation cycle should quantify injected or extracted work when odd elasticity is claimed.
+Vibration-driven
+systems provide another
+route toward active
+solid-like behavior
+\cite{Antonov2025selfsustainedfrict,
+Baconnier2022selectiveandcollec,
+Wang2025hyperuniformnetwork,
+Wagner2026geometryinducedtra}.
 
-The category already demonstrates that robotic elements can implement nonreciprocal coupling, active modes, and programmable mechanical response. It does not yet establish platform-independent constitutive laws. That gap is precisely where robotic experiments can make their strongest contribution.
+Their extracted observables
+include spatial
+correlations,
+bond-orientational order,
+collective motion,
+and measures of
+mechanical response
+or structural
+organization.
 
-\subsection{Phenomena outside the named classes}
+Such systems are
+particularly interesting
+because local propulsion
+and interactions
+can create organized
+collective states
+without requiring
+every constituent
+to participate
+in an explicit
+elastic controller.
 
-Fifty-three studies carry the residual phenomenon label ``other.'' Forty-four were published from 2020 onward. Six are abstract-only and five retain unresolved fields. Nineteen report quantitative agreement, 23 qualitative agreement, and 10 none.
+However, structural
+order and elasticity
+must be distinguished.
+An assembly may
+exhibit strong
+bond-orientational
+correlations without
+having a solid-like
+mechanical response
+over the relevant
+time scales.
 
-The category contains behaviours that do not fit cleanly into density, orientation, phase, transport, or solid-response labels. Examples include search, collective decision, sorting, coverage, information propagation, non-Hermitian localization, temporal response, effective thermodynamic measurements, and task-specific collective computation. Several overlap with named phenomena.
+Conversely, a connected
+active structure
+may support
+mechanical response
+without displaying
+conventional crystalline
+order. The two
+possibilities should
+not be merged
+into one category
+of physical behavior
+merely because both
+involve constrained
+collective motion.
 
-A residual category is necessary during taxonomy development. Yet, it should not become a permanent repository for every task outcome. Search efficiency, decision accuracy, or coverage may be an application-level measure rather than a physical phenomenon. Conversely, non-Hermitian boundary response may deserve a dedicated category once enough experimental studies exist.
+Additional experiments
+extend the phenomenon
+toward programmed
+modular structures,
+field-driven robots,
+and specialized
+active systems
+\cite{Zhang2026anisotropicshapesh,
+Wang2021emergentfielddrive,
+Bo2026threephasesofodd}.
 
-The living-review process provides a practical solution. New labels should be introduced when a coherent mechanism, observable set, and sufficient body of evidence emerge. Until then, the study-level observables preserve more information than a premature class.
+These systems illustrate
+the need for comparisons
+based on mechanical
+observables rather
+than platform
+appearance alone.
+
+\paragraph*{Strength and limitations of the evidence.}
+
+Seven studies report
+quantitative theoretical
+agreement, five
+qualitative agreement,
+and one no comparison.
+The agreement field
+is missing for
+one additional record.
+
+For D6, six studies
+are rated low risk,
+six have some concerns,
+and two are high risk.
+This is a comparatively
+favorable distribution
+for a small and
+specialized phenomenon
+family.
+
+Nevertheless, the
+replication evidence
+is substantially weaker.
+Only one study receives
+a low-risk D1 rating,
+while 13 have
+some concerns.
+Independent-run counts
+are reported for
+two studies.
+
+Explicit code availability
+is identified in four
+studies, and data
+availability in six.
+Two studies were
+assessed from abstracts
+alone, limiting
+the detail available
+for evaluating their
+experimental response.
+
+These indicators suggest
+a promising but still
+developing evidence base.
+The available experiments
+demonstrate that robotic
+structures can realize
+active mechanical
+responses and permit
+quantitative comparisons.
+They do not yet establish
+that a broad range
+of active-solid
+predictions has been
+independently reproduced
+across multiple
+experimental platforms.
+
+The central next step
+is to standardize
+mechanical characterization.
+A useful experimental
+program would report
+response matrices,
+frequency dependence,
+boundary conditions,
+and repeated measurements
+under controlled
+actuation.
+
+Comparisons across
+different structures
+would then establish
+which properties
+depend on microscopic
+implementation and
+which follow from
+a common active
+constitutive description.
+
+In particular, direct
+measurements of
+nonreciprocal response
+under cyclic loading
+could distinguish
+genuinely active
+mechanical work
+from ordinary
+dissipation or
+controller-specific
+motion.
+
+We therefore regard
+robotic active solids
+as an emerging area
+with substantial
+theoretical relevance
+and encouraging
+quantitative evidence.
+Its present limitation
+is not the absence
+of interesting
+mechanical phenomena,
+but the limited
+number of independently
+replicated tests
+of general
+active-solid laws.
+
+\subsection{Transport and locomotion}
+\label{sec:phenomena-transport}
+
+Transport is a particularly broad outcome of active-matter
+experiments. A collection of driven agents may carry objects,
+move coherently through its environment, or generate a net
+displacement that cannot be achieved by its constituents
+individually. Such behavior connects the physics of
+nonequilibrium motion to practical robotic functionality.
+Yet, successful transport is not necessarily evidence
+for a collective physical mechanism.
+
+We therefore distinguish collective transport from
+individual propulsion and coordinated navigation.
+The relevant physical question is how interactions
+modify displacement, mobility, spreading, or
+mechanical performance. A group of independently
+moving robots can achieve a transportation task
+without exhibiting an emergent collective state.
+Conversely, a mechanically coupled assembly may
+locomote even though none of its constituent
+components possesses an independently controllable
+translation mechanism.
+
+A useful observable is the center-of-mass displacement,
+\begin{equation}
+\Delta\mathbf R(t)=
+\frac{1}{N}\sum_{i=1}^{N}
+\left[\mathbf r_i(t)-\mathbf r_i(0)\right].
+\label{eq:phenomena-transport}
+\end{equation}
+The corresponding mean-squared displacement is
+\begin{equation}
+M(t)=
+\left\langle
+\left|\mathbf R(t)-\mathbf R(0)\right|^2
+\right\rangle .
+\label{eq:phenomena-transport-msd}
+\end{equation}
+These quantities characterize collective translation
+and spreading. However, they do not by themselves
+establish that the motion arises from interactions.
+For this purpose, we also require comparisons with
+isolated agents, changes in group composition, or
+measurements of the forces and correlations
+responsible for collective displacement.
+
+Transport or locomotion is among the most frequently
+reported phenomena. In the supplied extraction,
+199 records carry this label. Robotic micro- and
+nano-agents contribute the largest recorded group,
+followed by wheeled or legged robots,
+vibration-driven systems, other implementations,
+and modular or self-reconfigurable assemblies.
+Smarticles, feedback-controlled colloids,
+and active solids also contribute. The
+subsequent removal of one duplicate microscopic
+study reduces the full corpus to 491;
+the supplied files do not identify which
+phenomenon labels belonged to the removed record.
+Thus, the reported transport total is an
+upper bound of 199 for the corrected corpus.
+
+\paragraph*{Microscopic transport and collective mobility.}
+
+Microscopic robotic agents provide a broad range
+of experimentally controlled transport mechanisms.
+Magnetic, optical, acoustic, and other actuation
+approaches allow collective motion to be generated
+without conventional on-board locomotion systems.
+The included literature covers microswimmer assemblies,
+field-driven transport, controllable trajectories,
+and collectively reconfigurable agents
+\cite{Sun2021swarmingmicrodrople,
+Xie2020bioinspiredsoftmic,
+Pauer2021programmabledesign,
+MayorgaMartinez2023multimodaldrivenma,
+Yigit2019programmablecollect,
+Das2023optoelectronictraje,
+Rivas2023spatialpatterningo,
+McGovern2024multifunctionalchir,
+Feng2023weakionexchangeba,
+Sun2024multiplemagnetoopt,
+Cheng2025selfassemblyandco,
+Je2024spatiallyselective,
+Cao2024mofbasedmagneticm,
+Li2023swarmingresponsive,
+Liu2022bionicmorphological,
+Tural2025dropletbasedmicrof,
+Xu2023multiplecilialike,
+Yue2022wheellikemagnetic,
+Gong2025collectivereconfigu,
+Wang2018collectivebehavior,
+Chen2022programmablespatio,
+Xu2022collectivebehaviors,
+Liu2023swarmingmultifuncti,
+Ussia2024magneticmicrorobot,
+Tran2025roboticmicrocapsule,
+Xia2025artificialintellige,
+Jin2019mimickingthestruct,
+Wang2026reconfigurableassem,
+Kim2026magneticmxenebased,
+Won2019ondemandorbitalma}.
+
+The principal advantage is that translation,
+rotation, relative particle motion, and
+collective configuration can often be
+observed simultaneously. This permits
+a distinction between the motion of
+the assembly and the motion of
+its individual components.
+
+Other microscopic experiments investigate
+transport through changes in assembly
+geometry, propulsion, or interaction
+conditions
+\cite{Baker2019shapeprogrammed3d,
+Aubret2021metamachinesofplura,
+Gardi2022microrobotcollectiv,
+Urso2023reconfigurableself,
+Goyal2025externallycontrolle,
+Gao2025softmagneticmicror,
+Alapan2019shapeencodeddynami,
+Raghavendra2026programmablepersist,
+Ahmed2021bioinspiredacousto,
+Yan2024programmingstructur,
+Yigit2020cohesiveselforgani,
+Chen2024magneticactuatedhy,
+Liu2025magneticsheetshape,
+Ceron2023programmableselfor,
+Hanson2025electrokineticpropu,
+Fonseca2022navigationofultras,
+An2026ondemandpatterntr,
+Xu2023bioinspiredciliali,
+Wang2018collectivesofspinn,
+Ji2021ondemandassemblya,
+Liu2026magneticcompartment,
+Fan2023largescaleswarmco,
+Xie2019programmablegenerat,
+Wang2022reconfigurablemagne,
+Wang2022magneticactuationo,
+Law2024navigationofmagnet,
+Yang2019statisticsbasedaut,
+Yu2022adaptivepatternand,
+Yu2019reconfigurablecollo,
+Wang2021precisecontrolofm,
+Zhang20233dprintedmicromete,
+Ceron2026fluidictorqueenabl,
+Dong2020controllingtwodime,
+Dong2019collectiveformation,
+Li2022vectorcontrolledwh,
+Fan2022solitaryandcollect}.
+
+These studies establish considerable experimental
+diversity. Nevertheless, several mechanisms may
+contribute to the observed mobility simultaneously.
+A global field can drive the particles,
+hydrodynamic interactions can modify
+their relative motion, and steric
+contact can stabilize or disrupt
+the assembly.
+
+A quantitative model must therefore explain
+more than the direction of movement.
+It should predict how transport depends
+on the number of interacting agents,
+driving conditions, configuration,
+or environmental constraints.
+In particular, the dependence of
+collective velocity on assembly
+size can provide evidence for
+interaction-mediated enhancement
+or suppression of mobility.
+
+\paragraph*{Contact-mediated locomotion.}
+
+Vibration-driven robots and smarticles provide
+an experimentally different route to transport.
+Here, the conversion of internal activity into
+collective displacement depends strongly
+on contact mechanics, friction, and geometry
+\cite{Deblais2019howtoforceanarmy,
+Xi2024beamsbotsandbey,
+Balda2022playingwithactive,
+Xi2024emergentintelligenc,
+Mohanty2025multimodalmotionan,
+Edwards2026robusttopologically,
+Musacchio2026activeembracemente,
+VidalesHernndez2026onthemotionofsel,
+Li2022chiralseparationof,
+Arbel2025amechanicalroutef,
+Novkoski2026graspionanopenso,
+Xi2024emergentbehaviorso,
+Tian2018flowratebehavioran,
+Ma2025simplerobotswarmw,
+Deblais2018boundariescontrolc,
+Noirhomme2024brainbotsassmarta,
+Mammadli2026physicsinformeddig,
+Callegari2023playingwithactive,
+Callegari2024activematterexperi,
+Balda2024playingwithactive,
+Li2021programmingactivec,
+Siebers2023exploitingcompositi,
+Son2024emergentfunctional,
+Boudet2021fromcollectionsof,
+Zion2023morphologicalcomput,
+Wagner2026geometryinducedtra,
+Bashkova2026differentialequatio,
+Lvay2026collectivedynamics,
+He2022dynamicbehaviorof,
+Zion2021distributedonline}.
+
+The included smarticle and granular-robot
+experiments also examine the relation
+between collective configuration and
+locomotion
+\cite{Li2018supersmarticlealo,
+Bhamla2021collectivetransport,
+Vardhan2022glidersinshapecha,
+Savoie2018phototacticsupersma,
+OzkanAydin2020collectiveprotectio,
+Warkentin2018locomotingrobotsco,
+Savoie2019arobotmadeofrobo,
+Li2020programmingactiveg}.
+
+These systems are particularly useful for
+identifying cooperative locomotion.
+An isolated component may have restricted
+mobility, whereas mechanical interactions
+within an assembly enable net displacement.
+This creates a direct opportunity to
+measure how collective motion depends
+on configuration and contact.
+
+Yet, the effective motion can be sensitive
+to small differences in component geometry,
+surface friction, or driving amplitude.
+Therefore, a convincing comparison with
+theory requires characterization of
+the individual components and their
+interaction with the substrate.
+
+\paragraph*{Modular and programmed transport.}
+
+Modular robots illustrate how locomotion
+can depend on changing connectivity.
+Their included experiments investigate
+collective motion and reconfiguration
+through mechanically coupled components
+\cite{Yang2024selfamputatingand,
+Hu2026diatominspired1di,
+Yi2025reconfigurablerobot,
+Rogowski2026coordinatedselfass,
+Zhao2024snailinspiredrobot,
+Zhang2026anisotropicshapesh,
+Li2019particleroboticsba,
+Bhattacharjee2026collectiveassembly,
+Oliveri2021continuouslearning,
+Drew2021acousticcommunicati,
+Kaeser2025individualandcolle,
+Rogowski2020magneticallyprogram,
+Ding2025transformablemodula,
+Ceron2021softroboticoscilla,
+Zhao2022softlatticemodules,
+Wang2026oscillatingeelrobo,
+Bhattacharjee2026closedloopselfass,
+Ma2026crosslinkcollectiv,
+ICHIKAWA2004emergentbehaviorso}.
+
+These experiments emphasize a physical
+distinction between individual and
+collective mobility. A mechanically
+connected assembly may acquire
+transport capabilities that depend
+on its shape and coordinated
+internal activity.
+
+Wheeled or legged systems provide
+complementary evidence through
+controlled collective motion,
+group transport, and
+interaction-dependent locomotion
+\cite{Paramanick2024emergenceofrunand,
+Loi2025pogobotanopensou,
+Kraus2026generativeadversari,
+Varadharajan2026programmableflocks,
+Gao2023robustdistributedc,
+Baumann2024hybridflockforma,
+Linevich2016robophysicalstudyo,
+Lee2022distributeddeformab,
+Nishinari2006modellingofselfdr,
+Gke2010theprosandconsof,
+Sun2023meanshiftexplorati,
+Xiao2023perceptionofmotion,
+Zheng2026nestedinteractionn,
+Agrawal2020scalefreeprogramm,
+Li2022fieldmediatedlocom,
+Liu2026noiseenabledgoala,
+Paramanick2025spontaneousemergenc,
+Belta2004controlofateamof,
+Kira2009exertinghumancontr,
+Koung2020consensusbasedform,
+Tomaselli2026multirobotobstacle,
+Cioarg2010evaluationoffishs,
+Gupta2009collectivetransporta,
+ICHIKAWA2004smallintelligentro,
+Nasseri2011controlofflocking,
+Maffettone2024mixedrealityenviro,
+Nouyan2009teamworkinselforg,
+Jia2025adeepreinforcement,
+Hu2021groupcoordinatedco,
+Aguilar2018collectiveclogcont,
+Raoufi2023individualityinswa,
+Ciuffo2022roboticcompetitions,
+Ferrante2012selforganizedflock,
+Garnier2013doantsneedtoesti,
+Khaledyan2018formationcontrolof,
+Aina2022towardtaskcapable,
+Chamanbaz2017swarmenablingtechn,
+Makino2004collectivebehavior,
+Li2020selfpropulsiononsa,
+Li2020selfpropulsiononsb,
+Tran2021robustmultirobotc,
+Gupta2009collectivetransportb}.
+
+Additional implementations extend the
+phenomenon to fluid-mediated,
+aerial, mechanically constrained,
+and specialized collective systems
+\cite{Zion2024amechanicalorigin,
+Choi2026communicationfreec,
+Mizuguchi2004collectivedynamics,
+Hu2026phototunablenonreci,
+Deng2022lightfuelednonreci,
+Yang2025electronicfreepart,
+Zoss2018distributedsystemo,
+Soria2021predictivecontrolo,
+Newbolt2019flowinteractionsbe,
+Hao2022proprioceptivefeedb,
+Virgh2014flockingalgorithmf,
+Ahmad2022pacnavacollective,
+Li2021usingaroboticplat,
+B2023adiscontinuouslyco,
+Delight2016developingrobotics,
+Brandstatter2024flockformationcont,
+nr2023onboardpredictivef,
+Iacone2024decentralizedaccele,
+Horyna2024fastswarmingofuav,
+Duarte2016evolutionofcollect,
+Ren2025chlamydomonasinspir,
+MendozaRobles2026distributedformatio,
+Martinet2022rotationcontrolin,
+Aubret2021metamachinesofplurb,
+Knippenberg2022roleofcohesionin,
+Chen2022collectiveresponse,
+Chen2024persistentandrespo,
+Rezanejad2025programmableentangl,
+Elshalakani2020simulationofselfc,
+Du2026metamaterialsthatl,
+Brandenbourger2021limitcyclesturnac,
+Coulais2025activemetamaterials}.
+
+The physical meaning of transport differs
+between these platforms. Moving a formation,
+transporting an object, translating a
+mechanically constrained assembly, and
+producing net migration through
+collective flow are distinct outcomes.
+They should not be combined into
+one universal transport mechanism.
+
+\paragraph*{Evidence and open questions.}
+
+In the 199 transport-labelled records
+of the supplied extraction, 67 report
+quantitative theoretical agreement,
+88 qualitative agreement, and
+44 no comparison. The D6 assessment
+rates 43 studies low risk,
+70 as having some concerns,
+and 86 high risk.
+
+Replication is less consistently documented.
+Forty-seven studies receive low-risk
+D1 ratings, 145 have some concerns,
+and seven are high risk.
+Independent-run counts are recorded
+for 74 studies. Explicit code
+availability occurs in 30,
+and data availability in 33.
+Ten studies were assessed
+from abstracts alone.
+
+These results establish substantial
+cross-platform evidence for collective
+transport and interaction-mediated
+locomotion. However, the diversity
+of observables limits the certainty
+of a common physical interpretation.
+Furthermore, the counts require
+recalculation once the exact
+duplicate micro-agent record
+is identified.
+
+The next step is to establish
+comparable measures of cooperative
+transport. Particularly useful
+quantities would include
+center-of-mass velocity,
+diffusion, transport efficiency
+relative to isolated agents,
+and changes in mobility
+under controlled variation
+of collective size.
+
+Such measurements could reveal
+when interactions enhance
+transport, when they suppress
+it, and when collective
+configuration becomes an
+essential dynamical variable.
+This would connect robotic
+locomotion more directly
+to general transport
+theories of active matter.
+
+\subsection{Synchronization}
+\label{sec:phenomena-synchronization}
+
+Synchronization occurs when interacting agents
+develop correlated temporal dynamics.
+The collective may coordinate oscillations,
+orientation changes, periodic actuation,
+or repeated mechanical motion.
+Unlike flocking, which primarily concerns
+spatial orientation and translation,
+synchronization concerns the relationship
+between dynamical phases or temporal responses.
+
+For agents with a well-defined phase
+$\phi_i(t)$, a conventional measure
+of synchronization is
+\begin{equation}
+Z(t)=
+\frac{1}{N}
+\sum_{i=1}^{N}e^{\mathrm{i}\phi_i(t)},
+\qquad
+R(t)=|Z(t)|.
+\label{eq:phenomena-sync}
+\end{equation}
+Here, $R=1$ corresponds to complete
+phase alignment, while lower values
+indicate less coherent phases.
+The interpretation assumes that a
+meaningful phase can be assigned
+to each constituent
+\todocite{Kuramoto model and
+foundational theory of
+coupled-oscillator synchronization}.
+
+This assumption is important.
+Coordinated motion does not
+automatically establish
+oscillator synchronization.
+Similarly, externally imposed
+simultaneous commands can
+make agents move together
+without demonstrating
+interaction-mediated
+phase locking.
+
+The extraction contains
+66 synchronization-labelled
+studies. Wheeled or legged
+robots contribute 23,
+other platforms 16,
+micro- and nano-agents 12,
+modular robots seven,
+and vibration-driven
+robots five. Active solids,
+feedback-controlled colloids,
+and unclassified platforms
+contribute one each.
+
+The breadth of implementations
+shows that temporal coordination
+is relevant to several
+experimental regimes.
+Nevertheless, the underlying
+interactions differ substantially,
+and the extracted category
+does not guarantee that
+every study investigates
+a system of coupled
+autonomous oscillators.
+
+\paragraph*{Programmed temporal coordination.}
+
+Wheeled or legged swarm robots
+provide experiments in which
+temporal coupling can be
+introduced through communication,
+local sensing, or prescribed
+interaction rules
+\cite{Chen2013aflockingalgorithm,
+Fruchart2022nonreciprocalphase,
+Cazenille2024hearingtheshapeof,
+Parker2010collectiveunarydec,
+PliegoJimnez2025ontheattitudecons,
+Zheng2024bodyorientationcha,
+Zheng2026nestedinteractionn,
+Salman2024automaticdesignof,
+Dizenhaus2026anonymousleadership,
+Wang2016aunifiedcommunicat,
+HaiTao2015algorithmsandexper,
+Min2011designandanalysis,
+Beattie2025realizingemergentc,
+Mao2014flockingofmultiro,
+Liu2024optimizationbasedf,
+Zhang2026noiseresilientimpl,
+Saladdino2026distributedcontrol,
+Chen2013algorithmsandexper,
+Mateo2019optimalnetworktopo,
+Raoufi2023individualityinswa,
+Ciuffo2022roboticcompetitions,
+Fan2013experimentsonflock,
+Fruchart2020phasetransitionsin}.
+
+These systems make it possible
+to modify interaction topology,
+communication, and feedback.
+Such control is useful for
+testing how local coupling
+affects collective temporal
+coherence.
+
+Yet, synchronization that
+arises from common commands
+must be distinguished from
+synchronization produced
+by interactions between
+autonomous oscillators.
+In the first case, the
+timing is externally imposed.
+In the second, collective
+timing emerges through
+coupling.
+
+A stronger experiment
+would compare the
+uncoupled dynamics
+with the coupled
+collective and
+measure how phase
+differences evolve.
+It could also vary
+the interaction network
+while keeping individual
+oscillator properties
+unchanged.
+
+\paragraph*{Mechanical and microscopic synchronization.}
+
+Modular systems offer
+a complementary regime
+because mechanically
+coupled actuation can
+produce correlated motion
+\cite{Hu2026diatominspired1di,
+Ma2024smarticle20desig,
+Bhattacharjee2026collectiveassembly,
+Drew2021acousticcommunicati,
+Ding2025transformablemodula,
+Ceron2021softroboticoscilla,
+Wang2026oscillatingeelrobo}.
+
+In such systems,
+synchronization can
+be investigated through
+relative motion,
+oscillation amplitude,
+phase differences,
+and collective
+structural response.
+Mechanical coupling
+may establish correlations
+without explicit
+communication between
+components.
+
+Vibration-driven experiments
+also address collective
+temporal behavior
+\cite{Escobar2025effectofparticlec,
+Rubenstein2014kilobotalowcost,
+Baconnier2022selectiveandcollec,
+Novkoski2026graspionanopenso,
+Xia2024biomimeticsynchroni}.
+Their relevance lies
+in the coupling between
+internal or imposed
+driving and physical
+interactions.
+
+For microscopic robotic
+systems, temporal coordination
+can arise through field-mediated
+or hydrodynamic coupling
+\cite{Xie2020bioinspiredsoftmic,
+Pauer2021programmabledesign,
+Je2024spatiallyselective,
+Chen2020temporallightmodul,
+Chen2022programmablespatio,
+Chen2023nanorobotmediateds,
+Yang2022emergentmicroroboti,
+Aubret2018targetedassemblyan,
+Liu2026magneticcompartment,
+Yu2019reconfigurablecollo,
+Zhang20233dprintedmicromete,
+Taghavi2024coordinatedbehavior}.
+
+These experiments provide
+access to correlated
+periodic or collective
+motion at small scales.
+However, the influence
+of common external
+driving must be
+considered explicitly.
+
+For example, phase
+coherence under
+uniform forcing
+may result from
+direct entrainment
+of each particle.
+Demonstrating
+interaction-mediated
+synchronization requires
+additional evidence
+that coupling changes
+the phase relationship
+beyond the isolated
+response to the drive.
+
+Other implementations
+investigate temporal
+coordination in fluid,
+mechanical, aerial,
+and feedback-mediated
+systems
+\cite{Zhou2021synchronizedswimmin,
+Gravish2023coordinatedcollecti,
+Hu2026phototunablenonreci,
+Deng2022lightfuelednonreci,
+Vantomme2021coupledliquidcryst,
+Soria2021predictivecontrolo,
+Hao2022proprioceptivefeedb,
+Warmington2026adiscontinuouslyco,
+B2023adiscontinuouslyco,
+Zhou2021collectivesynchroni,
+Nilles2019ahardwareandsoftw,
+Yan2026flockingbehaviorfo,
+Berlinger2021implicitcoordinatio,
+Paley2021planarformationcon,
+Wei2020densitydependentsy,
+Leech2026spincoupledhydrody,
+Heuthe2025tunablecolloidalsw,
+Elshalakani2020simulationofselfc,
+Fruchart2021nonreciprocalphase}.
+
+This broad distribution
+makes synchronization
+a useful cross-platform
+comparison problem.
+The corresponding
+theoretical models
+must nevertheless
+reflect the actual
+coupling mechanisms.
+
+\paragraph*{Evidence and open questions.}
+
+Among the 66 studies,
+16 report quantitative
+theoretical agreement,
+36 qualitative agreement,
+and 14 no comparison.
+For D6, 16 are rated
+low risk, 18 have
+some concerns, and
+32 are high risk.
+
+Replication reporting
+is limited. Twelve
+studies receive low-risk
+D1 ratings, 51 have
+some concerns, and
+three are high risk.
+Independent-run counts
+are recorded in 16 studies.
+Explicit code availability
+occurs in ten,
+and data availability
+in six.
+
+Four synchronization studies
+were assessed from abstracts
+alone. Their contribution
+to claims about phase
+locking or collective
+oscillatory dynamics
+must be interpreted
+with additional caution.
+
+The evidence establishes
+that robotic systems
+can produce experimentally
+measurable temporal
+coordination through
+several interaction
+mechanisms. It is
+less decisive for
+the existence of
+a common synchronization
+transition across
+platforms.
+
+The strongest future
+experiments would
+measure individual
+frequencies, relative
+phases, order parameters,
+and relaxation after
+perturbations.
+They should compare
+the uncoupled and
+coupled systems and
+vary coupling strength
+independently of
+external driving.
+
+This would help
+distinguish externally
+imposed timing,
+entrainment to a
+common signal,
+and genuine
+interaction-mediated
+synchronization.
+The distinction
+is particularly
+important in
+robotic systems,
+where all three
+mechanisms can
+be programmed.
+
+\subsection{Self-assembly and shape formation}
+\label{sec:phenomena-self-assembly}
+
+Self-assembly and shape formation concern the
+emergence or controlled modification of collective
+geometry. Interacting agents may form compact
+clusters, extended structures, chains, lattices,
+or configurations with prescribed boundaries.
+In active systems, these structures need not
+minimize a passive interaction energy.
+They may instead be sustained by continuous
+driving, feedback, or nonequilibrium
+mechanical interactions.
+
+The phenomenon is particularly important
+for robotic active matter because
+programmability can be used to modify
+both assembly pathways and stable
+collective configurations. Yet,
+the ability to construct a desired
+shape does not automatically
+demonstrate self-organization
+in the physical sense.
+
+We distinguish spontaneous assembly
+from externally prescribed formation.
+In the former, local interactions
+generate collective structure
+without direct specification
+of every agent's final position.
+In the latter, a controller
+may explicitly guide agents
+toward a predefined geometry.
+
+Both are experimentally relevant.
+However, their implications
+for active-matter theory differ.
+An assembly algorithm can
+demonstrate robust distributed
+construction, whereas a
+spontaneous structural transition
+can provide evidence for
+collective organization arising
+from microscopic interactions.
+
+The extracted self-assembly or
+shape-formation category contains
+237 studies. Wheeled or legged
+robots contribute 83,
+micro- and nano-agents 65,
+other platforms 31,
+vibration-driven robots 25,
+and modular robots 18.
+Feedback-controlled colloids,
+smarticles, and active
+metamaterials contribute
+smaller groups.
+
+This broad platform coverage
+reflects the central role
+of collective geometry
+in robotic experiments.
+However, the extracted
+category combines several
+distinct physical problems.
+Consequently, its size
+should not be interpreted
+as the number of independent
+tests of one self-assembly
+theory.
+
+\paragraph*{Programmable shape formation.}
+
+Wheeled and legged swarm robots
+allow local interactions and
+target configurations to be
+implemented explicitly.
+The included studies cover
+aggregation, distributed
+formation, collective
+configuration, and
+self-organized assembly
+\cite{Yamada2011circularmotiongene,
+Kernbach2011threecasesofconne,
+Tran2022frontierledswarmin,
+Giardina2022collectivephototact,
+Vega2023indirectswarmcontr,
+Vega2024agentbasedemulatio,
+Varadharajan2026programmableflocks,
+Lee2022distributedcohesive,
+Garnier2005aggregationbehaviou,
+Gaget2020branchedstructuref,
+Baumann2024hybridflockforma,
+Guzzi2014bioinspiredobstacle,
+Hu2018ahybridvisualmode,
+Ercan2011swarmrobotflocking,
+Rezeck2026decentralizedemerge,
+Ferrante2013aselfadaptivecomm,
+Christensen2008swarmorphscripta,
+Li2016turinglearningam,
+CetinaDenis2025flockingcontrolfor,
+Cambier2021culturalevolutiono,
+Pan2026exploringthephysic}.
+
+Their main experimental
+strength is the ability
+to vary local decision
+rules while monitoring
+the resulting global
+configuration. This
+supports tests of
+formation stability,
+response to disturbances,
+and the influence
+of communication
+or sensing.
+
+Other experiments
+investigate collective
+shape formation and
+reconfiguration across
+a range of programmed
+robotic systems
+\cite{Krishnanand2005formationsofminima,
+Prieto2010openendedevolution,
+Navarro2011aframeworkforthe,
+Savkin2015distributedformatio,
+Mendiburu2022automodemateautom,
+Spears2004distributedphysics,
+Sun2023meanshiftexplorati,
+Xiao2023perceptionofmotion,
+Fersula2026leveragingdesignfo,
+Salman2024automaticdesignof,
+Agrawal2020scalefreeprogramm,
+Molins2019trailformationusin,
+PliegoJimnez2023flockingandformati,
+Liu2023orderlyhysteresisi,
+Jin2023bioinspiredenviron,
+Mijalkov2016engineeringsensoria,
+Belta2004controlofateamof,
+HaiTao2015algorithmsandexper,
+Wang2012flockingbaseddistr,
+Kira2009exertinghumancontr,
+Hou2009ontheimplementatio,
+Sugawara2007collectivemotionsa,
+La2011decentralizedflocki,
+Beattie2025realizingemergentc,
+Cioarg2010evaluationoffishs,
+Sugawara2006collectivemotionan,
+Benedettelli2007experimentalvalidat,
+Lee2014distributedcohesive,
+StOnge2018circleformationwit,
+Wang2022optiswarmopticals,
+Li2026onfeedbackspeedco,
+Zhang2026noiseresilientimpl}.
+
+The relevant observables
+include collective shape,
+relative position,
+formation error,
+neighbor relationships,
+and configuration
+statistics. These
+quantities can establish
+how reliably a desired
+structure is formed.
+
+Yet, a formation-error
+measurement does not
+by itself establish
+an active-matter
+phase or a physical
+self-assembly mechanism.
+For stronger theoretical
+interpretation, we need
+statistics of configurations,
+assembly dynamics,
+and collective response
+to changes in
+interaction parameters.
+
+Further included studies
+address large-scale
+robotic assembly,
+distributed structure
+formation, and
+collective reorganization
+\cite{Christensen2007morphologycontroli,
+ICHIKAWA2004smallintelligentro,
+Garnier2005collectivedecision,
+Saladdino2026distributedcontrol,
+RekabiBana2025lyapunovstabilityd,
+Khaledyan2019flockingandtarget,
+Maffettone2024mixedrealityenviro,
+Nouyan2009teamworkinselforg,
+Hart2022unifyingcontrolarc,
+Marina2015controllingrigidfo,
+Hu2021groupcoordinatedco,
+Rubenstein2014programmableselfas,
+Kernbach2013adaptivecollective,
+Na2020bioinspiredartific,
+ABO20152a1k08effectsofi,
+Ito2011keepingofflockbeh,
+Khaledyan2018formationcontrolof,
+Chamanbaz2017swarmenablingtechn,
+Giusti2023distributedcontrol,
+Luan2023selforganizedaggre,
+Fu2023entropybyneighbor,
+Fats2012arobustschemefor,
+Doimo2025sonoroaswarmrobo,
+Ensenada2025flockingcontrolfor,
+Makino2004collectivebehavior,
+Prasath2022dynamicsofcooperat,
+Tuci2008selfassemblyinphy,
+Punpaisarn2008sutcargcarlikero,
+Tran2021robustmultirobotc,
+WAKATSUKI2018untitled}.
+
+These demonstrations provide
+important evidence that
+distributed robotic systems
+can generate organized
+collective configurations.
+Their physical interpretation
+remains conditional on
+the distinction between
+emergent interactions
+and direct formation
+control.
+
+\paragraph*{Microscopic and field-driven assembly.}
+
+Micro- and nano-agent experiments
+provide a complementary route
+because collective structure
+can arise through magnetic,
+hydrodynamic, steric,
+or field-mediated interactions.
+The included studies investigate
+controlled assembly,
+collective reconfiguration,
+and spatial organization
+\cite{Sun2021swarmingmicrodrople,
+Calabr2026interactiondrivena,
+Pauer2021programmabledesign,
+MayorgaMartinez2023multimodaldrivenma,
+Yigit2019programmablecollect,
+Das2023optoelectronictraje,
+Rivas2023spatialpatterningo,
+Feng2023weakionexchangeba,
+Sun2024multiplemagnetoopt,
+Cheng2025selfassemblyandco,
+Je2024spatiallyselective,
+Cao2024mofbasedmagneticm,
+Li2023swarmingresponsive,
+Liu2022bionicmorphological,
+Xu2023multiplecilialike,
+Yue2022wheellikemagnetic,
+Gong2025collectivereconfigu,
+Wang2018collectivebehavior,
+Chen2020temporallightmodul,
+Chen2022programmablespatio,
+Xu2022collectivebehaviors,
+Liu2023swarmingmultifuncti,
+Ussia2024magneticmicrorobot,
+Tran2025roboticmicrocapsule,
+Xia2025artificialintellige,
+Jin2019mimickingthestruct,
+Wang2026reconfigurableassem,
+Kim2026magneticmxenebased,
+Baker2019shapeprogrammed3d,
+Aubret2021metamachinesofplura,
+Gardi2022microrobotcollectiv,
+Urso2023reconfigurableself,
+Alapan2019shapeencodeddynami,
+Aubret2018targetedassemblyan,
+Raghavendra2026programmablepersist,
+Ahmed2021bioinspiredacousto,
+Yan2024programmingstructur,
+Yigit2020cohesiveselforgani,
+Desgranges2023microswimmersunder,
+Chen2024magneticactuatedhy,
+Liu2025magneticsheetshape,
+Ceron2023programmableselfor,
+Hanson2025electrokineticpropu,
+Fonseca2022navigationofultras,
+An2026ondemandpatterntr,
+Boudehane2026physicsbasedreduce,
+Xu2023bioinspiredciliali,
+Wang2018collectivesofspinn,
+Ji2021ondemandassemblya,
+An2024modelfreecontrolo,
+Fan2023largescaleswarmco,
+Xie2019programmablegenerat,
+Wang2022reconfigurablemagne,
+Wang2022magneticactuationo,
+Law2024navigationofmagnet,
+Yang2019statisticsbasedaut,
+Yu2022adaptivepatternand,
+Yu2019reconfigurablecollo,
+Wang2021precisecontrolofm,
+Chen2023understandingcollec,
+Ceron2026fluidictorqueenabl,
+Dong2020controllingtwodime,
+Dong2019collectiveformation,
+Li2022vectorcontrolledwh,
+Fan2022solitaryandcollect}.
+
+The main scientific
+advantage is that
+particle positions
+and collective
+geometry can be
+measured at relatively
+fine spatial resolution.
+Assembly statistics
+can therefore be
+compared with
+interaction-based
+models.
+
+However, external
+fields may directly
+select the resulting
+configuration.
+Such experiments
+are valuable for
+programmable assembly,
+but stronger evidence
+for spontaneous
+self-organization
+requires the
+collective outcome
+to be distinguished
+from imposed
+spatial forcing.
+
+Feedback-controlled
+colloids provide another
+route toward altering
+assembly rules
+\cite{Martinet2022rotationcontrolin,
+Yan2014colloidalsuperstruc,
+Aubret2021metamachinesofplurb,
+Heuthe2025tunablecolloidalsw,
+Knippenberg2022roleofcohesionin,
+Chen2022collectiveresponse,
+Guo2026afeedbackcontrolle}.
+These systems allow
+collective structure
+to be studied under
+programmable interactions,
+but the same distinction
+between implemented
+rules and emergent
+predictions applies.
+
+\paragraph*{Mechanical and modular structures.}
+
+Modular robots make
+connectivity an explicit
+collective variable
+\cite{Yang2024selfamputatingand,
+Ma2024smarticle20desig,
+Yi2025reconfigurablerobot,
+Rogowski2026coordinatedselfass,
+Zhao2024snailinspiredrobot,
+Zhang2026anisotropicshapesh,
+Bhattacharjee2026collectiveassembly,
+Oliveri2021continuouslearning,
+Kaeser2025individualandcolle,
+Smith2025loopymovementseme,
+Rogowski2020magneticallyprogram,
+Ding2025transformablemodula,
+Zhao2022softlatticemodules,
+Miyashita2008howmorphologyaffec,
+Paulos2015automatedselfassem,
+Bhattacharjee2026closedloopselfass,
+Ma2026crosslinkcollectiv,
+ICHIKAWA2004emergentbehaviorso}.
+
+Their relevant observables
+include configuration,
+connectivity, relative
+motion, and collective
+shape. These measurements
+help establish how local
+actuation and mechanical
+constraints generate
+larger structures.
+
+Vibration-driven systems
+and smarticles provide
+contact-mediated
+alternatives
+\cite{Xi2024beamsbotsandbey,
+Balda2022playingwithactive,
+Xi2024emergentintelligenc,
+GuzmnLastra2026emergenceofbeating,
+Musacchio2026activeembracemente,
+Smith2026fromswarmtoindivi,
+VidalesHernndez2026onthemotionofsel,
+Rubenstein2014kilobotalowcost,
+Pan2024applyingtheintrins,
+MuozObreque2026dynamicsofmagnetic,
+Xi2024emergentbehaviorso,
+Casiulis2025ageometricconditio,
+Ma2025simplerobotswarmw,
+Molodtsova2025micellizationinact,
+Musacchio2026fluidizationinduced,
+Wang2025hyperuniformnetwork,
+Dmitriev2025swarmodroidandampy,
+Miyashita2007selfassembleofwat,
+Zhang2024proteinfoldinginsp,
+Callegari2023playingwithactive,
+Balda2024playingwithactive,
+Li2021programmingactivec,
+Siebers2023exploitingcompositi,
+Otte2018anemergentgroupmi,
+He2022dynamicbehaviorof,
+Bhamla2021collectivetransport,
+Vardhan2022glidersinshapecha,
+OzkanAydin2020collectiveprotectio,
+Warkentin2018locomotingrobotsco,
+Chvykov2020lowrattlingapred,
+Li2020programmingactiveg}.
+
+These platforms are particularly
+relevant when collective
+structure emerges through
+mechanical interactions
+rather than communication.
+The effect of geometry,
+contact, and driving
+can then be investigated
+directly.
+
+Active metamaterials add
+the possibility of
+structural response
+within a connected
+assembly
+\cite{Rezanejad2025programmableentangl,
+Du2026metamaterialsthatl}.
+Other robotic systems
+extend shape formation
+to aerial, mechanical,
+and specialized
+collective platforms
+\cite{Beaver2022aconstraintdriven,
+Li2025llmflockdecentral,
+PitaRomero2026flockingbehaviorfo,
+Bo2026threephasesofodd,
+Mizuguchi2004collectivedynamics,
+Yang2025electronicfreepart,
+Infanti2026formationcontrolwi,
+Zoss2018distributedsystemo,
+Cabral2023designofadecentra,
+Virgh2014flockingalgorithmf,
+Petrek2020bioinspiredcompact,
+Novk2021fastcollectiveevas,
+Warmington2026adiscontinuouslyco,
+Zhou2022lateralcontactyiel,
+Fu2023tabletopplatformo,
+Delight2016developingrobotics,
+Albani2022distributedthreedi,
+Fernando2021onlineflockingcont,
+Berlinger2021selforganizedevasi,
+Brandstatter2024flockformationcont,
+Yu2024grfbasedpredictive,
+Vsrhelyi2014outdoorflockingand,
+Zhang2022agileformationcont,
+Horyna2024fastswarmingofuav,
+Silveria2026decentralizedswarm,
+Nilles2019ahardwareandsoftw,
+Vallegra2018gradualcollectiveu,
+Iskandarani2014unmannedaerialvehi,
+Jia2015leaderfollowerfloc,
+Iwami2024astudyonanalysis,
+MendozaRobles2026distributedformatio}.
+
+\paragraph*{Evidence and open questions.}
+
+The supplied extraction contains
+237 studies in this family.
+Sixty-six report quantitative
+theoretical agreement,
+106 qualitative agreement,
+and 65 no comparison.
+
+For D6, 43 studies
+receive low-risk
+ratings, 60 have
+some concerns,
+and 134 are high risk.
+Thus, the large number
+of assembly demonstrations
+is not matched by
+an equally large body
+of low-risk quantitative
+theory tests.
+
+For D1, 56 studies
+are rated low risk,
+178 have some concerns,
+and three are high risk.
+Independent-run counts
+are recorded for 93 studies.
+Explicit code availability
+occurs in 36,
+and data availability
+in 22.
+
+Six studies were
+assessed on abstracts
+alone. The interpretation
+of their assembly
+mechanisms is therefore
+limited by the reduced
+experimental information.
+
+We regard collective
+shape formation as
+strongly established
+across robotic platforms.
+The evidence for
+universal self-assembly
+mechanisms is weaker.
+Many experiments
+intentionally prescribe
+the resulting geometry,
+while others depend
+on platform-specific
+mechanical or
+field-mediated
+interactions.
+
+Future work should
+compare assembly
+pathways, configuration
+statistics, relaxation,
+and response to
+perturbations.
+Particularly important
+is the distinction
+between a structure
+maintained by continuous
+feedback and a
+collective state
+selected through
+local physical
+interactions.
+
+Cross-platform
+comparisons could
+establish which
+features of assembly
+depend on interaction
+symmetry, persistence,
+or mechanical constraints.
+Such experiments
+would connect
+programmable robotics
+more closely to
+nonequilibrium
+statistical mechanics.
+
+\subsection{Boundary accumulation}
+\label{sec:phenomena-boundaries}
+
+Boundaries are not passive details of an active-matter
+experiment. They can modify particle motion,
+generate persistent accumulation, and change
+the stability of collective states.
+In contrast to an equilibrium gas,
+an active population may develop
+strong near-wall density variations
+because persistent propulsion
+continually drives particles
+toward confining surfaces
+\todocite{foundational theory of
+active-particle wall accumulation
+and confinement}.
+
+This provides a useful experimental
+test of active-matter models.
+However, accumulation at a wall
+does not uniquely identify
+persistent active motion.
+Mechanical trapping,
+surface friction,
+field gradients,
+and programmed
+wall-following
+can produce
+similar observations.
+
+The physical interpretation
+therefore requires comparison
+between boundary geometry,
+single-agent motion,
+and the resulting
+spatial distribution.
+Useful observables include
+density profiles,
+residence times,
+wall-contact statistics,
+orientation distributions,
+and transport
+near boundaries.
+
+The extracted boundary-accumulation
+category contains 65 studies.
+Vibration-driven robots
+form the largest group,
+with 28 records.
+Wheeled or legged
+robots contribute 17,
+micro- and nano-agents 14,
+other systems four,
+and feedback-controlled
+colloids and active
+metamaterials one each.
+
+This distribution is
+particularly informative
+because the experiments
+span contact-mediated,
+programmed, and
+field-driven interactions.
+Yet, their common
+boundary-accumulation label
+does not establish
+a common mechanism.
+
+\paragraph*{Mechanically driven accumulation.}
+
+Vibration-driven robots
+provide accessible
+experimental realizations
+of persistent motion
+under confinement
+\cite{Deblais2019howtoforceanarmy,
+Balda2022playingwithactive,
+Xi2024emergentintelligenc,
+Mohanty2025multimodalmotionan,
+Edwards2026robusttopologically,
+Hoek2026pistonlikeinformat,
+Smith2026fromswarmtoindivi,
+Titov2025differentialequatio,
+Escobar2025effectofparticlec,
+VidalesHernndez2026onthemotionofsel,
+Boudet2025nonmarkoviandynami,
+Xi2024emergentbehaviorso,
+Giomi2013swarmingswirlinga,
+Molodtsova2025micellizationinact,
+Musacchio2026fluidizationinduced,
+Deblais2018boundariescontrolc,
+Dmitriev2025swarmodroidandampy,
+Miyashita2007selfassembleofwat,
+Callegari2023playingwithactive,
+Balda2024playingwithactive,
+Siebers2023exploitingcompositi,
+Son2024emergentfunctional,
+Boudet2021fromcollectionsof,
+Zion2023morphologicalcomput,
+Li2013asymmetricgearrect,
+Wagner2026geometryinducedtra,
+Lvay2026collectivedynamics,
+Zion2021distributedonline}.
+
+These experiments are
+well suited to measuring
+how confinement influences
+trajectories and
+collective spatial
+organization.
+They also offer
+opportunities to
+vary arena geometry
+while retaining
+the same active
+components.
+
+The relevant physical
+difficulty is separating
+persistent propulsion
+from contact mechanics.
+A robot may remain
+near a boundary
+because its orientation
+relaxes slowly,
+because its geometry
+prevents reorientation,
+or because the substrate
+changes its propulsion
+near the wall.
+
+Measurements of
+residence time,
+orientation,
+local speed,
+and boundary
+contact can help
+distinguish these
+mechanisms.
+A spatial density
+profile alone is
+usually insufficient
+to identify
+their relative
+importance.
+
+\paragraph*{Programmed and microscopic boundaries.}
+
+Wheeled or legged
+robot experiments
+address confinement,
+collective response,
+and boundary-dependent
+motion
+\cite{Giardina2022collectivephototact,
+Zhang2026emergentnonhermiti,
+Lee2022distributedcohesive,
+Cazenille2016automatedoptimisati,
+OrdazRivas2021flockofrobotswith,
+Mendiburu2022automodemateautom,
+Li2022fieldmediatedlocom,
+Liu2023orderlyhysteresisi,
+Liu2025collectivemotionmo,
+Liu2020computationalandro,
+Barone2024experimentalandnum,
+Fine2013elicitingcollective,
+Hart2022unifyingcontrolarc,
+Kernbach2013adaptivecollective,
+Sun2023translatingvirtual,
+Prasath2022dynamicsofcooperat,
+Li2020selfpropulsiononsb}.
+
+These platforms can
+make the boundary
+response programmable.
+For example,
+wall avoidance
+or wall following
+may be implemented
+through local
+sensing rules.
+
+Such experiments
+are useful for
+testing the effects
+of boundary interactions.
+However, the resulting
+accumulation should
+not automatically
+be interpreted as
+the spontaneous
+near-wall accumulation
+of an active
+Brownian particle.
+The imposed control
+rule is part of
+the physical model
+that must be tested.
+
+Microscopic robotic
+systems provide
+complementary evidence
+through field-driven
+and interaction-mediated
+motion near boundaries
+\cite{Calabr2026interactiondrivena,
+Yigit2019programmablecollect,
+Das2023optoelectronictraje,
+Liu2023swarmingmultifuncti,
+Wang2026reconfigurableassem,
+Baker2019shapeprogrammed3d,
+Gardi2022microrobotcollectiv,
+Ahmed2021bioinspiredacousto,
+Yan2024programmingstructur,
+Desgranges2023microswimmersunder,
+Ceron2023programmableselfor,
+Fonseca2022navigationofultras,
+Ceron2026fluidictorqueenabl,
+Dong2019collectiveformation}.
+
+At microscopic scales,
+boundary effects can
+involve steric contact,
+hydrodynamic coupling,
+and changes in
+field-driven motion.
+These mechanisms
+may interact with
+collective assembly,
+so boundary accumulation
+and clustering
+must be distinguished
+carefully.
+
+Feedback-controlled
+colloids and active
+structures extend
+the range of
+accessible boundary
+responses
+\cite{Chen2024synchronousandfull,
+Zhang2026noiseenhancedtempo}.
+Additional experiments
+in the residual
+platform class
+investigate boundary
+and confinement-related
+collective behavior
+\cite{Jia2014experimentalimpleme,
+Boudet2025effectsofboundarie,
+Das2025roleofkinematicco,
+Nilles2019ahardwareandsoftw}.
+
+Together, these studies
+indicate that boundaries
+can influence collective
+behavior through several
+physical and informational
+mechanisms. Their
+interpretation requires
+platform-specific
+characterization.
+
+\paragraph*{Evidence and open questions.}
+
+Among the 65 studies,
+29 report quantitative
+theory comparison,
+28 qualitative comparison,
+and eight no comparison.
+The D6 ratings are
+low risk for 17 studies,
+some concerns for 27,
+and high risk for 21.
+
+This is a comparatively
+substantial quantitative
+evidence base for a
+phenomenon whose
+mechanisms can often
+be characterized
+through spatial
+measurements.
+
+Nevertheless, replication
+documentation is incomplete.
+Fifteen studies receive
+low-risk D1 ratings,
+48 have some concerns,
+and two are high risk.
+Independent-run counts
+are recorded in 20 studies.
+Explicit code availability
+occurs in ten,
+and data availability
+in 13.
+
+One study was assessed
+from an abstract only.
+Thus, most records
+have full-text assessment
+bases, although this
+does not guarantee
+complete information
+about the experimental
+boundary conditions.
+
+The strongest conclusion
+is that confinement
+and boundaries influence
+collective active motion
+across several robotic
+platforms.
+The available evidence
+does not establish
+one universal
+accumulation mechanism
+for all these systems.
+
+A useful future
+comparison would
+measure density,
+orientation,
+residence time,
+and transport
+as functions of
+boundary curvature
+and interaction
+properties.
+Where possible,
+the same active
+components should
+be studied in
+different geometries.
+
+Such experiments
+could distinguish
+persistent-motion
+accumulation from
+mechanical trapping,
+programmed wall
+responses, and
+field-mediated
+effects.
+
+Boundary characterization
+should therefore
+be treated as
+part of the
+physical experiment,
+not merely as
+a technical detail.
+This is especially
+important when
+finite experimental
+arenas are used
+to draw conclusions
+about bulk
+collective behavior.
 
 \subsection{Cross-phenomenon synthesis}
+\label{sec:phenomena-cross}
 
-\subsubsection{Which phenomena are most robust?}
+The phenomenon taxonomy provides a broader view
+than the platform taxonomy alone.
+It reveals that related collective patterns
+can be realized through substantially different
+microscopic interactions. Yet, this observation
+does not imply that those systems belong
+to the same physical universality class.
 
-Robotic systems robustly produce several collective states. Local sensing and communication support aggregation, polar motion, and shape formation. Steric contact and geometry support clustering, transport, synchronization, and jamming. Shared fields organize microscopic agents into chains, swarms, vortices, and moving assemblies. Feedback closes an interaction loop and permits controlled switching among polar, rotating, and clustered states. Persistent mechanical coupling produces active modes and nonreciprocal response.
+The distinction between a phenomenon and
+its mechanism is therefore central
+to interpreting the evidence.
 
-This conclusion concerns reproducibility of broad phenomena, not universal laws. Similar patterns occur across platforms, but the microscopic routes differ. A flock created through message passing and a flock created through collision-induced alignment share an order parameter. They need not share fluctuations, response, or transition behaviour.
+Flocking, clustering, collective transport,
+synchronization, and self-assembly
+have all been realized through
+programmable robotic interactions.
+This establishes an important
+experimental capability:
+we can construct physical
+systems in which selected
+microscopic rules generate
+measurable collective behavior.
 
-The most mature evidence combines three features. It changes a microscopic control parameter, measures a collective observable, and compares the response with a model or baseline. Representative examples include aggregation under local sensing \cite{Garnier2005collectivedecision}, phase separation and edge flow in rotating robots \cite{Scholz2018rotatingrobotsmove}, mechanically generated payload transport \cite{Arbel2025amechanicalroutef}, contact-mediated synchronization \cite{Zhou2021collectivesynchroni}, and nonreciprocal wave propagation \cite{Brandenbourger2019nonreciprocalrobot}. The platforms differ, but the experimental logic is the same.
+However, a programmed
+realization is not
+necessarily an independent
+test of the theory
+from which the rule
+was derived.
+The strongest evidence
+comes from quantities
+that the controller
+does not directly prescribe.
 
-Demonstrations are weaker when the controller contains the desired outcome. A shape controller can prove that local rules realize a shape. It cannot by itself explain spontaneous assembly. A flocking controller can prove stable coordinated motion. It cannot by itself establish an ordering transition. External feedback can create a vortex. It must be perturbed to reveal whether the vortex is a stable collective state or a continuously enforced trajectory.
+For flocking, these
+include fluctuations,
+spatial correlations,
+and the dependence
+of order on system
+size and noise.
+For clustering,
+they include density
+distributions,
+coexistence,
+and the dependence
+of collective motion
+on local crowding.
+For synchronization,
+they include phase
+relationships,
+frequency locking,
+and relaxation
+under perturbation.
 
-Hence, the critical divide is not between controlled and uncontrolled systems. It is between experiments that expose their causal structure and experiments that display an outcome.
+Similarly, vortex
+formation should
+be distinguished
+from prescribed
+circular movement.
+Chiral collective
+response should
+be distinguished
+from externally
+imposed rotation.
+And shape formation
+should be distinguished
+from a controller
+that assigns every
+agent a target
+position.
 
-\subsubsection{Phenomena form pathways rather than isolated boxes}
+These differences
+are not merely
+terminological.
+They determine
+what a robotic
+experiment can
+establish about
+active-matter
+physics.
 
-The overlaps in the evidence table reveal recurring pathways. Assembly often precedes transport. Clustering can lead to jamming, crystallization, or a moving coherent body. Polar motion can become milling through confinement or delay. Synchronization can stabilize a spatial pattern. Chirality can generate edge currents or locomotion. Active solids can emerge when transient contacts become persistent couplings.
+\paragraph*{What is reproduced across platforms?}
 
-These pathways suggest a better experimental organization than a catalogue of states. One may follow a controlled parameter through a sequence
-\[
-\text{disordered motion}
-\longrightarrow
-\text{clustering}
-\longrightarrow
-\text{ordered assembly}
-\longrightarrow
-\text{arrest or collective transport}.
-\]
-A different system may follow
-\[
-\text{polar motion}
-\longrightarrow
-\text{milling}
-\longrightarrow
-\text{boundary localization}.
-\]
-The value lies in measuring the transitions and reversibility, not merely naming the endpoints.
+The evidence is strongest for the experimental
+existence of collective motion, transport,
+spatial organization, and coordinated
+shape formation. These behaviors appear
+across multiple physical realizations
+with different propulsion and
+interaction mechanisms.
 
-Robotic platforms are well suited to this task. Interaction range, delay, speed, turning bias, morphology, activity, and network topology can often be changed during one experiment. The same agents can therefore traverse several collective states without changing fabrication.
+However, the extracted platform
+labels do not identify
+independent research groups
+in a normalized form.
+First-author names,
+venues, and study
+counts cannot reliably
+establish independence.
+We therefore do not
+equate cross-platform
+coverage with a
+numerical count of
+independent replications.
 
-Yet, few studies map complete pathways. Most report one or two outcomes chosen for a task. Future work should predefine a parameter sweep and retain the same observables across the sweep. This would reveal whether apparently different phenomena are phases of one system or products of unrelated control modes.
+A further distinction
+concerns theoretical
+specificity. Observing
+clustering in several
+systems supports
+the general conclusion
+that active collectives
+can aggregate.
+It does not
+independently confirm
+motility-induced
+phase separation
+in every system.
 
-\subsubsection{Order parameters must follow the phenomenon}
+Likewise, collective
+rotation in magnetic
+microrobots,
+vibration-driven particles,
+and programmed
+robot swarms
+does not establish
+a common mechanism
+of spontaneous
+chiral symmetry
+breaking.
 
-A common measurement framework is possible, but not one universal score. Polarization measures directional order. Angular momentum or rotational order measures milling. Pair correlations, structure factors, and bond order measure spatial organization. Cluster-size distributions measure aggregation. Phase coherence measures synchronization. Flow rate and arrest time measure jamming. Stress, strain, work, and wave response measure active solids.
+The physical
+interpretation becomes
+stronger when comparable
+observables can be
+measured across
+platforms and
+related to a common
+theoretical prediction.
 
-Several studies already combine complementary observables. Visual robot experiments report both polarization and milling \cite{Castro2025visualcollectivebe}. Colloidal feedback experiments distinguish polar and rotating states \cite{Buerle2020formationofstable}. Magnetic active chains report connectivity, motion, and fluctuation \cite{Yigit2020cohesiveselforgani}. These combinations prevent one order parameter from hiding another.
+\paragraph*{The role of quantitative observables.}
 
-The main reporting problem is not lack of possible metrics. It is selective use. A study may report mean order without fluctuations, mean cluster size without its distribution, or mean transport speed without failures. Such summaries can conceal switching, intermittency, or a long tail of unsuccessful trials.
+The review's most important methodological
+finding is that the presence of a collective
+pattern and the quality of its theoretical
+explanation must be assessed separately.
 
-At minimum, reports should give a time-resolved collective observable, its distribution across independent runs, and the control parameter. Spatial phenomena should additionally report boundary-relative measurements. Transition claims should include both sides of the transition and a finite-size analysis where feasible.
+For example, polarization provides
+a common observable for
+collective directional order,
+while mean-squared displacement
+can characterize transport
+and relaxation.
+Pair correlations,
+cluster statistics,
+and density profiles
+provide information
+about spatial
+organization.
+Response matrices
+and vibrational
+spectra characterize
+mechanical behavior.
 
-\subsubsection{Boundaries, size, and heterogeneity}
+Yet, using the same
+observable does not
+make all experiments
+directly comparable.
+The measurement
+protocol, normalization,
+accessible system size,
+and physical constraints
+must also be considered.
 
-Finite size and boundaries are the dominant cross-cutting limitation. They raise some concerns in 235 self-assembly studies, 193 transport studies, 141 flocking studies, 98 clustering studies, 82 chirality studies, 74 vortex studies, 57 synchronization studies, 51 boundary studies, 25 jamming studies, and all 15 active-solid studies.
+In particular,
+an apparent
+power law or
+phase transition
+requires sufficient
+parameter and
+size variation
+to distinguish
+scaling behavior
+from a finite-system
+crossover.
+The extraction
+does not support
+treating every
+reported transition
+or ordered state
+as an independently
+established
+thermodynamic phase.
 
-These counts do not imply that every result is an artifact. They show that the relevant scale comparison is often missing. An arena must be large relative to a correlation length. A boundary layer must be separated from the bulk. An active-solid mode must fit within the structure. A cluster must be smaller than the field of view if coarsening is claimed.
+We therefore place
+greater weight on
+experiments that
+report quantitative
+comparisons,
+independent repetitions,
+and explicit
+characterization
+of boundaries
+and finite-size
+effects.
 
-Robotic systems permit direct finite-size studies, but hardware cost often restricts population. Simulations are then used at larger size. Such extrapolation is informative only if hardware and simulation agree on the accessible regime. Running the same controller in simulation does not validate the physical model when contact, friction, latency, and actuation differ.
+This does not imply
+that qualitative
+demonstrations
+lack scientific value.
+Many establish
+new experimental
+capabilities or
+unexpected forms
+of collective motion.
+Their contribution
+is different from
+that of a decisive
+theoretical test.
 
-Heterogeneity is less often identified as high risk, but nominally identical agents can vary substantially. Battery voltage, wheel speed, magnetic moment, vibration amplitude, and sensor bias affect collective thresholds. Deliberate characterization of this variation would turn a nuisance into a controlled test. Synchronization, flocking, and assembly are especially sensitive to the width of the single-agent distribution.
+\paragraph*{Experimental robustness and reporting.}
 
-\subsubsection{Replication and open evidence}
+Across the phenomenon families,
+risk-of-bias assessments show
+that low-risk quantitative
+theory tests remain
+a subset of the
+available experimental
+literature.
 
-Replication remains incomplete. Independent run counts are stated in 89 self-assembly studies, 73 transport studies, 55 flocking studies, 50 clustering studies, 26 chirality studies, 29 vortex studies, 19 synchronization studies, 19 boundary studies, 15 jamming studies, and two active-solid studies. These categories overlap, but the pattern is clear.
+The evidence is
+particularly heterogeneous
+for broad families
+such as flocking,
+transport, and
+shape formation.
+These categories
+contain many studies
+with qualitative
+comparisons or
+no recorded
+theory comparison.
 
-Public evidence is scarcer. Table~\ref{tab:phenomenon-evidence} shows that no phenomenon has code and data available in more than a minority of studies. The gap is consequential because collective states can depend on trajectory processing, segmentation, smoothing, and order-parameter definitions.
+More specialized
+phenomena, including
+active elasticity
+and certain forms
+of chiral response,
+contain comparatively
+high proportions
+of quantitative
+comparisons.
+However, their
+smaller evidence
+bases and limited
+replication reporting
+restrict the generality
+of conclusions.
 
-A useful minimum release would include trajectories, trial identifiers, arena geometry, controller version, and the script that computes the reported observable. Video alone is insufficient for quantitative reuse. Source code alone is insufficient when hardware calibration and raw trajectories are absent.
+A separate limitation
+arises from missing
+experimental-run counts.
+Where repetition
+information is absent,
+we cannot establish
+how precisely an
+observable was measured
+or how robustly
+a reported state
+was reproduced.
+Missing reporting
+is not proof
+of absent replication,
+but it limits
+independent assessment.
 
-Physical reproducibility requires additional information. Studies should report propulsion statistics for isolated agents, interaction calibration for pairs, and collective measurements for the group. This hierarchy would let another laboratory determine whether disagreement begins at the agent, interaction, or collective level.
+The same applies
+to code and data
+availability.
+A complete controller
+description,
+experimental trajectory
+dataset, and
+analysis implementation
+would permit stronger
+verification of
+the reported physical
+conclusions.
 
-\subsubsection{What directions follow from the evidence?}
+For feedback-mediated
+systems, these materials
+are particularly important
+because the controller
+forms part of the
+effective interaction.
+For mechanically driven
+systems, calibration
+and particle-level
+measurements are
+similarly important.
 
-The first direction is to replace state demonstrations with discriminating experiments. Two models may predict the same flock or cluster but different response to delay, noise, or boundaries. The robotic experiment should target that difference.
+\paragraph*{From demonstration to discriminating experiment.}
 
-The second is to exploit reversible control. A parameter sweep that moves the same system between disorder, order, rotation, and arrest is more informative than separate optimized demonstrations. Hysteresis and recovery should be measured explicitly.
+The next stage of robotic active-matter
+research should use programmability
+to distinguish physical mechanisms
+rather than merely realize
+new collective patterns.
 
-The third is to separate imposed and emergent symmetry breaking. Rotation imposed by a field, polar motion commanded by a controller, and shapes specified in advance are valuable engineering achievements. Their physical interpretation becomes stronger when compared with symmetric controls and spontaneous state selection.
+We see three particularly useful
+forms of comparison.
 
-The fourth is to connect local mechanisms with scale. Pair experiments identify collision or coupling rules. Intermediate groups reveal motifs and transient states. Larger populations test whether a collective law emerges. All three scales are needed.
+The first is the controlled
+comparison between isolated
+agents and interacting
+collectives. It establishes
+which changes in dynamics
+can be attributed to
+interactions rather
+than the propulsion
+of individual agents.
 
-The fifth is to compare embodiments under a shared hypothesis. A visual robot, feedback-controlled colloid, and vibration-driven particle can each realize alignment. Matching the nominal rule while measuring embodiment-specific deviations would test which features of collective order are universal.
+The second is systematic
+variation of microscopic
+interaction parameters.
+Such experiments can
+distinguish competing
+predictions and reveal
+whether apparent
+collective transitions
+depend on a specific
+control implementation.
 
-Finally, negative outcomes should be retained. Failed assembly, absent synchronization, unstable vortices, and jammed transport constrain mechanisms. Robotic active matter advances when it explains why a collective state appears, when it disappears, and which intervention changes that result.
+The third is cross-platform
+replication with comparable
+observables. If a predicted
+relationship survives
+changes in propulsion,
+sensing, or mechanical
+coupling, confidence
+in its generality
+increases.
 
-The evidence base already establishes that robotic systems can serve as controlled realizations of collective active dynamics. Their strongest contribution is not the number of patterns they reproduce. It is the possibility of intervening on the mechanism while retaining a measurable physical system. The next stage should use that possibility systematically.
+These approaches
+also clarify the
+relationship between
+robotics and
+active-matter theory.
+Robotics provides
+control and
+experimental access.
+Active-matter theory
+provides predictions
+about collective
+states, fluctuations,
+response, and
+nonequilibrium
+organization.
+
+Their combination
+is most productive
+when each constrains
+the other.
+
+In particular,
+a theoretical model
+should not be regarded
+as validated merely
+because its
+interaction rule
+can be implemented.
+Nor should an
+unexpected collective
+pattern be interpreted
+as a new physical
+phase without
+the necessary
+quantitative evidence.
+
+Hence, the principal
+conclusion of this
+phenomenon synthesis
+is twofold.
+Robotic experiments
+have established
+a broad range of
+collective behavior
+across diverse
+artificial active
+systems.
+Yet, the evidence
+for universal
+physical mechanisms
+is more selective
+than the number
+of demonstrations
+might suggest.
+
+The following
+theory section
+examines this
+distinction directly:
+which models have
+been confronted
+quantitatively
+with robotic
+experiments,
+which observables
+were compared,
+and where the
+available evidence
+supports or
+limits the
+proposed explanation.

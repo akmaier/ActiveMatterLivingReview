@@ -28,3 +28,10 @@
 - doi:10.1038/s41467-021-26699 (truncated DOI) merged into doi:10.1038/s41467-021-26699-6 as a duplicate.
 - ACM placeholder DOIs replaced by the registered IFAAMAS DOIs: 10.5555/1402383.1402394 -> 10.65109/tjgp2764,
   10.5555/3091125.3091319 -> 10.65109/kqhs7667.
+
+## Resolved 2026-10-17 (IROS 2011 DOI scramble)
+Crossref's IROS 2011 metadata pairs titles with the wrong DOIs. Resolving at doi.org/IEEE Xplore:
+10.1109/iros.2011.6048246 = Fine & Shell (flocking), 10.1109/iros.2011.6048389 = Hauert et al. (fixed-wing
+flocking), 10.1109/iros.2011.6048876 = "Force control for planar spring-mass running", 10.1109/iros.2011.6048729 =
+"RGB-D object discovery". The Fine & Shell and Hauert records now carry the correct DOIs; the two
+"ornithopter" / "force-velocity" records were duplicates of them and are merged. The stored PDFs were right.

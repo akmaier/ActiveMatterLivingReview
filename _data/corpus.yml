@@ -3050,8 +3050,8 @@
   doi: 10.1007/s11721-016-0126-1
 - id: doi:10.1007/978-3-319-63537-8_10
   year: 2016
-  title: Automated optimisation of multi-level models of collective behaviour in a
-    mixed society of animals and robots
+  title: Automated Calibration of a Biomimetic Space-Dependent Model for Zebrafish
+    and Robot Collective Behaviour in a Structured Environment
   authors: Léo Cazenille; Nicolas Bredèche; José Halloy
   venue: HAL (Le Centre pour la Communication Scientifique Directe)
   platform: wheeled or legged swarm robots
@@ -3364,7 +3364,7 @@
   agents: 10
   phenomena: flocking polar order
   abstract_only: false
-  doi: 10.1109/iros.2011.6048729
+  doi: 10.1109/iros.2011.6048389
 - id: doi:10.1109/iros.2011.6048876
   year: 2011
   title: 'Flocking: Don''t need no stinkin'' robot recognition'
@@ -3375,7 +3375,7 @@
   agents: 6
   phenomena: flocking polar order
   abstract_only: false
-  doi: 10.1109/iros.2011.6048876
+  doi: 10.1109/iros.2011.6048246
 - id: doi:10.1109/iciea.2011.5975893
   year: 2011
   title: Decentralized flocking control with a minority of informed agents
@@ -5578,17 +5578,6 @@
   phenomena: self assembly or shape formation
   abstract_only: false
   doi: null
-- id: doi:10.1109/iros.2011.6048246
-  year: 2011
-  title: Flight control for target seeking by 13 gram ornithopter
-  authors: Stanley S. Baek; Fernando L. Garcia Bermudez; Ronald S. Fearing
-  venue: IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
-  platform: wheeled or legged swarm robots
-  platform_name: iRobot Create
-  agents: 6
-  phenomena: flocking polar order
-  abstract_only: false
-  doi: 10.1109/iros.2011.6048246
 - id: doi:10.1073/pnas.1816098116
   year: 2019
   title: Flow interactions between uncoordinated flapping swimmers give rise to group
@@ -5705,18 +5694,6 @@
   phenomena: other
   abstract_only: false
   doi: 10.1007/s10514-021-10033-6
-- id: doi:10.1109/iros.2011.6048389
-  year: 2011
-  title: Reusable hybrid force-velocity controlled motion specifications with executable
-    domain specific languages
-  authors: M. Klotzbucher; R. Smits; H. Bruyninckx; Joris De Schutter
-  venue: IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
-  platform: other
-  platform_name: null
-  agents: 10
-  phenomena: flocking polar order
-  abstract_only: false
-  doi: 10.1109/iros.2011.6048389
 - id: doi:10.1038/s41467-025-58092-y
   year: 2025
   title: Externally controlled intermittent randomization enables complex navigation

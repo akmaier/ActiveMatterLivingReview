@@ -14,17 +14,17 @@
   },
   "duplicates_removed": 6332,
   "awaiting_screening": 0,
-  "screened": 8701,
+  "screened": 8699,
   "excluded_screening": 7423,
-  "sought": 1278,
+  "sought": 1276,
   "not_retrieved": 300,
   "assessed_on_abstract_only": 179,
   "abstract_only_included": 30,
-  "assessed": 978,
+  "assessed": 976,
   "excluded_eligibility": 662,
   "excluded_full_text": 513,
   "excluded_abstract_only": 149,
-  "included_full_text": 461,
+  "included_full_text": 459,
   "awaiting_decision": 4,
   "excluded_eligibility_reasons": {
     "E2": 261,
@@ -34,6 +34,6 @@
     "E3": 224,
     "E4": 2
   },
-  "included_studies": 491,
-  "included_reports": 491
+  "included_studies": 489,
+  "included_reports": 489
 }

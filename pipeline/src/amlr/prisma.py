@@ -11,6 +11,10 @@ from typing import Iterable
 from .schema import PrismaPhase as P
 
 
+def _ao(records, phase: str) -> int:
+    return sum(1 for r in records if r.get("phase") == phase and r.get("assessment_basis") == "abstract_only")
+
+
 def compute_counts(records: Iterable[dict], today: date | None = None, manifest: dict | None = None) -> dict:
     """Identification / screening / eligibility / included counts for the flow diagram.
 
@@ -60,6 +64,12 @@ def compute_counts(records: Iterable[dict], today: date | None = None, manifest:
                                       and r.get("phase") == P.included.value),
         "assessed": n[P.assessed.value] + n[P.excluded_eligibility.value] + n[P.included.value] - abstract_only,
         "excluded_eligibility": n[P.excluded_eligibility.value],
+        # The same totals split by assessment basis, so the flow reconciles box by box:
+        # assessed (full text) = included_full_text + excluded_full_text + awaiting_decision.
+        "excluded_full_text": n[P.excluded_eligibility.value] - _ao(records, P.excluded_eligibility.value),
+        "excluded_abstract_only": _ao(records, P.excluded_eligibility.value),
+        "included_full_text": n[P.included.value] - _ao(records, P.included.value),
+        "awaiting_decision": n[P.assessed.value],
         "excluded_eligibility_reasons": dict(reasons),
         "included_studies": n[P.included.value],
         "included_reports": n[P.included.value],

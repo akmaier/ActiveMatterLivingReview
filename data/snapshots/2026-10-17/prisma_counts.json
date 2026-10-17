@@ -22,6 +22,10 @@
   "abstract_only_included": 30,
   "assessed": 979,
   "excluded_eligibility": 662,
+  "excluded_full_text": 513,
+  "excluded_abstract_only": 149,
+  "included_full_text": 462,
+  "awaiting_decision": 4,
   "excluded_eligibility_reasons": {
     "E2": 261,
     "E1": 32,

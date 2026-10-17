@@ -379,6 +379,43 @@ def _run(source: str, items: Iterator[Item], query: str, out_dir: Path) -> dict:
     return {"source": source, "records": n, "records_file": str(rec_path)}
 
 
+# ---------------------------------------------------------------- reader submissions (pull requests)
+
+SUBMISSIONS = RAW.parents[1] / "submissions"  # RAW is <repo>/data/raw
+
+
+def _submission_items() -> Iterator[Item]:
+    """Merged pull-request submissions (submissions/*.yml) as records identified via other methods.
+    The abstract comes from Crossref where it has one; the submitter's `why` is kept separately and
+    never shown to the screening panel."""
+
+    import yaml
+
+    client = http(1.0)
+    for f in sorted(SUBMISSIONS.glob("*.y*ml")):
+        if f.name == "TEMPLATE.yml":
+            continue
+        d = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+        doi = str(d.get("doi") or "").strip().lower().removeprefix("https://doi.org/") or None
+        arxiv = str(d.get("arxiv") or "").strip() or None
+        abstract = None
+        if doi:
+            try:
+                msg = client.fetch_json(f"https://api.crossref.org/works/{doi}?mailto={MAILTO}")["message"]
+                abstract = re.sub(r"<[^>]+>", " ", msg.get("abstract") or "").strip() or None
+            except Exception:  # a missing abstract only means the liberal no-abstract rule applies
+                pass
+        authors = d.get("authors") or []
+        yield {
+            "id": f"doi:{doi}" if doi else f"arxiv:{arxiv}", "title": str(d.get("title") or ""),
+            "authors": authors if isinstance(authors, list) else [a.strip() for a in str(authors).split(";")],
+            "year": d.get("year"), "venue": d.get("venue"), "doi": doi, "arxiv_id": arxiv,
+            "abstract": abstract, "keywords": [], "type": "submission",
+            "source_ids": {"submission": f.name}, "submission": {"file": f.name, "why": d.get("why"),
+                                                                  "submitted_by": d.get("submitted_by")},
+        }, d
+
+
 FETCHERS: dict[str, Callable[[Path], dict]] = {
     "openalex": fetch_openalex,
     "arxiv": lambda out: _run("arxiv", _arxiv_items(q := render(load_concepts(), SYNTAX["arxiv"])), q, out),
@@ -390,6 +427,8 @@ FETCHERS: dict[str, Callable[[Path], dict]] = {
     "ads": lambda out: _run("ads", _ads_items(q := render(load_concepts(), SYNTAX["ads"])), q, out),
     "ieee": lambda out: fetch_ieee(out),
     "crossref": lambda out: _fetch_crossref(out),
+    "submissions": lambda out: _run("submissions", _submission_items(),
+                                    "Reader submissions merged via pull request (submissions/*.yml)", out),
 }
 
 

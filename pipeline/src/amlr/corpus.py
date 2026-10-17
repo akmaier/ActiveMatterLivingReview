@@ -15,7 +15,7 @@ RAW = REPO_ROOT / "data" / "raw"
 CORPUS = REPO_ROOT / "data" / "corpus.jsonl"
 MANIFEST = REPO_ROOT / "data" / "corpus_manifest.json"
 # PRISMA 2020 reports these under "identification via other methods".
-SUPPLEMENTARY = {"scholar", "citations", "handsearch"}
+SUPPLEMENTARY = {"scholar", "citations", "handsearch", "submissions"}
 _FILE = re.compile(r"^(?P<src>[a-z_]+)-(?P<date>\d{4}-\d{2}-\d{2})\.jsonl$")
 
 

@@ -220,3 +220,24 @@ def write_taxonomy_json(records: Iterable[dict], out: Path | None = None) -> Pat
             "studies": studies, "snapshot": date.today().isoformat()}
     out.write_text(json.dumps(meta, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     return out
+
+
+def write_known_records(records: Iterable[dict], out: Path | None = None) -> Path:
+    """DOI / arXiv / title index of every record the review holds (any phase), so the pull-request
+    check can tell a submitter that a paper is already in the review."""
+
+    out = out or (REPO_ROOT / "data" / "known_records.json")
+    norm = lambda t: re.sub(r"[^a-z0-9]+", " ", (t or "").lower()).strip()
+    index: dict[str, dict] = {}
+    for r in records:
+        if r.get("phase") == "duplicate":
+            continue
+        entry = {"id": r["id"], "phase": r.get("phase")}
+        for d in r.get("all_dois") or ([r["doi"]] if r.get("doi") else []):
+            index[str(d).lower()] = entry
+        if r.get("arxiv_id"):
+            index[f"arxiv:{r['arxiv_id']}"] = entry
+        if r.get("title"):
+            index["title:" + norm(r["title"])] = entry
+    out.write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return out

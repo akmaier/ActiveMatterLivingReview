@@ -1,0 +1,28 @@
+/* Paper submission form (/contribute/). */
+.sub { max-width: 44rem; margin: 1.4rem 0 1.6rem; padding: 1.2rem 1.3rem; background: #fff; border: 1px solid #d7dee6; border-radius: 10px; }
+.sub-row { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.9rem; }
+.sub-row label { font-weight: 600; color: #003865; font-size: 0.92rem; }
+.sub-row label span { font-weight: 400; color: #6b7b8c; font-size: 0.8rem; margin-left: 0.3rem; }
+.sub-row small { color: #6b7b8c; font-size: 0.8rem; }
+.sub input, .sub textarea {
+  font: inherit; font-size: 0.95rem; padding: 0.5rem 0.6rem; border: 1px solid #c9d3de; border-radius: 6px; background: #fbfcfd;
+  width: 100%; box-sizing: border-box;
+}
+.sub input:focus, .sub textarea:focus { outline: 2px solid #6f9fbf; outline-offset: 0; border-color: #6f9fbf; background: #fff; }
+.sub-inline { display: flex; gap: 0.5rem; }
+.sub-two { display: grid; grid-template-columns: 8rem 1fr; gap: 0.8rem; }
+.sub button {
+  font: inherit; font-size: 0.92rem; padding: 0.5rem 0.9rem; border-radius: 6px; border: 1px solid #b3c4d6;
+  background: #e6edf4; color: #003865; cursor: pointer; white-space: nowrap;
+}
+.sub button:hover { background: #dbe5ee; }
+.sub button.sub-primary { background: #003865; border-color: #003865; color: #fff; }
+.sub button.sub-primary:hover { background: #0b4a7d; }
+.sub-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.sub-msg { min-height: 1.2em; margin: 0 0 0.8rem; font-size: 0.9rem; color: #33475b; }
+.sub-msg.ok { color: #1e6b45; }
+.sub-msg.bad { color: #a12c2c; }
+.sub-preview { margin-top: 1rem; }
+.sub-preview summary { cursor: pointer; color: #6b7b8c; font-size: 0.88rem; }
+.sub-preview pre { font-size: 0.8rem; white-space: pre-wrap; background: #f2f5f8; border: 1px solid #d7dee6; }
+@media (max-width: 560px) { .sub-two { grid-template-columns: 1fr; } .sub-inline { flex-direction: column; } }

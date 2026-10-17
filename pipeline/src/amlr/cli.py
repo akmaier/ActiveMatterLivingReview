@@ -55,7 +55,7 @@ def search_validate() -> None:
 
 
 @app.command()
-def fetch(source: str = typer.Argument(..., help="openalex | arxiv | pubmed | hal | europepmc_biorxiv | crossref | all")) -> None:
+def fetch(source: str = typer.Argument(..., help="openalex | arxiv | pubmed | hal | europepmc_biorxiv | crossref | submissions | all")) -> None:
     """Retrieve all records for a source into data/raw/ and log the dated strategy file."""
     from .fetch import FETCHERS
     from .fetch import fetch as run
@@ -288,7 +288,7 @@ def prisma(corpus: Path = typer.Option(CORPUS)) -> None:
 def render(corpus: Path = typer.Option(CORPUS)) -> None:
     """Emit _data/corpus.yml, paper/refs.bib, the included-studies snapshot and the /check/ queue."""
     from .human import build_queue
-    from .render import write_bibtex, write_corpus_yml, write_snapshot, write_taxonomy_json
+    from .render import write_bibtex, write_corpus_yml, write_known_records, write_snapshot, write_taxonomy_json
     from .storage import read_jsonl
 
     rows = read_jsonl(corpus)
@@ -314,7 +314,7 @@ def evidence(
     rprint(run(corpus, text_for, kinds=tuple(kind), reviewers=tuple(reviewer), limit=limit,
                workers=workers, ledger=path))
     rprint(f"human-check queue: {build_queue(corpus)}")
-    rprint(f"wrote {write_taxonomy_json(rows)}")
+    rprint(f"wrote {write_taxonomy_json(rows)} and {write_known_records(rows)}")
 
 
 @app.command("human-queue")

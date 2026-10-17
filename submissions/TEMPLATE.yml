@@ -1,0 +1,12 @@
+# Copy this file to submissions/<first-author-year-keyword>.yml, fill it in, open a pull request.
+# Required: title, year, why, and a doi or an arxiv id.
+doi: 10.1103/physrevlett.120.188002
+arxiv:                       # e.g. 2401.01234 (optional if a DOI is given)
+title: "Boundaries control collective dynamics of inertial self-propelled robots"
+authors: ["First Author", "Second Author"]
+year: 2018
+venue: Physical Review Letters
+why: >-
+  Hardware experiments with vibration-driven robots in arenas of different shapes; reports
+  how boundaries set the collective dynamics, with quantitative order measures.
+submitted_by:                # your GitHub handle (optional)

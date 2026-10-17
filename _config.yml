@@ -35,6 +35,8 @@ exclude:
   - paper/
   - data/
   - docs/
+  - submissions/
+  - scripts/
   - Gemfile
   - Gemfile.lock
   - "*.py"
@@ -56,4 +58,5 @@ header_pages:
   - _pages/methods.md
   - _pages/taxonomy.md
   - _pages/check.md
+  - _pages/contribute.md
   - _pages/changelog.md

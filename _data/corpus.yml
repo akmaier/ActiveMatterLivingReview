@@ -4021,7 +4021,7 @@
   agents: 9
   phenomena: flocking polar order
   abstract_only: false
-  doi: 10.5555/1402383.1402394
+  doi: 10.65109/tjgp2764
 - id: doi:10.1007/s41315-025-00432-8
   year: 2025
   title: Flocking control for a swarm of nonholonomic mobile robots without attitude
@@ -4904,7 +4904,7 @@
   agents: 1000
   phenomena: other
   abstract_only: true
-  doi: 10.5555/3091125.3091319
+  doi: 10.65109/kqhs7667
 - id: doi:10.1021/acsnano.4c16347
   year: 2025
   title: Artificial Intelligence-Assisted Multimode Microrobot Swarm Behaviors
@@ -5742,18 +5742,6 @@
   phenomena: flocking polar order
   abstract_only: false
   doi: 10.1007/s10514-022-10066-5
-- id: doi:10.1038/s41467-021-26699
-  year: 2021
-  title: Metamachines of Pluripotent Colloids
-  authors: Antoine Aubret; Quentin Martinet; Jérémie Palacci
-  venue: arXiv (Cornell University)
-  platform: robotic micro nano agents
-  platform_name: TPM‑hematite heterodimer
-  agents: null
-  phenomena: chirality or rotation, transport or locomotion, self assembly or shape
-    formation
-  abstract_only: false
-  doi: 10.1038/s41467-021-26699
 - id: doi:10.1098/rsif.2025.0438
   year: 2026
   title: A discontinuously coupled network of phase oscillators replicates cooperation

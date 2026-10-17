@@ -5,13 +5,13 @@
   side/.style={box, text width=35mm, fill=gray!8}]
 \node[box] (id) {Records identified from databases ($n=15034$)\\ registers / hand-search ($n=0$)};
 \node[side, right=of id] (dup) {Duplicates removed ($n=6332$)};
-\node[box, below=of id] (scr) {Records screened ($n=8702$)};
+\node[box, below=of id] (scr) {Records screened ($n=8701$)};
 \node[side, right=of scr] (exs) {Records excluded ($n=7423$)};
-\node[box, below=of scr] (sou) {Reports sought for retrieval ($n=1279$)};
+\node[box, below=of scr] (sou) {Reports sought for retrieval ($n=1278$)};
 \node[side, right=of sou] (nr) {Reports not retrieved ($n=300$)\\ assessed on abstract only ($n=179$)};
-\node[box, below=of sou] (ass) {Reports assessed for eligibility ($n=979$)};
+\node[box, below=of sou] (ass) {Reports assessed for eligibility ($n=978$)};
 \node[side, right=of ass] (exe) {Reports excluded ($n=662$)\\ E1: 32\\ E2: 261\\ E3: 224\\ E4: 2\\ E5: 127\\ E6: 16};
-\node[box, below=of ass, fill=green!6] (inc) {Studies included ($n=492$)\\ reports of included studies ($n=492$)};
+\node[box, below=of ass, fill=green!6] (inc) {Studies included ($n=491$)\\ reports of included studies ($n=491$)};
 \foreach \a/\b in {id/scr, scr/sou, sou/ass, ass/inc} \draw[->] (\a) -- (\b);
 \foreach \a/\b in {id/dup, scr/exs, sou/nr, ass/exe} \draw[->] (\a) -- (\b);
 \end{tikzpicture}

@@ -23,3 +23,8 @@
 - Passive mechanical metamaterial doi:10.1073/pnas.1913228117 coded E6 as closest fit.
 - Extraction: simulation-only counts not used for agent numbers; open-loop operator-set external
   field -> central_controller; constant driving field -> no_control_passive_rules.
+
+## Resolved 2026-10-17 (link check, data/linkcheck/)
+- doi:10.1038/s41467-021-26699 (truncated DOI) merged into doi:10.1038/s41467-021-26699-6 as a duplicate.
+- ACM placeholder DOIs replaced by the registered IFAAMAS DOIs: 10.5555/1402383.1402394 -> 10.65109/tjgp2764,
+  10.5555/3091125.3091319 -> 10.65109/kqhs7667.

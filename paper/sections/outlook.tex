@@ -1,165 +1,1011 @@
-\section{Outlook}\label{sec:outlook}
-
-\subsection{From demonstrations to decisive experiments}
-
-Robotic active matter is growing faster than a static review can follow. In the evidence snapshot dated 2026-10-14, 358 of 530 included studies appeared from 2020 onward. The partial 2026 record already contains 70 studies. Yet, growth alone will not resolve the central questions. The next advance must come from experiments that distinguish mechanisms.
-
-Many collective states can now be produced reliably. Robots flock, cluster, rotate, synchronize, assemble, transport objects, jam, and form active structures. The open question is no longer whether these outcomes are possible. We must determine which microscopic interactions are necessary, which reduced descriptions are sufficient, and which results transfer across embodiments.
-
-Programmability makes this programme feasible. A robot can change its sensing rule, communication graph, delay, noise, morphology, or coupling while the remaining apparatus stays fixed. External feedback can change an interaction during the experiment. Learned policies can search for collective strategies that were not specified in advance. These capabilities should now be used to make explanations fail.
-
-The strongest future experiment will therefore begin with competing predictions. It will choose a perturbation for which those predictions differ. Parameters will be calibrated below the collective scale. One regime may be used for calibration, but another must be reserved for testing. Failure will be reported as carefully as agreement.
-
-\subsection{A common experimental language}
-
-The field needs a description that crosses platform boundaries without erasing their physics. Device names are insufficient. The same mathematical interaction can be implemented through contact, vision, radio, hydrodynamics, magnetic fields, or an external computer. Conversely, systems with similar appearances may implement different interactions.
-
-A common report should begin with energy injection. It should state how activity enters each element and which time and length scales characterize isolated motion. Speed alone is not enough. Persistence, turning response, drift, and temporal variability determine how the element explores its environment.
-
-The second layer is native physical interaction. Contact, fluid coupling, magnetic force, substrate deformation, and boundary response should be measured before programmable control is added. Pair experiments are useful here. They can establish collision maps, force laws, phase response, or displacement fields.
-
-The third layer is information. A study should state what each agent observes, what it communicates, and what is reconstructed externally. Sensor range, field of view, occlusion, packet loss, and message age define the realized neighbourhood.
-
-The fourth layer is decision and actuation. The controller location, update rate, latency, saturation, and commanded response should be reported. For learned controllers, the training distribution and deployment interface are part of this layer.
-
-Finally, the collective observable should be tied to the proposed mechanism. Polarization is appropriate for translation but insufficient for milling. Mean cluster size may conceal coexistence or broad distributions. A mechanical response requires force and displacement, not only a final configuration.
-
-Such reporting would permit a common question. Given an isolated-agent process and an interaction kernel, does the measured collective response follow? At present, the necessary quantities are distributed unevenly across papers. The living review will track whether they become standard.
-
-\subsection{Separate state production from mechanism testing}
-
-A controller can create a desired state without explaining it. This distinction will become more important as feedback and learning grow.
-
-Future work should state whether the controller specifies a target state, a target field, or only a local interaction. These cases support different claims. Directly commanding a formation demonstrates control. Implementing a local attraction and observing an unprescribed structure demonstrates collective organization. Perturbing that interaction and predicting the response tests mechanism.
-
-Ablation provides a simple route. Communication can be removed while sensing remains. Feedback can be frozen while native coupling continues. Collision avoidance can be disabled in a safe regime. A learned policy can be replaced by a reduced hand-written rule. The difference reveals which layer maintains the state.
-
-Controlled delay is another useful intervention. Sensorial delay already changes spatial organization in phototactic robots \cite{Mijalkov2016engineeringsensoria}. Feedback delay changes persistence and response in controlled colloids \cite{Chen2024persistentandrespo}. The next step is to compare delay across platforms using a dimensionless ratio to persistence, turning, collision, or oscillation time.
-
-Noise should be treated similarly. Programmed noise is not the same as uncontrolled heterogeneity. Periodic leader reversal and noise can expose stochastic collective response \cite{Dizenhaus2026anonymousleadership}. Future studies should vary injected noise while independently measuring background variability.
-
-Transient response will often discriminate better than a stationary state. Several models may yield the same mean polarization or cluster fraction. They may predict different relaxation, overshoot, switching, or recovery after a perturbation. Hence, activity pulses, leader reversal, temporary communication loss, and boundary deformation should become routine probes.
-
-\subsection{Make finite size part of the question}
-
-Finite size and boundaries remain the most common physical weakness in the evidence. Only 41 of 530 studies receive a low-risk rating for this domain. The solution is not simply to build larger swarms.
-
-A population is large only relative to the relevant scale. The useful quantities are system size relative to interaction range, boundary length relative to correlation length, and observation time relative to relaxation or persistence. These ratios cannot be reconstructed consistently from the present evidence.
-
-Future experiments should vary population and arena independently. Increasing population at fixed area changes density and boundary encounters together. Increasing arena size at fixed population changes both density and interaction frequency. A scaling test must separate these variables.
-
-Boundaries should also become designed perturbations. Curvature can change residence and alignment. Roughness can alter collision statistics. Compliance can mediate long-range interaction. Visibility can change the sensing graph. The same collective state under several boundaries constrains the mechanism more strongly than one state in one large arena.
-
-This approach is especially important for active solids. A directional mode in a finite chain may be a valid and useful result. Yet, a constitutive law requires scaling across length, geometry, and boundary condition. Robotic nonreciprocal structures already demonstrate programmable directional response \cite{Brandenbourger2019nonreciprocalrobot,Chen2020selfsensingmetamat}. The next question is which response survives toward a bulk description.
-
-\subsection{Test transfer across embodiments}
-
-The platform diversity of robotic active matter should become an experimental resource. At present, similar phenomena are often studied independently in different communities. A stronger programme would implement the same reduced interaction across several embodiments.
-
-Consider alignment. It can be realized through visual sensing, radio communication, collision geometry, or optical feedback. Each implementation has different noise and delay. If the same nondimensional response survives, the reduced interaction gains support. If it fails, the embodiment identifies a missing term.
-
-Clustering provides another test. Attraction, density-dependent slowing, common forcing, and boundaries can all produce dense regions. A cross-platform experiment should match persistence and interaction scales, then measure cluster distributions, exchange rates, fluctuations, and response. Visual similarity would no longer be the endpoint.
-
-Transport offers a particularly broad comparison. Passive bristle-bot collectives transport payloads through contact and persistence \cite{Arbel2025amechanicalroutef}. Smarticle ensembles convert internal fluctuations into locomotion \cite{Savoie2019arobotmadeofrobo}. Modular magnetic systems combine assembly with controlled motion. These mechanisms differ, but common measures of load, speed, persistence, and failure could reveal shared constraints.
-
-Cross-platform transfer should also be independent across groups. Reproducing an effect on a second apparatus in the same laboratory tests less than reproduction with another fabrication, tracking, and control stack. The current evidence table does not contain a resolved research-group identifier. A future extraction field should record group-level independence rather than infer it informally from citations.
-
-The living review will track the first independent cross-platform replications of specific response laws. A new visualization of a known pattern will not change certainty by itself. A successful transfer, or a well-measured failure of transfer, can.
-
-\subsection{Move from flexible simulation to model discrimination}
-
-Agent-based simulation appears in 287 studies and in 103 of the 134 quantitative comparisons. It is the main bridge between hardware and theory. Its flexibility is both useful and dangerous.
-
-A detailed simulation can include controller logic, body shape, contact, delay, and boundaries. This makes it suitable for debugging an apparatus. Yet, the same detail can allow agreement without identifying a transferable mechanism.
-
-Future studies should compare levels of description. A detailed simulator can test whether the apparatus is understood. A reduced model can test which features are essential. Agreement at both levels is stronger than agreement with either alone.
-
-Model comparison should be prospective. For flocking, metric, visual, topological, and communicated neighbourhoods may predict similar order but different responses to density and occlusion. For clustering, attraction and motility reduction may predict different exchange or fluctuation statistics. For persistence, active-Brownian and run-and-tumble models may agree in mean-squared displacement but differ in turning events and response.
-
-The evidence contains only four quantitative Vicsek-type comparisons, two quantitative active-elasticity comparisons, and one quantitative run-and-tumble comparison. These are clear targets for growth. Their small numbers do not imply that the frameworks are unimportant. They show that explicit hardware tests remain rare.
-
-Programmable microscopic motion provides a direct route to such tests. Persistent, circular, and reorienting dynamics can be selected while retaining the same physical agents \cite{Raghavendra2026programmablepersist}. One observable can calibrate persistence. Another can test cluster growth, response, or boundary residence.
-
-The living updates will therefore count more than model names. They will track which frameworks receive quantitative comparison, whether parameters were measured independently, whether alternatives were compared, and whether prediction extends beyond the calibration regime.
-
-\subsection{Use learning to discover mechanisms}
-
-Learned policies form a small but rapidly emerging category. Thirteen studies use this architecture, and 12 appeared from 2020 onward. Five name public code, two name public data, and only one reports quantitative theory--experiment agreement.
-
-The next question is not whether learning can produce collective behaviour. It can. The question is whether a learned policy reveals a mechanism that can be expressed, perturbed, and transferred.
-
-One route is policy reduction. A learned controller can generate candidate interactions. Sensitivity analysis, symbolic approximation, or controlled ablation can then identify a smaller rule. That rule should be tested independently on hardware.
-
-Another route is matched baselines. A learned policy should be compared with a simple local rule under the same sensing, communication, energy, and safety constraints. Improved task performance alone does not establish new collective physics.
-
-Generalization should also become physical. Policies can be tested at new population sizes, densities, boundaries, body parameters, and delays. A successful transfer identifies invariance. A structured failure reveals what the policy encoded.
-
-Graph-based decentralized policies already provide a route from learned interaction to hardware \cite{Blumenkamp2022aframeworkforreal}. Vision-based and communication-free policies provide complementary routes. Yet, weights alone are not a reproducibility package. Training environments, rewards, randomization, observation normalization, and deployment timing must also be released.
-
-The living review will track learned policies separately by training method and execution location. The current single-valued architecture field cannot distinguish on-board learning, centrally executed learning, and learned external feedback. This distinction should enter future snapshots.
-
-\subsection{Treat morphology and environment as programmable operators}
-
-Robotic active matter often locates computation outside the digital controller. Body shape changes collision response. Flexible boundaries transmit forces. Shared substrates and fluids mediate interaction. These mechanisms deserve the same systematic treatment as software.
-
-Morphobots demonstrate that a designed shell can alter motion, collision, and collective response \cite{Zion2023morphologicalcomput}. Smarticle experiments show that internal shape change and confinement select transport or configuration \cite{Savoie2019arobotmadeofrobo,Chvykov2020lowrattlingapred}. Electronic-free agents show that geometry can implement attraction, repulsion, and assembly without conventional computation \cite{Yang2025electronicfreepart}.
-
-Future studies should describe morphology as a mapping from encounter to response. Pair collisions can measure this mapping directly. Population experiments can then test whether the measured map predicts order, clustering, or transport.
-
-The environment should be treated in the same way. A deformable membrane, fluid, magnetic field, or compliant ring is not merely an arena. It stores and transmits information. An agent changes the environment, and another agent responds later or elsewhere.
-
-This viewpoint connects robotics with field-mediated active matter. It also suggests hybrid experiments. One may combine a measured mechanical interaction with a programmable correction. By varying the correction from zero upward, the experiment separates native and imposed coupling.
-
-\subsection{Build reproducibility into the apparatus}
-
-Reproducibility should not be an archive assembled after publication. It should be part of experimental design.
-
-Only 188 studies report a number of independent experimental runs. Seventy-eight name public code, 56 name public data, and 36 name both. Data and code availability has improved since 2020, but most experiments still cannot be reconstructed from public artifacts.
-
-A minimal package should contain raw or minimally processed trajectories, calibration data, analysis code, controller or firmware versions, and a machine-readable description of the apparatus. External-feedback systems also need state estimates and commands. Learned systems need training and deployment artifacts. Field-driven systems need spatial and temporal calibration.
-
-Metadata should identify the experimental unit. One trajectory, one preparation, and one controller seed are different units. Their hierarchy should be preserved rather than flattened into a single table of samples.
-
-Negative and failed runs should also be retained. Controller instability, incomplete assembly, absent transitions, and transfer failure help define the mechanism's domain. Removing them creates an unrealistically clean interaction law.
-
-Common file formats would enable cross-platform analysis. The review cannot prescribe one format for every apparatus. It can, however, track whether trajectories, identities, timestamps, boundaries, commands, and calibration are available in machine-readable form.
-
-Open benchmark data should complement, not replace, new experiments. Reanalysis can compare order parameters or model fits across platforms. It cannot test a new perturbation that was never performed. The most valuable repositories will therefore pair reusable data with hardware protocols that support replication.
-
-\subsection{What the living updates will track}
-
-The living review should detect changes in scientific confidence, not only changes in publication count. Monthly searches will add records, but each update should answer a fixed set of questions.
-
-First, we will track platform diversification. The residual ``other'' class currently contains 99 studies. A new class should be introduced when a coherent embodiment has distinct propulsion, interaction, and measurement characteristics. Taxonomy changes will be documented so that older counts remain interpretable.
-
-Second, we will track emerging phenomena. Active-solid or odd-elastic behaviour appears in 15 studies, while jamming or crystallization appears in 30. New records will be assessed for independent platforms and groups, not simply added to a tally.
-
-Third, we will track theory maturation. Quantitative comparison currently appears in 134 studies. Updates will record growth in Vicsek-type, run-and-tumble, active-elasticity, active-Brownian, kinetic, and hydrodynamic tests. A change matters most when it adds prediction, competing models, or transfer.
-
-Fourth, we will track programmability. Learned policies currently account for 13 studies, external feedback for 88, and central controllers for 17. Future extraction should separate where sensing occurs, where decisions are computed, and how commands reach the agents.
-
-Fifth, we will track reproducibility. Independent-run reporting, public code, public data, and complete apparatus metadata will be monitored by year and platform. The current evidence shows improvement in code and data but not a proportional improvement in explicit run counts.
-
-Sixth, we will track certainty. A new paper changes certainty when it independently reproduces a mechanism, extends it to another platform, resolves a major risk-of-bias concern, or contradicts the current synthesis. Another qualitative demonstration of the same state may expand the map without changing certainty.
-
-Seventh, we will track abstract-only and unresolved evidence. Thirty-four included studies were assessed from abstracts, and 140 rows contain at least one unresolved field. Later full texts and author adjudication may change small categories. Each update should report these changes explicitly.
-
-Publication status also requires a new field. The current venue and DOI columns do not distinguish preprint-only reports reliably. Linking preprints to peer-reviewed versions will permit the planned dissemination-bias analysis.
-
-Research-group identity is another missing field. Certainty depends partly on independent reproduction. Future snapshots should record disambiguated groups and distinguish replication within one laboratory from replication across laboratories.
-
-Finally, every update should preserve previous snapshots. A living review must show when a conclusion changed and why. New evidence, taxonomic revision, and corrected extraction are different causes and should be reported separately.
-
-\subsection{A programme for the next generation of experiments}
-
-Let us state the experimental programme in plain terms. We should measure the agent before the collective. We should measure the interaction before naming the phase. We should perturb the mechanism before claiming explanation. We should test a new condition before claiming prediction. We should release the path from apparatus to figure.
-
-Robotic active matter is unusually well suited to this programme. Its agents are observable. Their rules can be changed. Their bodies can be redesigned. Their environment can be controlled. Failure can often be repeated.
-
-Yet, programmability is not valuable by itself. A controller that guarantees the desired pattern may protect the hypothesis from experimental challenge. The more useful controller creates a specific interaction and then allows the collective response to surprise us.
-
-The same principle applies to theory. A flexible model that reproduces one trajectory may be less informative than a simple model that predicts a response across platforms. The aim is not maximal agreement. It is a clear boundary between where the theory works and where it fails.
-
-Hence, the field should move toward experiments designed around disagreement. Competing neighbourhoods, persistence models, boundary mechanisms, and constitutive laws already suggest decisive perturbations. Learned policies can generate new hypotheses, while reduced models can make them testable.
-
-The living review will follow this transition. Its most important future result will not be a larger number of included studies. It will be evidence that platform diversity has become comparative strength, that programmability has become causal control, and that collective patterns have become quantitative tests of theory.
+\section{Outlook}
+\label{sec:outlook}
+
+Robotic active matter has reached a point at which the central
+challenge is no longer simply to produce collective behavior.
+Experiments have demonstrated flocking, clustering, transport,
+synchronization, collective assembly, and mechanically
+nonreciprocal response across a wide range of artificial
+systems. The next challenge is to establish which physical
+principles these observations test.
+
+The distinctive advantage of robotics is experimental
+intervention. Propulsion, perception, communication,
+interaction rules, and mechanical coupling can often
+be modified without replacing the entire apparatus.
+This flexibility offers a way to distinguish competing
+theoretical explanations rather than merely reproduce
+their predicted patterns.
+
+Yet, an adjustable controller does not guarantee an
+independently adjustable physical parameter. Changing
+a sensing rule may also alter response delay.
+Increasing activity may change collision frequency
+and effective noise. Applying a stronger magnetic
+field may simultaneously modify propulsion and
+interparticle coupling. Future experiments must
+characterize these dependencies explicitly.
+
+We identify three connected priorities. First, robotic
+experiments should be designed around predictions
+that can fail. Second, under-tested collective
+phenomena and platform combinations should receive
+more systematic attention. Third, the field needs
+reporting practices that permit quantitative results
+to be reproduced and compared.
+
+The living review provides an infrastructure for
+tracking progress on these priorities. It cannot
+replace the experiments themselves, but it can
+make changes in the evidence base transparent
+and help direct attention toward unresolved
+physical questions.
+
+\subsection{Experiments designed to distinguish mechanisms}
+\label{sec:outlook-decisive}
+
+A decisive active-matter experiment should compare
+at least two physically distinguishable explanations
+of a collective observable. The experimental
+intervention must change a relevant control
+parameter, while the theoretical prediction
+must concern an outcome not directly imposed
+by the controller.
+
+This standard can be implemented differently
+across robotic platforms.
+
+\paragraph*{An alignment experiment with independent tests.}
+
+Programmable wheeled or legged robots provide
+direct control over local alignment rules.
+A useful experiment would implement a
+specified alignment model and independently
+measure the realized relationship between
+neighbor orientation and turning response.
+
+The experiment would then vary noise,
+interaction range, and population size
+while measuring polarization,
+velocity correlations, density
+fluctuations, and relaxation
+after perturbations.
+
+The critical point is that the collective
+observables should be predicted using
+the characterized microscopic rule.
+They should not each receive a
+separately fitted parameterization.
+
+Existing robotic flocking experiments
+establish the feasibility of distributed
+alignment and controlled collective
+motion
+\cite{Turgut2008selforganizedflocka,
+Tarcai2011patternstransition,
+Vsrhelyi2018optimizedflockingo,
+Zhou2024anticipationpromote,
+Verdoucq2025flockingphasetrans}.
+The proposed experiment would extend
+this capability toward a more demanding
+test of ordering theory.
+
+A particularly useful comparison would
+preserve the effective alignment law
+while changing how it is implemented:
+for example, local visual perception
+versus explicit communication.
+If the measured collective statistics
+remain unchanged, that would support
+the relevance of the effective rule
+over implementation details.
+
+If they change, the discrepancy could
+identify physical variables omitted
+from the simplified theory, including
+latency, perception anisotropy,
+or actuator constraints.
+
+\paragraph*{A clustering experiment that separates attraction from persistence.}
+
+The combined clustering/MIPS literature
+contains multiple physical mechanisms.
+A decisive experiment should distinguish
+aggregation caused by explicit attraction
+from density-dependent slowing of
+persistent active particles.
+
+Vibration-driven robots are promising
+because steric interactions can produce
+collective organization without direct
+neighbor-to-neighbor communication
+\cite{Welch2018aggregatesuppressio,
+Welch2019activereorientation,
+Deblais2019howtoforceanarmy,
+Boudet2025nonmarkoviandynami,
+Luo2025flockingphasesepar}.
+
+The experimental program would begin
+with isolated-particle trajectories
+and controlled pair collisions.
+It would measure propulsion speed,
+orientation persistence, and
+contact-dependent motion.
+
+Subsequently, density and persistence
+would be varied independently where
+the hardware permits. The resulting
+cluster-size distributions,
+coexisting densities, and
+spatial correlations could be
+compared with predictions derived
+from the measured microscopic
+dynamics.
+
+Programmable robots could provide
+a complementary control experiment.
+One could explicitly introduce
+attraction, remove it, and test
+whether clustering persists
+through activity and crowding
+alone.
+
+Such comparisons would help distinguish
+motility-induced phase separation
+from other routes to aggregation.
+They would also expose conditions
+under which a simplified active
+Brownian particle description fails.
+
+\paragraph*{A nonreciprocity experiment with controlled symmetry.}
+
+Nonreciprocal interactions are another
+especially promising target.
+Programmable robots and feedback-controlled
+colloids can generate asymmetric
+responses that are difficult to
+realize through conventional
+passive interactions
+\cite{Fruchart2022nonreciprocalphase,
+Buerle2020formationofstable,
+Chen2022collectiveresponse,
+Chen2024persistentandrespo}.
+
+A decisive experiment would vary
+interaction reciprocity while keeping
+other relevant properties approximately
+constant. It would then measure
+collective order, circulation,
+relaxation, and response to
+localized perturbations.
+
+The most useful predictions would
+concern features not encoded directly
+in the interaction rule, such as
+the onset of oscillations,
+collective-state selection,
+or changes in fluctuation spectra.
+
+The same effective model could be
+tested on mechanically different
+platforms. Agreement across
+implementations would provide
+stronger evidence than repeated
+realizations using the same
+feedback apparatus.
+
+\paragraph*{A mechanical-response experiment for active solids.}
+
+Robotic metamaterials provide direct
+access to response functions.
+They offer a route toward
+quantitative tests of
+active elasticity and
+nonreciprocal mechanics
+\cite{Brandenbourger2019nonreciprocalrobot,
+Brandenbourger2021limitcyclesturnac,
+Binysh2026moreislessinunpe,
+Coulais2025activemetaterials}.
+
+The proposed experiment would measure
+a mechanical response matrix under
+independently imposed perturbations.
+It would characterize the relation
+between actuation, displacement,
+force, and frequency-dependent
+response.
+
+The resulting coefficients could
+then be used to predict wave
+propagation or deformation
+under new loading conditions.
+
+Repeating the comparison across
+different network sizes,
+geometries, and boundaries
+would test whether the measured
+response is a property of
+the effective active material
+rather than one particular
+mechanical assembly.
+
+A particularly informative
+observable would be the work
+associated with a controlled
+cycle of deformation.
+This could help distinguish
+active nonconservative response
+from passive dissipation
+and controller-specific
+motion.
+
+\subsection{Under-tested platforms and phenomena}
+\label{sec:outlook-gaps}
+
+The corrected October 17, 2026 evidence base
+contains 491 included studies, but the
+distribution of experimental approaches
+is uneven. The largest platform class
+is wheeled or legged swarm robots.
+By contrast, feedback-controlled
+active colloids, smarticles,
+and active mechanical solids
+have substantially smaller
+experimental literatures.
+
+Study frequency should not be mistaken
+for scientific priority. A small
+literature may contain particularly
+informative quantitative experiments.
+Nevertheless, uneven coverage reveals
+where independent reproduction and
+cross-platform comparison remain limited.
+
+\paragraph*{From large swarms to large-system physics.}
+
+Robotic swarms can be scaled to
+substantial agent numbers, but many
+included experiments use comparatively
+small populations. Future studies
+should distinguish the engineering
+achievement of controlling more agents
+from the physics of collective
+behavior at increasing system size.
+
+The relevant question is whether
+order parameters, correlations,
+transport coefficients, or
+collective response obey
+size-dependent predictions.
+
+An experiment that repeats the same
+measurement across several population
+sizes, while accounting for changes
+in density and boundary conditions,
+would contribute more directly to
+finite-size theory than a
+large demonstration reporting
+only its maximum agent count.
+
+This priority follows from the
+weaknesses identified in the
+D3 finite-size and boundary
+risk-of-bias domain.
+
+\paragraph*{Mechanically interacting collectives.}
+
+Vibration-driven robots and smarticles
+offer opportunities to study physical
+contact, friction, mechanical
+constraints, and geometry-dependent
+activity without prescribing every
+collective response through software.
+
+Relevant experiments include
+collective transport, mechanically
+mediated ordering, and
+configuration-dependent locomotion
+\cite{Chvykov2020lowrattlingapred,
+Li2020programmingactiveg,
+Savoie2019arobotmadeofrobo,
+Bhamla2021collectivetransport,
+Wang2025hyperuniformnetwork}.
+
+Future work should report
+single-agent dynamics,
+pair-collision responses,
+contact statistics,
+and collective behavior
+under the same driving conditions.
+
+Such measurements would permit
+more stringent tests of
+stochastic-particle and
+mechanical-interaction models.
+
+\paragraph*{Microscopic and feedback-mediated systems.}
+
+Robotic micro- and nano-agents can
+access hydrodynamic, magnetic,
+and field-mediated interactions.
+Feedback-controlled colloids
+can additionally modify
+state-dependent effective
+coupling
+\cite{Sun2021swarmingmicrodrople,
+Pauer2021programmabledesign,
+Heuthe2025tunablecolloidalsw,
+Guo2026afeedbackcontrolle}.
+
+The major opportunity is to
+separate common external forcing
+from genuinely interaction-mediated
+collective behavior.
+
+Experiments should measure the
+isolated-particle response,
+pair interactions, and
+collective observables
+under matched conditions.
+
+This would help determine when
+a global driving field merely
+coordinates independent particles
+and when the observed state
+depends on interparticle coupling.
+
+\paragraph*{Temporal and mechanical observables.}
+
+Synchronization, jamming,
+collective vortices,
+and active elasticity
+have smaller or more
+specialized evidence bases
+than broad categories such as
+transport and self-assembly.
+
+These phenomena would benefit
+from standardized observables.
+Synchronization experiments
+should report phase differences,
+frequency distributions,
+and relaxation after perturbation.
+
+Jamming studies should distinguish
+dynamical arrest,
+structural order,
+and congestion through
+measurements of mobility,
+packing, and correlations.
+
+Vortex experiments should separate
+intrinsic particle rotation
+from collective angular motion.
+Active-solid experiments should
+report mechanical response
+rather than only the motion
+of an actuated structure.
+
+Such distinctions would improve
+comparability without erasing
+the diversity of the platforms.
+
+\subsection{Reporting standards for robotic active matter}
+\label{sec:outlook-reporting}
+
+The synthesis identifies recurring limitations in
+replication reporting, finite-size characterization,
+data and code availability, and quantitative
+theory comparison. These limitations suggest
+a practical reporting standard for the field.
+
+A useful minimum is a complete description
+of the physical implementation,
+the independent experimental realizations,
+the measured collective observables,
+and the relationship between theory
+parameters and experimental data.
+
+\paragraph*{Hardware and interaction characterization.}
+
+Experimental reports should identify the
+number of physical agents,
+their relevant dimensions and
+propulsion properties,
+and the distribution of
+important agent-to-agent
+variations.
+
+They should describe the interaction
+mechanism rather than relying
+only on a collective-behavior label.
+
+For programmed robots, this means
+documenting the local update rule,
+sensing range, communication topology,
+control frequency, and relevant delay.
+
+For field-driven microscopic agents,
+it means characterizing the external
+field and, where possible,
+the isolated-particle and
+pairwise response.
+
+For mechanically driven robots,
+it means reporting actuation,
+contact geometry, frictional
+conditions, and relevant
+single-agent fluctuations.
+
+For active solids, it means
+describing connectivity,
+actuator response,
+loading conditions,
+and the measured
+mechanical degrees of freedom.
+
+These details are necessary
+to determine what physical
+model the apparatus
+actually realizes.
+
+\paragraph*{Replications and uncertainty.}
+
+Reports should state the number
+of independent experimental runs
+for every principal collective
+measurement.
+
+They should distinguish independent
+realizations from repeated samples
+obtained within one run.
+Statistical summaries should reflect
+the corresponding dependence
+structure.
+
+Where practicable, authors should
+report uncertainty intervals,
+run-to-run variability,
+and sensitivity to
+initial conditions.
+
+A striking trajectory
+can establish the existence
+of an experimental event.
+It cannot by itself determine
+the reproducibility of a
+collective state.
+
+\paragraph*{Geometry, boundaries, and system size.}
+
+The physical arena or domain
+should be documented alongside
+its boundary conditions.
+
+When a study makes claims
+about collective phases,
+continuum behavior,
+or long-range order,
+experiments at multiple
+system sizes should be
+considered.
+
+If such tests are not feasible,
+the limitation should be
+stated explicitly.
+A finite-system observation
+remains scientifically useful
+when its domain of
+applicability is clear.
+
+\paragraph*{Theory comparison and parameter provenance.}
+
+A quantitative comparison should
+identify the observables compared,
+the uncertainty of those
+observables, and the parameters
+used by the model.
+
+Most importantly, it should
+distinguish parameters obtained
+from independent measurements,
+parameters fitted to the
+reported experiment,
+and parameters selected
+through prior optimization.
+
+Predictions evaluated outside
+the fitting conditions
+should be identified separately.
+
+This distinction would allow
+future systematic reviews
+to assess predictive validity
+more directly than the
+present qualitative versus
+quantitative agreement labels.
+
+\paragraph*{Code, data, and reproducible analysis.}
+
+Where possible, studies should
+provide machine-readable
+trajectory or response data,
+the analysis code used to
+calculate collective observables,
+and the controller or simulation
+implementation.
+
+Relevant calibration procedures
+and software versions should
+also be recorded.
+
+These materials need not
+include proprietary hardware
+designs when sharing is
+not possible, but sufficient
+methodological information
+should remain available
+to evaluate the physical claim.
+
+The appropriate general
+principle is that a reader
+should be able to distinguish
+experimental observations
+from processing choices,
+model assumptions,
+and fitted parameters.
+
+\subsection{The living review as a community resource}
+\label{sec:outlook-living}
+
+A static review becomes incomplete as new
+experiments appear. This is particularly
+important for robotic active matter,
+where platform designs, interaction
+mechanisms, and theoretical comparisons
+continue to change.
+
+The living-review approach addresses
+this problem through scheduled evidence
+updates and transparent revision
+of the synthesis
+\cite{Elliott2014living,Elliott2017living}.
+
+Our infrastructure combines monthly
+literature searches, a searchable
+public evidence website,
+and community-submitted candidate
+studies. The goal is not merely
+to append new publications.
+It is to maintain a traceable
+connection between the studies,
+their extracted characteristics,
+and the scientific conclusions.
+
+\paragraph*{Monthly searches and versioned snapshots.}
+
+Database searches will be rerun monthly
+using the documented search strategy.
+Newly identified records will undergo
+the same eligibility assessment
+specified by the review protocol.
+
+The process will preserve
+deduplication decisions,
+screening outcomes,
+extraction records,
+and adjudication history.
+
+Each released snapshot will
+carry a version and date.
+The manuscript and figures
+will identify the snapshot
+on which their numerical
+claims depend.
+
+The correction from 492 to
+491 included studies
+illustrates why this
+versioning is essential.
+A merged duplicate changes
+descriptive counts, even when
+the underlying scientific
+literature has not changed.
+
+A living synthesis must
+therefore distinguish
+changes in evidence
+from corrections to
+the evidence-processing
+workflow.
+
+\paragraph*{A reconfigurable public taxonomy.}
+
+The public website provides a searchable
+interface to the included studies.
+Its taxonomy is not restricted
+to one fixed hierarchy.
+
+Readers can choose which extracted
+attributes form the levels of
+the taxonomy tree and reorder
+those levels to explore
+different relationships.
+
+For example, one reader may
+begin with platform class,
+then subdivide studies
+by interaction modality
+and collective phenomenon.
+
+Another may begin with
+theoretical framework,
+then organize the evidence
+by agreement type,
+control architecture,
+or platform.
+
+This follows the general
+living-review concept of
+an explorable evidence
+resource, rather than
+a static catalogue
+\cite{Matl2017vascular}.
+
+The reconfigurable tree
+is particularly useful
+because no single hierarchy
+captures the scientific
+structure of robotic
+active matter.
+
+A classification by
+hardware emphasizes
+experimental implementation.
+A classification by
+interaction mechanism
+emphasizes physical coupling.
+A classification by
+phenomenon reveals
+cross-platform similarities.
+A classification by
+theoretical framework
+exposes where quantitative
+tests remain sparse.
+
+Readers can search the
+studies and follow
+different routes
+through the same
+underlying evidence
+without changing
+their inclusion status
+or extracted data.
+
+This flexibility
+should not be confused
+with unrestricted
+reinterpretation.
+The website must
+distinguish source-derived
+fields, missing values,
+and editorial
+certainty judgments.
+
+A change in the order
+of taxonomy attributes
+is a change in
+visual organization,
+not a change
+in the evidence.
+
+\paragraph*{Community contributions through GitHub.}
+
+Database coverage can be supplemented
+by contributions from researchers
+and readers.
+
+Anyone may propose a missing paper
+through a GitHub pull request
+containing one small YAML file
+with the candidate study's
+bibliographic information.
+
+An automated check will confirm
+the DOI against Crossref
+and flag candidate papers
+that already appear
+in the review.
+
+This check is intended
+to improve identifier
+validity and identify
+possible duplicates.
+It is not an
+eligibility decision.
+A valid DOI does
+not establish that
+a paper contains
+qualifying robotic
+active-matter evidence.
+
+After automated checking,
+maintainers review
+the proposed entry
+and merge eligible
+submissions into
+the candidate-record
+queue.
+
+The next scheduled
+update screens
+the candidate using
+the same panel,
+eligibility criteria,
+and adjudication
+procedure applied
+to database records.
+
+This preserves
+consistency between
+community contributions
+and records found
+through monthly searches.
+
+Under PRISMA 2020,
+these contributions
+are accounted for
+as records identified
+via other methods,
+rather than silently
+added to the
+database-search totals
+\cite{Page2021prisma}.
+
+The distinction is
+important for
+reproducibility.
+Readers should
+be able to determine
+how a study entered
+the screening process
+and whether it was
+assessed under
+the same criteria
+as other records.
+
+Community submission
+does not guarantee
+inclusion. Nor should
+maintainer approval
+of a bibliographic
+entry replace
+independent
+eligibility assessment.
+
+The pull-request
+history provides
+a public record
+of proposed additions,
+automated checks,
+and maintainer
+decisions. It can
+also expose possible
+duplicates and
+correct bibliographic
+metadata before
+screening.
+
+In this way,
+the contribution
+mechanism broadens
+discovery while
+retaining a
+structured and
+auditable review
+process.
+
+\subsection{What future updates will evaluate}
+\label{sec:outlook-tracking}
+
+The living design will track not only
+the number of included studies,
+but also changes in their scientific
+content and methodological quality.
+
+At the platform level,
+updates will monitor the appearance
+of new physical implementations
+and changes in the residual
+``other'' category.
+
+A growing residual class
+would indicate that
+the taxonomy requires
+documented refinement.
+
+At the phenomenon level,
+updates will track
+new evidence for
+collective ordering,
+clustering, synchronization,
+active mechanical response,
+and other extracted outcomes.
+
+However, newly reported
+phenomena will not
+automatically be treated
+as independently validated
+physical states.
+
+At the theory level,
+the most important
+changes will concern
+quantitative comparisons,
+independently determined
+parameters, and tests
+outside fitting conditions.
+
+A new demonstration
+of programmed flocking
+may expand platform
+coverage without
+substantially changing
+certainty about
+ordering theory.
+An independently
+replicated scaling
+measurement could
+have a much
+larger effect
+on that conclusion.
+
+At the methodological
+level, updates will
+monitor independent-run
+reporting, experimental
+size and boundaries,
+measurement validity,
+and data and
+code availability.
+
+We will also track
+whether newly accessible
+full texts resolve
+abstract-only
+assessment limitations,
+and whether preprints
+can be reconciled
+with published versions.
+
+Changes to automated
+screening or extraction
+procedures will require
+documentation and,
+when material,
+additional validation.
+The living process
+cannot assume that
+a future model
+has the same
+performance as
+the workflow
+evaluated in
+the present snapshot.
+
+Finally, each update
+will reconsider
+the certainty
+of the principal
+conclusions.
+Certainty may
+increase when
+new studies
+provide independent,
+low-risk
+quantitative tests.
+It may decrease
+when contradictory
+evidence or
+previously unrecognized
+limitations emerge.
+
+\subsection{Toward predictive robotic active matter}
+\label{sec:outlook-conclusion}
+
+The future of robotic active matter
+depends on bringing two experimental
+traditions into closer contact.
+
+Robotics contributes programmable
+agents, controlled sensing,
+feedback, and the ability
+to alter interaction rules.
+Active-matter physics contributes
+theoretical descriptions of
+collective organization,
+fluctuations, transport,
+and nonequilibrium response.
+
+The strongest experiments
+will use both.
+They will not merely
+implement a model
+or reproduce
+a recognizable
+collective pattern.
+
+Instead, they will
+characterize microscopic
+dynamics, derive or
+specify predictions,
+and test those
+predictions through
+controlled interventions.
+
+They will also
+seek circumstances
+in which a model
+fails, because
+such failures
+identify missing
+physical mechanisms.
+
+The living review
+supports this
+transition by
+making evidence
+discoverable,
+classifications
+reconfigurable,
+and changes
+auditable.
+
+Monthly searches
+will maintain
+coverage.
+The public
+taxonomy will
+permit alternative
+views of the
+same evidence.
+Community contributions
+will help identify
+missing studies
+without bypassing
+the established
+screening process.
+
+Yet, no review
+infrastructure
+can substitute
+for decisive
+experiments.
+The essential
+advance must
+occur in the
+laboratory:
+independent
+parameter measurements,
+replicated collective
+observables,
+systematic variation,
+and direct tests
+of competing
+physical theories.
+
+Robotic active
+matter will
+make its
+most distinctive
+contribution
+when programmability
+is used not
+to prescribe
+collective behavior,
+but to determine
+why that behavior
+emerges and
+under which
+conditions it
+ceases to exist.

@@ -295,6 +295,7 @@ def render(corpus: Path = typer.Option(CORPUS)) -> None:
     rows = read_jsonl(corpus)
     rprint(f"wrote {write_corpus_yml(rows)}, {write_bibtex(rows)} and {write_snapshot(rows)}")
     rprint(f"human-check queue: {build_queue(corpus)}")
+    rprint(f"wrote {write_taxonomy_json(rows)}, {write_known_records(rows)} and {write_platform_table(rows)}")
 
 
 @app.command()
@@ -315,7 +316,6 @@ def evidence(
     rprint(run(corpus, text_for, kinds=tuple(kind), reviewers=tuple(reviewer), limit=limit,
                workers=workers, ledger=path))
     rprint(f"human-check queue: {build_queue(corpus)}")
-    rprint(f"wrote {write_taxonomy_json(rows)}, {write_known_records(rows)} and {write_platform_table(rows)}")
 
 
 @app.command("human-queue")

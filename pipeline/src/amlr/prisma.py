@@ -27,7 +27,8 @@ def compute_counts(records: Iterable[dict], today: date | None = None, manifest:
     in_corpus = len(records) - n[P.duplicate.value]
     if manifest:
         identified_db, identified_other = manifest["identified_db"], manifest["identified_other"]
-        duplicates = manifest["duplicates_removed"]
+        # Duplicates found after the corpus build (e.g. by link checks) are marked in place.
+        duplicates = manifest["duplicates_removed"] + n[P.duplicate.value]
     else:
         identified_db, identified_other, duplicates = len(records), 0, n[P.duplicate.value]
     awaiting = n[P.identified.value]

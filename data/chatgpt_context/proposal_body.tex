@@ -1,0 +1,570 @@
+\begin{center}
+{\Large\bfseries Robotic Active Matter: A Living Systematic Review
+of Experimental Platforms, Collective Phenomena, and Tests of Theory}
+\end{center}
+
+\section*{Proposal to the Editors of Reviews of Modern Physics}
+
+\noindent\textbf{Proposed article type:}
+Review article, maintained as a living systematic review.
+
+\noindent\textbf{Authors:}
+[Full names of authors]
+
+\noindent\textbf{Affiliations:}
+[Institutional affiliations]
+
+\noindent\textbf{Corresponding author:}
+[Name and email address]
+
+\section*{Abstract}
+
+Robotic active matter provides a new experimental route to
+nonequilibrium statistical physics. Unlike many biological
+or chemically driven active systems, robotic collectives
+permit researchers to modify propulsion, interaction
+rules, sensing, communication, feedback, and mechanical
+coupling deliberately. Experiments range from macroscopic
+robot swarms and vibration-driven particles to programmable
+microscopic agents, feedback-controlled colloids, and
+active mechanical metamaterials. These systems exhibit
+collective ordering, clustering, transport, synchronization,
+self-assembly, and nonreciprocal mechanical response.
+
+We propose a critical, PRISMA 2020-compliant living
+systematic review of this emerging experimental field.
+The October 17, 2026 evidence snapshot comprises
+491 included studies. We organize the literature around
+five questions: Which robotic platforms realize active
+matter? Which collective phenomena have been observed?
+Which physical theories have been tested quantitatively?
+How do sensing and control modify collective behavior?
+And how reproducible is the experimental evidence?
+
+Our central distinction is between demonstrating a
+collective pattern and independently validating its
+physical explanation. We assess theory--experiment
+agreement, finite-size effects, replication, measurement
+validity, and data and code availability. The review
+integrates physical interpretation with an auditable
+evidence synthesis rather than presenting a catalogue
+of robotic technologies.
+
+A companion public website provides a searchable,
+reconfigurable taxonomy of the included studies.
+Monthly updates and reviewed community submissions
+through GitHub maintain the evidence base as the
+field develops.
+
+\section*{1. Motivation and timeliness}
+
+Active-matter physics seeks to understand how
+energy-consuming constituents generate collective
+behavior far from equilibrium. Its theories connect
+microscopic propulsion and interactions to macroscopic
+ordering, transport, fluctuations, and mechanical
+response. Yet, the relationship between idealized
+models and experimental systems remains difficult
+to establish.
+
+Robotic active matter offers a distinctive solution
+to this experimental challenge. Interactions can
+often be programmed or modified directly, allowing
+the assumptions of a model to become independently
+adjustable experimental variables.
+
+Macroscopic robots have demonstrated collective
+alignment and distributed coordination
+\cite{Turgut2008selforganizedflocka,Vsrhelyi2018optimizedflockingo,Zhou2024anticipationpromote}.
+Vibration-driven robots have enabled experiments
+on persistent motion, aggregation, and
+interaction-mediated organization
+\cite{Welch2018aggregatesuppressio,Deblais2019howtoforceanarmy,Chvykov2020lowrattlingapred}.
+Microscopic robotic assemblies and
+feedback-controlled colloids provide access
+to field-mediated and programmable interactions
+\cite{Xie2020bioinspiredsoftmic,Pauer2021programmabledesign,Buerle2020formationofstable,Heuthe2025tunablecolloidalsw}.
+Active robotic structures extend these
+questions to mechanical response and
+nonreciprocal elasticity
+\cite{Brandenbourger2021limitcyclesturnac,Coulais2025activemetamaterials}.
+
+These advances have created an identifiable
+experimental research field at the intersection
+of active-matter physics, robotics, and
+programmable materials. However, its results
+remain dispersed across physics, engineering,
+and materials-science publications.
+
+The timing is therefore appropriate for
+a comprehensive review that establishes
+what is experimentally known and separates
+robust physical conclusions from
+platform-specific demonstrations.
+
+The literature has also reached sufficient
+breadth to support systematic evidence mapping.
+Our corrected evidence snapshot contains
+491 studies, spanning multiple physical scales,
+interaction mechanisms, and theoretical
+frameworks.
+
+Yet, numerical breadth alone does not establish
+scientific maturity. The evidence includes
+many qualitative comparisons and fewer
+low-risk quantitative tests. Only 82 studies
+receive low-risk ratings in the review's
+quantitative theory-comparison domain,
+and 38 receive low-risk ratings for
+data and code availability.
+
+These findings indicate a timely opportunity
+for critical assessment. The field needs
+a synthesis that identifies experimentally
+supported principles and the measurements
+required to test them more decisively.
+
+\section*{2. Relationship to existing reviews}
+
+The proposed article bridges three established
+review traditions.
+
+First, general active-matter reviews develop
+the theoretical language of self-propulsion,
+symmetry breaking, hydrodynamic fields,
+fluctuations, and nonequilibrium phases
+\todocite{Ramaswamy, 2010, mechanics and
+statistics of active matter}
+\todocite{Marchetti et al., 2013, hydrodynamics
+of soft active matter}
+\todocite{Bechinger et al., 2016, active
+particles in complex and crowded environments}.
+
+Second, swarm-robotics reviews emphasize
+distributed algorithms, sensing, communication,
+collective tasks, and engineering scalability
+\todocite{Brambilla et al., 2013, swarm robotics review}
+\todocite{review of swarm-robotics methods
+and distributed collective control}.
+
+Third, platform-specific reviews examine
+microrobotic collectives, active colloids,
+and programmable mechanical materials
+\todocite{review of collective magnetic microrobotics}
+\todocite{review of active mechanical metamaterials}.
+
+Our proposed article occupies a different
+position. It takes physical robotic experiments
+as the common evidence base and asks what
+they establish about active-matter theories.
+
+A robotic swarm that successfully navigates
+as a formation may be an important engineering
+achievement, but its task performance alone
+does not establish a collective physical law.
+Conversely, an experiment that measures
+orientation correlations, fluctuations,
+phase-dependent transport, or mechanical
+response can provide direct constraints
+on a theoretical model.
+
+This distinction is the basis of our
+eligibility criteria and critical synthesis.
+
+\section*{3. Scope and review objectives}
+
+The review includes primary studies of at least
+two interacting, self-propelled or actively
+driven artificial agents in physical hardware,
+with at least one quantitative collective
+or interaction observable.
+
+The scope encompasses conventional mobile robots,
+vibration-driven systems, smarticles, modular
+assemblies, robotic micro- and nano-agents,
+feedback-controlled active colloids, and
+robotic active solids.
+
+Purely computational studies without the
+specified experimental hardware connection
+are excluded. Engineering studies reporting
+only task-performance measures are also
+excluded when they provide no qualifying
+collective physical observable.
+
+We address five prespecified objectives:
+
+\noindent\textbf{O1---Platforms.}
+Map robotic implementations of active matter
+and identify the physical interactions and
+observables accessible to each platform.
+
+\noindent\textbf{O2---Phenomena.}
+Identify collective behaviors observed
+experimentally, distinguishing their
+phenomenological similarities from
+their underlying mechanisms.
+
+\noindent\textbf{O3---Theory.}
+Determine which active-matter frameworks
+have been compared quantitatively with
+robotic experiments and assess
+the reported agreement.
+
+\noindent\textbf{O4---Control.}
+Characterize feedback, sensing,
+communication, and learning as
+experimentally adjustable ingredients
+of collective dynamics.
+
+\noindent\textbf{O5---Reproducibility.}
+Assess experimental replication,
+finite-size and boundary effects,
+measurement validity,
+agent heterogeneity,
+and data and code availability.
+
+The review follows PRISMA 2020
+\cite{Page2021prisma} and applies
+a documented search, screening,
+extraction, adjudication, and
+risk-of-bias workflow.
+
+\section*{4. Proposed table of contents}
+
+\begin{enumerate}
+\item Introduction
+\item Methods
+\item Overview of the evidence base
+\item Robotic platforms as active matter
+\item Collective phenomena in robotic active matter
+\item Confronting theory with robotic experiments
+\item Control, sensing, and programmability
+\item Discussion
+\item Outlook
+\item Conclusions
+\end{enumerate}
+
+\section*{5. Organization and scientific argument}
+
+\subsection*{Introduction and Methods}
+
+The Introduction motivates robotic collectives
+as physical realizations of active-matter models,
+distinguishes collective demonstrations from
+theory tests, and establishes the five objectives.
+
+The Methods describes the systematic search,
+eligibility decisions, extraction taxonomy,
+LLM-assisted screening and adjudication,
+validation procedures, and six-domain
+risk-of-bias assessment.
+
+The methodological emphasis is important:
+experimental diversity does not justify
+treating every study as equally informative,
+and a reported quantitative comparison
+does not necessarily establish
+independent prediction.
+
+\subsection*{Evidence base and experimental platforms}
+
+The evidence overview documents study selection,
+publication trends, hardware characteristics,
+and the distribution of experimental approaches.
+
+The platforms section then examines each
+experimental class in physical terms:
+what generates activity, how agents interact,
+which quantities can be measured, and
+what limits theoretical inference.
+
+The discussion connects traditional robot
+swarms to mechanically driven systems,
+microscopic assemblies, feedback-controlled
+particles, and active structures
+\cite{Rubenstein2014programmableselfas,Li2019particleroboticsba,Savoie2019arobotmadeofrobo,Sun2021swarmingmicrodrople,Yang2022emergentmicroroboti}.
+
+This platform-based analysis establishes
+the experimental capabilities on which
+the following physical synthesis depends.
+
+\subsection*{Collective phenomena}
+
+The phenomena section reorganizes the same
+evidence according to collective observables:
+flocking, clustering, swarming and vortices,
+jamming, chirality, active elasticity,
+transport, synchronization, self-assembly,
+and boundary accumulation.
+
+Its central question is whether apparently
+similar collective states are supported
+by comparable physical mechanisms.
+
+For example, clustering may be produced
+through programmed attraction, steric
+interactions, or field-mediated assembly.
+The section distinguishes these possibilities
+rather than treating all aggregates as
+equivalent evidence for phase separation.
+
+Likewise, active rotation can arise from
+externally imposed chirality or
+interaction-dependent collective response
+\cite{Fruchart2022nonreciprocalphase,Chen2024persistentandrespo,Casiulis2025ageometricconditio}.
+
+This provides the bridge from observed
+phenomena to explanatory theory.
+
+\subsection*{Theory--experiment confrontation}
+
+The theory section constitutes the
+principal physics-focused contribution.
+
+It compares Vicsek-type descriptions,
+active Brownian particle models,
+run-and-tumble dynamics,
+kinetic and hydrodynamic theories,
+active elasticity,
+other statistical-mechanical approaches,
+and agent-based simulations.
+
+The analysis distinguishes three
+levels of evidence:
+physical implementation of a rule,
+agreement with measured observables,
+and prediction under independently
+constrained parameters.
+
+This distinction is particularly important
+for agent-based simulation, which frequently
+reproduces robotic controllers directly.
+
+The section identifies experiments
+that provide quantitative physical
+constraints, including measurements
+of active transport, collective response,
+and mechanical behavior
+\cite{Tarcai2011patternstransition,Barone2024experimentalandnum,Zion2023morphologicalcomput,Binysh2026moreislessinunpe}.
+
+It also explains why numerical agreement
+obtained through extensive fitting
+is less decisive than successful
+prediction of independent observables.
+
+\subsection*{Control and programmability}
+
+The control section examines passive rules,
+on-board control, external feedback,
+centralized control, and learned policies.
+
+Sensing and communication are treated
+as physical interaction mechanisms,
+not merely as engineering infrastructure.
+
+The analysis asks which effective
+interactions are created by
+information processing and which
+collective effects remain predictions.
+
+This perspective connects programmable
+robotics directly to questions of
+interaction symmetry, nonreciprocity,
+delay, noise, and collective stability.
+
+\subsection*{Discussion, Outlook, and Conclusions}
+
+The Discussion integrates the findings
+across all five objectives and assigns
+claim-specific certainty levels.
+
+It examines limitations in independent
+replication, finite-size analysis,
+data availability, and quantitative
+theory tests, while also evaluating
+the review's own methodological limitations.
+
+The Outlook proposes decisive experiments:
+parameter-constrained alignment tests,
+controlled comparisons of aggregation
+mechanisms, nonreciprocity measurements,
+and replicated mechanical-response studies.
+
+The Conclusions summarize what robotic
+active matter has established and
+which broader theoretical claims
+remain insufficiently tested.
+
+\section*{6. Living-review infrastructure}
+
+The article will be maintained as a living
+systematic review, following the established
+methodology for continually updated
+evidence syntheses
+\cite{Elliott2014living,Elliott2017living}.
+
+Database searches will be repeated monthly.
+New studies will undergo the documented
+screening and extraction procedure,
+and changes will be recorded in
+dated evidence snapshots.
+
+A companion public website provides
+a searchable, reconfigurable taxonomy
+following the interactive living-review
+concept of Matl et al.~\cite{Matl2017vascular}.
+
+Readers can choose which extracted
+attributes form the successive levels
+of the taxonomy tree and reorder them.
+Thus, the same literature can be explored
+by platform, phenomenon, interaction
+modality, control architecture,
+theoretical framework, or
+theory--experiment agreement.
+
+This extends the online-updated survey
+model used in other research areas
+\cite{Litjens2017survey}.
+
+Community participation is supported
+through reviewed GitHub pull requests.
+Anyone may propose a missing paper
+by adding one small YAML file.
+Automated checks verify the DOI
+against Crossref and flag records
+already held in the review.
+
+Maintainers review and merge candidate
+entries. The next monthly update
+screens them with the same panel
+and eligibility criteria used
+for database records.
+
+Such contributions are documented
+as records identified through
+other methods under PRISMA 2020
+\cite{Page2021prisma}.
+
+This design provides a practical
+mechanism for keeping the review
+current without relaxing its
+evidence-selection standards.
+
+\section*{7. Selected key references}
+
+The following references illustrate the
+range of experimental evidence and
+review methodology. They are organized
+by scientific role rather than
+publication date.
+
+\noindent\textbf{Collective motion and robotic swarms:}
+\cite{Turgut2008selforganizedflocka,Tarcai2011patternstransition,Rubenstein2014programmableselfas,Vsrhelyi2018optimizedflockingo,Zhou2024anticipationpromote}.
+
+\noindent\textbf{Mechanically driven active systems:}
+\cite{Welch2018aggregatesuppressio,Deblais2019howtoforceanarmy,Chvykov2020lowrattlingapred,Barone2024experimentalandnum,Wang2025hyperuniformnetwork}.
+
+\noindent\textbf{Microscopic and feedback-controlled collectives:}
+\cite{Xie2020bioinspiredsoftmic,Pauer2021programmabledesign,Sun2021swarmingmicrodrople,Buerle2020formationofstable,Heuthe2025tunablecolloidalsw}.
+
+\noindent\textbf{Modular robots and active mechanical response:}
+\cite{Li2019particleroboticsba,Savoie2019arobotmadeofrobo,Brandenbourger2021limitcyclesturnac,Coulais2025activemetamaterials,Binysh2026moreislessinunpe}.
+
+\noindent\textbf{Systematic and living-review methodology:}
+\cite{Page2021prisma,McGowan2016press,Elliott2014living,Elliott2017living,Matl2017vascular,Litjens2017survey}.
+
+\section*{8. Author expertise and suitability}
+
+[Insert a concise account of the authors'
+expertise in active-matter theory,
+experimental robotics, nonequilibrium
+statistical physics, systematic-review
+methodology, and research software.]
+
+[Identify the authors responsible for
+theoretical interpretation, experimental
+platform assessment, literature screening,
+data extraction, validation, and
+living-review maintenance.]
+
+[Describe relevant publications,
+experimental programs, software,
+or community resources demonstrating
+the team's qualifications.]
+
+The interdisciplinary nature of the
+article requires expertise spanning
+physical theory, experimental hardware,
+and evidence-synthesis methods.
+The final proposal will document
+how the author team covers
+these complementary responsibilities.
+
+\section*{9. Contribution to Reviews of Modern Physics}
+
+We propose this article for
+\textit{Reviews of Modern Physics}
+because robotic active matter now
+poses substantive questions about
+nonequilibrium physics that cannot
+be addressed through a platform
+catalogue or an engineering survey.
+
+The review will establish which
+collective behaviors are experimentally
+reproducible, which models have
+quantitative support, and where
+theoretical explanations remain
+limited by fitting, finite size,
+or incomplete characterization.
+
+Its distinguishing contribution
+is the connection between
+physical mechanisms and
+evidence quality.
+
+We will not infer universal
+behavior from similar-looking
+collective patterns or treat
+successful controller execution
+as independent theory validation.
+
+Instead, the review will
+identify the observables
+that constrain models,
+the experiments that
+distinguish competing
+mechanisms, and the
+conditions under which
+a theoretical description
+can be generalized.
+
+The systematic methodology
+makes these judgments
+auditable. The living
+infrastructure allows
+them to be revised
+as stronger evidence
+becomes available.
+
+For the physics community,
+the result will be both
+a critical account of
+an emerging experimental
+field and a guide to
+the decisive tests
+needed for its future
+development.
+
+The central message
+is that robotic
+programmability becomes
+most scientifically
+powerful when it
+makes theoretical
+assumptions experimentally
+testable, rather than
+merely making collective
+behavior possible.

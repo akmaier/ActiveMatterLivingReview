@@ -37,7 +37,10 @@ def compute_counts(records: Iterable[dict], today: date | None = None, manifest:
     reasons: Counter[str] = Counter()
     for r in records:
         if r.get("phase") == P.excluded_eligibility.value:
-            decisions = r.get("decisions") or []
+            # The latest full-text decision (panel, judge or author) carries the reason; a later
+            # title/abstract label from the author's validation sample does not.
+            decisions = [d for d in r.get("decisions") or [] if d.get("stage") == "full_text"] \
+                or r.get("decisions") or []
             reason = (decisions[-1].get("reason") if decisions else None) or "unspecified"
             reasons[reason] += 1
 

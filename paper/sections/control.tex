@@ -1,289 +1,2200 @@
-\section{Control, sensing, and programmability}\label{sec:control}
-
-Programmability is the main distinction between robotic active matter and most passive many-body experiments. A robot can change how it senses, decides, communicates, and moves without changing its body. External feedback can even replace part of the interaction law during an experiment. Hence, control is not only a means of producing a collective state. It is also an experimental variable.
-
-Here, we address objective O4. We ask how feedback, sensing, communication, and learning tune collective behaviour. The central distinction is between producing a state and explaining it. A controller may reliably create a flock, vortex, assembly, or transport process. Yet, this success does not identify the interaction responsible for that state. Stronger evidence comes from a controlled intervention that changes one part of the perception--action loop and measures the collective response.
-
-The evidence snapshot dated 2026-10-14 contains 530 studies. Control architecture is resolved for 483. On-board rules dominate with 300 studies. External feedback appears in 88, passive or uncontrolled rules in 65, central control in 17, and learned policies in 13. The remaining 47 records lack a resolved control architecture. Table~\ref{tab:control-architecture} summarizes these groups.
-
-\begin{table*}
-\caption{Evidence by resolved control architecture. ``Quantitative'' denotes quantitative theory--experiment agreement, not general study quality. ``Runs'' counts studies reporting the number of independent experimental repetitions. Code and data count named public repositories or archives. The 47 studies without a resolved control architecture are excluded from the rows.}
-\label{tab:control-architecture}
-\begin{ruledtabular}
-\begin{tabular}{lrrrrrrr}
-Architecture & Studies & Since 2020 & Abstract only & Quantitative & Runs & Code & Data \\
-\hline
-On-board rules & 300 & 178 & 16 & 51 & 126 & 56 & 29 \\
-External feedback & 88 & 64 & 5 & 33 & 29 & 5 & 8 \\
-Passive or uncontrolled rules & 65 & 55 & 5 & 32 & 14 & 6 & 10 \\
-Central controller & 17 & 12 & 0 & 1 & 3 & 4 & 1 \\
-Learned policy & 13 & 12 & 0 & 1 & 7 & 5 & 2 \\
-\end{tabular}
-\end{ruledtabular}
-\end{table*}
-
-These categories identify the architecture judged most salient in each study. They do not describe every layer of the apparatus. An on-board rule can still receive positions from an external tracking system. An externally controlled microrobot can interact hydrodynamically and magnetically while a camera closes the loop. A learned policy may run on the agent or on an external computer. As such, the categories should be read together with the interaction modalities.
-
-Those modalities overlap strongly. Steric contact appears in 308 studies. Communication occurs in 174, programmed rules in 169, and optical or other sensing in 163. Environment-mediated interaction is coded in 146 studies, magnetic coupling in 92, and hydrodynamic coupling in 78. Acoustic coupling appears twice. These counts describe coupled channels rather than alternative mechanisms. In particular, a communicated command does not remove contact, and a magnetic field does not remove hydrodynamic or boundary effects.
-
-The resulting picture is not a progression from simple to sophisticated control. Passive mechanical systems often offer the clearest physical mechanism. External feedback offers the cleanest intervention. On-board rules best expose local information processing. Central control can implement otherwise inaccessible couplings. Learned policies offer the broadest functional search but often the least transparent interaction law. Each architecture answers a different scientific question.
-
-\subsection{Passive dynamics as a control baseline}
-
-The label ``passive or uncontrolled rules'' does not mean that the agents are passive in the thermodynamic sense. These systems are actively driven. The label means that no sensing-and-decision loop actively changes the interaction during the experiment. Motion follows from forcing, geometry, friction, contact, fields, fluids, and boundaries.
-
-This architecture occurs in 65 studies, of which 55 appeared from 2020 onward. Steric contact is coded in 58. Environment-mediated interaction appears in 38, magnetic coupling in 18, and hydrodynamic coupling in 12. Hence, passive robotic active matter is primarily a body-mediated and environment-mediated regime.
-
-The scientific advantage is directness. A vibration-driven rotor converts asymmetric contact and substrate forcing into motion. A magnetic element converts orientation and separation into force. A deformable surface converts agent position into a shared field. One can often state the interaction without reconstructing a hidden computation.
-
-Rotating robots provide an instructive example. Their collective organization, domain growth, and edge motion arise from activity, rotation, and contact rather than explicit communication \cite{Scholz2018rotatingrobotsmove}. Bristle-bot swarms can transport a payload without sensing or messaging \cite{Arbel2025amechanicalroutef}. Flexible confinement can couple otherwise independent vibration-driven robots into mobile superstructures \cite{Boudet2021fromcollectionsof}. Magnetic interactions can fluidize boundary clusters in a confined population \cite{Musacchio2026fluidizationinduced}. These experiments show that collective function does not require a symbolic controller.
-
-Passive systems also expose morphology as a control parameter. Electronic-free particle robots use geometry and vibration to select attraction, repulsion, assembly, and transport \cite{Yang2025electronicfreepart}. Chains of vibration-driven robots can synchronize through mechanical coupling \cite{Xia2024biomimeticsynchroni}. A magnetic chain of active bots can develop a beating mode through the combination of activity, elasticity, and magnetic attachment \cite{GuzmnLastra2026emergenceofbeating}. In each case, the body performs part of the computation.
-
-The shared environment may provide the effective communication channel. Two wheeled agents on a deformable membrane interact through the surface they deform \cite{Li2022fieldmediatedlocom}. A flexible ring similarly converts local collisions into motion of the complete assembly \cite{Boudet2021fromcollectionsof}. Such systems have no message-passing network. Still, one agent changes a field that another agent encounters.
-
-This distinction matters because environment-mediated coupling can be mistaken for direct coordination. If all agents respond to one vibrating substrate, part of their apparent coordination may come from common forcing. If an arena deforms, an agent can influence another without contact. Hence, the experiment should separate direct pair interaction, common input, and mediated interaction whenever possible.
-
-Passive systems also provide a useful baseline for programmable systems. A controller can be added after the mechanical response is known. The difference between the uncontrolled and controlled ensembles then isolates the contribution of information processing. Without this baseline, the controller may receive credit for order already produced by body shape or confinement.
-
-The evidence is comparatively strong with respect to theory comparison. Thirty-two of the 65 passive or uncontrolled studies report quantitative theory--experiment agreement. This fraction is higher than in the on-board, central, or learned groups. Yet, only 14 report a number of independent runs. Quantitative agreement in one realization does not replace replication.
-
-The main limitation is hidden variability. Vibration amplitude, friction, battery state, body asymmetry, magnetic moment, and substrate condition can drift during an experiment. A nominally fixed rule may therefore change with time. Passive dynamics are interpretable only when single-agent statistics and forcing conditions are measured alongside the collective observable.
-
-\subsection{On-board rules and local closed loops}
-
-On-board rules form the largest group with 300 studies. These systems place sensing, decision, or actuation logic on the agent. They account for 159 of the steric-contact records, 147 of the communication records, 130 of the sensing records, and 124 of the programmed-rule records. Most therefore combine computation with physical interaction.
-
-A local controller typically maps an observation to an action,
-\[
-a_i(t)=\pi\!\left(o_i(t),s_i(t)\right),
-\]
-where \(o_i\) denotes the current observation and \(s_i\) an internal state. This notation is deliberately general. The observation may be a distance, bearing, light level, received message, or collision. The action may change velocity, heading, oscillator phase, adhesion, or morphology. Collective behaviour then arises from repeated application of this local map by interacting agents.
-
-The scientific strength is modularity. One may keep the body fixed and change the rule. One may also keep the rule fixed and alter the sensing range, delay, communication topology, or noise. These interventions are difficult in biological collectives and often impossible in uncontrolled active particles.
-
-Early aggregation experiments already used this structure. Cockroach-like robots converted local infrared sensing and aggregation into a collective shelter choice \cite{Garnier2005collectivedecision}. The measured outcome included aggregate and choice statistics rather than only task completion. Directional information transfer was compared through order, cohesion, accuracy, and travelled distance \cite{Ferrante2012explicitandimplici}. Such experiments make the information channel part of the physical question.
-
-Local rules can also realize interactions inspired by physics. Physicomimetic controllers map sensed distances and bearings to effective forces and lattice formation \cite{Spears2004distributedphysics}. Macroscopic models of light-driven robot aggregation connect local sensing to evolving spatial density \cite{Hamann2008spatialmacroscopic}. These examples work because the controller is simple enough to state and the collective observable is defined independently of the desired final shape.
-
-On-board rules become less informative when several layers are changed together. A new controller may change speed, collision avoidance, communication rate, and neighbour selection simultaneously. If the collective state changes, the causal parameter remains unclear. Hence, a useful experiment changes one element of the local map while holding the rest fixed.
-
-The best on-board experiments exploit perturbations. Sensorial delay can switch phototactic robots between clustering and segregation \cite{Mijalkov2016engineeringsensoria}. A periodically reversing leader can probe response, switching, and stochastic resonance in a robot collective \cite{Dizenhaus2026anonymousleadership}. Body morphology can alter collision response while the electronic core remains fixed \cite{Zion2023morphologicalcomput}. These interventions identify a mechanism more directly than another demonstration of a stable formation.
-
-Local control also permits failure experiments. One may disable a sensor, remove messages, reverse a leader, alter a threshold, or introduce actuator faults. The response reveals whether the collective state is maintained by redundancy, mechanical coupling, or a specific information path. A system that continues after communication loss is physically different from one whose state is maintained by continuous consensus.
-
-Yet, the category contains substantial heterogeneity. Some rules approximate minimal active-particle interactions. Others implement elaborate formation algorithms. Both qualify here only because the included studies report physical collective observables. The same architectural label therefore does not imply the same level of emergence.
-
-A useful distinction is between \emph{state controllers} and \emph{interaction controllers}. A state controller uses error relative to a desired formation or trajectory. An interaction controller specifies only local responses and allows the collective state to emerge. Both can generate a pattern. Yet, only the second leaves the macroscopic state unspecified by design.
-
-The distinction is not absolute. A local attraction--repulsion law may encode a preferred separation, while a formation controller may still exhibit collective modes and transitions. The relevant question is how much of the observed state was specified. Studies should therefore report whether the controller defines a target configuration, a target field, or only a local interaction.
-
-On-board rules are well represented but unevenly documented. Among 300 studies, 126 report the number of independent runs. Fifty-six name public code, and 29 name public data. Fifty-one report quantitative theory--experiment agreement. The remaining evidence includes qualitative comparisons and studies without a theory comparison. Hence, the abundance of on-board systems should not be confused with an equally broad body of validated physical laws.
-
-\subsection{Sensing defines the interaction neighbourhood}
-
-Sensing is often presented as a measurement layer. In robotic active matter it also defines who interacts with whom. A range sensor, camera, photodiode, or received signal selects neighbours and weights their influence. The sensing process therefore becomes part of the microscopic dynamics.
-
-Optical or other sensing is coded in 163 studies. It appears in 130 on-board systems and ten learned-policy systems. External-feedback systems contribute 14, while central controllers contribute two. This concentration reflects the role of local perception in programmable collectives.
-
-Let us consider a simple alignment rule. A theoretical agent may use every neighbour within a metric radius. A robot instead sees through a sensor with finite range, field of view, resolution, threshold, and update time. Occlusion can remove a neighbour. Saturation can merge several neighbours. The measured interaction graph may therefore differ from the geometric graph.
-
-Visual collectives make this problem explicit. Blue-light cues allow underwater robots to coordinate aggregation, synchronization, milling, and search without direct state exchange \cite{Berlinger2021implicitcoordinatio}. The robots react to a physically propagated optical signal. Their interaction depends on visibility and orientation, not only on distance.
-
-Externally reconstructed vision creates another regime. Spherical robots can receive actions derived from panoramic information reconstructed by an overhead system \cite{Castro2025visualcollectivebe}. Polarization, milling, opacity, and collisions can then be measured under a controlled visual rule. The experiment offers precise access to the effective visual interaction. Yet, the camera and processing loop introduce their own latency.
-
-Sensorial delay is itself a tuning knob. In phototactic robots, changing the delay changes the effective spatial response and can select aggregation or segregation \cite{Mijalkov2016engineeringsensoria}. The delay acts like memory in the agent dynamics. It should therefore be measured in the same way as persistence or turning rate.
-
-Sensing can also create an apparent force. A robot that turns toward a neighbour behaves as if attracted, even when no mechanical attraction exists. Conversely, collision avoidance can resemble repulsion. Translating such behaviour into a physical model requires the measured perception--action curve rather than the source code alone.
-
-Source code specifies the intended rule. Calibration specifies the realized rule. A threshold in software does not reveal the physical detection probability near that threshold. A commanded turning rate does not reveal the achieved angular response. In order to derive an effective interaction, one must measure stimulus, observation, command, and motion.
-
-This requirement is particularly important near collective transitions. Small changes in detection range or angular noise can shift an ordering threshold. Sensor heterogeneity can broaden that transition. Occlusion can make the neighbourhood density dependent. Without calibration, a change attributed to many-body physics may originate in the measurement layer.
-
-Sensing nevertheless provides one of the clearest routes to controlled active matter. It permits selective modification of information without rebuilding the agent. The strongest designs compare several sensing laws on the same platform and use the same collective observable. Such comparisons separate embodiment from information.
-
-\subsection{Communication as programmable coupling}
-
-Communication appears in 174 studies. It is most common in on-board systems, where 147 records carry the label. Central controllers account for 13, external feedback for six, and learned policies for two. Communication is absent from the passive category by definition of the extracted evidence.
-
-Explicit communication can decouple the interaction graph from physical proximity. Two agents may exchange state while separated, while nearby agents may be ignored. This capability makes communication a direct tuning knob for topology, range, delay, directionality, and information content.
-
-An early many-robot experiment used broadcast coupling to synchronize internal rhythms and motion \cite{Evans1997areactivecoordinat}. Distributed aquatic buoys later combined positioning and a communication network to implement collective spatial behaviours \cite{Zoss2018distributedsystemo}. Kilobot experiments use local infrared exchange to study collective decisions and connectivity \cite{MarchPons2024honeybeelikecollec}. These systems do more than transmit commands. They turn network structure into a physical interaction.
-
-Communication also permits a clean comparison between explicit and implicit information. Explicit transfer sends a state or direction. Implicit transfer lets another agent infer that information from motion or contact. Experiments comparing these routes can reveal whether order depends on message content or on physical response \cite{Ferrante2012explicitandimplici}.
-
-The distinction matters for robustness. Explicit messages can propagate quickly but may suffer delay, loss, interference, and synchronization errors. Implicit cues are tied to embodiment and may be slower, but they remain available when the network fails. A collective that uses both channels may switch mechanisms as density changes.
-
-Communication topology is often treated as a controller setting. From an active-matter perspective it is an interaction geometry. Metric, topological, directed, and time-varying graphs can produce different fluctuations and response times. A broadcast channel can also create a common input that mimics collective synchronization.
-
-The physical communication layer must therefore be reported. Range, update frequency, packet loss, message age, bandwidth, addressing, and retransmission determine the realized coupling. A theoretical adjacency matrix is insufficient when the hardware network is intermittent.
-
-One useful experimental design records the communication graph together with trajectories. The collective observable can then be conditioned on the realized graph rather than the intended graph. This permits direct tests of whether a transition follows density, degree, delay, or connectivity.
-
-Communication can also implement nonreciprocity. Agent \(i\) may respond to \(j\) without an equal reverse response. Robotic chains use programmed local feedback to produce directional transmission \cite{Brandenbourger2019nonreciprocalrobot}. Larger robot networks can similarly implement non-Hermitian couplings through communication and programmed rules \cite{Zhang2026emergentnonhermiti}. Here, the communication architecture realizes an interaction that would be difficult to obtain mechanically.
-
-Such implementations are valuable because the coupling can be changed without altering the bodies. Yet, the programmed matrix should be distinguished from the measured mechanical response. Network commands, actuator dynamics, elastic coupling, and contact all contribute to the final propagation.
-
-The strongest communication studies therefore join three descriptions. The first is the intended graph. The second is the realized stream of messages. The third is the observed physical response. Agreement among these layers supports a causal interpretation. Reporting only the first leaves the effective interaction unknown.
-
-\subsection{External feedback as an experimental intervention}
-
-External feedback occurs in 88 studies, of which 64 appeared from 2020 onward. This architecture is especially common in micro- and nano-agent systems and feedback-controlled colloids. Magnetic coupling appears in 50 external-feedback studies, hydrodynamic coupling in 43, steric contact in 51, and environment-mediated interaction in 31.
-
-The loop has three parts. An external instrument observes the agents. A computer estimates their state and computes an action. A field, light pattern, vibration, or command then changes motion. The loop can act on each agent, on selected agents, or on the population as a whole.
-
-This architecture provides unusually direct control of microscopic parameters. Optical feedback can change propulsion direction or speed. Magnetic feedback can select assembly, orientation, and transport. Global vibration can tune activity. The physical agents still collide and couple through the environment, but the experimenter can change one programmed contribution in real time.
-
-Feedback-controlled colloids show the potential clearly. Real-time video feedback can produce stable rotating and polar states in light-driven particles \cite{Buerle2020formationofstable}. Adaptive delay can change persistence and response in rotating groups \cite{Chen2024persistentandrespo}. Related optical systems use programmed alignment to explore switching among collective states \cite{Chen2024synchronousandfull}. Laser control combined with hydrodynamic coupling can tune synchronization and spatial organization together \cite{Heuthe2025tunablecolloidalsw}.
-
-The main scientific contribution is not the ability to create a striking pattern. It is the controlled relation between a programmed rule and a measured response. Rotational order, polarization, susceptibility, switching, relaxation, and cluster statistics make the feedback law experimentally testable.
-
-Feedback also extends to larger and more heterogeneous platforms. Global vibration changes collision-induced aggregation in a large bristle-robot population \cite{Hao2022controllingcollisio}. External visual processing can implement collective visual interactions in wheeled robots \cite{Castro2025visualcollectivebe}. Predictive control can maintain aerial collective motion under obstacles and safety constraints \cite{Soria2021predictivecontrolo}. These examples share an off-agent observation-and-action loop even though the physical mechanisms differ.
-
-Magnetic systems use feedback in another way. Identical helical nanobots can be selectively steered by combining observation with intermittent randomization \cite{Goyal2025externallycontrolle}. Magnetic cuboid robots can assemble and move under visual feedback and field control \cite{Rogowski2026coordinatedselfass}. Related modular millibots use closed-loop vision for assembly, navigation, and wall climbing \cite{Bhattacharjee2026closedloopselfass}. The controller tunes both configuration and locomotion.
-
-A feedback loop can, however, obscure native interaction. Suppose a camera observes every particle and the controller computes every propulsion direction. The apparent alignment may then reside in software rather than in the particles. Hydrodynamic and steric interactions still act, but their role may be secondary.
-
-This is not a reason to reject the experiment. It changes the claim. The system demonstrates a programmable physical realization of an interaction law. It does not show that the same state would arise from the particles without feedback.
-
-The architecture becomes most informative when the native and programmed contributions are separated. One can first measure motion with the feedback term disabled. The programmed interaction can then be added at several strengths. The resulting response curve reveals whether feedback supplements, opposes, or overwhelms physical coupling.
-
-Latency requires similar treatment. Measurement, computation, communication, and actuation each add delay. Controlled delay can be the experimental variable, as in adaptive-feedback studies \cite{Chen2024persistentandrespo}. Unmeasured delay instead becomes a confounder. A state interpreted as inertial or oscillatory may be generated by the loop.
-
-Feedback gain, sampling interval, state-estimation error, and actuator bandwidth should therefore be reported as physical parameters. The same applies to field calibration. A magnetic command is not a magnetic force until the apparatus response is measured.
-
-External feedback presently provides some of the strongest evidence that programmability can test causality. Thirty-three of 88 studies report quantitative theory--experiment agreement. Yet, only 29 report independent-run counts, five name public code, and eight name public data. The interaction law may be precisely controlled but difficult to reproduce when the complete loop is unavailable.
-
-\subsection{Central control and mixed reality}
-
-Central control is resolved in 17 studies. Thirteen use communication and 11 use programmed rules. Only one reports quantitative theory--experiment agreement, and three report independent-run counts.
-
-A central controller has access to group-level information and computes actions for several agents. This permits global optimization, synchronized actuation, and direct implementation of collective fields. It can also suppress fluctuations that would otherwise reveal the many-body dynamics.
-
-Centralization is not intrinsically incompatible with active matter. The relevant issue is the scientific claim. A centrally generated coupling can serve as a physical simulator. It can realize an interaction graph or continuum field and test the resulting mechanical response. Yet, it does not demonstrate that the same state emerges from local decisions.
-
-Robotic swarmalators illustrate the constructive use of central control. Coupled spatial and phase dynamics can be implemented in a physical robot population and compared through spatial-phase and coherence observables \cite{Beattie2025realizingemergentc}. The controller realizes the coupling, while the hardware contributes motion constraints, contact, delay, and measurement noise.
-
-Mixed reality extends this approach. Physical robots can interact with a larger virtual population through a centrally maintained field \cite{Maffettone2024mixedrealityenviro}. Such systems address scaling without constructing every agent. They can test whether a physical subset follows a predicted density field or collective response.
-
-Yet, a mixed population contains two kinds of agent. Virtual units obey the programmed model exactly. Physical units do not. The experiment should therefore report observables separately for both groups and quantify the influence of virtual agents on physical ones.
-
-The boundary between central control and external feedback is not perfectly represented by one extracted label. For example, predictive control of an aerial swarm is coded as external feedback because an off-board loop observes and commands the agents, although the controller itself is centralized \cite{Soria2021predictivecontrolo}. This case reveals a limitation of a single-valued architecture field.
-
-A more complete description would separate four questions. Where is the state measured? Where is the decision computed? How is information transmitted? Which actuator receives the command? The present taxonomy combines these layers into one principal label.
-
-Central control is most useful as an experimental instrument when it implements a known coupling and leaves the resulting collective state open. It is less informative when it directly prescribes the target trajectory or formation. In the latter case, the main result concerns controller performance unless an independent collective observable is analysed.
+\section{Control, sensing, and programmability}
+\label{sec:control}
+
+Programmability is the distinguishing experimental resource of
+robotic active matter. In conventional active systems, propulsion
+and interactions are often fixed by particle chemistry, geometry,
+or mechanical properties. Robotic systems permit us to change
+local rules, sensing, communication, feedback, and sometimes
+the interactions themselves. Hence, a collective state can be
+investigated not only by observing what emerges, but also by
+changing the mechanism believed to produce it.
+
+Yet, programmability introduces a fundamental ambiguity. A
+controller may realize the microscopic assumptions of a theory,
+but it may also impose the collective behavior that the theory
+is intended to explain. A flock maintained by explicit
+alignment feedback is not equivalent to polar order generated
+by mechanical collisions. Similarly, a rotating assembly
+driven by a common magnetic field is not necessarily a
+spontaneously rotating active phase.
+
+We therefore consider control as both an experimental advantage
+and a potential confounder. Its scientific value depends on
+which physical variables become independently adjustable and
+which collective observables remain genuine predictions.
+
+The extraction distinguishes five control architectures:
+no control or passive rules, on-board rules, external feedback,
+central control, and learned policies. These categories describe
+the primary architecture assigned to each study, not every
+control mechanism present in an experiment. In particular,
+on-board control can coexist with communication, while
+external feedback may involve a central measurement system
+without directly specifying every agent's trajectory.
+
+The original extraction contains 492 studies. One duplicate
+micro- or nano-agent record was subsequently merged, giving
+491 included studies in the corrected October 17, 2026
+snapshot. Because the identity of the removed record is
+not available, architecture-specific counts derived from
+the original extraction may differ by one from the final
+corpus. We report these counts explicitly as extracted
+rather than silently assigning the removed record to
+a control category.
+
+Figure~\ref{fig:control} relates control architecture to
+the maximum number of agents used in hardware experiments.
+The diagram highlights an important distinction between
+the complexity of a controller and the scale of the
+physical collective. Neither determines the scientific
+quality of an experiment by itself.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/subtaxonomy_control}
+\caption{Control architectures and experimental collective
+sizes in robotic active matter. The bars distinguish
+no control or passive rules, on-board rules, external
+feedback, central control, and learned policies.
+Colors indicate the largest reported hardware
+collective in each study, grouped into 2--9,
+10--99, 100--999, and at least 1000 agents.
+The size groups are descriptive, not measures of
+physical scalability or statistical independence.
+Studies with missing agent maxima and control
+classifications require separate consideration.
+The graphic derives from the original extraction
+snapshot, before one duplicate microscopic
+record was merged.}
+\label{fig:control}
+\end{figure}
+
+\subsection{No control or passive rules}
+\label{sec:control-passive}
+
+The absence of an explicit feedback controller does not
+mean that a robotic collective lacks interactions. Indeed,
+mechanically driven systems may be especially informative
+precisely because their collective response is not
+programmed at the level of neighbor decisions. Individual
+activity is generated by an actuator, while collective
+organization arises through contact, friction, fluid
+coupling, geometry, and confinement.
+
+The extraction assigns 72 studies to no control or
+passive rules. Vibration-driven robots form the largest
+group, with 41 studies. Other implementations contribute
+13, microscopic robotic agents eleven, active solids
+and modular robots two each, and smarticles and
+wheeled or legged systems the remaining three.
+
+This classification should not be interpreted as
+absence of external energy input. An actively driven
+robot is not passive in the thermodynamic sense.
+Rather, the label indicates that the extracted
+primary architecture does not use explicit feedback
+to prescribe collective behavior.
+
+\paragraph*{What becomes experimentally accessible?}
+
+Mechanically driven robots offer direct access to
+the relationship between individual propulsion and
+interaction-mediated motion. Their collective states
+include clustering, transport, boundary accumulation,
+rotation, and spatial organization
+\cite{Welch2018aggregatesuppressio,
+Welch2019activereorientation,
+Deblais2019howtoforceanarmy,
+Xi2024beamsbotsandbey,
+Balda2022playingwithactive,
+Xi2024emergentintelligenc,
+Mohanty2025multimodalmotionan,
+GuzmnLastra2026emergenceofbeating,
+Edwards2026robusttopologically,
+Musacchio2026activeembracemente,
+Escobar2025effectofparticlec,
+Scholz2018rotatingrobotsmove,
+Arbel2025amechanicalroutef,
+Antonov2025selfsustainedfrict,
+Baconnier2022selectiveandcollec,
+Boudet2025nonmarkoviandynami}.
+
+The important advantage is that collective order need not be
+encoded in a controller. If collisions produce alignment
+or crowding produces spatial organization, those effects
+must arise through the physical implementation. This
+provides a useful contrast to systems that explicitly
+calculate desired neighbor-dependent velocities.
+
+Mechanical activity can nevertheless involve complex
+single-agent dynamics. Vibration may produce correlated
+rotational fluctuations, intermittent contact, and
+direction-dependent motility. These effects can determine
+the observed collective state. The strongest experiments
+therefore characterize isolated-agent propulsion and
+pairwise interactions before interpreting the collective.
+
+Additional mechanically driven studies investigate
+confinement, transport, fluctuations, and collective
+rearrangements
+\cite{MuozObreque2026dynamicsofmagnetic,
+Xi2024emergentbehaviorso,
+Tian2018flowratebehavioran,
+Porvatov2021optimizingselfrota,
+Giomi2013swarmingswirlinga,
+Luo2025flockingphasesepar,
+Musacchio2026fluidizationinduced,
+Deblais2018boundariescontrolc,
+Boudet2022effectivetemperatur,
+Engbring2023anonlinearfluctuat,
+Dmitriev2021statisticalcorrelat,
+Callegari2023playingwithactive,
+Callegari2024activematterexperi,
+Balda2024playingwithactive,
+Li2021programmingactivec,
+Siebers2023exploitingcompositi,
+Son2024emergentfunctional,
+Boudet2021fromcollectionsof,
+Wagner2026geometryinducedtra,
+Lvay2026collectivedynamics}.
+These studies are relevant to active Brownian and
+other stochastic descriptions because the physical
+actuation can be compared with measured collective
+transport or spatial correlations.
+
+At microscopic scales, control-free or passively
+coupled dynamics occur under different physical
+conditions. The extraction includes field-mediated
+and mechanically interacting systems
+\cite{Calabr2026interactiondrivena,
+Rivas2023spatialpatterningo,
+Cheng2025selfassemblyandco,
+Yang2022emergentmicroroboti,
+Urso2023reconfigurableself,
+Yan2024programmingstructur,
+Yigit2020cohesiveselforgani,
+Desgranges2023microswimmersunder,
+Ceron2023programmableselfor,
+Wang2018collectivesofspinn,
+Zhang20233dprintedmicromete}.
+The common point is not an identical propulsion
+mechanism. It is that the extracted collective
+behavior need not arise from an explicit
+state-dependent control policy.
+
+\paragraph*{Where interpretation becomes difficult.}
+
+The absence of feedback removes one possible
+source of artificially imposed collective order.
+It does not make the interaction law transparent.
+
+In the 72 studies, steric contact is recorded
+in 66, environment-mediated interactions in
+39, magnetic coupling in 18, and hydrodynamic
+coupling in twelve. These modalities often
+occur together. Thus, an observed collective
+state may be compatible with several
+mechanistic explanations.
+
+For example, boundary accumulation may depend
+on persistent propulsion, wall collisions,
+substrate friction, or particle geometry.
+A rotating cluster may reflect intrinsic
+chirality, magnetic forcing, or
+interaction-induced collective circulation.
+Without independently varying or measuring
+these ingredients, the experiment cannot
+uniquely identify its mechanism.
+
+The relevant studies include mechanically
+and environmentally coupled systems
+\cite{Zhou2021synchronizedswimmin,
+Zion2024amechanicalorigin,
+Bo2026threephasesofodd,
+Hu2026phototunablenonreci,
+Yang2025electronicfreepart,
+Newbolt2024flowinteractionsle,
+Vantomme2021coupledliquidcryst,
+Boudet2025effectsofboundarie,
+Das2025roleofkinematicco,
+Warmington2026adiscontinuouslyco,
+B2023adiscontinuouslyco,
+Xia2024biomimeticsynchroni,
+Miyashita2007selfassembleofwat,
+Mayya2019nonuniformrobotde,
+Zhang2024proteinfoldinginsp,
+Miyashita2008howmorphologyaffec,
+Ma2026crosslinkcollectiv,
+Li2013asymmetricgearrect,
+Leech2026spincoupledhydrody}.
+They demonstrate the range of physical mechanisms
+available without a conventional distributed
+feedback architecture.
+
+\paragraph*{Evidence quality.}
+
+Of the 72 studies, 34 report quantitative
+theory--experiment agreement, 30 qualitative
+agreement, seven no comparison, and one has
+a missing agreement value.
+
+For D6, 22 studies are rated low risk,
+31 have some concerns, and 19 are high risk.
+This distribution is comparatively favorable
+for experiments in which interactions often
+emerge through physical coupling.
+
+The replication profile is less strong:
+14 studies have low-risk D1 ratings,
+53 have some concerns, and five are high risk.
+Independent-run counts are recorded in
+16 studies. Explicit code availability
+occurs in seven, and data availability
+in eleven. Ten studies were assessed
+on abstracts alone.
+
+These findings suggest that passive-rule
+and mechanically driven systems provide
+valuable quantitative tests, but incomplete
+replication information limits confidence
+in several reported effects.
+
+Their main contribution is the ability
+to examine collective behavior without
+explicitly programming a desired
+macroscopic state. Their main limitation
+is reduced independence between
+propulsion, interactions, and
+environmental conditions.
+
+Hence, the best experimental strategy
+is to characterize the physical
+interaction law and vary confinement,
+density, or driving systematically.
+This would make passive-rule systems
+stronger tests of active-matter theory
+rather than merely simpler
+alternatives to programmable swarms.
+
+\subsection{On-board rules}
+\label{sec:control-onboard}
+
+On-board rules are the dominant control architecture
+in the extracted evidence. In these systems,
+individual agents determine their behavior from
+locally available information. The information
+may come from sensors, neighboring robots,
+internal state, or a combination of these.
+
+The extraction contains 278 studies with on-board
+rules. Wheeled or legged swarm robots contribute
+168, followed by 61 residual platforms,
+19 vibration-driven systems, eleven modular
+robots, nine smarticles, seven active solids,
+two microscopic robotic systems, and one
+record without a platform classification.
+
+The prevalence of on-board control reflects a
+fundamental strength of robotics: microscopic
+interaction rules can be implemented in
+individually operating physical agents.
+This makes such systems especially suitable
+for experimental realizations of distributed
+collective-motion models.
+
+\paragraph*{Programmable local interactions.}
+
+A conventional distributed controller computes
+an agent's next action from its available state
+and information about its surroundings. In a
+general notation, this can be written as
+\begin{equation}
+\mathbf u_i(t)=
+\pi_i\!\left[
+\mathbf x_i(t),
+\mathcal I_i(t);
+\boldsymbol{\lambda}
+\right],
+\label{eq:control-onboard-policy}
+\end{equation}
+where $\mathbf x_i$ is the local state,
+$\mathcal I_i$ denotes accessible information,
+and $\boldsymbol{\lambda}$ contains
+adjustable parameters.
+
+The physical significance of this expression
+lies in the distinction between the controller
+output and the resulting collective motion.
+The policy determines how an agent attempts to
+move. Its realized trajectory also depends
+on actuation, collisions, sensing errors,
+and interactions with the environment.
+
+The included studies investigate alignment,
+collective motion, aggregation, and programmed
+coordination through local rules
+\cite{Miki2010asimplerulebased,
+Chen2013aflockingalgorithm,
+Wang2021fielddriverobotsw,
+Fruchart2022nonreciprocalphase,
+Yang2023collectivechaseem,
+Paramanick2024emergenceofrunand,
+Kernbach2011threecasesofconne,
+Tran2022frontierledswarmin,
+Giardina2022collectivephototact,
+Vega2023simulatelessexpec,
+Vega2023indirectswarmcontr,
+Vega2024agentbasedemulatio,
+Varadharajan2026programmableflocks,
+Gao2023robustdistributedc,
+Lee2022distributedcohesive,
+Garnier2005aggregationbehaviou,
+Baumann2024hybridflockforma,
+Guzzi2014bioinspiredobstacle,
+Turgut2008modelingphasetrans,
+Navarro2008anapproachtoflock,
+Ercan2011swarmrobotflocking,
+Ferrante2013aselfadaptivecomm,
+Turgut2008selforganizedflocka,
+Vsrhelyi2018optimizedflockingo}.
+
+In these systems, programmability can separate
+the intended interaction rule from the
+observed physical collective response.
+For example, one may change the effective
+alignment range without rebuilding the
+robots. One may also introduce directional
+interactions, delays, or changes in
+neighbor selection.
+
+Such interventions are useful because they
+can discriminate between theoretical
+mechanisms. An alignment model predicts
+not only motion in a common direction,
+but also the dependence of collective
+order on interactions and fluctuations
+\todocite{Vicsek et al., original model
+of collective motion}
+\todocite{Toner and Tu, hydrodynamics
+of polar flocks}.
+
+The difficulty is that the rule itself
+can make the outcome unsurprising.
+If every robot calculates a target
+velocity aligned with its neighbors,
+observing alignment confirms that the
+hardware broadly realizes the controller.
+A stronger physical test concerns the
+resulting fluctuations, stability,
+correlations, and transitions.
+
+Studies investigating collective response,
+group deformation, indirect interaction,
+and changes in local information are
+particularly relevant
+\cite{Li2016turinglearningam,
+Lee2022distributeddeformab,
+Karagzel2022collectivegradient,
+Zhang2022collectivefissionb,
+Xiao2023perceptionofmotion,
+Zheng2024bodyorientationcha,
+Zheng2026nestedinteractionn,
+Zhou2021collectivesynchroni,
+Mijalkov2016engineeringsensoria,
+Noirhomme2024brainbotsassmarta,
+Paramanick2025spontaneousemergenc,
+Barone2024experimentalandnum,
+Zhou2025activesearchpromot,
+Liu2026noiseenabledgoala,
+Dizenhaus2026anonymousleadership,
+Wang2025hyperuniformnetwork}.
+Their extracted observables permit different
+degrees of confrontation with physical theory.
+However, the presence of a measured collective
+quantity does not establish that a theoretical
+prediction was tested without fitting.
+
+\paragraph*{Distributed control beyond mobile swarms.}
+
+On-board rules are not restricted to wheeled robots.
+Modular and granular systems can use internal
+actuation to generate collective configurations
+or locomotion
+\cite{Li2018supersmarticlealo,
+Bhamla2021collectivetransport,
+Vardhan2022glidersinshapecha,
+Ma2024smarticle20desig,
+Yang2024selfamputatingand,
+Hu2026diatominspired1di,
+Zhang2026anisotropicshapesh,
+Li2019particleroboticsba,
+Oliveri2021continuouslearning,
+Drew2021acousticcommunicati,
+Savoie2019arobotmadeofrobo,
+Chvykov2020lowrattlingapred,
+Li2020programmingactiveg}.
+
+Active structures provide another example.
+Programmed local actuation can modify
+mechanical coupling and collective response
+\cite{Brandenbourger2019nonreciprocalrobot,
+Brandenbourger2021limitcyclesturnac,
+Binysh2026moreislessinunpe,
+Du2026metamaterialsthatl,
+Coulais2025activemetamaterials,
+Chen2020selfsensingmetamat}.
+The relevant physical variables are then
+deformation, mechanical response,
+and structural dynamics rather than
+flocking polarization alone.
+
+This reveals an important generalization.
+On-board rules need not represent
+social or informational interactions
+between freely moving agents.
+They can also determine actuation
+within a mechanically connected
+structure. The resulting theory
+should describe the appropriate
+physical degrees of freedom.
+
+\paragraph*{Scale and robustness.}
+
+Among the 278 on-board-rule studies,
+153 have a recorded maximum of two
+to nine agents, 93 reach ten to 99,
+eight reach 100 to 999, and six
+reach at least 1000. Eighteen
+have no recorded agent maximum.
+
+Thus, this architecture supports
+both small experiments and large
+collectives. Yet, most reported
+systems are modest in size.
+A large number of independently
+controlled robots is not by itself
+evidence for large-system
+active-matter scaling.
+
+The main challenge is to test
+whether collective observables
+change systematically with
+system size, rather than merely
+demonstrating that a controller
+continues to function.
+
+For theoretical comparison,
+50 studies report quantitative
+agreement, 145 qualitative agreement,
+and 83 no comparison. D6 is rated
+low risk in 34 studies,
+some concerns in 72,
+and high risk in 172.
+
+Hence, despite the prevalence
+of programmable local rules,
+strong quantitative theory
+comparisons remain a minority.
+
+Replication reporting is
+more favorable but incomplete.
+Eighty-seven studies receive
+low-risk D1 ratings,
+183 have some concerns,
+and eight are high risk.
+Independent-run counts
+are recorded for 133 studies.
+Explicit code availability
+occurs in 52, and data
+availability in 28.
+Fourteen studies were
+assessed from abstracts alone.
+
+These findings are consistent
+with a literature that has
+developed substantial capability
+for implementing distributed
+collective behavior, but
+has not yet converted
+that capability systematically
+into predictive experiments
+on active matter.
+
+The next step is to exploit
+the independent control
+of interaction parameters.
+A well-characterized
+on-board implementation
+could vary sensing range,
+delay, alignment strength,
+or interaction symmetry
+while measuring several
+collective observables.
+
+This would distinguish
+robust physical consequences
+from controller-specific
+behavior. It would also
+provide more stringent
+tests than demonstrating
+that robots successfully
+execute a collective task.
+
+\subsection{External feedback}
+\label{sec:control-external}
+
+External feedback modifies agent behavior using
+measurements obtained outside the individual agent.
+A camera or other measurement system may estimate
+positions, orientations, or collective state, and
+the resulting information may determine subsequent
+actuation.
+
+This architecture is particularly useful when
+the physical agents are too small to carry
+sensors or processors. It also permits
+interaction rules that would be difficult
+to realize through direct mechanical forces.
+
+The extraction assigns 84 studies to external
+feedback. Microscopic robotic agents contribute
+49 and feedback-controlled colloids twelve.
+Wheeled or legged robots contribute twelve,
+other platforms four, modular robots three,
+vibration-driven robots three,
+and active solids one.
+
+The distribution shows that external feedback
+is not merely another way to coordinate
+macroscopic robot swarms. It is a central
+experimental mechanism for making microscopic
+active systems programmable.
+
+\paragraph*{Feedback as an effective interaction.}
+
+A feedback-controlled particle may change its
+motion according to the measured configuration
+of neighboring particles. Schematically,
+we can express this as
+\begin{equation}
+\mathbf u_i(t)=
+\mathcal F_i\!\left[
+\{\mathbf r_j(t-\tau)\},
+\boldsymbol{\lambda}
+\right],
+\label{eq:control-feedback}
+\end{equation}
+where $\tau$ represents measurement and
+actuation latency.
+
+This formulation makes an important physical
+point. Feedback can generate an effective
+interaction even when no corresponding
+conservative force exists between the
+particles. Such interactions may depend
+on orientation, configuration, or
+collective state.
+
+The included colloidal studies investigate
+programmable rotation, configuration-dependent
+response, and collective organization
+\cite{Martinet2022rotationcontrolin,
+Yan2014colloidalsuperstruc,
+Chen2024synchronousandfull,
+Buerle2020formationofstable,
+Aubret2021metamachinesofplurb,
+Heuthe2025tunablecolloidalsw,
+Knippenberg2022roleofcohesionin,
+Han2020programmablechiral,
+Chen2022collectiveresponse,
+Guo2026afeedbackcontrolle,
+Chen2024persistentandrespo,
+Lffler2021behaviordependentc}.
+
+Their experimental strength is the ability
+to change the effective interaction law
+while retaining comparable particles.
+This permits tests of collective states
+under controlled changes in coupling.
+
+Yet, the feedback loop becomes part of
+the active-matter dynamics. Measurement
+noise, update frequency, and latency
+can influence the resulting motion.
+A theory of instantaneous interactions
+may therefore fail even when the
+nominal feedback rule resembles it.
+
+The strongest experiments characterize
+the implemented effective interaction
+independently and then compare
+collective observables with its
+predictions. This is especially
+important when the feedback
+algorithm and the theoretical
+model share the same mathematical
+structure.
+
+\paragraph*{Microscopic control and collective response.}
+
+Microscopic robot experiments use external
+feedback and programmable fields to
+produce collective transport,
+self-assembly, reconfiguration,
+and rotational motion
+\cite{Sun2021swarmingmicrodrople,
+Xie2020bioinspiredsoftmic,
+MayorgaMartinez2023multimodaldrivenma,
+Yigit2019programmablecollect,
+Das2023optoelectronictraje,
+Feng2023weakionexchangeba,
+Cao2024mofbasedmagneticm,
+Li2023swarmingresponsive,
+Gong2025collectivereconfigu,
+Chen2020temporallightmodul,
+Chen2022programmablespatio,
+Xu2022collectivebehaviors,
+Liu2023swarmingmultifuncti,
+Chen2023nanorobotmediateds,
+Ussia2024magneticmicrorobot,
+Tran2025roboticmicrocapsule,
+Xia2025artificialintellige,
+Wang2026reconfigurableassem,
+Kim2026magneticmxenebased,
+Aubret2018targetedassemblyan,
+Ahmed2021bioinspiredacousto,
+Raghavendra2026programmablepersist}.
+These experiments extend control toward
+physical regimes dominated by magnetic,
+hydrodynamic, and other microscopic
+interactions.
+
+An important distinction is whether
+the applied field is uniform or
+spatially structured. A common
+field may synchronize propulsion
+without generating an independently
+programmable interaction between agents.
+Feedback based on individual or
+collective configuration offers
+a more direct route to
+state-dependent coupling.
+
+Other included microscopic studies
+investigate controlled assembly,
+field-mediated transport,
+and collective reconfiguration
+\cite{Gardi2022microrobotcollectiv,
+Alapan2019shapeencodeddynami,
+Wang2018collectivebehavior,
+Ji2021ondemandassemblya,
+An2024modelfreecontrolo,
+Fan2023largescaleswarmco,
+Xie2019programmablegenerat,
+Wang2022reconfigurablemagne,
+Wang2022magneticactuationo,
+Law2024navigationofmagnet,
+Yang2019statisticsbasedaut,
+Yu2022adaptivepatternand,
+Yu2019reconfigurablecollo,
+Wang2021precisecontrolofm,
+Ceron2026fluidictorqueenabl,
+Dong2020controllingtwodime,
+Dong2019collectiveformation,
+Li2022vectorcontrolledwh}.
+Their collective observables can establish
+transport and spatial organization,
+but a physical interpretation requires
+knowledge of how the external input
+affects individual motion and
+interparticle coupling.
+
+\paragraph*{Evidence quality.}
+
+In the 84 external-feedback studies,
+34 report quantitative agreement,
+31 qualitative agreement, and
+19 no theory comparison.
+
+For D6, 21 studies are rated
+low risk, 25 have some concerns,
+and 38 are high risk.
+For replication, fifteen
+receive low-risk D1 ratings,
+67 have some concerns,
+and two are high risk.
+
+Independent-run counts are
+recorded in 29 studies.
+Explicit code availability
+occurs in five and data
+availability in eight.
+Three were assessed
+from abstracts alone.
+
+Agent maxima are missing
+for 36 studies. Among the
+remaining records,
+21 have maxima of two
+to nine agents,
+14 reach ten to 99,
+ten reach 100 to 999,
+and three reach at least
+1000 agents.
+
+These values require care
+because a microscopic
+particle population and
+a collective of individually
+addressable macroscopic
+robots are not directly
+comparable.
+
+The evidence supports
+external feedback as a
+powerful method for
+implementing programmable
+collective interactions.
+However, incomplete
+reporting of feedback
+implementations and
+experimental repetitions
+limits independent
+validation.
+
+The most important
+next step is therefore
+not simply finer
+control of trajectories.
+It is calibration
+of the entire
+measurement--feedback
+loop, followed by
+quantitative tests
+of collective response
+under independently
+varied control
+parameters.
+
+
+
+\subsection{Central control}
+\label{sec:control-central}
+
+Central control makes collective behavior accessible through
+a shared decision process. A controller may observe the state
+of an entire robotic assembly and determine the actuation
+of individual agents or groups. This architecture differs
+from distributed on-board rules because interactions need
+not be computed locally. Instead, the controller can use
+global information to construct the effective dynamics.
+
+For active-matter physics, this is a powerful experimental
+capability. One can impose spatially heterogeneous fields,
+modify collective response, or introduce interactions that
+would be difficult to realize through direct mechanical
+coupling. Yet, the same capability creates a fundamental
+interpretive problem. If the controller continuously
+specifies the collective configuration, the observed
+organization may be imposed rather than emergent.
+
+The extraction assigns 43 studies to central control.
+Wheeled or legged robots contribute 16, microscopic
+robotic agents 14, modular or self-reconfigurable
+robots seven, and other platforms six. All 43
+records were assessed on a full-text basis.
+
+The principal reported phenomenon is self-assembly
+or shape formation, present in 30 studies.
+Transport or locomotion occurs in 22,
+flocking or polar order in eleven,
+chirality or rotation in nine,
+and clustering and synchronization
+in eight each. These labels overlap.
+
+The distribution shows that central control is
+particularly relevant to configuration and
+transport. Its main contribution is not
+necessarily to establish spontaneous ordering.
+Rather, it makes collective geometry and
+dynamical response experimentally programmable.
+
+\paragraph*{What does global information add?}
+
+Consider a collective state vector
+$\mathbf X(t)$ containing the measured
+positions, orientations, or other
+degrees of freedom. A central controller
+may prescribe actions according to
+\begin{equation}
+\mathbf U(t)=
+\Pi\!\left[
+\mathbf X(t);
+\boldsymbol{\lambda}
+\right].
+\label{eq:control-central-policy}
+\end{equation}
+Here, $\Pi$ is the collective control
+law and $\boldsymbol{\lambda}$ denotes
+adjustable parameters.
+
+The scientific advantage is that
+$\Pi$ can implement interactions
+that depend on the global state.
+For example, one can vary the
+strength or geometry of effective
+coupling while holding the
+physical hardware approximately
+constant.
+
+This permits controlled studies
+of collective response. However,
+the resulting system is not
+equivalent to one with purely
+local interactions. The central
+controller may introduce
+information transfer over
+distances that exceed the
+physical interaction range.
+
+Hence, the range and symmetry
+of the effective interaction
+must be described as properties
+of the experimental model,
+not hidden implementation
+details.
+
+Macroscopic robotic experiments
+investigate collective motion,
+configuration, and controlled
+coordination through such
+architectures
+\cite{Yamada2011circularmotiongene,
+Sankar2026trendformationwith,
+Pan2026exploringthephysic,
+Zhou2024anticipationpromote,
+Bahaidarah2024swarmflockingusing,
+Santos2014cohesionandsegrega,
+PliegoJimnez2023flockingandformati,
+Hou2009ontheimplementatio,
+Min2011designandanalysis,
+Beattie2025realizingemergentc,
+Li2026onfeedbackspeedco,
+Zheng2024emergenceofcollect,
+Zhou2025gazingpreferencein,
+Zheng2025shapingcollectiveb,
+Maffettone2024mixedrealityenviro,
+Abpeikar2023iterativetransferl}.
+These implementations support experimental
+investigations of coordinated movement,
+collective structure, and responses
+under programmable interactions.
+
+Nevertheless, the physical conclusion
+depends on the observables that are
+measured. A stable target formation
+establishes successful collective
+control. A phase diagram,
+correlation function, or
+measured response to perturbations
+can provide stronger evidence
+about the resulting active dynamics.
+
+\paragraph*{Global actuation at microscopic scales.}
+
+Central control is particularly useful
+for microscopic robotic agents.
+Individual particles generally cannot
+carry conventional computing and
+communication hardware. Instead,
+external actuation can determine
+their motion through magnetic,
+optical, acoustic, or other
+physical mechanisms.
+
+The included studies examine controlled
+assembly, collective motion, and
+reconfiguration
+\cite{Pauer2021programmabledesign,
+McGovern2024multifunctionalchir,
+Sun2024multiplemagnetoopt,
+Je2024spatiallyselective,
+Li2023swarmingresponsive,
+Liu2022bionicmorphological,
+Chen2020temporallightmodul,
+Chen2022programmablespatio,
+Tran2025roboticmicrocapsule,
+Baker2019shapeprogrammed3d,
+Gao2025softmagneticmicror,
+Raghavendra2026programmablepersist,
+Ahmed2021bioinspiredacousto,
+Chen2024magneticactuatedhy}.
+
+These experiments can make the
+driving conditions highly
+reproducible in principle.
+The field geometry and temporal
+protocol can be specified
+independently of the
+observed collective state.
+
+Yet, a spatially varying field
+may directly generate the
+observed collective pattern.
+We must therefore distinguish
+a field-imposed configuration
+from interaction-mediated
+organization.
+
+A useful test compares
+the predicted response
+of individual particles
+with the collective
+response under the
+same driving conditions.
+Deviations can reveal
+the contribution of
+interparticle interactions.
+
+Furthermore, external
+field control may
+modify propulsion
+and coupling simultaneously.
+In magnetic assemblies,
+for example, changes
+in the driving conditions
+may alter individual
+movement and relative
+particle interactions.
+A quantitative model
+must account for both.
+
+\paragraph*{Connected and modular systems.}
+
+Central control also appears
+in modular or reconfigurable
+assemblies
+\cite{Yi2025reconfigurablerobot,
+Zhao2024snailinspiredrobot,
+Bhattacharjee2026collectiveassembly,
+Kaeser2025individualandcolle,
+Ding2025transformablemodula,
+Zhao2022softlatticemodules,
+Paulos2015automatedselfassem}.
+These experiments investigate
+configuration and collective
+locomotion through coordinated
+components.
+
+Here, the main interpretive
+distinction concerns control
+and mechanical emergence.
+A prescribed sequence
+of module movements
+can generate a complex
+collective deformation.
+However, the same outcome
+may depend on contact
+forces and connectivity
+that are not explicitly
+specified by the controller.
+
+This creates an opportunity
+to study how imposed
+actuation interacts
+with physical constraints.
+The most informative
+measurements include
+relative module motion,
+deformation, transport,
+and response under
+changes in connectivity.
+
+Other central-control
+implementations address
+collective formation,
+flocking, and transport
+\cite{PitaRomero2026flockingbehaviorfo,
+Jia2014experimentalimpleme,
+Fu2023tabletopplatformo,
+Delight2016developingrobotics,
+Su2026safetycriticalmult,
+MendozaRobles2026distributedformatio}.
+They further illustrate
+that centralized decision-making
+can be implemented through
+different physical platforms.
+
+\paragraph*{Evidence quality and limitations.}
+
+Among the 43 centrally controlled
+studies, eight report quantitative
+theory--experiment agreement,
+28 qualitative agreement,
+and seven no comparison.
+
+For D6, six studies receive
+low-risk ratings, 15 have
+some concerns, and 22
+are high risk.
+Thus, most studies
+do not provide
+low-risk quantitative
+tests of a theoretical
+collective response.
+
+Replication information is
+also incomplete.
+Nine studies are rated
+low risk for D1,
+33 have some concerns,
+and one is high risk.
+Independent-run counts
+are recorded for twelve
+studies.
+
+Explicit code availability
+is identified in five studies,
+and data availability in five.
+Maximum agent counts
+are available for 35 studies.
+Twenty report maxima
+of two to nine agents,
+and fifteen reach
+ten to 99.
+The remaining eight
+have no recorded maximum.
+
+These numbers do not
+indicate that central
+control is restricted
+to small physical
+systems in general.
+They describe the
+included experiments
+and the completeness
+of their extraction.
+
+The evidence supports
+central control as
+an effective means
+of producing and
+modifying collective
+behavior. Yet, its
+capacity to impose
+the desired state
+requires particular
+care in theoretical
+interpretation.
+
+We therefore distinguish
+controlled realization
+from explanatory validation.
+A central controller
+can implement a proposed
+interaction law accurately.
+The physical test concerns
+whether the resulting
+collective observables
+follow predictions that
+were not directly
+specified by that law.
+
+Future experiments
+should report the
+actual control inputs,
+their dependence on
+collective state,
+and the resulting
+physical response.
+A particularly useful
+design would compare
+centralized and
+distributed implementations
+of equivalent
+effective interactions.
+
+Such comparisons
+could establish
+which collective
+features depend
+on information
+architecture and
+which depend on
+the resulting
+physical coupling.
 
 \subsection{Learned policies}
+\label{sec:control-learning}
 
-Learned policies form the smallest resolved architecture with 13 studies. Twelve appeared from 2020 onward. All 13 were assessed from full text. Ten use optical or other sensing, nine involve steric contact, two use communication, and one carries the programmed-rule label.
+Learning introduces another route to programmable
+collective behavior. Rather than specifying every
+interaction rule analytically, a policy may be
+obtained through optimization, imitation, or
+reinforcement. Its actions can depend on local
+observations, collective state, or an internally
+learned representation.
 
-The small evidence base already spans several forms of learning. Vision-based policies have been transferred to physical flying robots \cite{Schilling2019learningvisionbase}. Decentralized reinforcement learning has been used for collective motion and formation in aerial systems \cite{Batra2021decentralizedcontro}. Graph-neural-network policies have been deployed on communicating wheeled robots \cite{Blumenkamp2022aframeworkforreal}. Other systems use imitation learning, spiking networks, or learned colloidal control \cite{Kraus2026generativeadversari,Zhu2025amillingswarmofg,Lffler2023collectiveforaging}.
+For robotics, this provides a flexible means
+of generating behavior. For active-matter physics,
+the implications are more subtle. A learned policy
+may discover collective responses not anticipated
+by a hand-designed controller. Yet, the resulting
+interaction law may be difficult to interpret.
 
-Learning changes the role of programmability. In a hand-written controller, the interaction rule is specified before the experiment. In a learned controller, optimization selects a rule from data, simulation, demonstration, or reward. The collective behaviour is therefore programmed indirectly.
+The extraction identifies eleven studies with
+a learned policy as their primary control
+architecture. Six involve wheeled or legged
+robots, three other platforms, one a robotic
+micro- or nano-agent system, and one
+feedback-controlled active colloids.
 
-This indirect specification can reveal solutions that a designer did not anticipate. It can also absorb hardware constraints during training. A policy may learn to compensate for actuation error, limited vision, or collision dynamics. Such compensation can improve transfer to hardware.
+Seven studies report flocking or polar order,
+five swarming or vortex behavior,
+four transport or locomotion,
+three chirality or rotation,
+and two clustering.
+The phenomena overlap within studies.
 
-Yet, the same flexibility weakens interpretation. A learned policy can combine many cues in a nonlinear way. Observing a flock or vortex does not reveal which cue maintains it. The policy may exploit a simulator artifact, a fixed arena feature, or a correlation specific to the training distribution.
+The small size of this category is important.
+Learning is represented in the experimental
+evidence, but it is not yet a dominant
+control architecture among the included
+physical collectives.
 
-The question for active-matter physics is therefore not only whether learning succeeds. We must ask what effective interaction it creates. This requires perturbations after training. One may mask a sensory channel, vary density, change the arena, delay observations, remove communication, or alter body dynamics. The response reveals whether the policy learned a transferable collective law or a narrow solution.
+\paragraph*{Learning collective interaction rules.}
 
-Communication-free learned control offers one useful test. If agents coordinate from local sensing and contact alone, one can compare the resulting effective neighbourhood with an explicitly communicating policy \cite{Choi2026communicationfreec}. Similarly, a graph-based policy can be tested while changing graph density, packet loss, or population size \cite{Blumenkamp2022aframeworkforreal}. Such experiments convert generalization into a physical observable.
+The relevant experiments investigate
+learned flocking, collective motion,
+milling, aggregation, and
+environment-dependent coordination
+\cite{Schilling2019learningvisionbase,
+Choi2026communicationfreec,
+Kraus2026generativeadversari,
+Wu2024adversarialimitatio,
+Lffler2023collectiveforaging,
+Liu2025collectivemotionmo,
+An2026ondemandpatterntr,
+Zhang2025learningefficientf,
+Zhu2025amillingswarmofg,
+Zhu2025fromspikestoswarm,
+Jia2025adeepreinforcement}.
 
-Imitation learning raises a different question. A policy derived from demonstrations may reproduce trajectories without reproducing the mechanism that generated them \cite{Kraus2026generativeadversari}. Agreement in path shape is therefore weaker than agreement in response to a new perturbation.
+These studies demonstrate several ways
+in which learning can contribute
+to physical collective behavior.
+A policy may map sensory information
+to motion, adapt interactions,
+or generate a collective response
+under changing conditions.
 
-Reinforcement learning can also move the control law outside conventional robotics. In feedback-controlled colloids, learning may choose how particles are driven rather than how a digital robot turns \cite{Lffler2023collectiveforaging}. The physical coupling remains hydrodynamic and steric, while the learned layer selects an intervention.
+The scientific advantage is that
+the effective interaction need
+not be prescribed in advance.
+If a learned controller
+produces an unexpected
+collective pattern, the
+experiment may suggest
+new mechanisms for
+theoretical investigation.
 
-The extracted evidence does not yet support a broad conclusion about learned collective physics. Only one of the 13 studies reports quantitative theory--experiment agreement. Seven report independent-run counts, five name public code, and two name public data. These figures do not assess engineering performance. They show that learning has rarely been used to confront a physical theory quantitatively.
+However, the policy itself
+does not explain the
+resulting behavior.
+An observed flock or
+vortex may arise through
+a complicated mapping
+from observations to actions.
+Without further analysis,
+the physical interaction
+responsible for the
+collective state remains
+underdetermined.
 
-The coding also hides implementation details. A study labelled ``learned policy'' may run the policy on-board, centrally, or through external feedback. Hence, future extraction and reporting should distinguish the learning method from the execution location.
+This is a particularly
+important distinction
+between learning for
+robotic performance
+and learning as an
+experimental tool
+for active-matter physics.
 
-A convincing learned-policy experiment would include at least four comparisons. It would compare with a simple hand-written rule, test conditions outside training, ablate observations, and measure the induced interaction or response function. Releasing the policy weights alone is insufficient. The training environment, reward, randomization, observation normalization, and hardware interface are also part of the experimental method.
+A policy that achieves
+a collective objective
+may be useful even when
+its mechanism is opaque.
+A scientific explanation
+requires additional
+measurements linking
+observations, actions,
+and collective response.
 
-Learning is therefore a promising tuning knob but not yet a mature route to interpretable active matter. Its strongest role may be hypothesis generation. A learned policy can discover a robust collective strategy. A reduced model can then identify the interaction responsible for that strategy. The final physical claim should rest on the reduced and experimentally tested mechanism, not on the optimization score.
+\paragraph*{Programmability beyond hand-designed rules.}
 
-\subsection{Delay, noise, morphology, and boundaries as shared control parameters}
+Learning can explore interaction
+strategies that would be
+difficult to enumerate
+manually. This may
+include nonlinear responses,
+state-dependent couplings,
+or context-sensitive
+changes in behavior.
 
-The architecture labels organize the evidence, but several tuning knobs cross all architectures. Delay, noise, morphology, and boundaries are particularly important because they alter both information processing and physical response.
+Yet, a learned policy
+may also exploit
+features specific
+to the training
+environment.
+Such behavior
+can produce excellent
+experimental performance
+without supporting
+a general physical
+principle.
 
-Delay appears in sensing, communication, external feedback, and learned inference. It changes the age of the information used for action. At short delay, a controller may approximate an instantaneous interaction. At longer delay, the same rule can produce overshoot, oscillation, switching, or loss of order.
+For example, a policy
+trained in one arena
+may rely on boundary
+cues. A controller
+optimized for one
+population size
+may behave differently
+when the number
+of agents changes.
+A response learned
+under one sensing
+configuration may
+not transfer to
+another.
 
-Controlled-delay studies demonstrate that delay can be a parameter rather than a nuisance. Sensorial delay selects spatial organization in phototactic robots \cite{Mijalkov2016engineeringsensoria}. Adaptive feedback delay changes persistence and responsiveness in colloidal swarms \cite{Chen2024persistentandrespo}. These experiments are valuable because they perturb time while retaining the platform.
+These possibilities
+are scientifically
+testable. They
+suggest experiments
+in which the
+training conditions
+and physical
+evaluation conditions
+are separated.
 
-A dimensionless delay is often more informative than a latency in seconds. One may compare delay with the turning time, persistence time, collision time, oscillator period, or time required to cross an interaction range. The same absolute delay can be negligible in one apparatus and dominant in another.
+A particularly
+informative study
+would evaluate
+a learned interaction
+under changes
+in density,
+boundary geometry,
+sensor noise,
+or collective size
+that were absent
+from training.
 
-Noise can also be programmed. It may enter actuation, sensing, communication, or the decision rule. Anonymous-leadership experiments use noise together with periodic reversal to reveal stochastic resonance in a collective response \cite{Dizenhaus2026anonymousleadership}. Such designs turn variability into a controlled intervention.
+If the resulting
+collective behavior
+remains consistent
+with a simple
+physical model,
+the experiment
+may reveal a
+generalizable
+effective interaction.
 
-Yet, injected noise should be distinguished from uncontrolled heterogeneity. A programmed random variable has a known distribution. Battery variation, wheel slip, sensor bias, and body asymmetry do not. A noise-response curve is interpretable only when the background variability is characterized.
+If it does not,
+the failure can
+identify which
+environmental
+or informational
+details determine
+the learned state.
 
-Morphology changes the perception--action loop without changing software. A shell can alter collisions, persistence, and alignment. Morphobots exploit this route to combine body design with decentralized adaptation \cite{Zion2023morphologicalcomput}. Electronic-free particle robots go further and encode interaction almost entirely in geometry \cite{Yang2025electronicfreepart}.
+\paragraph*{Evidence quality.}
 
-Boundaries are another control surface. They alter visibility, collision rate, density, and field propagation. A central or learned policy may use the boundary as an unreported cue. A passive system may accumulate there. External feedback may cancel or enhance that tendency.
+Of the eleven learned-policy
+studies, one reports
+quantitative theoretical
+agreement, four qualitative
+agreement, and six
+no comparison.
 
-Consequently, transfer to a new arena is a powerful test. If a collective state survives changes in size, shape, wall properties, and initial condition, it is less likely to depend on one accidental environmental feature. If it fails, the failure identifies a term missing from the assumed interaction law.
+None receives a
+low-risk D6 rating.
+Three have some concerns,
+and eight are high risk.
 
-\subsection{From tuning to causal inference}
+For replication, one
+study receives a
+low-risk D1 rating,
+while ten have
+some concerns.
+Independent-run counts
+are recorded in six
+studies.
 
-The control literature becomes most useful when a tuning knob supports a causal comparison. We identify five elements of such a comparison.
+Explicit code availability
+occurs in two studies,
+and data availability
+in two.
+All eleven were
+assessed on full text.
 
-First, the intervention must be explicit. A study should state which parameter changed in the sensing, communication, decision, or actuation layer. A new controller version is too broad unless its differences are decomposed.
+Maximum agent counts
+are recorded for ten
+studies. Five have
+maxima of two to nine,
+and five reach
+ten to 99 agents.
+One maximum is missing.
 
-Second, the local response should be calibrated. For a sensing rule, this means detection probability and angular or range dependence. For a field-driven system, it means field and propulsion response. For communication, it means the realized graph and delay. For morphology, it means single-agent motion and pair collisions.
+These findings indicate
+that learned policies
+have demonstrated
+physical collective
+behavior, but the
+evidence for quantitative
+active-matter theory
+remains limited.
 
-Third, the collective observable must be chosen before interpreting the state. Polarization, rotational order, cluster distributions, susceptibility, transport, relaxation, and response functions support comparison. A final image does not.
+In particular,
+the presence of
+a learned collective
+state does not
+establish that
+the policy has
+discovered a
+specific physical
+interaction law.
 
-Fourth, the design should include a counterfactual. The relevant comparison may disable feedback, remove communication, change delay, randomize a leader, or substitute a simple controller. This reveals what the programmable layer contributes.
+The most productive
+research direction
+is therefore to
+combine learning
+with interpretable
+physical measurements.
 
-Fifth, the experiment should be repeated and archived. Control code is part of the apparatus. So are policy weights, communication logs, calibration scripts, and camera-to-actuator timing. Without these items, the effective interaction cannot be reconstructed.
+The learned policy
+should be analyzed
+through controlled
+interventions:
+which observations
+change its actions,
+which interactions
+are effectively
+implemented, and
+which collective
+quantities remain
+stable under
+distribution shifts?
 
-The current reporting record leaves substantial room for improvement. Among the resolved architectures, 179 of 483 studies report independent-run counts. Seventy-six name public code, and 50 name public data. These counts overlap, and availability differs strongly by architecture. On-board studies contribute most repositories in absolute terms because they dominate the evidence base. External-feedback studies share little code despite the importance of the control loop to their result.
+Such experiments
+could connect
+data-driven control
+to active-matter
+theory without
+assuming that
+successful learned
+behavior is itself
+a physical
+explanation.
 
-The 47 unresolved control architectures also matter. Eight were assessed from abstracts, and 41 contain at least one field awaiting author resolution. We therefore treat the architecture counts as resolved evidence rather than complete classification of all 530 studies. The named examples in this section were assessed from full text.
+\subsection{Sensing, communication, and information-mediated interactions}
+\label{sec:control-information}
 
-\subsection{What works}
+Control architecture specifies where decisions are made.
+Interaction modality specifies how agents influence
+one another. These dimensions overlap, but they
+should not be confused. An on-board controller may
+use communication, local sensing, or mechanical
+contact. A central controller may reproduce an
+interaction that would otherwise be implemented
+locally.
 
-Several conclusions survive the heterogeneity of platforms and phenomena.
+For active-matter physics, this distinction
+matters because information itself can mediate
+effective interactions. Agents may change
+their motion in response to signals,
+observations, or communicated states,
+even when no corresponding mechanical
+force acts between them.
 
-Passive embodiment works when the scientific question concerns contact, geometry, shared fields, or mechanical coupling. These systems minimize hidden computation. Their strongest experiments measure single-agent and pair dynamics before interpreting collective order.
+Such systems are often described by
+effective alignment, attraction,
+repulsion, or response laws.
+Yet, the information-processing
+mechanism can introduce asymmetry,
+delay, finite perception range,
+and state dependence that are
+absent from simple particle models.
 
-On-board rules work when the local perception--action map is simple, calibrated, and perturbed. They are particularly effective for testing information transfer, neighbourhood rules, leader response, delay, and the division between morphology and computation.
+\paragraph*{Local sensing as an interaction mechanism.}
 
-Communication works as a physical tuning knob when the intended and realized interaction graphs are both recorded. It can change range, directionality, and topology without rebuilding the agents. Yet, network imperfections must enter the model.
+The extracted interaction vocabulary identifies
+150 studies with optical or other sensing.
+These are predominantly on-board systems:
+121 use on-board rules, fourteen external
+feedback, nine learned policies, five
+central control, and one passive rules.
 
-External feedback works especially well for causal intervention. It can change alignment, persistence, delay, activity, or field coupling while retaining the physical particles. Its main weakness is that the controller can dominate the interaction it is meant to study.
+The category includes experiments on
+visual alignment, collective coordination,
+sensing-dependent motion, and
+perception-mediated interactions
+\cite{Schilling2019learningvisionbase,
+Choi2026communicationfreec,
+Wu2024adversarialimitatio,
+Liu2025collectivemotionmo,
+Zhu2025amillingswarmofg,
+Zhu2025fromspikestoswarm,
+Jia2025adeepreinforcement,
+Mijalkov2016engineeringsensoria,
+Castro2025visualcollectivebe,
+Zhou2025gazingpreferencein,
+Zheng2024emergenceofcollect,
+Zheng2025shapingcollectiveb,
+Li2026onfeedbackspeedco,
+Zhang2025learningefficientf,
+Kraus2026generativeadversari}.
 
-Central control works as an experimental implementation of a coupling law or collective field. It is less suitable as evidence for decentralized emergence. Mixed reality can extend scale, provided physical and virtual responses are reported separately.
+The physical effect of sensing
+depends on what is measured.
+A robot may estimate
+neighbor position,
+relative velocity,
+orientation, or
+the structure of
+its environment.
 
-Learning works for discovering and transferring policies. The present evidence is much weaker for explaining the resulting collective physics. Ablation, out-of-distribution tests, and reduction to an effective interaction are required before a learned controller supports a general physical claim.
+These quantities
+can generate different
+effective interaction
+laws even when the
+resulting collective
+motion looks similar.
 
-These conclusions point to a common principle. Programmability strengthens active-matter experiments when it isolates a mechanism. It weakens them when it changes many layers at once or hides the interaction inside an opaque controller.
+For example,
+orientation-dependent
+perception can produce
+asymmetric responses.
+One agent may detect
+another without
+being detected
+in return.
+The resulting
+coupling is then
+nonreciprocal
+at the level
+of the controller.
 
-\subsection{Directions for programmable active matter}
+This creates
+a useful experimental
+route to investigating
+nonreciprocal collective
+dynamics. However,
+the implementation
+must be characterized
+carefully.
 
-A more useful architecture taxonomy would separate sensing, computation, communication, and actuation. Each layer should have its own location and update rate. This would resolve the ambiguity between central control, external feedback, and externally executed learning.
+Camera geometry,
+occlusion,
+measurement frequency,
+and finite processing
+time may affect
+the effective interaction.
+If these features
+are omitted from
+the theoretical model,
+agreement may depend
+on accidental
+compensation between
+parameters.
 
-Experiments should also report the complete timing budget. Sensor exposure, state estimation, computation, communication, and actuator response each contribute to delay. Their sum is not enough when different stages fluctuate differently.
+The most informative
+experiments therefore
+measure the response
+of an individual
+robot to controlled
+sensory inputs before
+examining collective
+behavior.
 
-Interaction kernels should be measured rather than inferred from source code. One agent can be presented with controlled neighbours or stimuli. The resulting observation and action distributions define the realized local rule. Collective experiments can then test how that rule scales.
+This permits the
+effective interaction
+law to be estimated
+independently.
+Collective observables
+can then provide
+a genuine test
+of the resulting
+model.
 
-Communication studies should archive message traces. Sensing studies should archive raw or minimally processed observations. External-feedback studies should archive state estimates and commands. Learned-policy studies should archive training configuration and weights. These records connect software to trajectories.
+\paragraph*{Communication and collective coupling.}
 
-Ablation should become a standard experimental operation. Communication can be removed while sensing remains. Feedback can be frozen while physical coupling continues. A learned policy can be compared with a reduced rule. Such experiments determine which channel maintains the collective state.
+Communication is recorded as an interaction
+modality in 156 studies. Of these, 132 use
+on-board rules, sixteen central control,
+six external feedback, and two
+learned policies.
 
-Population and arena transfer are equally important. A controller trained or tuned at one size should be tested at another. Boundaries should change independently of density. A successful state in one arena establishes feasibility. A consistent response across arenas supports a mechanism.
+This distribution reflects the importance
+of information exchange in conventional
+swarm-robotics experiments.
 
-Mixed-reality systems offer a practical route to scale. Yet, their use should not conceal the number of physical agents. Observables from physical, virtual, and combined populations should be separated. The coupling between these populations should be calibrated like any other interaction.
+The included literature contains
+collective coordination,
+communication-dependent flocking,
+distributed interaction rules,
+and changes in collective
+configuration
+\cite{Cianci2007communicationinas,
+Christensen2008swarmorphscripta,
+Ferrante2013aselfadaptivecomm,
+Valentini2015collectivedecision,
+Kernbach2011threecasesofconne,
+Drew2021acousticcommunicati,
+Cazenille2024hearingtheshapeof,
+Gao2023robustdistributedc,
+Lee2022distributedcohesive,
+Zhou2024anticipationpromote,
+Turgut2008selforganizedflocka,
+Vsrhelyi2018optimizedflockingo,
+Tran2022frontierledswarmin,
+Maffettone2024mixedrealityenviro,
+Santos2014cohesionandsegrega,
+Min2011designandanalysis,
+Beattie2025realizingemergentc,
+MendozaRobles2026distributedformatio}.
 
-Finally, control should be designed around competing explanations. If two models predict the same steady flock, one can choose a perturbation for which their transient responses differ. Delay, leader reversal, temporary communication loss, boundary deformation, and controlled noise are natural candidates.
+Communication permits agents
+to respond to information
+that is not available
+through direct physical
+contact.
+It can therefore
+increase the effective
+interaction range
+or alter the
+topology of coupling.
 
-The goal is not maximal programmability. It is informative programmability. A complex controller that holds a state perfectly may remove the fluctuations needed to test a theory. A simpler controller that exposes response, failure, and recovery can provide stronger physics.
+This makes communication
+a physical control
+parameter in a
+broader sense.
+Changing which
+agents exchange
+information can
+change the collective
+state without
+changing mechanical
+hardware.
 
-\subsection{Synthesis}
+However, a communicated
+state is not equivalent
+to a mechanical
+interaction force.
+The resulting
+collective dynamics
+depend on how
+the received information
+is converted into
+actuation.
 
-Control in robotic active matter spans a continuum from body mechanics to learned policies. The evidence does not support one universally superior architecture. Passive systems offer physical transparency. On-board rules offer local programmability. External feedback offers precise intervention. Central control offers access to designed couplings. Learning offers functional search.
+Communication delay
+is another important
+difference. In
+an instantaneous
+interaction model,
+agents respond
+to the current
+state of their
+neighbors.
+A communicating
+robot may respond
+to an earlier
+measurement.
 
-Yet, these benefits address different questions. State stabilization asks whether a controller can produce a collective outcome. Active-matter synthesis asks how interaction, activity, noise, and environment produce that outcome. The two questions meet only when the controller is treated as part of the physical system.
+This delay can
+alter stability,
+oscillations,
+and collective
+response.
+Hence, the
+effective theory
+should include
+delay when it
+is dynamically
+relevant.
 
-The strongest studies expose that part. They measure the realized interaction, vary one control parameter, record a collective response, and compare with a counterfactual. They also report timing, calibration, repetitions, and the code required to reconstruct the loop.
+Communication
+also raises
+the question
+of network topology.
+A group can
+interact through
+a fixed information
+graph even while
+its physical
+positions change.
+Conversely,
+distance-dependent
+communication may
+generate a graph
+that evolves
+with collective
+motion.
 
-Hence, programmability is most valuable when it makes a mechanism experimentally vulnerable. Robotic active matter can then move beyond reproducing known patterns. It can determine which information channels are necessary, which mechanical couplings are sufficient, and where a collective law stops working.
+These alternatives
+need not produce
+the same active
+dynamics.
+A meaningful
+comparison should
+therefore distinguish
+spatial proximity
+from information
+connectivity.
+
+\paragraph*{Programmed rules and physical interactions.}
+
+The interaction vocabulary identifies
+161 studies containing programmed rules.
+Among them, 120 use on-board rules,
+nineteen external feedback,
+seventeen central control,
+four passive rules,
+and one a learned policy.
+
+These counts demonstrate that
+programmed interactions are not
+restricted to one control
+architecture. Nevertheless,
+the extracted label does not
+specify whether the rule
+implements alignment,
+attraction, repulsion,
+state-dependent switching,
+or another interaction.
+
+The relevant physical interpretation
+therefore requires examination
+of the actual controller
+and its observables.
+
+The theoretical opportunity
+is considerable.
+A programmed interaction
+can be changed systematically
+while keeping the same
+physical platform.
+
+For example, one could
+compare reciprocal and
+nonreciprocal alignment
+or vary the effective
+interaction range.
+One could also introduce
+controlled delay
+or modify the response
+to local density.
+
+These interventions
+would permit experiments
+that distinguish
+competing theoretical
+predictions.
+
+Yet, a change in
+programmed rules
+may also alter
+the collective
+operating regime
+through actuator
+constraints or
+sensing limitations.
+The nominal software
+parameter is therefore
+not always identical
+to the effective
+physical parameter.
+
+The relevant experiment
+should measure
+the implemented
+response law
+rather than assume
+perfect realization
+of the controller.
+
+\paragraph*{Quality of information-mediated evidence.}
+
+The extracted agreement ratings
+show that 28 of the
+150 sensing-labelled
+studies report
+quantitative theory
+comparison, while
+70 report qualitative
+comparison and 52
+no comparison.
+
+For communication,
+25 of 156 studies
+report quantitative
+comparison, 86
+qualitative comparison,
+and 45 no comparison.
+
+Programmed-rule studies
+contain 36 quantitative,
+84 qualitative,
+and 41 without
+a recorded comparison.
+
+These modality
+categories overlap.
+Their counts must
+not be added
+to calculate
+the number of
+distinct studies.
+
+Risk-of-bias
+ratings reveal
+the same limitation.
+Among sensing-labelled
+studies, eighteen
+receive low-risk
+D6 ratings,
+25 have some concerns,
+and 107 are high risk.
+
+For communication,
+the corresponding
+counts are seventeen,
+43, and 96.
+For programmed rules,
+they are 22,
+47, and 92.
+
+Thus, the widespread
+use of information-mediated
+interactions has not
+yet produced an
+equally widespread
+body of low-risk
+quantitative
+theory tests.
+
+The pattern is
+consistent with
+the broader
+control-architecture
+analysis. Robotic
+systems offer
+many ways to
+program collective
+behavior, but
+implementation
+success is often
+more thoroughly
+demonstrated than
+the predictive
+validity of the
+corresponding
+physical model.
+
+\subsection{Synthesis: control as an experimental variable}
+\label{sec:control-synthesis}
+
+The comparison of control architectures establishes
+a central opportunity for robotic active matter.
+We can intervene directly on microscopic
+interaction rules while observing collective
+physical consequences.
+
+Yet, this opportunity is realized differently
+across experimental platforms.
+
+Mechanically driven systems provide collective
+behavior without explicitly programmed
+neighbor responses. Their advantage is that
+interactions arise from physical coupling.
+Their limitation is the difficulty of
+independently varying propulsion,
+noise, friction, and contact dynamics.
+
+On-board rules provide direct implementation
+of local interactions. Their advantage is
+programmability at the agent level.
+Their limitation is that the controller
+may impose the behavior whose emergence
+the experiment is intended to explain.
+
+External feedback permits effective
+interactions in systems too small
+for conventional on-board control.
+Its advantage is flexible coupling
+based on measured collective state.
+Its limitation is that sensing,
+latency, and feedback become
+part of the physical dynamics.
+
+Central control makes collective
+configuration and global interaction
+rules accessible. Its advantage
+is precise intervention.
+Its limitation is the possibility
+of replacing spontaneous
+organization with externally
+prescribed coordination.
+
+Learned policies extend
+programmability beyond
+hand-designed interaction
+rules. Their advantage
+is the exploration
+of new collective
+responses.
+Their limitation
+is the difficulty
+of identifying
+the effective
+physical mechanism.
+
+These distinctions
+show that control
+architecture is
+not simply an
+engineering property.
+It can determine
+which theoretical
+description is
+appropriate.
+
+\paragraph*{The controller belongs to the physical model.}
+
+A common source of interpretive error
+is to treat control as an implementation
+detail while attributing collective
+behavior entirely to physical interactions.
+
+This separation is often invalid.
+An agent that changes direction
+based on sensed neighbors
+experiences an effective
+interaction created
+by its controller.
+A feedback-controlled
+particle can exhibit
+configuration-dependent
+forces that do not
+exist without
+the measurement
+and actuation loop.
+
+Consequently,
+a faithful physical
+model must include
+the relevant features
+of the control
+architecture.
+
+This does not mean
+that every controller
+detail must appear
+in a continuum
+theory.
+Coarse-graining
+is precisely the
+process of identifying
+which microscopic
+details remain
+important at
+collective scales.
+
+However,
+that simplification
+must be tested,
+not assumed.
+
+For example,
+if communication
+delay has no
+measurable effect
+on collective
+order within
+a specified regime,
+an instantaneous
+interaction model
+may be adequate.
+If delay changes
+stability or
+fluctuations,
+it must be
+included in
+the effective
+description.
+
+The same reasoning
+applies to
+sensing anisotropy,
+actuator limitations,
+and common
+external forcing.
+
+\paragraph*{Programmability as causal intervention.}
+
+The strongest use of control
+is to vary a proposed
+mechanism while measuring
+its collective consequences.
+
+For example,
+an experiment
+might hold
+agent propulsion
+approximately
+constant while
+changing the
+interaction range.
+Alternatively,
+it might preserve
+the effective
+alignment rule
+while changing
+the sensing
+modality.
+
+Such comparisons
+would help determine
+whether a collective
+state depends
+on information
+architecture
+or on the
+effective
+interaction law.
+
+A further
+possibility
+is to construct
+different microscopic
+implementations
+of the same
+predicted collective
+dynamics.
+
+If a mechanical
+system, a communicating
+robot swarm,
+and a feedback-controlled
+colloidal assembly
+exhibit comparable
+response under
+appropriately matched
+parameters, the
+result would provide
+stronger evidence
+for generality
+than repeated
+experiments
+using one
+controller.
+
+Yet, matching
+platforms requires
+careful choice
+of observables
+and dimensionless
+control parameters.
+A similar
+trajectory pattern
+alone does not
+establish equivalent
+physics.
+
+\paragraph*{What should be reported?}
+
+The evidence suggests a practical
+standard for future experiments.
+
+An on-board or centralized
+robotic study should
+document the implemented
+interaction law,
+including relevant
+sensing and
+communication constraints.
+
+A feedback-controlled
+experiment should
+characterize the
+measurement process,
+control latency,
+and mapping from
+observations
+to actuation.
+
+A learned-policy
+experiment should
+separate training
+from evaluation
+and report tests
+under changed
+physical conditions.
+
+A mechanically driven
+experiment should
+measure isolated-agent
+motion and
+interaction-dependent
+response.
+
+Across all architectures,
+collective observables
+should be reported
+with independent
+repetitions and
+appropriate uncertainty.
+Code and data
+availability would
+further support
+verification and
+comparative analysis.
+
+The evidence does
+not imply that
+one architecture
+is universally
+superior.
+Rather, each
+offers a different
+combination of
+experimental
+control and
+physical interpretability.
+
+The most decisive
+experiments will
+exploit these
+complementary
+strengths.
+
+\paragraph*{From control performance to physical understanding.}
+
+A central conclusion of this
+section is that programmable
+collective behavior and
+predictive active-matter
+physics are distinct
+scientific achievements.
+
+Robotic experiments
+have established
+many ways to
+generate flocking,
+aggregation,
+collective transport,
+synchronization,
+and shape formation.
+
+Yet, the extracted
+quality assessments
+show that low-risk
+quantitative
+theory comparisons
+remain less common
+than successful
+collective
+implementations.
+
+The next advance
+should therefore
+focus on experiments
+in which control
+parameters serve
+as independent
+physical interventions.
+
+We should ask
+not only whether
+a controller
+produces the
+desired behavior,
+but how the
+collective state
+changes when
+the interaction
+is modified,
+whether the
+response agrees
+with theory,
+and whether
+that agreement
+survives changes
+in platform
+and scale.
+
+This perspective
+also gives learning
+a productive
+scientific role.
+A learned policy
+may generate
+an unexpected
+collective response.
+We can then
+analyze its
+effective interaction,
+construct a
+simpler physical
+model, and
+test the model
+through controlled
+perturbations.
+
+Thus, learning
+and programmability
+need not compete
+with physical
+interpretability.
+They can provide
+new hypotheses
+and new interventions,
+provided that
+the resulting
+mechanisms are
+subsequently tested.
+
+We conclude that
+control is most
+valuable to
+active-matter
+physics when
+it converts
+a theoretical
+assumption
+into an
+experimentally
+adjustable
+quantity.
+
+The robot
+then becomes
+more than
+a physical
+demonstration
+of collective
+behavior.
+It becomes
+an instrument
+for testing
+which microscopic
+interactions
+are necessary,
+which are
+sufficient,
+and which
+remain relevant
+at collective
+scales.
+

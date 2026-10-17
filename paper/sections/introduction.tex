@@ -1,105 +1,1391 @@
-\section{Introduction}\label{sec:introduction}
+\section{Introduction}
+\label{sec:introduction}
 
-\subsection{Active matter made programmable}
+Living systems are not required for matter to move
+collectively. A suspension of driven particles, a
+population of self-propelled agents, or an actuated
+mechanical network can exhibit organization sustained
+by the continuous expenditure of energy. These systems
+belong to the broad domain of active matter, whose
+central question is how microscopic activity and
+interactions give rise to collective behavior far
+from thermodynamic equilibrium
+\todocite{Marchetti et al., 2013, hydrodynamics
+of soft active matter}
+\todocite{Ramaswamy, 2010, mechanics and statistics
+of active matter}
+\todocite{Bechinger et al., 2016, active particles
+in complex and crowded environments}.
 
-Active matter converts locally supplied energy into motion and collective stress \todocite{foundational reviews of active matter}. Its constituents operate far from thermal equilibrium. They move, collide, align, transmit forces, and modify their surroundings. Collective order then arises from interactions among many such constituents rather than from an equilibrium free-energy minimum. Flocks, clusters, vortices, synchronized states, transporting assemblies, and active solids are different manifestations of this common principle.
+The resulting phenomena are remarkably diverse.
+Persistent motion can produce coherent flocks,
+circulating structures, clustering, anomalous
+transport, and density-dependent organization.
+Driven constituents may synchronize their motion,
+assemble into functional structures, or develop
+mechanical responses unavailable to passive
+equilibrium materials. Yet, similar patterns
+can arise from very different interactions.
+Observing a flock, for example, does not
+by itself determine whether its coherence
+comes from alignment, collisions,
+communication, or external control.
 
-The central experimental question is not whether an active system can form an interesting pattern. It is which microscopic process produces that pattern, which variables control it, and where the proposed explanation fails. Living collectives provide rich examples, but their interactions are difficult to isolate. Synthetic particles offer greater physical control, but their propulsion and coupling can be constrained by chemistry, fabrication, or the surrounding fluid. Robotic systems add another possibility. Their sensing, communication, decision rules, morphology, and actuation can be modified independently or in combination. Hence, robots can serve as experimental realizations of active matter in which the interaction law itself becomes an intervention.
+This ambiguity lies at the heart of
+experimental active-matter physics.
+Theories often begin with deliberately
+simple ingredients: self-propulsion,
+noise, steric exclusion, alignment,
+or nonreciprocal forces. Their value
+comes from predicting collective
+consequences that cannot be read
+directly from the microscopic rules.
+However, experimental systems
+rarely realize these assumptions
+in isolation.
 
-This statement requires care. A robot does not become an active-matter particle merely because it moves. Likewise, several robots do not constitute active matter merely because they share an arena. The relevant case is a physical collective in which active agents interact and produce a measurable collective or interaction-level response. The response may be polarization, a cluster distribution, a transport current, synchronization, force transmission, a deformation mode, or another quantitative observable. Task completion alone is insufficient because the same score can result from physically different collective processes.
+Biological collectives contain
+adaptive behavior and heterogeneous
+individuals. Synthetic active
+particles can exhibit coupled
+chemical, hydrodynamic, steric,
+and boundary-mediated interactions.
+Even when their trajectories
+are measured accurately, the
+effective microscopic interaction
+law may remain difficult
+to identify.
 
-Robotic active matter therefore occupies a productive boundary. It connects statistical physics with embodied collective systems. It also connects minimal interaction models with sensing, delay, friction, finite body size, and control. These features are sometimes treated as imperfections relative to an ideal particle model. Yet, they are precisely what makes the comparison informative. A theory that survives them has gained experimental support. A theory that fails under a controlled change reveals which neglected mechanism matters.
+Robots offer a complementary route.
+They are physical active agents
+whose sensing, actuation, and
+interaction rules can often
+be specified or modified
+deliberately. At the macroscopic
+scale, mobile robots can implement
+local alignment, communication,
+or density-dependent motion.
+At smaller scales, externally
+controlled robotic particles
+and feedback-mediated colloids
+can realize programmable
+collective interactions.
+Mechanically driven robots
+and active structures provide
+access to behavior arising
+through contact, geometric
+constraints, and internal
+actuation.
 
-Programmability is the distinctive experimental opportunity. A wheeled robot may change its visual neighbourhood without changing its body. A feedback-controlled colloid may change its propulsion or interaction while remaining in the same fluid. A vibration-driven robot may change its collision response through morphology. An active lattice may reverse or break reciprocity through programmed local actuation. In each case, one part of the microscopic dynamics can be changed while much of the apparatus remains fixed.
+This experimental flexibility
+suggests a powerful possibility:
+rather than asking only
+whether a collective pattern
+appears, we can ask
+which microscopic ingredient
+is necessary to produce it.
+Robotic systems may therefore
+serve not merely as
+demonstrations of active
+behavior but as instruments
+for testing active-matter
+theories.
 
-External feedback extends this idea further. It can observe physical agents, compute an interaction, and return commands in real time. The resulting system is neither a simulation nor an uncontrolled material. It is a physical many-body experiment with a programmable coupling. Stable polar and rotating states have been produced in light-driven colloids through such feedback \cite{Buerle2020formationofstable}. Adaptive delay can then change persistence and response within the same experimental architecture \cite{Chen2024persistentandrespo}. These systems show how a control variable can become a physical tuning parameter.
+The opportunity is substantial.
+Yet, it also requires
+careful interpretation.
+A robot executing a
+programmed alignment
+algorithm does not
+independently validate
+the theoretical consequences
+of alignment. It
+demonstrates that the
+algorithm can operate
+in physical hardware.
+The more demanding
+question is whether
+collective fluctuations,
+correlations, stability,
+or phase behavior
+follow from the
+implemented rules
+without additional
+assumptions or fitting.
 
-Mechanical embodiment provides a complementary route. Rotating vibration-driven robots exhibit collective organization, clustering, and chiral dynamics through activity and contact \cite{Scholz2018rotatingrobotsmove}. Smarticle ensembles convert internal shape changes and confinement into collective transport \cite{Savoie2019arobotmadeofrobo}. Passive bristle-bot collectives transport a payload through persistence and mechanical interaction without explicit navigation \cite{Arbel2025amechanicalroutef}. Here, the interaction is not represented only in software. It is implemented by body shape, collision geometry, and the environment.
+We take this distinction
+between physical realization
+and theoretical validation
+as the organizing principle
+of the present review.
 
-Robotic active solids move the question from particle motion to material response. Programmed nonreciprocity can produce directional transmission in a mechanical structure \cite{Brandenbourger2019nonreciprocalrobot}. Self-sensing active elements can couple deformation, measurement, and actuation \cite{Chen2020selfsensingmetamat}. The collective observable is then a wave, mode, deformation, or effective response rather than a flocking direction. Hence, robotic active matter includes both mobile collectives and persistently connected active structures.
+\subsection{Robots as experimental active matter}
+\label{sec:introduction-robots}
 
-Scale does not define the field. Macroscopic wheeled swarms, vibration-driven particles, smarticles, modular robots, microrobotic agents, controlled colloids, and active mechanical structures all qualify when they satisfy the same physical criterion. Their differences remain essential. A micrometre-scale magnetic agent and a wheeled robot do not represent the same coarse-graining level. Their inertia, noise, hydrodynamics, sensing, and boundaries differ. The purpose of a common framework is not to erase these differences. It is to determine which conclusions survive them.
+Active-matter theory often represents a constituent
+through a small number of dynamical variables,
+such as its position, orientation, and velocity.
+The corresponding interaction rules may involve
+alignment, repulsion, attraction, or coupling
+to a surrounding medium.
 
-\subsection{A gap between neighbouring review traditions}
+Robotic agents can realize several of these
+ingredients directly. A mobile robot
+provides physical self-propulsion.
+Sensors establish an information-dependent
+interaction neighborhood. Communication
+permits effective coupling between agents
+that need not be in mechanical contact.
+Local control rules determine the response
+to that information.
 
-Active-matter reviews have developed the theoretical language of nonequilibrium collective systems. They organize models and phenomena around self-propulsion, alignment, motility-induced phase separation, active turbulence, topological defects, odd response, and related concepts \todocite{major reviews of active matter}. Biological and synthetic realizations often appear together because they illuminate shared physical principles. Robotic experiments enter this literature as useful examples, but the hardware evidence is rarely assessed systematically as an experimental field in its own right.
+Early robotic experiments investigated
+whether distributed rules could generate
+collective motion and coordination
+\cite{Hayes2003selforganizedflock,
+Spears2004distributedphysics,
+Kelly2004ascalableonboard,
+Belta2004controlofateamof,
+Mizuguchi2004collectivedynamics,
+Turgut2008modelingphasetrans,
+Navarro2008anapproachtoflock,
+Hamann2008spatialmacroscopic,
+Miki2010asimplerulebased,
+Yamada2011circularmotiongene}.
 
-Swarm-robotics reviews begin from a different question. They commonly organize methods by coordination strategy, communication architecture, task, scalability, or engineering performance \todocite{reviews of swarm robotics and collective robot control}. Their concerns are indispensable for building reliable collectives. Yet, a successful controller does not by itself identify a collective mechanism. Coverage, formation error, or task success may improve while polarization, density fluctuations, collision dynamics, and force transmission remain unmeasured.
+These experiments established an important
+connection between theoretical interaction
+rules and physical multi-agent systems.
+However, they also exposed the difference
+between an idealized particle and a robot.
+Real agents have finite turning rates,
+imperfect localization, actuator
+variability, and sensing delays.
+They experience collisions and
+boundary constraints that may not
+appear in the mathematical model.
 
-Microrobotics reviews add another neighbouring perspective. They emphasize fabrication, propulsion, navigation, biomedical operation, and the control of micro- and nanoscale agents \todocite{reviews of microrobotic swarms}. These topics determine what an apparatus can do. Still, demonstrations of assembly or transport do not automatically establish an active-matter explanation. A common field-driven motion, a hydrodynamic instability, and a local interaction rule can generate superficially similar outcomes.
+Such imperfections need not be
+treated merely as engineering
+obstacles. They may be physical
+variables that change the
+collective dynamics. A finite
+response time can affect
+the stability of an
+aligned state. Directional
+perception can make
+interactions asymmetric.
+Collision geometry can
+generate an effective
+alignment or rotation
+without explicit
+neighbor communication.
 
-Reviews of active mechanical and robotic materials provide a fourth perspective. They connect local actuation, nonreciprocity, adaptation, and programmable response \todocite{reviews of active mechanical metamaterials and robotic materials}. Their natural observables are often material properties rather than trajectories. This literature broadens active matter beyond freely moving agents, but it also introduces a different experimental unit and different standards of comparison.
+Consequently, robots
+can test not only
+the predictions of
+idealized theories,
+but also the
+consequences of
+relaxing their
+assumptions.
 
-The present review links these traditions through one question: what has physical robotic hardware established about interacting active systems? We include robotics when it measures collective physics. We include controlled synthetic particles when their behaviour is programmable or feedback-driven. We include active structures when local active elements generate a collective material response. We exclude work that remains solely in simulation, reports only single-agent motion, or evaluates a swarm only through task performance.
+A second class of
+experimental systems
+uses activity generated
+primarily through
+mechanical interactions.
+Vibration-driven robots,
+for example, convert
+oscillatory actuation
+into persistent or
+fluctuating motion.
+Their collective behavior
+may arise through
+steric contact,
+friction, confinement,
+and propulsion variability
+\cite{Welch2018aggregatesuppressio,
+Welch2019activereorientation,
+Deblais2019howtoforceanarmy,
+Scholz2018rotatingrobotsmove,
+Chvykov2020lowrattlingapred,
+Xi2024emergentintelligenc,
+Boudet2025nonmarkoviandynami}.
 
-This boundary is narrower than robotics and broader than conventional swarm robotics. It is also narrower than synthetic active matter because uncontrolled colloids do not enter merely by being active. The restriction is deliberate. Programmability or feedback is what makes those particles robotic for the purpose of this review. It creates an identifiable intervention on sensing, propulsion, coupling, or state.
+These platforms are
+especially useful
+because collective
+organization need
+not be prescribed
+by software.
+The emergent behavior
+instead constrains
+models of physically
+coupled active particles.
 
-Two-agent experiments remain eligible. They can measure collision maps, phase response, hydrodynamic coupling, magnetic forces, or information-mediated interaction. Such measurements may provide stronger evidence for a microscopic law than a many-agent demonstration. The lower boundary is therefore interaction, not an arbitrary swarm size. Single-agent studies remain outside because they cannot establish an agent--agent or agent--environment--agent mechanism.
+Their limitation
+is different from
+that of programmable
+mobile robots.
+The parameters
+governing propulsion,
+noise, friction,
+and collisions
+can be difficult
+to vary independently.
+A simple stochastic
+model may therefore
+capture selected
+features of the
+motion while omitting
+important mechanical
+details.
 
-The distinction between state production and mechanism testing runs through the review. A central controller can place robots in a formation. Local interactions can also produce a similar shape. Both results may be valuable, but they support different claims. The first demonstrates controlled realization. The second may demonstrate emergence. A perturbation that distinguishes competing explanations provides the stronger physical test.
+Robotic micro- and
+nano-agents extend
+the experimental
+range toward
+field-mediated
+and hydrodynamic
+interactions.
+Collective transport,
+rotation, and
+reconfigurable assembly
+can be investigated
+under magnetic,
+optical, acoustic,
+or related actuation
+\cite{Yigit2019programmablecollect,
+Xie2020bioinspiredsoftmic,
+Sun2021swarmingmicrodrople,
+Pauer2021programmabledesign,
+Das2023optoelectronictraje,
+Rivas2023spatialpatterningo,
+McGovern2024multifunctionalchir,
+Sun2024multiplemagnetoopt,
+Cheng2025selfassemblyandco}.
 
-The same caution applies to visual resemblance. Polarization can arise from metric alignment, visual interaction, message exchange, leader following, collision geometry, or common forcing. Clusters can arise from attraction, density-dependent motility, confinement, jamming, or field-induced assembly. Rotation can arise from spontaneous symmetry breaking or from imposed chirality. Hence, a common phenomenon label is the beginning of synthesis rather than its conclusion.
+In these systems,
+the distinction
+between externally
+driven coordination
+and interaction-mediated
+collective behavior
+is particularly important.
+A common field
+may move many
+particles in
+similar ways.
+That observation
+alone does not
+establish that
+their motion
+arises from
+mutual interactions.
 
-Representative experiments already expose this distinction. Vision-mediated robot collectives permit polarization, milling, and collision outcomes to be changed through the information available to each agent \cite{Castro2025visualcollectivebe}. Controlled colloids implement polar and rotating states through a programmed feedback law \cite{Buerle2020formationofstable}. Vibration-driven rotors reach organized and chiral states through mechanical contact \cite{Scholz2018rotatingrobotsmove}. The observable may look related, but the causal routes differ.
+Feedback-controlled
+colloids make
+the distinction
+experimentally adjustable.
+Measurements of
+particle configurations
+can determine subsequent
+actuation, generating
+effective interaction
+rules that may be
+difficult to realize
+through passive
+forces alone
+\cite{Buerle2020formationofstable,
+Martinet2022rotationcontrolin,
+Chen2022collectiveresponse,
+Chen2024synchronousandfull,
+Chen2024persistentandrespo,
+Heuthe2025tunablecolloidalsw}.
 
-A critical review must therefore rotate the evidence several times. Platform classes reveal what interactions can be realized. Phenomenon classes reveal which outcomes recur. Theory comparison reveals whether an explanation predicts hardware data. Control architecture reveals which parts of the interaction were designed, sensed, or learned. Risk-of-bias assessment reveals how much confidence those comparisons deserve. A catalogue of devices would miss these connections.
+These systems link
+microscopic trajectory
+measurements with
+programmable interactions.
+They also show
+why the feedback
+loop belongs
+to the physical
+description:
+measurement noise,
+latency, and
+control updates
+can alter the
+collective state.
 
-\subsection{Why a systematic and living review is timely}
+Finally, modular
+robots and active
+mechanical structures
+broaden the meaning
+of collective behavior.
+Their relevant variables
+include connectivity,
+deformation, stiffness,
+wave propagation,
+and nonreciprocal
+mechanical response
+\cite{Li2019particleroboticsba,
+Savoie2019arobotmadeofrobo,
+Brandenbourger2019nonreciprocalrobot,
+Brandenbourger2021limitcyclesturnac,
+Baconnier2022tensioncontrolledc,
+Yang2024selfamputatingand,
+Coulais2025activemetamaterials,
+Binysh2026moreislessinunpe}.
 
-The evidence base has grown beyond a small set of illustrative experiments. In the snapshot dated 2026-10-14, the review contains 530 eligible studies. Of these, 358 appeared from 2020 onward, corresponding to 67.5\% of the included literature. The 2026 count is necessarily partial, but it already contains 70 studies. A static narrative assembled around familiar examples would therefore age quickly and would risk following disciplinary visibility rather than prespecified eligibility.
+Here, the active
+constituents may
+form a connected
+structure rather
+than a freely
+moving population.
+The experimental
+question shifts
+from collective
+trajectories toward
+the mechanical
+properties generated
+by internal activity.
 
-The growth is accompanied by diversification. The current extraction assigns 220 studies to wheeled or legged robots, 85 to robotic micro- or nano-agents, and 58 to vibration-driven robots. Smaller classes comprise modular systems, feedback-controlled colloids, smarticles or granular robots, and active solids or metamaterials. Another 99 studies occupy the residual ``other'' class, while 10 records lack a resolved platform assignment. The taxonomy is useful, but it is not final.
+Taken together,
+these platforms
+demonstrate why
+robotic active matter
+cannot be defined
+by one hardware
+design or control
+architecture.
+Its unifying feature
+is the use of
+physical interacting
+artificial agents
+to investigate
+collective behavior
+under active driving.
 
-This distribution matters for inference. A phenomenon observed many times on wheeled platforms may still lack cross-platform confirmation. Conversely, a small class may provide unusually clean control of an interaction. Feedback-controlled colloids are few in number, but they permit the coupling law to be changed during the experiment. Active structures are also a small class, but they expose force transmission and nonreciprocal response directly. Study counts measure the extent of evidence, not the value of an apparatus.
+\subsection{From collective demonstrations to tests of theory}
+\label{sec:introduction-tests}
 
-The field is also heterogeneous in its explanatory depth. Quantitative theory--experiment comparison is coded in 134 studies. Qualitative agreement is coded in 244, while 129 report no comparison and 23 lack a resolved agreement classification. A model name in a paper therefore cannot be counted as a test. It may motivate the design, reproduce a pattern, fit selected data, or make a numerical prediction. These roles must be separated.
+Theoretical active-matter research provides several
+candidate descriptions of collective robotic behavior.
+Vicsek-type models emphasize local alignment and
+noise
+\todocite{Vicsek et al., 1995, novel type of
+phase transition in a system of self-driven particles}.
+Active Brownian particle models describe
+persistent propulsion and stochastic
+reorientation
+\todocite{foundational active Brownian particle
+theory and its collective extensions}.
+Run-and-tumble models use discrete
+reorientation events
+\todocite{foundational run-and-tumble theory}.
+Kinetic and hydrodynamic theories
+connect microscopic rules
+to density, polarization,
+flow, and stress fields
+\todocite{Toner and Tu, hydrodynamic
+theory of collective motion}
+\todocite{Bertin, Droz, and Gregoire,
+kinetic description of self-propelled particles}.
+Active-elastic descriptions
+address mechanical response
+in driven structures
+\todocite{Scheibner et al.,
+odd elasticity and nonreciprocal active solids}.
 
-Reporting creates a second constraint. A number of independent experimental runs is stated in 188 studies. Public code is named in 78 and public data in 56. These counts do not prove that the remaining studies are irreproducible. They show that important information needed to judge replication or reuse is often absent from the extracted report. A field built around programmable apparatus should make the complete path from interaction rule to collective observable more accessible.
+Robotic experiments
+can provide physical
+realizations of these
+frameworks. Yet,
+a model implemented
+as a controller
+and a model tested
+against independent
+measurements represent
+different achievements.
 
-Full-text availability also affects certainty. We assessed 496 included studies from full reports and 34 from abstracts only. At least one extracted field remains unresolved in 140 rows. We retain these studies in the descriptive evidence map, but statements that depend on abstract-only or unresolved fields require explicit qualification. The living design allows later retrieval and adjudication to correct these limitations without rewriting the review history.
+Consider flocking.
+A programmed interaction
+may instruct each robot
+to align with its
+neighbors. The resulting
+group can display
+collective motion
+\cite{Turgut2008selforganizedflocka,
+Vsrhelyi2018optimizedflockingo,
+Zhou2024anticipationpromote}.
+This demonstrates
+the physical feasibility
+of the rule.
+It does not
+necessarily test
+the predicted
+dependence of
+order on noise,
+density, or
+system size.
 
-A systematic method is necessary because terminology does not define eligibility reliably. The phrase ``active matter'' can describe theory, living collectives, colloids, or robots. The phrase ``swarm robotics'' can describe physical interaction, distributed computation, or task allocation. Some relevant active-solid experiments may use neither phrase. The search must therefore span physics, robotics, materials science, and microengineering, followed by study-level eligibility decisions.
+Conversely, a
+mechanically driven
+assembly can
+develop organization
+without a programmed
+alignment controller
+\cite{Welch2019activereorientation,
+Baconnier2022selectiveandcollec,
+Luo2025flockingphasesepar}.
+Its collective
+statistics may
+provide a more
+independent test
+of a physical
+interaction model,
+provided that
+the underlying
+propulsion and
+collision dynamics
+are characterized.
 
-PRISMA 2020 supplies the reporting structure for this process \todocite{PRISMA 2020 statement}. It makes identification, screening, exclusion, extraction, and synthesis visible. Yet, a checklist alone does not resolve the conceptual boundary. The operational criteria must still distinguish physical collective evidence from task performance, hardware comparison from simulation alone, and quantitative confrontation from qualitative resemblance.
+The same issue
+appears in
+clustering.
+A robot swarm
+explicitly programmed
+to aggregate
+does not thereby
+demonstrate
+motility-induced
+phase separation.
+That interpretation
+requires evidence
+connecting persistent
+motion, interactions,
+and collective
+density organization.
 
-The living format addresses the temporal problem \todocite{living systematic review guidance}. Searches are rerun monthly. New records are screened with the same stored criteria and added to dated evidence snapshots. Each update receives an updated PRISMA flow and a change log. Earlier snapshots remain available, so corrected extraction, new evidence, and changes to the taxonomy can be distinguished.
+Likewise, a rotating
+microscopic assembly
+may result from
+common external
+forcing, while
+a spontaneously
+selected chiral
+state would
+require a
+different explanation.
 
-Not every monthly search requires a new scientific conclusion. The manuscript is re-versioned when the synthesis changes materially. Candidate triggers include a new platform class, a newly observed phenomenon, or reversal of a certainty judgement. In practice, a strong independent replication or a quantitative contradiction may matter more than several additional demonstrations of a known pattern. The living review is therefore designed to track changes in evidence, not only publication volume.
+The appropriate
+experimental standard
+therefore depends
+on the claim
+being tested.
 
-\subsection{Objectives}
+We distinguish
+three questions.
+What behavior
+was observed?
+Which physical
+mechanism generated
+it? How strongly
+was the proposed
+model tested
+against measurements?
 
-We address five prespecified objectives. They follow the path from apparatus to phenomenon, from phenomenon to explanation, and from explanation to confidence.
+A single experiment
+can answer the
+first question
+convincingly while
+leaving the others
+open.
 
-Objective O1 is to map which robotic platforms have been used as experimental realizations of active matter. We examine embodiment, propulsion, interaction modality, control architecture, environment, agent number, and scale. The aim is not to rank devices. It is to identify what each platform makes measurable and which conclusions depend on one realization.
+This motivates
+a systematic review
+that records not
+only platforms
+and phenomena,
+but also measured
+observables,
+theoretical frameworks,
+agreement type,
+and methodological
+limitations.
 
-Objective O2 is to identify the collective phenomena observed in robotic systems. The taxonomy includes flocking or polar order, clustering or motility-induced phase separation, swarming or vortex behaviour, chirality or rotation, synchronization, self-assembly or shape formation, jamming or crystallization, boundary accumulation, transport or locomotion, and active-solid or odd-elastic response. Since studies may report several phenomena, these categories are multi-label.
+\subsection{Position relative to existing reviews}
+\label{sec:introduction-prior-reviews}
 
-Objective O3 is to establish which theoretical frameworks have been tested quantitatively against robotic experiments and with what agreement. We distinguish agent-based simulation, active-Brownian-particle descriptions, Vicsek-type models, run-and-tumble models, kinetic or hydrodynamic theories, statistical-mechanical descriptions, active elasticity, and other apparatus-specific models. The key question is not whether theory appears, but whether measured observables confront a prediction.
+Several review traditions provide essential context
+for robotic active matter.
 
-Objective O4 is to characterize how control and programmability tune collective behaviour. We examine feedback, sensing, communication, learning, controller location, and passive physical rules. These variables can produce a collective state, but they can also test causality when one component is changed systematically. The synthesis keeps these roles separate.
+Reviews of active matter have developed
+the theoretical language of
+self-propulsion, orientational order,
+fluctuations, phase separation,
+and continuum dynamics
+\todocite{Ramaswamy, 2010, active matter review}
+\todocite{Marchetti et al., 2013, hydrodynamics
+of soft active matter}
+\todocite{Bechinger et al., 2016, active particles
+in complex and crowded environments}.
 
-Objective O5 is to assess reproducibility across the evidence base. We examine independent runs, finite-size and boundary treatment, measurement validity, data and code availability, and the strength of theory comparison. Reproducibility is treated as part of the physical claim. A collective state that depends on one boundary, one realization, or one undocumented controller supports a narrower conclusion than a response reproduced across conditions.
+These works establish
+the physical questions,
+but robotic experiments
+are not generally
+their sole organizing
+focus.
 
-Together, the objectives ask a single question. Which aspects of robotic active matter are established as transferable physical knowledge, and which remain platform-specific demonstrations? Answering it requires more than counting papers. We must connect each conclusion to the apparatus, observable, intervention, comparator, and reporting quality that support it.
+Reviews of swarm
+robotics address
+distributed control,
+coordination,
+collective decision-making,
+scalability,
+and robotic applications
+\todocite{Brambilla et al., 2013,
+swarm robotics review}
+\todocite{Bayindir, review of
+swarm robotics}
+\todocite{review of collective behavior
+and distributed control in robotic swarms}.
 
-\subsection{Organization and logic of the review}
+These perspectives
+are indispensable
+for understanding
+how interaction
+rules are implemented
+in physical agents.
+Yet, engineering
+success does not
+always require
+the observables
+needed to test
+active-matter theory.
 
-Section~\ref{sec:methods} describes the eligibility criteria, information sources, screening, extraction, risk-of-bias assessment, synthesis rules, and living-update procedure. It also explains how artificial-intelligence tools assisted extraction and drafting under human review. The goal is an auditable chain from retrieved record to synthesis statement.
+For example,
+a swarm may
+perform a
+collective task
+successfully without
+reporting polarization,
+density correlations,
+cluster statistics,
+or a mechanical
+response function.
 
-Section~\ref{sec:results_overview} reports study selection and maps the evidence base. It establishes the temporal growth, platform composition, control architectures, phenomena, theoretical comparisons, and reporting practices. These descriptive results define where detailed synthesis is possible and where missing or unresolved fields constrain it.
+Our focus therefore
+differs from a
+general review
+of multi-robot
+coordination.
+We ask which
+physical collective
+quantities have
+been measured
+and what they
+establish about
+nonequilibrium
+behavior.
 
-Section~\ref{sec:platforms} addresses O1. It begins with wheeled and legged robots, then considers vibration-driven systems, micro- and nano-agents, feedback-controlled colloids, smarticles, modular robots, active solids, and residual platforms. Each class is interpreted through its physical affordances and limitations. Population size alone does not make one platform more representative than another.
+A third tradition
+concerns microscopic
+robotics, active
+colloids, and
+programmable materials
+\todocite{review of magnetic and
+field-driven microrobot collectives}
+\todocite{review of programmable
+active colloidal matter}
+\todocite{review of active
+mechanical metamaterials}.
 
-Section~\ref{sec:phenomena} reorganizes the same studies by collective behaviour and addresses O2. This second view asks whether flocking, clustering, synchronization, chirality, assembly, transport, boundary accumulation, jamming, and active-solid response recur through related mechanisms. It also separates imposed states from spontaneously selected ones and visual resemblance from shared observables.
+These literatures
+often emphasize
+specific actuation
+mechanisms or
+material families.
+Their experimental
+detail is essential,
+but comparisons
+across macroscopic
+robots, microscopic
+agents, and
+mechanical structures
+remain difficult
+without a common
+evidence framework.
 
-Section~\ref{sec:theory} addresses O3. We distinguish inspiration, qualitative reproduction, and quantitative confrontation. Agreement is assessed with respect to the observable actually compared. A model may explain one response while failing at another scale, boundary, or transient. The relevant unit is therefore a model--observable--regime relation rather than a simple count of supported theories.
+The present review
+addresses this gap.
+It does not seek
+to replace
+theoretical,
+robotics,
+or platform-specific
+reviews.
+Instead, it
+connects them
+through a
+systematic assessment
+of physical
+robotic experiments
+and their
+collective observables.
 
-Section~\ref{sec:control} addresses O4. It treats sensing, communication, feedback, central control, passive rules, and learned policies as physical parts of the interaction. Delay, update rate, field of view, packet loss, and controller location can change the realized dynamics. Programmability becomes scientifically useful when these quantities are reported and perturbed.
+The central organizing
+unit is the
+included experimental
+study, not the
+robotic technology
+or theoretical
+model alone.
 
-Section~\ref{sec:discussion} integrates O1--O5. It evaluates risk of bias, reporting bias, certainty, and the limitations of both the evidence and the review. Strong evidence requires more than repeated observation. It requires independent platforms or groups, quantitative comparison, controlled variation, and sufficient reporting to understand the result.
+This permits
+comparisons between
+platforms, collective
+phenomena,
+interaction modalities,
+control architectures,
+and theoretical
+tests.
 
-Section~\ref{sec:outlook} converts the synthesis into an experimental programme. It identifies opportunities for cross-platform tests, prospective model discrimination, controlled finite-size studies, analysis of transient response, interpretable learning, and reproducible release of trajectories and controllers. It also defines what future living updates will monitor.
+It also permits
+an explicit
+assessment of
+reporting and
+reproducibility,
+which is necessary
+for distinguishing
+a successful
+demonstration from
+a well-supported
+physical conclusion.
 
-This organization is intentionally non-chronological. A chronological review would show growth but obscure the relation between apparatus and inference. A platform catalogue would show variety but obscure recurring phenomena. A phenomenon catalogue would show patterns but obscure how they were produced. By examining the same evidence through platform, phenomenon, theory, control, and certainty, we can identify where conclusions converge.
+\subsection{Scope and objectives of the review}
+\label{sec:introduction-objectives}
 
-The central proposition is simple. Robotic active matter contributes most when programmability makes a physical explanation easier to falsify. A robot that displays a predicted pattern is an illustration. A robot that changes one interaction, measures the response, and exposes the limit of a theory is an experiment. The purpose of this living review is to distinguish these cases and to track how the balance changes.
+We address physical collectives containing
+at least two interacting, self-propelled
+or actively driven artificial agents.
+The scope includes macroscopic swarm
+robots, vibration-driven systems,
+smarticles, modular assemblies,
+robotic micro- and nano-agents,
+feedback-controlled active colloids,
+and robotic active mechanical structures.
+
+Eligibility requires a quantitative
+collective or interaction observable
+from a hardware experiment.
+Examples include an order parameter,
+correlation function,
+cluster statistic,
+transport measurement,
+pair-interaction statistic,
+or mechanical response.
+
+Two-body interaction studies
+qualify when the reported
+observable concerns
+interacting physical agents.
+By contrast,
+single-agent demonstrations
+do not meet the
+collective criterion.
+
+Simulation-only and
+theory-only work
+without the specified
+hardware connection
+falls outside the
+evidence base.
+We also exclude
+engineering reports
+concerned only
+with task performance
+when they do not
+provide a qualifying
+physical collective
+observable.
+
+Finally, autonomous
+synthetic active
+colloids without
+the prescribed
+programmable or
+feedback-control
+connection are
+outside this
+robotics-focused scope.
+
+These boundaries
+are methodological,
+not judgments
+about the scientific
+importance of
+excluded fields.
+They establish
+which experiments
+can answer the
+review questions.
+
+Following the protocol,
+we pursue five objectives.
+
+\paragraph*{O1: Experimental platforms.}
+
+We map which robotic platforms have been
+used as physical realizations
+of active matter.
+
+This requires
+identifying hardware
+classes, propulsion
+mechanisms,
+interaction modalities,
+experimental scales,
+and accessible
+collective observables.
+
+The aim is not
+to rank platforms
+by publication
+volume.
+It is to
+determine which
+physical questions
+each platform
+can address.
+
+\paragraph*{O2: Collective phenomena.}
+
+We identify which collective phenomena
+have been observed
+in robotic systems.
+
+The taxonomy
+includes flocking
+and polar order,
+clustering and
+motility-induced
+phase separation,
+swarming and vortices,
+jamming and
+crystallization,
+chirality and
+rotation,
+active solids
+and odd elasticity,
+transport,
+synchronization,
+self-assembly,
+and boundary
+accumulation.
+
+We distinguish
+the observation
+of a pattern
+from evidence
+for the
+mechanism proposed
+to explain it.
+
+\paragraph*{O3: Theoretical frameworks.}
+
+We establish which theoretical frameworks
+have been tested quantitatively
+against robotic experiments
+and what agreement
+was reported.
+
+This includes
+alignment models,
+persistent-particle
+descriptions,
+kinetic and
+hydrodynamic theories,
+active elasticity,
+other statistical-mechanical
+approaches,
+and agent-based
+simulation.
+
+The main question
+is not simply
+whether the model
+resembles the
+experiment.
+It is whether
+the comparison
+constrains or
+tests the
+physical explanation.
+
+\paragraph*{O4: Control and programmability.}
+
+We characterize how feedback,
+sensing, communication,
+learning, and
+other control
+architectures are
+used to tune
+collective behavior.
+
+Control can create
+effective interactions
+that are absent
+from passive
+physical systems.
+Yet, it can
+also confound
+interpretation
+when an observed
+collective state
+is directly
+prescribed.
+
+We therefore
+treat programmability
+as an experimental
+variable whose
+physical consequences
+must be assessed.
+
+\paragraph*{O5: Reproducibility and evidence quality.}
+
+We assess the reproducibility
+of the evidence base,
+including experimental
+replication and
+the availability
+of data and code.
+
+We additionally
+evaluate agent
+heterogeneity,
+finite-size and
+boundary effects,
+measurement validity,
+and quantitative
+theory comparison.
+
+These criteria
+support claim-specific
+certainty judgments
+rather than
+a simple
+count of
+positive studies.
+
+\subsection{A living and reconfigurable evidence synthesis}
+\label{sec:introduction-living}
+
+A conventional review provides a synthesis
+of the literature at one point in time.
+Its conclusions may become incomplete
+as new experiments and theoretical
+comparisons appear.
+
+Living systematic reviews
+address this limitation
+through continuing surveillance
+of the evidence,
+planned updates,
+and revision of
+the synthesis
+when new findings
+warrant it
+\cite{Elliott2014living,Elliott2017living}.
+
+The living approach
+is particularly
+appropriate for
+robotic active matter.
+New robotic
+platforms may
+change which
+interaction mechanisms
+can be realized.
+New experiments
+may strengthen
+or challenge
+a theoretical
+interpretation.
+Improved reporting
+may also resolve
+uncertainty in
+previously included
+studies.
+
+Yet, updating
+the bibliography
+is only one
+part of
+the problem.
+A useful
+living review
+should allow
+readers to
+explore a
+heterogeneous
+evidence base
+from different
+scientific perspectives.
+
+The living-review
+concept demonstrated
+by Matl and
+collaborators
+provides a
+relevant model:
+papers are
+tagged by
+categories within
+an extendable,
+interactive
+database, and
+the categories
+can be arranged
+as reconfigurable
+taxonomy trees
+\cite{Matl2017vascular}.
+
+The value
+of this arrangement
+is that the
+hierarchy is
+not fixed.
+Readers can
+choose which
+attributes define
+successive tree
+levels and
+reorder them
+according to
+their question.
+
+For example,
+one reader may
+begin with
+robotic platform,
+then examine
+interaction modality
+and collective
+phenomenon.
+Another may
+begin with
+theoretical framework,
+then compare
+agreement type,
+control architecture,
+and experimental
+implementation.
+
+Neither view
+changes the
+underlying studies.
+They offer
+different ways
+of organizing
+the same
+extracted evidence.
+
+Related work
+in medical
+image analysis
+has demonstrated
+the usefulness
+of an online-updated
+survey and
+associated
+literature resource
+\cite{Litjens2017survey}.
+Together, these
+precedents motivate
+an evidence synthesis
+that remains
+current and
+explorable rather
+than becoming
+a fixed
+bibliographic
+catalogue.
+
+We follow
+that model.
+The public
+website accompanying
+this review
+hosts the
+included-study
+database and
+a reconfigurable
+taxonomy.
+
+Readers can
+search studies,
+select the
+attributes forming
+the taxonomy
+tree, and
+reorder its
+levels to
+investigate
+different relationships
+between experimental
+platforms,
+phenomena,
+interactions,
+control architectures,
+and theoretical
+comparisons.
+
+The website
+complements
+the critical
+narrative synthesis.
+It does not
+replace it.
+An interactive
+classification
+can reveal
+where studies
+are concentrated,
+but it cannot
+by itself
+establish the
+strength of
+a physical
+explanation.
+
+\paragraph*{Community contributions and scheduled updates.}
+
+The living infrastructure
+also provides
+a route for
+community participation.
+
+Readers can
+propose missing
+papers through
+reviewed GitHub
+pull requests.
+A contribution
+adds one small
+YAML file
+containing the
+candidate paper's
+bibliographic
+information.
+
+Automated checks
+confirm the
+submitted DOI
+against Crossref
+and flag
+records that
+may already
+appear in
+the review.
+
+These checks
+validate identifiers
+and help
+identify duplicates.
+They do not
+determine eligibility.
+
+Maintainers
+review the
+contribution
+and merge
+accepted entries
+into the
+literature database.
+The proposed
+paper is
+then screened
+in the next
+update using
+the same
+panel and
+eligibility criteria
+as records
+identified through
+database searches.
+
+This distinction
+preserves the
+review's selection
+standards.
+Community submission
+creates a
+candidate record,
+not an
+automatic inclusion.
+
+The monthly
+search process
+and community
+contributions
+are documented
+as separate
+routes into
+the evidence
+base.
+Following
+PRISMA 2020,
+community-supplied
+candidates are
+accounted for
+as records
+identified via
+other methods
+\cite{Page2021prisma}.
+
+The review
+uses PRISMA 2020
+as its reporting
+standard
+\cite{Page2021prisma}.
+The search,
+screening,
+extraction,
+adjudication,
+and synthesis
+procedures are
+documented
+for reproducibility.
+
+Each update
+will generate
+a dated
+evidence snapshot
+and preserve
+the changes
+made since
+the preceding
+version.
+Changes in
+study inclusion,
+taxonomy assignments,
+or certainty
+judgments can
+therefore be
+traced to
+the underlying
+records.
+
+The living
+design cannot
+repair missing
+experimental
+measurements
+or produce
+independent
+replication
+where none
+has been
+reported.
+It can,
+however,
+make such
+gaps visible
+and revise
+the synthesis
+when stronger
+evidence
+becomes available.
+
+\subsection{The present evidence snapshot and organization}
+\label{sec:introduction-roadmap}
+
+The present review synthesizes
+491 included studies
+in the corrected
+October 17, 2026
+evidence snapshot.
+This total follows
+the merging of
+one duplicate
+microscopic
+record from
+the original
+492-study extraction.
+
+The evidence
+covers multiple
+robotic scales,
+actuation mechanisms,
+interaction modalities,
+and collective
+phenomena.
+Its breadth
+makes a
+single physical
+narrative inadequate.
+We therefore
+organize the
+review around
+successive
+questions that
+connect experimental
+realization
+to theoretical
+interpretation.
+
+Section~\ref{sec:methods}
+describes the
+search strategy,
+eligibility criteria,
+LLM-assisted
+screening and
+extraction,
+adjudication,
+validation,
+risk-of-bias
+assessment,
+and living-update
+procedure.
+
+The evidence-base
+overview summarizes
+study selection
+and descriptive
+characteristics,
+with the
+PRISMA flow
+reported in
+Fig.~\ref{fig:prisma}.
+
+Section~\ref{sec:platforms}
+examines experimental
+platforms as
+active-matter
+model systems.
+It considers
+what each
+implementation
+makes measurable,
+its physical
+advantages and
+limitations,
+and the
+quality of
+the supporting
+evidence.
+
+Section~\ref{sec:phenomena}
+reorganizes the
+literature by
+collective phenomenon.
+This cross-platform
+perspective distinguishes
+the observation
+of similar
+patterns from
+evidence of
+shared physical
+mechanisms.
+
+Section~\ref{sec:theory}
+evaluates comparisons
+between robotic
+experiments and
+theoretical models.
+It emphasizes
+quantitative agreement,
+parameter constraints,
+and the distinction
+between implementation
+and independent
+prediction.
+
+Section~\ref{sec:control}
+examines sensing,
+communication,
+feedback,
+centralized control,
+and learned
+policies as
+ways of
+changing
+collective behavior.
+It also considers
+how these
+mechanisms complicate
+physical interpretation.
+
+The discussion
+assesses risk
+of bias,
+reporting limitations,
+and the
+certainty of
+the principal
+conclusions.
+The outlook
+identifies decisive
+experiments,
+under-tested
+phenomena,
+reporting priorities,
+and the future
+role of the
+living infrastructure.
+
+Throughout,
+we treat
+robotic platforms
+not as substitutes
+for ideal
+theoretical particles,
+but as physical
+systems with
+controllable and
+measurable deviations
+from idealization.
+
+Our central
+premise is
+that these
+deviations are
+scientifically
+valuable.
+They allow
+the assumptions
+of active-matter
+models to
+be varied,
+challenged,
+and tested.
+
+The most
+important contribution
+of robotic
+active matter
+is therefore
+not the
+ability to
+make artificial
+agents behave
+collectively.
+It is the
+possibility
+of determining
+which microscopic
+rules generate
+collective phenomena,
+which theoretical
+descriptions predict
+them, and
+where those
+descriptions
+cease to
+apply.

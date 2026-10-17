@@ -37,6 +37,7 @@ FORMAT = "amlr-human-check/1"
 TA_SAMPLE_SIZE = 200
 TA_SALT = "amlr-ta-validation-v1:"
 REVIEWER = "author"
+JUDGE = "judge:opus"  # LLM judge the author delegated the remaining conflicts to (amendment 6)
 
 VOCAB = {
     "platform_class": ["vibration_driven_robots", "wheeled_or_legged_swarm_robots",
@@ -95,7 +96,7 @@ def _votes(r: dict, stage: str) -> dict | None:
         "reviewers": [{"r": d["reviewer"], "model": d.get("model"), "include": d.get("include"),
                        "reason": d.get("reason"), "confidence": d.get("confidence"),
                        "rationale": d.get("rationale")}
-                      for d in ds if d.get("reviewer") not in ("panel", REVIEWER)],
+                      for d in ds if d.get("reviewer") not in ("panel", REVIEWER, JUDGE)],
     }
 
 
@@ -248,22 +249,27 @@ def import_labels(path: Path, ledger: Path = LABELS) -> dict:
 def latest_labels(ledger: Path = LABELS) -> dict[tuple, dict]:
     out: dict[tuple, dict] = {}
     for row in read_jsonl(ledger) if ledger.exists() else []:
-        out[_key(row)] = row  # append-only: the last row per item wins
+        k = _key(row)
+        # Append-only: the last row per item wins, except that a judge never overrides the author.
+        if row.get("reviewer") == JUDGE and out.get(k, {}).get("reviewer", REVIEWER) != JUDGE and k in out:
+            continue
+        out[k] = row
     return out
 
 
 def _decision(label: dict, stage: Stage) -> dict:
     note = (label.get("note") or "").strip()
     seen = " (panel votes seen before deciding)" if label.get("saw_panel") else " (blind)"
-    return Decision(reviewer=REVIEWER, stage=stage, include=bool(label["include"]),
-                    reason=None if label["include"] else (label.get("reason") or "author"),
+    who = label.get("reviewer") or REVIEWER
+    return Decision(reviewer=who, stage=stage, include=bool(label["include"]),
+                    reason=None if label["include"] else (label.get("reason") or who),
                     at=date.fromisoformat((label.get("at") or date.today().isoformat())[:10]),
                     rationale=(note + seen).strip()).model_dump(mode="json")
 
 
 def _set_decision(r: dict, d: dict) -> None:
     r["decisions"] = [x for x in r.get("decisions") or []
-                      if not (x.get("reviewer") == REVIEWER and x.get("stage") == d["stage"])] + [d]
+                      if not (x.get("reviewer") in (REVIEWER, JUDGE) and x.get("stage") == d["stage"])] + [d]
 
 
 def apply(corpus: Path, ledger: Path = LABELS) -> dict:
@@ -285,7 +291,8 @@ def apply(corpus: Path, ledger: Path = LABELS) -> dict:
                 if not e or "value" not in lab:
                     continue
                 resolved = e.setdefault("author_resolved", {})
-                resolved[field] = {"value": lab["value"], "chosen_from": lab.get("chosen_from"), "at": lab.get("at")}
+                resolved[field] = {"value": lab["value"], "chosen_from": lab.get("chosen_from"), "at": lab.get("at"),
+                                   "by": lab.get("reviewer") or REVIEWER}
                 e[field] = lab["value"]
                 e["unresolved"] = [f for f in e.get("unresolved") or [] if f != field]
                 counts["extraction_fields"] += 1

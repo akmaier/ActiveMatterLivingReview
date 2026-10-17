@@ -80,3 +80,17 @@ def test_quote_check_flags_fabricated_evidence():
     ev = _clean_evidence([{"criterion": "I3", "quote": "We built 12 robots."}, {"quote": 3}], text,
                          _grams(_norm(text).split()))
     assert ev == [{"criterion": "I3", "quote": "We built 12 robots.", "check": "verbatim"}]
+
+
+def test_judge_never_overrides_author(tmp_path):
+    corpus, ledger = tmp_path / "corpus.jsonl", tmp_path / "labels.jsonl"
+    write_jsonl(corpus, [{"id": "b", "phase": "included", "decisions": _panel("full_text", True, "2/3")}])
+    h.import_labels(_export(tmp_path, [{"queue": "ft_split", "record_id": "b", "include": True,
+                                        "at": "2026-10-14T10:00:00Z"}]), ledger)
+    judged = tmp_path / "judge.json"
+    judged.write_text(json.dumps({"format": h.FORMAT, "reviewer": h.JUDGE, "labels": [
+        {"queue": "ft_split", "record_id": "b", "include": False, "reason": "E2", "at": "2026-10-17T10:00:00Z"}]}))
+    h.import_labels(judged, ledger)
+    h.apply(corpus, ledger)
+    r = read_jsonl(corpus)[0]
+    assert r["phase"] == "included" and r["decisions"][-1]["reviewer"] == "author"

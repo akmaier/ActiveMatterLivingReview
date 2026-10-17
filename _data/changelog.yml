@@ -1,4 +1,15 @@
 # Append-only; newest first. Rendered by _pages/changelog.md.
+- date: "2026-10-17"
+  title: "Validation, adjudication, record fixes and a reconfigurable taxonomy"
+  summary: >-
+    The author validated the panel on 200 records (final labels: sensitivity 1.00, specificity
+    0.98); Claude Opus judged the remaining 423 full-text splits and 167 extraction conflicts
+    from checked quotes; a link check and IEEE DOI resolution merged five duplicate or
+    mis-indexed records. The review now includes 489 studies. The home page opens with a
+    reconfigurable, searchable taxonomy, and missing papers can be proposed through reviewed
+    GitHub pull requests (/contribute/).
+  added: "2 seed papers (PULS brainbots) by author decision"
+  removed: "5 records merged as duplicates; 50 reports excluded by the judge, 9 included"
 - date: "2026-10-14"
   title: "First review cycle: snapshot and human check"
   summary: >-

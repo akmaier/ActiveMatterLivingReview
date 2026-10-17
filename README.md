@@ -17,7 +17,8 @@ The repo is three artefacts in one:
 
 ## Status
 
-First review cycle complete (2026-10-11 to 2026-10-14); author validation in progress.
+First review cycle complete (2026-10-11 to 2026-10-17): 489 included studies, author-validated
+panel (sensitivity 1.00 on the 200-record sample), conflicts adjudicated, manuscript drafted.
 
 - Protocol frozen with SHA-256 manifests in `protocol/freeze-*.json`
   (amendments logged in `protocol/PROTOCOL.md`); OSF registration pending.
@@ -31,8 +32,10 @@ First review cycle complete (2026-10-11 to 2026-10-14); author validation in pro
   conflicts, seed papers) runs on the site's
   [human-check page](https://akmaier.github.io/ActiveMatterLivingReview/check/);
   exports are imported with `amlr human-import`.
-- Manuscript prose is drafted by Codex (`amlr draft <section>`, exchanges in
-  `paper/drafts/`) and reviewed by the authors.
+- Manuscript prose is drafted by Codex and, since 2026-10-17, ChatGPT (drafting log in
+  `paper/drafts/`) and reviewed by the authors; `cd paper && make paper` builds it.
+- Propose a missing paper: <https://akmaier.github.io/ActiveMatterLivingReview/contribute/>
+  (one YAML file in `submissions/` per pull request; checked automatically).
 
 ## Non-redistribution of subscriber content
 

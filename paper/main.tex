@@ -12,7 +12,7 @@
 \usepackage{url}
 \graphicspath{{figures/}}
 % Layout safety net against overfull lines (no effect on wording).
-\setlength{\emergencystretch}{2em}
+\setlength{\emergencystretch}{3em}
 \usepackage[colorlinks=true,allcolors=blue!60!black]{hyperref}
 % Placeholder for a source outside the included-studies table, to be resolved by the author.
 \newcommand{\todocite}[1]{\textcolor{red}{[cite: #1]}}% breakable, unlike a superscript
@@ -53,6 +53,7 @@
 \end{acknowledgments}
 
 \nocite{*}
+\raggedright % bibliography is last: long titles and DOIs break cleanly
 \bibliography{refs,refs_extra}
 
 \end{document}

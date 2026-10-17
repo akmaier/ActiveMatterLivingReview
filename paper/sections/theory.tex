@@ -2,54 +2,44 @@
 \label{sec:theory}
 
 Robotic active matter offers an unusual opportunity to test
-theories of collective motion. In a conventional experiment,
-the microscopic interactions are often determined by material
-properties and cannot be varied independently. Robots permit
-a different approach. We can prescribe alignment, alter
-feedback, modify interaction networks, or change mechanical
-coupling while observing the resulting collective dynamics.
+theories of collective motion. In conventional experiments,
+microscopic interactions often depend on material properties
+that cannot be varied independently. Robots permit us to
+prescribe alignment, alter feedback, modify interaction
+networks, and change mechanical coupling while measuring
+the resulting collective dynamics.
 
-Yet, this advantage introduces an important ambiguity.
-A theory implemented directly as a control algorithm is
-not necessarily a theory independently validated by
-experiment. The hardware may reproduce the intended
-interaction while the collective observables remain
-untested. Conversely, a model may describe an experimental
-pattern accurately without identifying the mechanism
-that generated it.
+Yet, implementing a theory as a control algorithm does
+not necessarily validate it experimentally. Hardware may
+reproduce an intended interaction without testing its
+collective predictions. Conversely, a model may reproduce
+an observed pattern without identifying its mechanism.
 
-We therefore distinguish implementation, qualitative
-consistency, quantitative agreement, and predictive
-validation. An implementation demonstrates that a
-specified microscopic rule can operate in a physical
-system. Qualitative agreement indicates that the
-model reproduces a relevant pattern or trend.
-Quantitative agreement requires comparison of numerical
-observables. A predictive test is more demanding:
-parameters must be constrained independently, and
-the model must successfully describe outcomes
-not used to construct or calibrate it.
+We distinguish implementation, qualitative consistency,
+quantitative agreement, and predictive validation.
+Implementation establishes that a microscopic rule can
+operate in hardware. Qualitative agreement concerns
+patterns or trends; quantitative agreement requires
+comparison of numerical observables. Predictive validation
+additionally requires independently constrained parameters
+and successful predictions for outcomes not used in
+calibration.
 
-The evidence base contains 491 studies in
-the October 17, 2026 snapshot. The corrected
-extraction table contains 491 records, and
-the framework counts reported below are
-calculated from this evidence base.
-The citation keys remain those supplied
-in the extraction table.
+The evidence base contains 491 studies in the
+October 17, 2026 snapshot. The framework counts
+reported below are calculated from the corrected
+extraction table, using its supplied citation keys.
 
 Theoretical frameworks were coded using a multi-label
 vocabulary. A study could compare several models,
 including a continuum theory and an agent-based
-simulation. Consequently, the framework totals
-cannot be added to obtain a unique number of
-theory-tested studies.
+simulation. Framework totals therefore cannot
+be added to obtain the number of theory-tested studies.
 
-Figure~\ref{fig:theory} summarizes these comparisons.
-The figure distinguishes the extracted frameworks
-and their reported levels of theory--experiment
-agreement. It describes what was compared, not
-whether a model was tested predictively.
+Figure~\ref{fig:theory} summarizes the extracted
+frameworks and reported levels of agreement.
+It identifies what was compared, not whether
+the comparison constituted predictive validation.
 
 \begin{figure}[t]
 \centering
@@ -62,33 +52,26 @@ reported type of agreement: quantitative,
 qualitative, or none. An agreement label does
 not establish independent parameter calibration
 or predictive validation. The figure represents
-the original extraction snapshot; the corrected
-491-study corpus differs by one merged microscopic
-record whose identity is not specified here.}
+the corrected 491-study evidence snapshot.}
 \label{fig:theory}
 \end{figure}
 
-The distinction between agreement and predictive
-validation guides the following analysis. For each
-framework, we ask which assumptions can be realized
-experimentally, which observables were compared,
-how much quantitative evidence is available,
-and where the implementation itself limits the
-strength of the theoretical conclusion.
+For each framework, we examine its experimentally
+realizable assumptions, measured observables,
+quantitative support, and limitations as a
+test of collective theory.
 
 \subsection{Vicsek-type models and alignment theories}
 \label{sec:theory-vicsek}
 
 Vicsek-type models provide a natural starting point
-because their elementary ingredients resemble the
-capabilities of programmable robots. Self-propelled
-agents move while adjusting their orientations
-according to neighboring agents and fluctuations.
-The collective dynamics can produce polarization
-and related forms of coordinated motion
-\cite{Vicsek1995novel}.
+because their ingredients resemble programmable
+robotic capabilities. Self-propelled agents adjust
+their orientations in response to neighbors and
+fluctuations, potentially generating polarization
+and collective motion \cite{Vicsek1995novel}.
 
-In a representative discrete-time formulation,
+A representative discrete-time formulation is
 \begin{equation}
 \theta_i(t+\Delta t)=
 \operatorname{Arg}
@@ -99,34 +82,25 @@ e^{\mathrm{i}\theta_j(t)}
 +\eta\xi_i(t),
 \label{eq:theory-vicsek}
 \end{equation}
-where $\mathcal N_i$ denotes the interaction
-neighborhood and $\eta\xi_i$ describes angular
-noise. The position update follows from
-self-propulsion along the selected direction.
+where $\mathcal N_i$ is the interaction neighborhood
+and $\eta\xi_i$ represents angular noise.
+Position evolves through self-propulsion
+along the selected direction.
 
-This equation captures a simple idea:
-local alignment can generate global order.
-Yet, its physical consequences are not limited
-to the appearance of aligned trajectories.
-The theory makes statements about fluctuations,
-density-dependent organization, collective modes,
-and the behavior of increasingly large systems
-\cite{Toner1995longrange}
-\cite{Vicsek1995novel}.
+Local alignment may generate global order,
+but the theory also concerns fluctuations,
+density-dependent organization, collective
+modes, and large-system behavior
+\cite{Toner1995longrange,Vicsek1995novel}.
 
-A robot swarm can implement an alignment rule
-with considerable fidelity. However, the
-implemented rule is generally accompanied by
-sensor noise, communication delays, finite
-turning rates, collision avoidance, and
-environmental constraints. These effects
-can change the resulting dynamics.
-
-Hence, the central experiment is not simply
-whether robots align. It is whether their
-measured collective response agrees with
-the predictions of a specified model once
-the actual implementation is characterized.
+A robot swarm can implement alignment rules,
+although sensor noise, communication delays,
+finite turning rates, collision avoidance,
+and boundaries can modify their consequences.
+The relevant test is whether measured
+collective responses agree with a specified
+model after the implementation has been
+characterized.
 
 \paragraph*{Experimental realizations and observables.}
 
@@ -138,62 +112,44 @@ use feedback-controlled colloids, and one
 uses vibration-driven robots. One additional
 record has no platform classification.
 
-The experiments cover programmed alignment,
-collective motion, orientation-dependent
-interactions, and related collective states
+Experiments address programmed alignment,
+collective trajectories, orientation-dependent
+interactions, and ordered states
 \cite{Turgut2008selforganizedflocka,Tarcai2011patternstransition,Vsrhelyi2014outdoorflockingand,Balzs2020adaptiveleadership,Fernando2021onlineflockingcont,Wang2022optiswarmopticals,Xiao2023perceptionofmotion,Zheng2024bodyorientationcha,Jianchao2024emergentchiralitya,Verdoucq2025flockingphasetrans,Zheng2026nestedinteractionn,Dizenhaus2026anonymousleadership,Zhang2026noiseresilientimpl,Yasuda2014selforganizedflockb}.
 
-Their extracted observables include quantities
-related to group orientation, polarization,
-collective trajectories, spatial organization,
-and changes in collective motion. These
-measurements are appropriate for evaluating
-alignment models, although they constrain
-different aspects of the theory.
+Extracted observables include polarization,
+group orientation, collective trajectories,
+spatial organization, and responses to
+changing interactions. These constrain
+different aspects of alignment theory.
+Polarization measures global coherence
+but cannot distinguish homogeneous order
+from spatially heterogeneous organization.
+Correlations and density-dependent
+measurements provide further constraints.
 
-Polarization, for example, characterizes
-global directional coherence. It cannot
-by itself distinguish a homogeneous
-ordered state from spatially heterogeneous
-collective organization. Spatial correlations
-and density-dependent measurements provide
-additional information.
+Likewise, successful collective turning
+demonstrates a coordinated response
+without necessarily establishing
+the predicted fluctuations or relaxation.
 
-Similarly, a trajectory showing successful
-collective turning establishes that
-the implemented interaction produces
-a coordinated response. It does not
-necessarily determine whether fluctuations
-or relaxation obey the proposed model.
-
-The feedback-controlled colloidal experiments
-provide another experimental route
+Feedback-controlled colloids provide
+particle-scale comparisons
 \cite{Chen2024synchronousandfull,Chen2022collectiveresponse,Chen2024persistentandrespo}.
-Their importance is that effective
-orientation-dependent interactions can
-be investigated at the particle scale.
-Such systems may provide more direct
-access to collective order parameters,
-but the implemented feedback law
-must still be separated from
-the resulting physical predictions.
+They allow effective orientation-dependent
+interactions to be examined alongside
+collective order parameters, provided
+the imposed feedback law is distinguished
+from its physical consequences.
 
-Other comparisons investigate collective
-motion and ordering through nonstandard
+Other comparisons involve nonstandard
 or asymmetric interactions
 \cite{Fruchart2021nonreciprocalphase,Giomi2013swarmingswirlinga,Liu2025collectivemotionmo}.
-These studies broaden the comparison
-beyond a single implementation of
-local alignment.
-
-However, departures from the basic
-Vicsek assumptions should not be
-treated merely as experimental noise.
-They may define a different model.
-For example, nonreciprocal interactions,
+Such departures are not necessarily
+experimental imperfections. Nonreciprocity,
 delayed information, and persistent
-turning dynamics can change the
-appropriate theoretical description.
+turning may require models different
+from basic Vicsek dynamics.
 
 \paragraph*{Quantitative agreement and its limits.}
 
@@ -205,67 +161,59 @@ Fourteen are classified as qualitative
 comparisons, while two have no
 agreement comparison recorded.
 
-The risk-of-bias assessment reinforces
-this distinction. Four studies receive
-low-risk ratings in D6, eleven have
-some concerns, and five are high risk.
-The low-risk subset is therefore
-considerably smaller than the complete
-literature implementing or discussing
+For D6, four studies receive low-risk
+ratings, eleven have some concerns,
+and five are high risk. The subset
+providing stronger quantitative tests
+is therefore substantially smaller
+than the literature implementing
 Vicsek-type dynamics.
 
-For replication, eight studies
-receive low-risk D1 ratings and
-twelve have some concerns.
-Independent-run counts are recorded
-for eleven studies. Explicit code
-availability occurs in two and
-data availability in three.
+For replication, eight studies receive
+low-risk D1 ratings and twelve have
+some concerns. Independent-run counts
+are recorded for eleven studies.
+Explicit code availability occurs
+in two and data availability in three.
 All 20 studies were assessed
 on a full-text basis.
 
-These results establish that Vicsek-type
-models have been realized and compared
-with robotic experiments in several
-physical implementations. Yet, most
-reported comparisons remain qualitative.
+These results establish experimental
+realizations and comparisons of
+Vicsek-type models across several
+platforms, but most comparisons
+remain qualitative.
 
-This is particularly consequential
-because the alignment rule itself
-is easy to implement. The experiment
+The distinction matters because
+implementing the alignment update
 can reproduce the mathematical
-update mechanism while failing
-to test the collective predictions
-that make the theory physically
-interesting.
+rule without independently testing
+its predictions for collective
+behavior.
 
-A stronger validation would characterize
-the implemented alignment interaction,
-measure the dependence of polarization
-and correlations on relevant parameters,
-and compare the resulting behavior
-with predictions obtained before
-observing the experimental outcome.
+Stronger validation would measure
+the implemented interaction,
+polarization, correlations, and
+parameter dependence, then compare
+them with predictions specified
+before observing those outcomes.
 
 Finite-size analysis is especially
-important. A small group of aligned
-robots is compatible with many
-possible interaction mechanisms.
-Determining whether the collective
-obeys a particular ordering theory
-requires measurements that distinguish
-between competing models.
+important. Alignment in a small
+group is compatible with several
+mechanisms; fluctuations and
+scaling can distinguish
+their collective predictions.
 
-The evidence therefore supports
-the feasibility of Vicsek-type
-robotic realizations more strongly
-than it supports universal conclusions
-about Vicsek-type phase behavior.
-The principal opportunity is to
-use programmable alignment to
-measure collective fluctuations,
-responses, and scaling laws
-under controlled physical conditions.
+We therefore find stronger evidence
+for the feasibility of robotic
+Vicsek-type realizations than for
+universal conclusions about their
+phase behavior. Programmable
+alignment offers a particularly
+promising route to controlled tests
+of fluctuations, response, and
+scaling laws.
 
 \subsection{Active Brownian particle models}
 \label{sec:theory-abp}
@@ -276,10 +224,9 @@ Instead of prescribing explicit
 alignment, they treat individual
 agents as persistently self-propelled
 particles whose orientations fluctuate.
-Interactions may then arise through
+Interactions may arise through
 steric contact, external potentials,
 or additional physical coupling
-\cite{Bechinger2016active}
 \cite{Bechinger2016active}.
 
 In a simple two-dimensional formulation,
@@ -299,28 +246,23 @@ rotational diffusivities, and
 $\mathbf F_i$ denotes interactions
 or external forces.
 
-The physical interpretation is direct.
-Even without an explicitly programmed
-alignment rule, persistent propulsion
-and interactions can generate
-nonequilibrium collective dynamics.
-
-This makes active Brownian particle
-models particularly suitable for
+Even without programmed alignment,
+persistent propulsion and interactions
+can generate nonequilibrium collective
+dynamics. This makes active Brownian
+particle models suitable for
 mechanically driven robotic systems.
-Yet, the assumptions of constant
-self-propulsion, simple stochastic
-reorientation, and memoryless noise
-must be checked experimentally.
 
-Real vibration-driven robots may exhibit
+However, their assumptions require
+experimental characterization.
+Vibration-driven robots may exhibit
 intermittent propulsion, correlated
-rotational motion, asymmetric body
-geometry, and substrate-dependent
-friction. These effects may be
-essential to the observed collective
-behavior rather than negligible
-deviations from the ideal model.
+rotation, asymmetric geometry,
+and substrate-dependent friction.
+These effects can determine
+collective behavior rather than
+constitute negligible deviations
+from the ideal model.
 
 \paragraph*{Experimental implementations.}
 
@@ -331,103 +273,73 @@ five wheeled or legged robots,
 three robotic micro- or nano-agents,
 and two feedback-controlled colloids.
 
-The substantial representation of
-vibration-driven systems distinguishes
-this framework from Vicsek-type models.
+The predominance of vibration-driven
+systems distinguishes this framework
+from Vicsek-type models.
 These experiments investigate
-mechanically generated persistent
-motion, aggregation, transport,
-confinement, and collective
-reorganization
+persistent motion, aggregation,
+transport, confinement, and
+collective reorganization
 \cite{Welch2018aggregatesuppressio,Balda2022playingwithactive,Fersula2026aggregatingswarmst,Edwards2026robusttopologically,Musacchio2026activeembracemente,Hoek2026pistonlikeinformat,Arbel2025amechanicalroutef,Fersula2026leveragingdesignfo,MuozObreque2026dynamicsofmagnetic,Musacchio2026fluidizationinduced,Callegari2023playingwithactive,Balda2024playingwithactive,Li2021programmingactivec,Siebers2023exploitingcompositi,Son2024emergentfunctional,Zion2023morphologicalcomput,Wagner2026geometryinducedtra,Zion2021distributedonline}.
 
-These systems provide a useful
-experimental connection between
-microscopic propulsion statistics
-and collective observables.
-Unlike a programmed alignment rule,
-mechanical interactions need not
-be prescribed explicitly in
-the individual controllers.
+They connect microscopic propulsion
+statistics with collective observables
+without necessarily prescribing
+mechanical interactions through
+individual controllers.
 
-The relevant measurements include
-individual trajectories,
+Relevant measurements include
+isolated-agent trajectories,
 mean-squared displacement,
 rotational dynamics,
 density distributions,
 clustering statistics,
 and confinement-dependent
-transport. These quantities
-can constrain different
-components of the active
-Brownian description.
+transport.
 
-For example, the isolated-agent
-mean-squared displacement
-can characterize persistence.
-Collective measurements
-can then reveal how
-interactions modify
-that baseline behavior.
-
-This separation is fundamental.
-A model fitted directly to
-collective transport data
-may reproduce the observations
-without independently establishing
-the propulsion statistics.
-By contrast, parameters measured
-from isolated-agent trajectories
-provide a stronger basis
-for predicting collective motion.
+For example, isolated-agent
+mean-squared displacement can
+constrain persistence before
+collective measurements reveal
+the effects of interactions.
+Parameters inferred independently
+provide a stronger prediction
+than those fitted directly
+to collective transport.
 
 Wheeled or legged experiments
-offer a complementary realization
-through programmed or controlled
-persistent motion
+provide complementary realizations
+through controlled persistent motion
 \cite{Paramanick2025spontaneousemergenc,Barone2024experimentalandnum,Mijalkov2016engineeringsensoria,Mayya2019nonuniformrobotde,Hao2022controllingcollisio}.
 Such systems can vary effective
-motility and interaction rules
-more independently than purely
-mechanical particles.
-
-However, they may also introduce
-feedback effects not represented
-in the standard active Brownian
-equations. Thus, the comparison
-must consider whether the
-robotic dynamics actually
-approximate the assumed
-stochastic process.
+motility and interaction rules,
+although feedback may introduce
+dynamics absent from the standard
+active Brownian equations.
 
 Microscopic and colloidal systems
-extend the framework toward
+extend these comparisons toward
 field-mediated and feedback-controlled
 interactions
 \cite{Rivas2023spatialpatterningo,Raghavendra2026programmablepersist,Desgranges2023microswimmersunder,Knippenberg2022roleofcohesionin,Guo2026afeedbackcontrolle}.
-These experiments are relevant
-because persistent particle motion
-and effective interactions can
-be characterized at smaller
-length scales.
 
-Yet, common external forcing
-and hydrodynamic coupling may
-produce correlations absent
-from a simple active Brownian
-particle model. Quantitative
-agreement must therefore be
-interpreted relative to the
-actual interaction mechanism.
+Persistent motion and effective
+interactions can be characterized
+at smaller length scales.
+Nevertheless, common external
+forcing and hydrodynamic coupling
+may produce correlations that
+simple active Brownian models
+do not represent.
 
 \paragraph*{Quantitative evidence.}
 
 Nineteen of the 28 studies report
 quantitative theory--experiment
 agreement, while nine report
-qualitative agreement. This is
-a markedly higher quantitative
-fraction than in the Vicsek-type
+qualitative agreement. The
+quantitative fraction is markedly
+higher than in the Vicsek-type
 category.
 
 The quantitative subset includes
@@ -436,179 +348,111 @@ programmable colloids, and
 mobile robotic experiments
 \cite{Balda2022playingwithactive,Musacchio2026activeembracemente,Arbel2025amechanicalroutef,Knippenberg2022roleofcohesionin,Raghavendra2026programmablepersist,Desgranges2023microswimmersunder,Guo2026afeedbackcontrolle,Paramanick2025spontaneousemergenc,Musacchio2026fluidizationinduced,Barone2024experimentalandnum,Mijalkov2016engineeringsensoria,Hao2022controllingcollisio,Callegari2023playingwithactive,Balda2024playingwithactive,Li2021programmingactivec,Siebers2023exploitingcompositi,Zion2023morphologicalcomput,Wagner2026geometryinducedtra,Zion2021distributedonline}.
 
-For D6, twelve studies are
-rated low risk, fourteen
-have some concerns, and
-two are high risk.
-Thus, quantitative
-agreement is comparatively
-well represented, but
-some reported comparisons
-retain methodological
-limitations.
+For D6, twelve studies receive
+low-risk ratings, fourteen have
+some concerns, and two are high
+risk. Thus, quantitative comparisons
+are comparatively well represented,
+although their methodological
+strength varies.
 
-Replication evidence is
-less favorable. Only six
-studies receive low-risk
-D1 ratings, twenty have
-some concerns, and two
-are high risk. Independent-run
-counts are recorded for
-eight studies.
+Replication evidence is weaker.
+Only six studies receive low-risk
+D1 ratings, twenty have some
+concerns, and two are high risk.
+Independent-run counts are
+recorded for eight studies.
 
 Explicit code availability
 occurs in six studies,
-and data availability
-in seven. One study
-was assessed from its
-abstract alone. Its
-contribution to claims
-requiring detailed
-experimental parameter
-characterization is
-therefore less secure.
+and data availability in seven.
+One study was assessed from
+its abstract alone, limiting
+assessment of detailed
+experimental parameters.
 
-The quantitative evidence
-supports the usefulness
-of active Brownian particle
-models for describing
-several robotic experiments.
-Yet, the extraction does
-not systematically
-distinguish fitted
-parameters from
-independently measured
-parameters.
-
-Consequently, nineteen
-quantitative comparisons
-must not be interpreted
-as nineteen independent
-predictive validations
-of the active Brownian
-framework.
+The evidence supports the usefulness
+of active Brownian particle models
+for describing several robotic
+experiments. However, the extraction
+does not systematically distinguish
+fitted parameters from independently
+measured ones. The nineteen
+quantitative comparisons therefore
+cannot be equated with nineteen
+independent predictive validations.
 
 \paragraph*{What would distinguish competing descriptions?}
 
-The most informative tests
-begin with isolated-agent
-dynamics. An experimental
-determination of propulsion
-speed, orientation persistence,
-and stochastic fluctuations
-provides a reference against
-which collective behavior
-can be predicted.
+The most informative tests begin
+with isolated-agent measurements
+of propulsion speed,
+orientation persistence,
+and fluctuations.
 
-Subsequently, particle
-density and confinement
-can be varied while
-retaining those measured
-parameters. The resulting
-collective observables
-can be compared with
-predictions of the model.
-
-For clustering, this
-would help distinguish
-motility-induced
-organization from
-direct attraction.
-For transport, it
-would establish whether
-changes in mobility
-follow from persistence
-and interactions.
+Particle density and confinement
+can then be varied while retaining
+the independently determined
+parameters. For clustering,
+this distinguishes motility-induced
+organization from direct attraction.
+For transport, it tests whether
+mobility changes follow from
+persistence and interactions.
 For boundary accumulation,
-it would test whether
-the observed density
-profile follows from
-the experimentally
-measured single-agent
-dynamics.
+it connects measured density
+profiles to single-agent dynamics.
 
-A particularly demanding
-comparison would use
-one parameterization
-to predict several
-observables simultaneously.
-A model reproducing
-mean-squared displacement,
-density correlations,
-and confinement response
-without separate fitting
-for each measurement
-would provide stronger
-evidence than agreement
-with one trajectory
-distribution.
+A demanding comparison would
+predict several observables
+with one parameterization.
+Agreement with mean-squared
+displacement, density correlations,
+and confinement response without
+separate fitting would provide
+stronger evidence than agreement
+with one trajectory distribution.
 
-Another important
-question concerns
-the validity of
-effective noise models.
-If vibration-driven
-robots possess
-correlated or
-non-Gaussian fluctuations,
-the standard active
-Brownian description
-may reproduce
-long-time transport
-while failing
+Effective noise assumptions
+also require testing.
+Correlated or non-Gaussian
+fluctuations may allow
+a standard active Brownian
+model to describe long-time
+transport while failing
 at shorter times.
+Such discrepancies identify
+the model's domain of
+applicability and indicate
+when additional physical
+degrees of freedom matter.
 
-This would not
-necessarily invalidate
-the model.
-It would identify
-its domain of
-applicability.
-Such boundaries
-are scientifically
-valuable because
-they reveal when
-additional physical
-degrees of freedom
-must be included.
+We therefore regard active
+Brownian particle models
+as one of the better-supported
+quantitative frameworks in
+robotic active matter.
+Their connection to measurable
+single-particle dynamics
+makes them suitable for
+discriminating experiments.
 
-We therefore regard
-active Brownian particle
-models as one of
-the better-supported
-quantitative frameworks
-in the robotic
-active-matter evidence
-base. Their experimental
-breadth is narrower
-than that of general
-agent-based simulation,
-but their connection
-to measurable
-single-particle
-dynamics makes
-them particularly
-suitable for
-discriminating tests.
-
-The remaining challenge
-is to move from
-agreement with
-selected observables
+The outstanding challenge is
+to move beyond agreement
+with selected observables
 toward parameter-constrained
-predictions of
-collective behavior.
+predictions of collective
+behavior.
 
 \subsection{Run-and-tumble descriptions}
 \label{sec:theory-run-tumble}
 
 Run-and-tumble models describe active motion as alternating
 episodes of persistent displacement and reorientation.
-They provide a useful alternative to continuous
-rotational diffusion. In the simplest formulation,
-an agent moves at approximately constant speed
-during a run and changes its direction through
-discrete reorientation events
+They provide an alternative to continuous rotational
+diffusion. In the simplest formulation, an agent moves
+at approximately constant speed during a run and changes
+direction through discrete reorientation events
 \cite{Tailleur2008runtumble}.
 
 A characteristic observable is the distribution
@@ -620,228 +464,146 @@ longer than time $t$ is
 S(t)=\exp(-\alpha t).
 \label{eq:theory-run-tumble}
 \end{equation}
-This expression is a model prediction,
-not a general property of every
-run-and-tumble robotic system.
-Nonexponential waiting times,
-correlated turning angles,
-and state-dependent reorientation
-require different descriptions.
+This is a model prediction, not a general
+property of robotic run-and-tumble systems.
+Nonexponential waiting times, correlated
+turning angles, and state-dependent
+reorientation require other descriptions.
 
-The distinction from active Brownian
-motion concerns the microscopic
-statistics of orientation changes.
-Both descriptions can generate
-persistent trajectories and
-enhanced long-time spreading.
-Therefore, agreement with
-mean-squared displacement alone
-may not distinguish them.
+The distinction from active Brownian motion
+lies in the statistics of orientation changes.
+Both descriptions can generate persistent
+trajectories and enhanced long-time spreading.
+Agreement with mean-squared displacement alone
+may therefore not distinguish them.
+Run-duration distributions, turning events,
+and orientation correlations provide
+more discriminating observables,
+especially when measured independently
+of collective behavior.
 
-We need measurements of turning
-events, orientation correlations,
-and run-duration distributions.
-The physical interpretation
-becomes particularly informative
-when these quantities can be
-measured independently of
-collective behavior.
-
-Only three studies in the extraction
-explicitly compare with a
-run-and-tumble framework.
-Two involve vibration-driven
-robots and one a robotic
-micro- or nano-agent system
+Only three studies explicitly compare
+with a run-and-tumble framework.
+Two involve vibration-driven robots
+and one a robotic micro- or nano-agent
+system
 \cite{Noirhomme2024brainbotsassmarta,Raghavendra2026programmablepersist,Balda2024playingwithactive}.
 
-This is a small evidence base
-relative to both Vicsek-type
-and active Brownian comparisons.
-It nevertheless provides
-an important conceptual link
-between robotic control
-and stochastic motility.
+This evidence base is small relative
+to Vicsek-type and active Brownian
+comparisons, but it connects robotic
+control directly to stochastic motility.
+Discrete reorientation can arise
+through programmed motor commands,
+changes in actuation, or
+interaction-mediated turning.
 
-A robot can realize
-discrete reorientation
-through programmed
-motor commands,
-changes in actuation,
-or interaction-mediated
-turning. The resulting
-trajectories can then
-be compared with
-predictions based
-on run and tumble
-statistics.
+Implementing such sequences does not,
+however, independently validate
+run-and-tumble theory. A stronger
+test asks whether measured run and
+turn statistics predict collective
+transport, response, or spatial
+organization without fitting those
+outcomes separately.
 
-Yet, a programmed
-run-and-tumble sequence
-is not automatically
-a quantitative test
-of run-and-tumble
-theory. It may simply
-implement the assumed
-microscopic dynamics.
-The stronger experiment
-asks whether collective
-transport, response,
-or spatial organization
-follows from those
-independently characterized
-statistics.
+The three studies include two
+quantitative comparisons and
+one qualitative comparison.
+Two receive low-risk D6 ratings,
+while one is rated high risk.
 
-The three studies include
-two quantitative comparisons
-and one qualitative comparison.
-Two receive low-risk
-D6 ratings, while one
-is rated high risk.
-
-For replication,
-all three have
+For replication, all three have
 some concerns in D1.
-An independent-run
-count is recorded
-for one study.
-One explicitly reports
-code availability,
-and one reports
+An independent-run count is
+recorded for one study.
+One explicitly reports code
+availability, and one reports
 data availability.
-All three were
-assessed on full text.
+All three were assessed
+on full text.
 
-These results indicate
-that run-and-tumble
-descriptions have
-been tested quantitatively
-in a limited set
-of robotic systems.
-However, the small
-number of implementations
-does not permit a
-strong claim about
+Thus, run-and-tumble descriptions
+have received quantitative tests
+in a limited set of robotic systems,
+but the evidence does not establish
 cross-platform robustness.
 
-The main opportunity
-is experimental
-discrimination between
-continuous orientational
-diffusion and discrete
-reorientation.
-Robots are particularly
-well suited to this
-comparison because
-different turning
-statistics can be
-implemented on
-otherwise similar
-hardware.
+The principal opportunity is a
+controlled comparison between
+continuous orientational diffusion
+and discrete reorientation.
+Robots permit different turning
+statistics to be implemented
+on otherwise similar hardware.
 
-A decisive experiment
-would first measure
-the complete single-agent
-orientation process.
-It would then examine
-whether the same
-parameters predict
-collective observables
-under changes in
-density, interaction,
-and confinement.
+A decisive experiment would
+characterize single-agent orientation
+dynamics, then test whether those
+parameters predict collective
+observables across density,
+interaction, and confinement.
+Measurements sensitive to the
+full distribution of reorientation
+events, rather than only the
+average turning rate, could
+identify when run-and-tumble
+and active Brownian descriptions
+are experimentally distinguishable.
 
-The comparison should
-include observables
-sensitive to the
-distribution of
-reorientation events,
-rather than only
-their average rate.
-This would reveal
-when run-and-tumble
-and active Brownian
-models are effectively
-equivalent and when
-their different
-microscopic assumptions
-produce experimentally
-distinguishable results.
-
-Hence, the current
-evidence supports
-the feasibility
-of robotic run-and-tumble
-experiments, but
-general conclusions
-about collective
-behavior remain
-premature. The
-framework is a
-particularly useful
-candidate for
-controlled comparative
-experiments rather
-than a broadly
-validated explanation
-of existing robotic
-collectives.
+We therefore regard run-and-tumble
+models as promising candidates
+for discriminating experiments,
+rather than broadly validated
+explanations of robotic
+collective behavior.
 
 \subsection{Kinetic and hydrodynamic theories}
 \label{sec:theory-kinetic}
 
-Kinetic and hydrodynamic theories provide the connection
-between microscopic interactions and collective fields.
-Instead of tracking every agent separately, we describe
-the evolution of quantities such as density, polarization,
-velocity, and stress. This is a central theoretical
-step in active-matter physics. It permits predictions
-about collective transport, fluctuations, stability,
-and spatial organization that cannot be obtained
-from the motion of one agent alone
-\cite{Toner1995longrange}
-\cite{Marchetti2013hydrodynamics}
-\cite{Marchetti2013hydrodynamics}.
+Kinetic and hydrodynamic theories connect microscopic
+interactions to collective fields such as density,
+polarization, velocity, and stress. They permit
+predictions of collective transport, fluctuations,
+stability, and spatial organization beyond the
+motion of individual agents
+\cite{Toner1995longrange,Marchetti2013hydrodynamics}.
 
-For a conserved population of agents, the density
-$\rho(\mathbf r,t)$ obeys a continuity equation,
+For a conserved population, the density
+$\rho(\mathbf r,t)$ obeys
 \begin{equation}
 \partial_t\rho+
 \nabla\cdot\mathbf J=0,
 \label{eq:theory-continuity}
 \end{equation}
 where $\mathbf J$ is the particle current.
-A common active contribution takes the form
+A common active contribution is
 $\mathbf J_{\mathrm a}=v_0\rho\mathbf p$,
 with $\mathbf p$ denoting local polarization.
-Further equations specify the dynamics of
-orientation, velocity, or stress.
+Additional equations specify orientation,
+velocity, or stress dynamics.
 
-The difficulty lies in constructing and testing
-these constitutive relations. Different microscopic
-interactions can generate similar macroscopic
-flows, while apparently small modifications
-to the interaction rule can alter stability.
-Hence, agreement with a measured velocity
-field does not necessarily validate the
-underlying closure approximation.
+The central challenge is to test the constitutive
+relations closing these equations. Different
+microscopic interactions can produce similar
+macroscopic flows, while small changes in an
+interaction rule may alter collective stability.
+Agreement with a measured velocity field
+therefore need not validate the proposed closure.
 
-Robotic experiments are attractive because
-they can provide both microscopic trajectories
-and coarse-grained collective measurements.
-In principle, we can characterize the
-interaction rules, derive a continuum model,
-and compare its predictions with independently
-measured density and velocity fields.
+Robotic experiments can provide both microscopic
+trajectories and coarse-grained measurements.
+In principle, independently characterized
+interactions can constrain a continuum model
+whose predictions are then tested against
+density and velocity fields.
 
-Yet, this program requires sufficient
-experimental scale. A continuum description
-is most informative when a separation exists
+This requires sufficient scale separation
 between the microscopic interaction length
-and the spatial scale of collective variation.
-Many robotic collectives contain relatively
-few agents, making this separation difficult
-to establish.
+and collective spatial variations.
+Many robotic systems contain relatively few
+agents, making the continuum approximation
+itself an important experimental question.
 
 \paragraph*{Experimental coverage.}
 
@@ -856,231 +618,142 @@ two feedback-controlled colloids,
 and one a modular system.
 One study has no recorded platform class.
 
-This distribution differs from that of
-Vicsek-type models. Microscopic robotic
-assemblies form the largest contributing
-platform class, reflecting the importance
-of fluid-mediated interactions and
-collective transport at small scales.
+Microscopic robotic assemblies form the largest
+group, reflecting the importance of fluid-mediated
+interactions and collective transport at small scales.
 
-The included microscopic experiments
-investigate collective propulsion,
-field-driven motion, hydrodynamic coupling,
-and reconfigurable assemblies
+The included experiments investigate collective
+propulsion, field-driven motion, hydrodynamic
+coupling, and reconfigurable assemblies
 \cite{Sun2021swarmingmicrodrople,Calabr2026interactiondrivena,Xie2020bioinspiredsoftmic,Pauer2021programmabledesign,Yigit2019programmablecollect,Das2023optoelectronictraje,McGovern2024multifunctionalchir,Sun2024multiplemagnetoopt,Liu2022bionicmorphological,Xu2023multiplecilialike,Yue2022wheellikemagnetic,Wang2018collectivebehavior,Chen2022programmablespatio,Xu2022collectivebehaviors,Baker2019shapeprogrammed3d,Goyal2025externallycontrolle,Aubret2018targetedassemblyan,Ahmed2021bioinspiredacousto,Yan2024programmingstructur,Yigit2020cohesiveselforgani,Hanson2025electrokineticpropu,Xu2023bioinspiredciliali,Ji2021ondemandassemblya,Xie2019programmablegenerat,Law2024navigationofmagnet,Yu2022adaptivepatternand,Ceron2026fluidictorqueenabl,Li2022vectorcontrolledwh}.
 
-The extracted observables include particle
-velocities, relative displacement,
-angular motion, fluid-flow measurements,
-cluster geometry, and changes in
-collective organization. These quantities
-allow comparison with theoretical descriptions
-at several levels.
+Their observables include particle velocities,
+relative displacement, angular motion,
+fluid flows, cluster geometry, and
+collective organization.
 
-For example, a measured flow field can
-be compared with a hydrodynamic calculation.
-Particle trajectories can constrain
-effective mobility or coupling.
-Density and cluster statistics can
-test predictions for collective
-organization.
-
-However, these comparisons are not
-equivalent. Matching the response
-to an imposed external field
-tests a different theoretical
-statement from predicting
-spontaneous collective structure.
+A measured flow field can test a hydrodynamic
+calculation; trajectories can constrain mobility;
+and density correlations can test predictions
+of collective structure. Yet, reproducing
+motion under an imposed field differs from
+predicting spontaneous organization.
 
 \paragraph*{Mechanical and macroscopic realizations.}
 
 Vibration-driven robots provide a complementary
-experimental regime in which continuum descriptions
-may emerge from contact-mediated interactions
-rather than fluid coupling
+regime in which continuum behavior arises
+through mechanical contact rather than
+fluid-mediated coupling
 \cite{Scholz2018rotatingrobotsmove,Arbel2025amechanicalroutef,Baconnier2022selectiveandcollec,Casiulis2025ageometricconditio,Deblais2018boundariescontrolc,Boudet2022effectivetemperatur,Wang2025hyperuniformnetwork,Miyashita2007selfassembleofwat,Mayya2019nonuniformrobotde,Li2021programmingactivec,Zion2023morphologicalcomput,Wagner2026geometryinducedtra,Lvay2026collectivedynamics,Zion2021distributedonline}.
 
-These studies include measurements
-of spatial correlations,
-mean-squared displacement,
-velocity distributions,
-collective oscillations,
-and structural organization.
+Measurements include spatial correlations,
+mean-squared displacement, velocity distributions,
+collective oscillations, and structural order.
+These experiments test effective field descriptions
+against mechanically generated collective dynamics.
 
-Their importance is that effective
-continuum behavior may arise
-from mechanically coupled
-constituents whose microscopic
-dynamics are not specified
-by an alignment controller.
-This provides an opportunity
-to test continuum descriptions
-against independently generated
-collective motion.
+However, friction and contact forces may violate
+assumptions appropriate to conventional fluid
+hydrodynamics. The continuum model must retain
+the physical mechanisms relevant to the platform.
 
-Yet, dry mechanical systems
-may possess frictional
-and contact-mediated
-interactions that do not
-satisfy the assumptions
-of conventional fluid
-hydrodynamics. An appropriate
-theoretical comparison
-must retain the relevant
-physical mechanisms.
-
-Wheeled or legged robots offer
-different access to continuum
-behavior through measurements
-of population density,
-collective motion,
-and spatial organization
+Wheeled or legged robots offer controlled
+microscopic rules and measurements of population
+density, collective motion, and spatial organization
 \cite{Giardina2022collectivephototact,Fersula2026aggregatingswarmst,Valentini2015collectivedecision,Zhou2024anticipationpromote,Hamann2008spatialmacroscopic,Maffettone2024mixedrealityenviro,Aguilar2018collectiveclogcont,Kernbach2013adaptivecollective,Arvin2011imitationofhoneybe,Prasath2022dynamicsofcooperat,Fruchart2020phasetransitionsin}.
 
-The main advantage is experimental control
-of microscopic rules. The corresponding
-limitation is that the same rules may
-directly prescribe the collective
-response being compared.
+Their advantage is control of the underlying
+interaction law. A stringent test derives
+collective predictions from that law and
+compares spatial or temporal dependence
+without fitting each observable independently.
 
-A particularly informative experiment
-would derive a continuum prediction
-from the implemented interaction
-and test its spatial or temporal
-dependence without separately
-fitting every observable.
-
-Additional implementations address
-environment-mediated flows,
-collective mechanical response,
-and hydrodynamic interactions
+Other implementations address environment-mediated
+flows, mechanical response, and hydrodynamic
+interactions
 \cite{Bo2026threephasesofodd,Newbolt2024flowinteractionsle,Boudet2025effectsofboundarie,Ren2025chlamydomonasinspir,Leech2026spincoupledhydrody,Heuthe2025tunablecolloidalsw,Guo2026afeedbackcontrolle,Luo2025flockingphasesepar,Savoie2019arobotmadeofrobo,Li2020programmingactiveg,Miyashita2008howmorphologyaffec,Fruchart2021nonreciprocalphase}.
-Together, these studies demonstrate
-that continuum and kinetic ideas
-have been brought into contact
-with several physically different
-robotic systems.
+
+Together, these studies demonstrate that kinetic
+and continuum theories have been confronted with
+physically different robotic systems.
 
 \paragraph*{Agreement and experimental limitations.}
 
-Of the 65 studies, 29 report
-quantitative theory--experiment
-agreement and 36 qualitative agreement.
-None has an agreement classification
+Of the 65 studies, 29 report quantitative
+theory--experiment agreement and 36 qualitative
+agreement. None has an agreement classification
 of ``none'' in the extracted field.
 
-For D6, 24 studies are rated
-low risk, 33 have some concerns,
-and eight are high risk.
-Thus, a substantial subset
-provides relatively strong
-quantitative comparisons.
+For D6, 24 studies are rated low risk,
+33 have some concerns, and eight are high risk.
+Thus, a substantial subset provides
+relatively strong quantitative comparisons.
 
-Replication reporting remains
-less complete. Twenty studies
-are rated low risk in D1,
+Replication reporting remains less complete.
+Twenty studies are rated low risk in D1,
 and 45 have some concerns.
-Independent-run counts
-are recorded in 24 studies.
+Independent-run counts are recorded in 24 studies.
 
-Explicit code availability
-is recorded for twelve studies
-and data availability for sixteen.
-One study was assessed from
-an abstract alone. The remaining
-64 were assessed on full text.
+Explicit code availability is recorded
+for twelve studies and data availability
+for sixteen. One study was assessed from
+an abstract alone; the remaining 64
+were assessed on full text.
 
-These indicators support
-a cautiously positive assessment.
-Kinetic and hydrodynamic theories
-have been compared quantitatively
-with several robotic platforms.
-However, the evidence does not
-establish that the same continuum
-equations describe all these systems.
+These findings support the experimental relevance
+of kinetic and hydrodynamic descriptions,
+but not the conclusion that the same continuum
+equations apply across all robotic platforms.
 
-The distinction is particularly
-important for hydrodynamic coupling.
-A microscopic suspension interacts
-through the surrounding fluid,
-whereas a dry robotic collective
+Microscopic suspensions interact through
+surrounding fluids, whereas dry robots
 may interact through collisions,
-sensing, or mechanically transmitted
-forces. Similar density or
-velocity fields need not imply
-identical constitutive equations.
+sensing, or mechanical transmission.
+Similar density and velocity fields
+need not imply identical constitutive laws.
 
 \paragraph*{What constitutes a decisive continuum test?}
 
-A useful comparison should connect
-microscopic parameters to
+A decisive comparison connects independently
+characterized microscopic parameters to
 coarse-grained observables.
 
-First, the interaction law
-should be characterized
-independently where possible.
-For microscopic swimmers,
-this may require measurements
-of pairwise relative motion
-or flow-mediated coupling.
-For macroscopic robots,
-the implemented sensing
-and control rules can
-provide the starting point.
+First, the interaction law should be measured
+where possible. For microscopic swimmers,
+this may involve pair trajectories or
+flow-mediated coupling; for macroscopic robots,
+the implemented sensing and control rules
+provide a starting point.
 
-Second, the continuum fields
-should be measured over
-a sufficient spatial range.
-A density profile or
-velocity field inferred
-from a handful of robots
-may be dominated by
-finite-size effects.
+Second, continuum fields should be measured
+over sufficient spatial ranges. Density
+or velocity fields inferred from a handful
+of robots may be dominated by finite-size
+effects.
 
-Third, predictions should
-be tested under changes
-in the relevant control
-parameters. The strongest
-evidence would connect
-one parameterization
-to several observables:
-for example, density
-fluctuations, transport,
-and response to confinement.
+Third, predictions should be tested under
+controlled parameter changes. Strong evidence
+would use one parameterization to predict
+several observables, such as density
+fluctuations, transport, and confinement
+response.
 
-A continuum model that
-reproduces one steady-state
-density profile may be
-useful. A model that
-predicts the evolution
-of density and polarization
-after a perturbation,
-without additional fitting,
-provides a stronger test.
+Reproducing one steady-state density profile
+is useful; predicting the evolution of
+density and polarization after a perturbation
+without additional fitting is more decisive.
 
-We therefore conclude
-that kinetic and
-hydrodynamic theories
-form an important
-quantitative component
-of robotic active-matter
-research. Their main
-opportunity is the
-connection between
-programmable microscopic
-interactions and
+We conclude that kinetic and hydrodynamic
+theories form an important quantitative
+component of robotic active-matter research.
+Their central opportunity is to connect
+programmable microscopic interactions with
 measured collective fields.
 
-The present limitation
-is the diversity of
-physical mechanisms,
-experimental scales,
-and comparison protocols.
-Progress will depend
-on systematic measurements
-of continuum observables
-and clearer demonstrations
-of where the corresponding
+Progress will depend on systematic continuum
+measurements and direct tests of where
+coarse-graining and constitutive
 approximations remain valid.
 
 \subsection{Active elasticity}
@@ -1090,18 +763,16 @@ Active elasticity addresses collective systems in which
 internally generated forces modify mechanical response.
 Unlike models focused primarily on particle trajectories,
 elastic theories describe the relation between deformation,
-stress, and the dynamics of coupled mechanical degrees
-of freedom.
+stress, and coupled mechanical degrees of freedom.
 
 Active systems can exhibit nonreciprocal response
 because their forces need not derive from an
 equilibrium elastic energy
-\cite{Scheibner2020odd}
 \cite{Scheibner2020odd}.
 
 The experimental challenge is to distinguish
 an active constitutive property from
-the response of one particular controller
+the response of a particular controller
 or mechanical assembly.
 
 For a linearized mechanical system,
@@ -1112,232 +783,131 @@ F_a=\sum_b K_{ab}u_b,
 \label{eq:theory-active-stiffness}
 \end{equation}
 where $K_{ab}$ is an effective
-response matrix.
+response matrix. In a reciprocal
+passive system, equilibrium
+assumptions constrain its symmetry;
+active mechanical coupling can
+produce nonreciprocal contributions.
 
-In a reciprocal passive system,
-appropriate equilibrium assumptions
-constrain the symmetry of this matrix.
-Active mechanical coupling can
-produce a nonreciprocal contribution.
-
-The relevant experiment measures
-the response coefficients and
-their dependence on actuation,
-geometry, or driving frequency.
-Observing a moving mechanical
-structure is not sufficient
-to establish an active
-elastic constitutive law.
+The relevant test measures response
+coefficients and their dependence
+on actuation, geometry, or frequency.
+Motion alone does not establish
+an active elastic constitutive law.
 
 \paragraph*{Experimental comparisons.}
 
 The extraction identifies seven studies
 comparing robotic experiments with
-active elasticity.
-
-Four use robotic metamaterials
-or active solids, two belong
-to the residual platform category,
+active elasticity. Four use robotic
+metamaterials or active solids, two
+belong to the residual platform category,
 and one uses vibration-driven robots.
 
-The mechanically focused comparisons
-include experiments on nonreciprocal
-coupling, active elastic response,
-and collective structural dynamics
+Mechanically focused comparisons
+investigate nonreciprocal coupling,
+active elastic response, and
+collective structural dynamics
 \cite{Brandenbourger2021limitcyclesturnac,Binysh2026moreislessinunpe,Coulais2025activemetamaterials,Chen2020selfsensingmetamat}.
 
-The extracted observables include
-shear response,
-odd elastic coefficients,
-vibrational properties,
-wave amplitude,
-frequency,
-and spatial decay.
-
-These quantities permit
-comparisons with predictions
-that are more specific
-than collective motion
-alone.
-
-For example, frequency-dependent
-wave propagation can
-constrain the dynamical
-response of the structure.
-A measured stiffness
-or response tensor
-can test predicted
+Extracted observables include
+shear response, odd elastic
+coefficients, vibrational properties,
+wave amplitude, frequency,
+and spatial decay. Frequency-dependent
+propagation can constrain the dynamical
+response, while a measured stiffness
+matrix can directly test
 nonreciprocal coupling.
 
-Other experimental comparisons
-involve mechanically driven
-or programmed collective
-systems
+Other comparisons involve mechanically
+driven or programmed collectives
 \cite{Mohanty2025multimodalmotionan,nr2022mindthegappredic,Karagzel2024selforganizedflock}.
-Their extracted observables
-include velocity,
-collective order,
-and spatial response.
-
-However, these measurements
-do not all test
-active elasticity
-at the same level.
-A collective trajectory
-may be compatible
-with an active
-elastic description
-without independently
-establishing its
+Their observables include velocity,
+collective order, and spatial response.
+These measurements may be consistent
+with elastic descriptions without
+independently determining their
 constitutive coefficients.
 
-We therefore distinguish
-direct mechanical
-response measurements
-from more indirect
-comparisons between
-collective dynamics
-and elastic models.
+We therefore distinguish direct
+mechanical response measurements
+from indirect comparisons between
+collective dynamics and elastic models.
 
 \paragraph*{Quantitative evidence.}
 
-Two of the seven studies
-report quantitative
-theory--experiment agreement
+Two of the seven studies report
+quantitative theory--experiment agreement
 \cite{Brandenbourger2021limitcyclesturnac,Chen2020selfsensingmetamat}.
-The remaining five
-report qualitative agreement.
+The remaining five report
+qualitative agreement.
 
-For D6, two studies
-are rated low risk,
-three have some concerns,
+For D6, two studies are rated
+low risk, three have some concerns,
 and two are high risk.
+The quantitative testing subset
+is therefore small despite the
+physical specificity of the framework.
 
-Thus, despite the
-physical specificity
-of active elasticity,
-the extracted evidence
-contains only a
-small quantitative
-testing subset.
+Replication documentation is also
+limited. One study receives a
+low-risk D1 rating, while six
+have some concerns. Independent-run
+counts are reported in two studies.
+Explicit code availability occurs
+in one study and data availability
+in two. One study was assessed
+on an abstract-only basis.
 
-Replication documentation
-is also limited.
-One study receives
-a low-risk D1 rating,
-while six have
-some concerns.
-Independent-run counts
-are reported in
-two studies.
-
-Explicit code availability
-occurs in one study
-and data availability
-in two. One study
-was assessed on
-an abstract-only basis.
-
-These limitations
-do not diminish
-the conceptual
-importance of
-active robotic
-materials. They
-indicate that the
-available evidence
-is not yet broad
-enough to establish
-general constitutive
-behavior across
-independent
-experimental platforms.
+These limitations do not diminish
+the conceptual importance of
+active robotic materials, but
+they restrict conclusions about
+general constitutive behavior
+across independent platforms.
 
 \paragraph*{What should be tested next?}
 
-A decisive active-elasticity
-experiment should measure
-mechanical response under
-several independent
-perturbations.
-
-This includes the
-possibility of
-testing reciprocity
-by comparing the
-response to loading
-at different
+A decisive experiment should measure
+mechanical response under several
+independent perturbations, including
+reciprocity tests that compare
+loading and response at different
 degrees of freedom.
-Frequency-dependent
-measurements can
-then establish
-whether an effective
-elastic description
-remains appropriate
-over the relevant
-dynamical range.
 
-Boundary conditions
-are particularly
-important. A finite
-active structure
-may display
-localized modes
-or apparent
-nonreciprocity
-that depend on
-its geometry.
+Frequency-dependent measurements
+can establish the regime in which
+an effective elastic description
+remains appropriate. Boundary
+conditions also require explicit
+characterization: localized modes
+and apparent nonreciprocity
+may depend on finite geometry.
 
-The comparison
-should therefore
-distinguish
-bulk constitutive
-properties from
-boundary-mediated
-behavior.
+The strongest comparisons would
+use independently characterized
+actuation and mechanical parameters
+to predict deformation fields,
+response spectra, and work
+over cyclic loading.
+Variation in system size and
+network geometry would test
+whether the inferred constitutive
+description is general.
 
-The strongest
-evidence would
-use independently
-characterized
-actuation and
-mechanical parameters
-to predict
-deformation fields,
-response spectra,
-and work over
-cyclic loading.
-
-Such measurements
-could test whether
-a continuum
-active-elastic
-description remains
-valid when network
-geometry or
-system size changes.
-
-We conclude that
-robotic active
-solids provide
-particularly direct
-access to the
-mechanical predictions
-of nonequilibrium
-theory. Yet, the
-quantitative evidence
-remains concentrated
-in a small number
-of experiments.
-
-The immediate
-priority is therefore
-independent reproduction
-of measured response
-coefficients and
-controlled tests
-across different
-mechanical structures.
+We conclude that robotic active
+solids provide direct access
+to mechanical predictions
+of nonequilibrium theory,
+but quantitative evidence
+remains concentrated in
+a small number of experiments.
+Independent reproduction of
+response coefficients and
+controlled tests across
+different mechanical structures
+are immediate priorities.
 
 \subsection{Other statistical-mechanical frameworks}
 \label{sec:theory-statistical}
@@ -1355,289 +925,168 @@ The extraction groups these approaches
 under ``other statistical mechanics''.
 This is a residual theory category,
 not a single mathematical framework.
-Its contents should therefore be
-interpreted through the actual
-observables and mechanisms
+Its contents must therefore be interpreted
+through the observables and mechanisms
 reported by each study.
 
-The category contains 25 studies.
-Six involve wheeled or legged robots,
+The category contains 25 studies:
+six wheeled or legged robot systems,
 five vibration-driven systems,
 four feedback-controlled colloids,
-three microscopic robotic agents,
-three smarticles or granular robots,
+three microscopic robotic systems,
+three smarticles or granular systems,
 three residual platforms,
 and one modular system.
 
-Its broad distribution is noteworthy.
-Statistical-mechanical descriptions
-are being used in systems with
-informational interactions,
-mechanical contact,
-field-mediated actuation,
-and programmable feedback.
-
-Yet, the presence of a common
-theoretical classification does
-not establish common assumptions
-about conservation laws,
-effective temperature,
-detailed balance,
-or interaction symmetry.
+These systems involve informational,
+mechanical, field-mediated, and
+feedback-controlled interactions.
+Their common classification does not
+imply shared assumptions about
+conservation laws, effective temperature,
+detailed balance, or interaction symmetry.
 
 \paragraph*{Configuration statistics and collective dynamics.}
 
-Smarticle and granular-robot
-experiments include comparisons
-involving collective transport,
-configuration probabilities,
-and fluctuation-related
+Smarticle and granular-robot experiments
+compare collective transport, configuration
+probabilities, and fluctuation-related
 quantities
 \cite{Li2018supersmarticlealo,Chvykov2020lowrattlingapred,Li2020programmingactiveg}.
 
-These systems are useful
-because internal actuation
-and mechanical constraints
-jointly determine the
-accessible collective
-configurations.
-
-A statistical description
-can therefore connect
-the observed distribution
-of configurations to
-the underlying dynamics.
-However, one must not
-assume that a stationary
-distribution has the
-same interpretation
-as an equilibrium
+Their internal actuation and mechanical
+constraints jointly determine accessible
+collective configurations. Statistical
+descriptions can relate the observed
+configuration distributions to the dynamics,
+but a stationary distribution need not
+have the interpretation of an equilibrium
 Boltzmann distribution.
 
-Active driving can
-maintain probability
-currents even when
-the measured distribution
-appears stationary.
-Consequently, the
-configuration probability
-alone may not determine
-the nonequilibrium
-dynamics.
+Active driving can maintain probability
+currents even when the distribution appears
+stationary. Configuration probabilities
+alone may therefore be insufficient
+to characterize the nonequilibrium process.
 
-Feedback-controlled
-colloids provide
-complementary tests
-through interaction
-potentials, rotational
-response, and
+Feedback-controlled colloids provide
+complementary tests involving interaction
+potentials, rotational response, and
 configuration statistics
 \cite{Yan2014colloidalsuperstruc,Buerle2020formationofstable,Knippenberg2022roleofcohesionin,Lffler2021behaviordependentc}.
 
-These studies include
-quantities such as
-pair potentials,
-rotational order,
-susceptibility,
-relaxation time,
-and flow statistics.
-
-The availability
-of feedback control
-permits effective
-interactions to
-be changed directly.
-This offers an
-opportunity to
-compare statistical
-responses under
-different microscopic
-rules.
-
-Yet, a feedback-mediated
-interaction may depend
-on the measured state
-and the control
-implementation.
-A conventional
-equilibrium potential
-is therefore not
-automatically an
-adequate description.
+Their observables include pair potentials,
+rotational order, susceptibility,
+relaxation time, and flow statistics.
+Programmable feedback permits comparisons
+between different effective interactions,
+although state-dependent control may
+invalidate an equilibrium-potential
+description.
 
 \paragraph*{Other robotic realizations.}
 
-Microscopic robotic systems
-include comparisons involving
-collective assembly,
-fluctuations, and
-effective stochastic
-descriptions
+Microscopic robotic systems compare
+collective assembly, fluctuations,
+and effective stochastic descriptions
 \cite{Yang2022emergentmicroroboti,Aubret2018targetedassemblyan,Raghavendra2026programmablepersist}.
 
-Vibration-driven experiments
-provide additional access
-to collective statistics,
-fluctuation spectra,
-and configuration-dependent
+Vibration-driven experiments address
+collective statistics, fluctuation
+spectra, and configuration-dependent
 dynamics
 \cite{Baconnier2022selectiveandcollec,Boudet2025nonmarkoviandynami,Mayya2019nonuniformrobotde,Zhang2024proteinfoldinginsp,Li2021programmingactivec}.
 
-These experiments illustrate
-an important strength
-of mechanical active
-systems: statistical
-behavior is not
-necessarily prescribed
-by an explicit
-interaction algorithm.
+Mechanical active systems are valuable
+because their statistical behavior is
+not necessarily specified by a programmed
+interaction rule. Comparisons can test
+whether stochastic models capture
+collective measurements arising
+from physical coupling.
 
-The corresponding
-theoretical comparison
-can reveal whether
-simple stochastic
-descriptions capture
-the observed collective
-statistics.
-
-Wheeled or legged
-systems offer
-a different approach
-through explicitly
-programmed interactions
-and measured collective
+Wheeled or legged systems investigate
+programmed interactions and collective
 order
 \cite{Sankar2026trendformationwith,Turgut2008selforganizedflocka,Nishinari2006modellingofselfdr,Spears2004distributedphysics,Barone2024experimentalandnum,Rezeck2021flockingsegregative}.
 
-Other specialized
-platforms investigate
-chiral collective
-response, active
-ordering, and
-nonequilibrium
-transport
+Other specialized platforms address
+chiral response, active ordering,
+and nonequilibrium transport
 \cite{Li2024memoryinducedspont,Bo2026threephasesofodd,Das2025roleofkinematicco,Kaeser2025individualandcolle}.
 
-These implementations
-provide useful
-examples of
-statistical-mechanical
-reasoning in
-robotic experiments.
-However, the
-specific theoretical
-assumptions differ,
-so the studies
-cannot be combined
-into one test
-of a common model.
+These studies illustrate the reach
+of statistical-mechanical approaches
+in robotic experiments, but their
+different assumptions prevent us
+from treating them as tests
+of one common theory.
 
 \paragraph*{Evidence and limitations.}
 
-Sixteen of the 25 studies
-report quantitative
-agreement, while nine
-report qualitative
-agreement.
+Sixteen of the 25 studies report
+quantitative agreement and nine
+qualitative agreement.
 
-The D6 ratings are
-low risk for thirteen,
-some concerns for eleven,
-and high risk for one.
-Thus, this category
-contains a comparatively
-high proportion of
-quantitative and
-lower-risk comparisons.
+For D6, thirteen studies receive
+low-risk ratings, eleven have
+some concerns, and one is high risk.
+This category therefore contains
+a comparatively high proportion
+of quantitative and lower-risk
+theoretical comparisons.
 
-Replication evidence
-is less complete.
-Seven studies receive
-low-risk D1 ratings,
-seventeen have
-some concerns,
-and one is high risk.
-Independent-run counts
-are recorded in
-eight studies.
+Replication evidence is less complete:
+seven studies receive low-risk
+D1 ratings, seventeen have
+some concerns, and one is high risk.
+Independent-run counts are
+recorded in eight studies.
 
-Explicit code availability
-occurs in four studies
-and data availability
-in three.
-Two studies were
-assessed from
-abstracts alone.
+Explicit code availability occurs
+in four studies and data availability
+in three. Two studies were assessed
+from abstracts alone.
 
-The main conclusion
-is that statistical-mechanical
-methods can describe
-several robotic
-collective observables
-quantitatively.
-However, the residual
-category does not
-identify one general
-theory whose validity
-can be assessed
-across all
-included systems.
+Statistical-mechanical methods can
+describe several robotic collective
+observables quantitatively. However,
+the residual category does not
+establish the general validity
+of a single theoretical framework.
 
-The strongest
-comparisons are
-those that specify
-a particular
-statistical model,
-measure its parameters,
-and test the resulting
-predictions across
-independent conditions.
+The strongest tests specify a
+particular model, constrain its
+parameters independently, and
+evaluate predictions under
+new experimental conditions.
 
-For nonequilibrium
-systems, it is
-especially important
-to examine dynamical
-observables as well
-as stationary
-distributions.
-Two different
-processes can
-produce similar
-configuration
-statistics while
-exhibiting different
-probability currents
-and temporal
-correlations.
+For nonequilibrium systems,
+dynamical observables are especially
+important. Different processes can
+produce similar stationary
+configuration statistics while
+maintaining different probability
+currents and temporal correlations.
 
-Hence, future
-experiments should
-combine configuration
-measurements with
-fluctuation,
-relaxation,
-and response
-statistics.
-Such measurements
-would help identify
-where an effective
-statistical description
-is predictive,
-rather than merely
-a compact fit
-to observed data.
+Future experiments should therefore
+combine configuration measurements
+with fluctuation, relaxation,
+and response statistics.
+Such comparisons can distinguish
+a predictive statistical description
+from a compact fit to observed data.
 
 \subsection{Agent-based simulation as a comparator}
 \label{sec:theory-agent-based}
 
 Agent-based simulation is the most frequently
 recorded theoretical comparator in the evidence base.
-Its popularity is unsurprising. A simulation can
-represent the individual rules of a robotic system,
-including sensing, communication, actuation,
-and interactions. It can also explore conditions
-that are difficult or expensive to realize
-in hardware.
+A simulation can represent the individual rules
+of a robotic system, including sensing,
+communication, actuation, and interactions.
+It can also explore conditions that are
+difficult to realize in hardware.
 
 Yet, an agent-based simulation occupies a
 different scientific position from a
@@ -1648,12 +1097,8 @@ then demonstrates that the simulation
 captures relevant aspects of the hardware,
 but it does not necessarily identify
 a universal collective mechanism.
-
-This distinction is particularly important
-for a review of active-matter physics.
-The value of an experimental comparison
-depends on what the model predicts
-beyond the rules already implemented.
+The important question is what the model
+predicts beyond the rules already implemented.
 
 The extraction identifies 275 studies
 using agent-based simulation.
@@ -1667,384 +1112,199 @@ robotic active solids eight,
 and smarticles or granular robots six.
 One study has no platform classification.
 
-Thus, agent-based simulation is represented
-across nearly the entire robotic taxonomy.
-The breadth is an important methodological
-strength. It also makes the category
-highly heterogeneous.
+Thus, agent-based simulation spans nearly
+the entire robotic taxonomy, although
+the category is highly heterogeneous.
 
 \paragraph*{What simulations can establish.}\hfill\break % layout only
-At their most useful, agent-based simulations
-provide a bridge between microscopic
-implementation and collective observables.
-A model can incorporate the interaction
-rules and predict group-level behavior
-under changes in agent number,
-noise, geometry, or driving.
 
-The robotic literature includes
-such comparisons in flocking,
-aggregation, transport,
-and programmable collective
-organization
+Agent-based simulations can connect microscopic
+implementation to collective observables.
+A model incorporating measured interactions
+can predict group-level behavior under
+changes in agent number, noise, geometry,
+or driving.
+
+The robotic literature includes comparisons
+in flocking, aggregation, transport,
+and programmable collective organization
 \cite{Turgut2008modelingphasetrans,Navarro2008anapproachtoflock,Garnier2005aggregationbehaviou,Guzzi2014bioinspiredobstacle,Cazenille2016automatedoptimisati,Vsrhelyi2018optimizedflockingo,Ferrante2012selforganizedflock,Mijalkov2016engineeringsensoria,Berlinger2021selforganizedevasi,Fruchart2022nonreciprocalphase,Zhou2024anticipationpromote,Barone2024experimentalandnum,Paramanick2025spontaneousemergenc,Zhang2026emergentnonhermiti}.
 
-Other comparisons investigate
-collective motion,
-configuration,
-and interactions
+Other comparisons investigate collective
+motion, configuration, and interactions
 under programmable control
 \cite{Yamada2011circularmotiongene,Yang2023collectivechaseem,Tran2022frontierledswarmin,Giardina2022collectivephototact,Vega2023simulatelessexpec,Vega2023indirectswarmcontr,Vega2024agentbasedemulatio,Gao2023robustdistributedc,Lee2022distributedcohesive,Baumann2024hybridflockforma,Wu2024adversarialimitatio,Varadharajan2026programmableflocks,Pan2026exploringthephysic,Sankar2026trendformationwith,Verdoucq2025flockingphasetrans,Jond2026positionbasedflock}.
 
-These systems allow the
-experimenter to ask
-whether simulated
-collective behavior
-survives the transition
-to physical hardware.
-
-This is a nontrivial
-question. Real robots
-possess actuator
-limitations, sensing
-errors, latency,
-and physical contacts
-that may be simplified
-or omitted in simulation.
-
-Consequently,
-agreement with hardware
-can validate aspects
-of the simulation
-as an engineering
-model. It can
-also reveal which
-physical constraints
-must be included
-to reproduce
+Agreement with hardware is nontrivial:
+actuator limitations, sensing errors,
+latency, and physical contacts may
+be simplified or omitted in simulation.
+Comparisons can identify which constraints
+must be represented to reproduce
 collective dynamics.
 
-However, reproducing
-the trajectory of
-a programmed swarm
-is a weaker test
-of active-matter theory
-than predicting
-collective fluctuations
-or transitions
-from independently
+Nevertheless, reproducing the trajectory
+of a programmed swarm is a weaker
+test of active-matter theory than
+predicting collective fluctuations
+or transitions from independently
 characterized rules.
 
 \paragraph*{Simulations of physical interactions.}
 
-For mechanically driven
-and microscopic systems,
-agent-based simulation
-can represent physical
-interactions that
-are not directly
-programmed by
-a controller.
+For mechanically driven and microscopic
+systems, agent-based simulation can
+represent interactions not directly
+programmed by a controller.
 
-The included studies
-cover collision-mediated
-dynamics,
-mechanical aggregation,
-fluctuations,
-and collective transport
+The included studies cover collision-mediated
+dynamics, mechanical aggregation,
+fluctuations, and collective transport
 \cite{Welch2018aggregatesuppressio,Welch2019activereorientation,Xi2024emergentintelligenc,GuzmnLastra2026emergenceofbeating,Edwards2026robusttopologically,Musacchio2026activeembracemente,Arbel2025amechanicalroutef,Baconnier2022selectiveandcollec,Casiulis2025ageometricconditio,Deblais2018boundariescontrolc,Boudet2022effectivetemperatur,Wang2025hyperuniformnetwork,Musacchio2026fluidizationinduced,Zion2023morphologicalcomput,Wagner2026geometryinducedtra,Zion2021distributedonline}.
 
-Microscopic robotic experiments
-provide further comparisons
-with models of field-driven
-and interaction-mediated
-collective dynamics
+Microscopic robotic experiments provide
+comparisons with models of field-driven
+and interaction-mediated collective dynamics
 \cite{Sun2021swarmingmicrodrople,Calabr2026interactiondrivena,Xie2020bioinspiredsoftmic,Pauer2021programmabledesign,Chen2024synchronousandfull,Yigit2019programmablecollect,McGovern2024multifunctionalchir,Feng2023weakionexchangeba,Sun2024multiplemagnetoopt,Liu2022bionicmorphological,Wang2018collectivebehavior,Baker2019shapeprogrammed3d,Goyal2025externallycontrolle,Aubret2018targetedassemblyan,Yan2024programmingstructur,Yigit2020cohesiveselforgani,Hanson2025electrokineticpropu,Law2024navigationofmagnet,Ceron2026fluidictorqueenabl,Li2022vectorcontrolledwh}.
 
-In these systems,
-the microscopic
-interaction model
-may itself be
-a scientific
-hypothesis.
-A simulation
-based on measured
-forces or
-hydrodynamic coupling
-can therefore
-provide a substantive
-test of physical
-mechanisms.
-
-Still, the strength
-of the conclusion
-depends on parameter
-identification.
-If interaction
-parameters are
-adjusted to reproduce
-every experimental
-configuration,
-the model is
+Here, the microscopic interaction model
+may itself be a scientific hypothesis.
+A simulation based on measured forces
+or hydrodynamic coupling can therefore
+test physical mechanisms. If its
+parameters are adjusted separately
+to reproduce every experimental
+configuration, however, it remains
 primarily descriptive.
 
-A stronger comparison
-uses independently
-measured parameters
-to predict how
-the collective
-responds to changes
-in density,
-confinement,
-or driving.
+A stronger comparison uses independently
+measured parameters to predict collective
+responses to changes in density,
+confinement, or driving.
 
 \paragraph*{Mechanical assemblies and active materials.}
 
-Agent-based simulations
-also play an important
-role in systems
-with changing connectivity
-or mechanically
-coupled components.
-
-The included literature
-contains modular robots,
-smarticles,
-and active-solid
-experiments
+Agent-based simulations also describe
+systems with changing connectivity
+or mechanically coupled components,
+including modular robots, smarticles,
+and active solids
 \cite{Vardhan2022glidersinshapecha,Savoie2019arobotmadeofrobo,Li2020programmingactiveg,Hu2026diatominspired1di,Rogowski2026coordinatedselfass,Kaeser2025individualandcolle,Bhattacharjee2026collectiveassembly,Li2019particleroboticsba,Baconnier2022tensioncontrolledc,Rezanejad2025programmableentangl,Brandenbourger2019nonreciprocalrobot,Brandenbourger2021limitcyclesturnac,Binysh2026moreislessinunpe,Coulais2025activemetamaterials,Chen2020selfsensingmetamat}.
 
-The relevant observables
-include displacement,
-assembly geometry,
-mechanical response,
-configuration statistics,
-and collective
+Measured observables include displacement,
+assembly geometry, mechanical response,
+configuration statistics, and collective
 deformation.
 
-These quantities
-can establish whether
-a discrete model
-captures the behavior
-of a coupled structure.
-However, agreement
-with a detailed
-simulation does not
-automatically validate
-a proposed continuum
-constitutive law.
-
-The distinction is
-particularly important
-for active elasticity.
-A discrete mechanical
-model may reproduce
-the response of
-a finite network,
-while a continuum
-description requires
-additional assumptions
-about scale separation
-and effective
-material properties.
-
-Thus, agent-based
-simulation is often
-a necessary intermediate
-step. It should not
-be confused with
-the final physical
+A discrete model may accurately reproduce
+the response of a finite mechanical network
+without validating a continuum constitutive
+law. The latter requires additional
+assumptions about scale separation
+and effective material properties.
+Agent-based simulation is therefore
+a useful intermediate description,
+not necessarily the final physical
 explanation.
 
 \paragraph*{Quantitative evidence and reproducibility.}
 
 Among the 275 studies,
-96 report quantitative
-agreement and 171
-qualitative agreement.
-Seven are classified
-as having no agreement
-comparison, and one
-has a missing
-agreement value.
+96 report quantitative agreement
+and 171 qualitative agreement.
+Seven are classified as having
+no agreement comparison, and one
+has a missing agreement value.
 
-The D6 ratings are
-low risk for 62 studies,
-some concerns for 110,
-and high risk for 103.
+The D6 ratings are low risk
+for 62 studies, some concerns
+for 110, and high risk for 103.
+Thus, fewer than one quarter
+receive low-risk ratings for
+quantitative theory comparison.
 
-This distinction is
-important. Although
-agent-based simulation
-is the most frequent
-comparison category,
-fewer than one quarter
-of its studies receive
-low-risk D6 ratings.
-
-Replication information
-is also incomplete.
-Seventy-eight studies
-are rated low risk
-in D1, 190 have
-some concerns,
+For replication, 78 studies
+are rated low risk in D1,
+190 have some concerns,
 and seven are high risk.
-
-Independent-run counts
-are recorded for
-107 studies.
+Independent-run counts are
+recorded for 107 studies.
 Explicit code availability
-occurs in 45,
-and data availability
-in 37.
-Eight studies were
-assessed from
-abstracts alone.
+occurs in 45, and data
+availability in 37.
+Eight studies were assessed
+from abstracts alone.
 
-The availability
-of simulation code
-is particularly
-important for this
-framework.
-A published model
-description may omit
-implementation details
-that materially affect
-collective behavior,
-including update order,
-numerical integration,
-collision handling,
-and stochastic
-sampling.
+Simulation code is particularly
+important because model descriptions
+may omit consequential details:
+update order, numerical integration,
+collision handling, and stochastic
+sampling. Hardware-controller code
+is equally relevant when differences
+between the implemented rule and
+the simulated rule affect collective
+behavior.
 
-For robotic systems,
-hardware-controller
-code may be equally
-important.
-A discrepancy between
-simulation and experiment
-can result from
-an omitted physical
-interaction or
-a difference in
-the implemented
-control rule.
-
-Consequently,
-reproducible
-theory--experiment
-comparison should
-document both
-the computational
-model and the
-experimental
-implementation.
+Reproducible comparisons should
+therefore document both the
+computational model and the
+experimental implementation.
 
 \paragraph*{From simulation agreement to physical explanation.}
 
-We distinguish three scientifically
-different uses of agent-based simulation.
+We distinguish three uses of
+agent-based simulation.
 
-A hardware-oriented
-simulation reproduces
-the robot's control
-and actuation.
-Its main purpose
-is to test whether
-the implementation
+A hardware-oriented simulation
+reproduces control and actuation,
+testing whether the implementation
 behaves as expected.
 
-A phenomenological
-simulation reproduces
-selected collective
-patterns.
-It provides a
-compact description,
-but different
-microscopic models
-may generate similar
-collective behavior.
+A phenomenological simulation
+reproduces selected collective
+patterns but may not distinguish
+between microscopic mechanisms.
 
-A mechanistic
-simulation predicts
-collective observables
-from independently
-characterized
-interactions.
-This is the
-strongest basis
-for testing a
+A mechanistic simulation predicts
+collective observables from
+independently characterized
+interactions. This provides
+the strongest test of a
 physical explanation.
 
-The extracted
-theory-comparison
-labels do not
-systematically
-separate these
-three uses.
-Hence, the 96
-quantitative agreements
-cannot be interpreted
-as 96 independent
+The extracted comparison labels
+do not systematically distinguish
+these uses. Hence, the 96
+quantitative agreements cannot
+be interpreted as 96 independent
 mechanistic validations.
 
-This limitation
-also affects
-comparisons among
-theoretical frameworks.
-An agent-based
-simulation may
-implement an
-active Brownian
-particle model,
-a Vicsek-type
-rule, or a
-discrete elastic
-network.
-Because the
-framework field
-is multi-label,
-these comparisons
-may be represented
-in several categories.
+An agent-based simulation may also
+implement an active Brownian
+particle model, a Vicsek-type
+rule, or a discrete elastic network.
+Because the framework field
+is multi-label, the same
+comparison can appear in
+several theoretical categories.
 
-The appropriate
-interpretation
-therefore concerns
-the mathematical
-model and the
-tested observable,
-not the presence
-of a simulation
-label alone.
+Interpretation must therefore
+rest on the mathematical model,
+its independently constrained
+parameters, and the observable
+being tested.
 
-We conclude that
-agent-based simulation
-is indispensable
-for connecting
-robotic implementation
-to collective dynamics.
-Its scientific
-strength is the
-ability to vary
-microscopic rules
-and compare their
-consequences with
-physical experiments.
-
-Yet, its prevalence
-should not be
-mistaken for
-independent theoretical
-validation.
-The most informative
-studies use simulation
-to make predictions
-that could fail,
-rather than merely
-to reproduce
-the behavior
-of a controller.
+We conclude that agent-based
+simulation is indispensable
+for connecting robotic
+implementation to collective
+dynamics. Its greatest
+scientific value lies in
+predictions that could fail
+experimentally, rather than
+merely reproducing the
+behavior of a controller.
 
 \subsection{What constitutes a decisive theoretical test?}
 \label{sec:theory-decisive}
@@ -2056,24 +1316,16 @@ but quantitative predictivity is less
 widespread than implementation and
 qualitative agreement.
 
-This does not mean that qualitative
-experiments lack value.
-A new robotic platform can establish
-that an interaction or collective
-state is physically realizable.
-It may also reveal unexpected
-behavior that motivates
-new theory.
-
-Yet, the requirements for
-testing an established
-physical model are different.
-We must determine which
-observations the model
-explains, which parameters
-were adjusted, and which
-predictions were evaluated
-independently.
+Qualitative experiments remain valuable.
+A new platform can establish that an
+interaction or collective state is
+physically realizable and reveal
+unexpected behavior that motivates theory.
+Testing an established model, however,
+requires determining which observations
+it explains, which parameters were
+adjusted, and which predictions
+were evaluated independently.
 
 \paragraph*{Fitted parameters versus predicted observables.}
 
@@ -2090,688 +1342,268 @@ F(\boldsymbol{\lambda},
 \end{equation}
 
 A comparison becomes more informative
-when $\boldsymbol{\theta}$ is
-constrained independently,
-rather than adjusted
-separately for every
-experimental condition.
+when $\boldsymbol{\theta}$ is constrained
+independently rather than adjusted
+for every experimental condition.
 
-If the parameters are
-fitted to reproduce
-one measured curve,
-agreement with that
-curve establishes
-descriptive adequacy.
-It does not
-independently validate
-the model's prediction.
-
-By contrast,
-a model fitted
-under one condition
-and evaluated under
-another can test
-transferability.
-An even stronger
-experiment determines
-the microscopic
-parameters independently
-and predicts the
-collective response
-without fitting
+Fitting a model to one measured curve
+establishes descriptive adequacy,
+not independent predictive validation.
+Testing the same parameterization
+under new conditions establishes
+transferability. Stronger still
+is determining microscopic parameters
+independently and predicting the
+collective response without fitting
 to that response.
 
-This distinction
-is relevant to
-all the frameworks
-considered here.
+For Vicsek-type models, the implemented
+alignment rule may be known while
+collective fluctuations remain to
+be predicted. For active Brownian
+particles, isolated-agent motility
+statistics can constrain parameters
+before density-dependent behavior
+is measured. Hydrodynamic theories
+can use microscopic interactions
+to constrain constitutive coefficients,
+while active-elastic models can
+predict deformation or wave propagation
+under new loading conditions.
 
-For Vicsek-type
-models, the
-implemented alignment
-rule can be known,
-while collective
-fluctuations remain
-to be predicted.
-
-For active Brownian
-particles, isolated-agent
-motility statistics
-can constrain
-the parameters
-before density-dependent
-collective behavior
-is measured.
-
-For hydrodynamic
-theories, microscopic
-interactions can
-inform constitutive
-coefficients before
-collective fields
-are compared.
-
-For active elasticity,
-measured response
-coefficients can
-be used to predict
-deformation or
-wave propagation
-under a different
-loading condition.
-
-These approaches
-would turn
-programmability
-into independent
-experimental constraint.
+These comparisons turn programmability
+into independent experimental constraint.
 
 \paragraph*{Parameter sweeps and competing predictions.}
 
-A single successful comparison
-rarely distinguishes
-between alternative
-models. Several
-theoretical descriptions
-can reproduce one
-collective trajectory,
-density profile,
-or steady-state
-configuration.
+Several theories may reproduce the same
+trajectory, density profile, or steady-state
+configuration. A stronger experiment varies
+an independently controlled parameter
+and compares competing predictions.
 
-A stronger experiment
-varies an independently
-controlled parameter
-and compares the
-resulting response
-with competing
-predictions.
+Density variation can distinguish clustering
+mechanisms; interaction range can test
+alignment theories; persistence can
+differentiate stochastic motility models;
+and controlled loading can test
+active-solid constitutive relations.
 
-For example,
-changing particle
-density can test
-clustering models,
-while varying
-interaction range
-can test alignment
-theories.
-Changing persistence
-can distinguish
-different stochastic
-motility descriptions.
-Controlled loading
-can test constitutive
-models of active
-solids.
+The most informative parameter changes
+are those for which competing models
+predict different outcomes.
 
-The most informative
-parameter changes
-are those for
-which different
-models predict
-different outcomes.
-
-A parameter sweep
-is therefore not
-merely a way to
-produce more data.
-It is a method
-for making
-theoretical
-assumptions
-experimentally
-discriminable.
-
-This requires
-careful calibration.
-Changing robot
-speed may also
-alter collision
-rates, motor
-noise, and
-turning dynamics.
-Similarly, increasing
-a magnetic field
-can modify both
-propulsion and
-interparticle forces.
-
-Where control
-parameters are
-physically coupled,
-the model must
-account for
-that coupling.
-Otherwise,
-a quantitative
-match may depend
-on compensating
-errors.
+Calibration is essential. Changing robot
+speed may also alter collision rates,
+motor noise, and turning dynamics.
+Increasing a magnetic field may modify
+both propulsion and interparticle forces.
+Where parameters are physically coupled,
+the model must account for that coupling;
+otherwise, agreement may arise through
+compensating errors.
 
 \paragraph*{Several observables from one parameterization.}
 
-Another demanding
-test is simultaneous
-agreement with
-different collective
-observables.
+Simultaneous agreement with different
+collective observables provides another
+demanding test.
 
-A model may reproduce
-mean-squared displacement
-without reproducing
-orientation correlations.
-It may predict
-a steady-state
-density profile
-while failing
-to describe
-relaxation after
-a perturbation.
+A model may reproduce mean-squared
+displacement but not orientation
+correlations, or a steady-state
+density profile but not relaxation
+after a perturbation. A mechanical
+model may predict deformation
+without reproducing frequency response.
 
-Likewise,
-a mechanical model
-may reproduce
-a deformation
-pattern without
-predicting the
-measured frequency
-response.
-
-These discrepancies
-are scientifically
-informative.
-They identify
-which approximations
-are adequate
-and which
-physical mechanisms
-are missing.
-
-Consequently,
-we should not
-treat a mismatch
-as a failed
-experiment.
-A well-characterized
-failure of a
-theoretical prediction
-can provide
-stronger evidence
-than a visually
-convincing agreement
-obtained through
+Such discrepancies identify where
+approximations are adequate and
+which mechanisms may be missing.
+A well-characterized failure of a
+prediction can be more informative
+than agreement obtained through
 extensive fitting.
 
-For robotic
-active matter,
-the most useful
-combinations often
-include both
-microscopic and
-collective observables.
-
-For example,
-isolated-agent
-velocity correlations
-can be compared
-with collective
-transport,
-while pairwise
-interaction statistics
-can be related
-to clustering
-or alignment.
-
-This provides
-a direct connection
-between mechanisms
-and emergent
-behavior.
+Particularly useful comparisons
+combine microscopic and collective
+measurements: isolated-agent velocity
+correlations with collective transport,
+or pairwise interaction statistics
+with clustering and alignment.
+These directly connect proposed
+mechanisms to emergent behavior.
 
 \paragraph*{Experimental scale and finite-size effects.}
 
-Many theoretical
-predictions concern
-collective states
-that become sharply
-defined only
-at large system
-size.
+Many collective predictions become
+sharply defined only at large system size.
+Robotic experiments are finite and
+sometimes contain few agents.
+Small systems can measure interactions
+precisely, but cannot establish
+thermodynamic-limit behavior
+without additional analysis.
 
-Robotic experiments
-are finite,
-sometimes containing
-only a handful
-of agents.
-This need not
-invalidate their
-scientific contribution.
-Small systems
-can provide
-precise measurements
-of interactions
-and local dynamics.
+Persistent polarization in a small
+collective does not determine
+fluctuation scaling. A confined
+cluster does not necessarily
+demonstrate phase separation.
+A localized mode in a short
+active network need not establish
+a bulk constitutive property.
 
-However,
-they cannot
-independently
-establish
-thermodynamic-limit
-behavior without
-additional analysis.
+Where theories predict scaling,
+experiments should vary system size
+and characterize boundary conditions.
+This directly concerns the review's
+D3 finite-size and boundary
+risk-of-bias domain.
 
-For example,
-persistent polarization
-in a small robot
-collective does
-not determine
-the scaling
-of orientational
-fluctuations.
-A cluster that
-forms in a
-confined arena
-does not
-necessarily
-represent
-phase separation.
-
-Similarly,
-a localized
-mechanical mode
-in a short
-active network
-does not
-automatically
-establish a
-bulk constitutive
-property.
-
-Where theories
-predict scaling,
-we need
-measurements
-at several
-system sizes.
-The corresponding
-boundary conditions
-must also be
-characterized.
-
-This connects
-directly to
-the review's
-D3 finite-size
-and boundary
-risk-of-bias
-domain.
-A theoretical
-comparison can
-be numerically
-accurate while
-remaining limited
-to one geometry
-or system size.
-
-The correct
-scientific conclusion
-should preserve
-that domain
-of applicability.
+A quantitatively accurate comparison
+may still be valid only for one
+geometry or system size. Its
+reported conclusion should preserve
+that domain of applicability.
 
 \paragraph*{Independent replication and research groups.}
 
-A general physical
-claim becomes
-stronger when
-the relevant
-prediction is
+General physical claims become
+stronger when predictions are
 reproduced independently.
 
-This independence
-can concern
-the experimental
-hardware,
-the research group,
-the analysis
-method, or
-the physical
-implementation
-of the interaction.
+Independence may concern hardware,
+research groups, analysis methods,
+or the physical implementation
+of interactions. Cross-platform
+replication is especially valuable
+when comparable dimensionless
+parameters and observables
+can be established.
 
-For robotic
-active matter,
-cross-platform
-replication is
-especially valuable.
-A theory that
-predicts comparable
-collective behavior
-in mechanically
-driven particles,
-programmable
-mobile robots,
-and microscopic
-assemblies may
-have wider
-applicability
-than one tested
-on a single
-hardware design.
+A theory successfully tested in
+mechanically driven particles,
+programmable mobile robots,
+and microscopic assemblies
+may apply more broadly than
+one demonstrated using
+a single hardware design.
+But the relevant physical
+assumptions must genuinely
+be shared.
 
-Yet, such
-comparison requires
-careful identification
-of the shared
-physical assumptions.
-Different platforms
-need not use
-identical components,
-but their relevant
-dimensionless
-parameters and
-observables
-must be comparable.
+The extracted dataset includes
+publication metadata, platforms,
+and theoretical comparisons,
+but not a normalized mapping
+of independent experimental groups.
+Different publications therefore
+cannot automatically be counted
+as independent replications.
 
-The extracted
-dataset records
-publication metadata,
-platform classes,
-and theoretical
-comparisons.
-It does not
-provide a normalized
-mapping of independent
-experimental groups.
-We therefore
-avoid treating
-different publications
-as automatically
-independent
-replications.
-
-Likewise,
-multiple reports
-from closely
-related hardware
-systems need
-not constitute
-independent
-experimental
-confirmation.
-
-A future living-review
-update could
-record experimental
-lineage,
-hardware reuse,
-and independent
-replication explicitly.
-This would improve
-certainty assessments
-beyond publication
-counts alone.
+A future living-review update
+could document experimental
+lineage, hardware reuse,
+and independent replication
+to improve certainty assessments.
 
 \paragraph*{Reporting requirements for reproducibility.}
 
-The review's quality
-indicators identify
-several recurring
-limitations across
-theoretical frameworks.
+Across theoretical frameworks,
+independent-run counts, code,
+and data availability are
+often incompletely reported.
+Finite-size and boundary
+effects are also insufficiently
+characterized in many studies.
 
-Independent-run
-counts are often
-missing.
-Code and data
-availability are
-incomplete.
-Finite-size
-and boundary
-effects are
-not always
-characterized.
+These omissions limit independent
+evaluation of measurement uncertainty,
+order parameters, correlation functions,
+and fitted scaling laws.
+Unreported controller or simulation
+details can change the effective
+interaction and numerical comparison.
 
-These omissions
-matter because
-theory--experiment
-agreement is
-typically evaluated
-through estimated
-observables.
-Without sufficient
-replication,
-we cannot
-independently
-assess their
-statistical
-uncertainty.
+Requirements differ by platform.
+Mechanical active solids need
+appropriate response calibration;
+feedback-controlled colloids need
+documentation of measurement and
+feedback processes.
 
-Without accessible
-trajectories or
-measurement data,
-it can be difficult
-to verify order
-parameters,
-correlation functions,
-or fitted
-scaling exponents.
-
-Without controller
-and simulation
-implementations,
-the comparison
-may depend on
-unreported details
-of the interaction
-rule or numerical
-procedure.
-
-These requirements
-are not identical
-across platforms.
-A mechanical
-active solid
-requires appropriate
-response calibration,
-while a feedback-controlled
-colloidal system
-requires an accurate
-description of
-the measurement
-and feedback
-process.
-
-Nevertheless,
-the underlying
-principle is shared:
-the experimental
-conditions necessary
-to reproduce
-the prediction
-must be documented.
+The shared principle is that
+the experimental conditions
+necessary to reproduce a
+theoretical prediction must
+be documented.
 
 \paragraph*{From agreement to explanatory power.}
 
-We can now state
-the central result
-of the theoretical
-synthesis.
+Agent-based simulation is the
+dominant comparator in the
+extracted literature. Its breadth
+reflects flexibility, but many
+comparisons remain qualitative
+or closely tied to implemented
+robotic controllers.
 
-Agent-based simulation
-is the dominant
-comparison method
-in the extracted
-literature.
-Its breadth
-reflects its
-flexibility,
-but many comparisons
-are qualitative
-or closely tied
-to the implemented
-robotic controller.
+Vicsek-type models offer directly
+programmable alignment, yet relatively
+few low-risk quantitative tests.
+Active Brownian descriptions have
+a stronger quantitative presence,
+especially in mechanically driven
+systems, and can be constrained
+by single-agent motility.
 
-Vicsek-type
-models provide
-directly programmable
-alignment rules.
-Their experimental
-realizations are
-numerous relative
-to their low-risk
-quantitative tests.
-
-Active Brownian
-particle descriptions
-have a comparatively
-strong quantitative
-presence, particularly
-in mechanically driven
-systems.
-Their advantage
-is the connection
-to measurable
-single-agent
-motility statistics.
-
-Run-and-tumble
-descriptions remain
-represented by
-only a few
-experimental comparisons.
-They offer
-a useful opportunity
-for distinguishing
-different stochastic
+Run-and-tumble models remain
+represented by few comparisons
+but offer opportunities to
+discriminate stochastic
 motility mechanisms.
 
-Kinetic and
-hydrodynamic theories
-connect microscopic
-interactions
-to collective
-fields.
-Their quantitative
-evidence is
-substantial but
-distributed across
-physically different
-platforms and
-interaction mechanisms.
-
-Active elasticity
-offers specific
-mechanical predictions
-that are directly
-accessible to
-robotic experiments.
-However, independently
-replicated quantitative
-tests remain limited.
-
+Kinetic and hydrodynamic theories
+connect interactions to collective
+fields; their quantitative evidence
+spans physically different platforms.
+Active elasticity provides
+specific mechanical predictions,
+although independent quantitative
+replication remains limited.
 Other statistical-mechanical
-frameworks have
-provided several
-quantitative comparisons,
-but their residual
-classification
-does not represent
-one unified
-theoretical model.
+frameworks have supported several
+comparisons without constituting
+one unified theoretical model.
 
-Across all these
-frameworks,
-the strongest
-scientific opportunity
-is the same:
-programmability
-can be used
-to construct
-experiments
-that discriminate
-between physical
-explanations.
+Across these frameworks, the
+central opportunity is the same:
+use programmability to distinguish
+physical explanations rather
+than merely reproduce patterns.
 
-The goal should
-not be to reproduce
-the greatest
-number of
-collective patterns.
-It should be
-to determine
-which predictions
-survive controlled
-changes in
-interaction,
-activity,
-geometry,
-and scale.
+A decisive robotic active-matter
+experiment characterizes its
+microscopic implementation,
+measures collective observables
+quantitatively, and evaluates
+theoretical predictions under
+conditions not used to determine
+their parameters. Independent
+reproduction strengthens the
+claim of a general mechanism.
 
-We therefore
-regard a
-decisive robotic
-active-matter
-experiment as
-one in which
-the microscopic
-implementation
-is characterized,
-the collective
-observables
-are measured
-quantitatively,
-and the theoretical
-prediction is
-evaluated under
-conditions not
-used to determine
-its parameters.
+Robots are therefore more than
+visible realizations of theoretical
+particles. They allow experimentalists
+to modify model assumptions
+individually and test their
+collective consequences.
 
-Independent
-reproduction
-then strengthens
-the claim
-that the
-result reflects
-a general
-physical mechanism
-rather than
-one particular
-robotic implementation.
+Used this way, robotic active
+matter can move from demonstrating
+nonequilibrium phenomena toward
+discriminating between the
+theories that explain them.
 
-This standard
-also identifies
-where robotics
-can contribute
-most to
-active-matter
-physics.
-A robot is
-not merely
-a visible
-realization
-of a
-theoretical
-particle.
-It can be
-an instrument
-for changing
-the assumptions
-of a model
-one at
-a time.
-
-Used in
-this way,
-robotic
-collectives
-allow us
-to move
-from demonstrating
-nonequilibrium
-phenomena
-toward testing
-the theories
-that explain
-them.

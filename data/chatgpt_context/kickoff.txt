@@ -1,0 +1,24 @@
+You are the sole author of the prose for a PRISMA 2020 living systematic review on robotic active matter, to be submitted to Reviews of Modern Physics (REVTeX 4.2, two-column "reprint" layout). RMP expects critical synthesis that identifies what works and sets directions, not a catalogue. We will write the manuscript section by section in this chat; I will send one section request at a time.
+
+Attached files (read them all before the first section):
+- included_studies_2026-10-17.csv: one row per included study (492). Column `key` is the BibTeX citation key; the other columns are the extracted, reconciled data items (vocabularies in protocol_bundle.md). basis=abstract marks studies assessed on the abstract only. Ignore the `text` column.
+- prisma_counts_2026-10-17.json: PRISMA counts for this snapshot.
+- protocol_bundle.md: frozen protocol with the full amendment log, eligibility criteria, extraction vocabularies, the evidence prompt (amendment 5), the Opus judge instructions (amendment 6) and the judge's flags.
+- validation_and_adjudication.json: rater agreement on the 200-record validation sample against the author's final labels (amendment 7; blind first labels alongside), Claude Opus as blind rater, and the Opus judge's results on 423 full-text splits and 167 extraction fields.
+- sections.yml: the manuscript plan (every section's id, title, target words and brief).
+- FIGURES.md: the figures you may place, their files, labels and owner sections.
+- STYLE_WORDS.md: the voice guide (didactic first-person plural, short sentences, varied openers).
+
+Hard rules for every section:
+1. Output only LaTeX for that section inside ONE fenced code block (```latex ... ```), nothing else outside it. Begin with \section{<title>}\label{sec:<id>} unless I say otherwise. No preamble, no \begin{document}.
+2. Cite included studies only with \cite{key}, using keys from the `key` column. Never invent a key. Where a claim needs a source outside the table (a theory paper, an earlier review), write \todocite{short description}.
+3. Compute every count, share or trend from the CSV or the PRISMA counts (use your Python tool), and name the snapshot date (2026-10-17) once per section where you give numbers.
+4. Claim nothing about a study that its row does not support. Where a point rests on studies assessed on the abstract only, say so.
+5. Cite broadly: every study that supports a statement belongs in its \cite list; across the synthesis sections cite most of the 492 studies, not a few exemplars.
+6. Typeset for a two-column page without overfull lines: no long unbreakable tokens in running text; wrap identifiers or file paths in \path{...}; tables with p{} columns that fit \columnwidth (or \textwidth in table*); Boolean search strings never inline or in \textsc, only as a displayed block \begin{quote}\raggedright\small ... \end{quote} in lower case with spaces around operators.
+7. Place the figures assigned to the section in FIGURES.md with figure or figure* environments, write their captions, and refer to them with Fig.~\ref{...}. Graphics path is figures/, e.g. \includegraphics[width=\columnwidth]{taxonomy_overview}.
+8. Facts the files do not contain (author biography, funding, affiliations) go in as [placeholders]; never make them up.
+9. If a section is longer than one reply allows, stop at a subsection boundary, end the code block, and write the single word CONTINUE after it; I will ask for the rest, which you then continue in a new code block without repeating anything.
+10. Follow the voice guide.
+
+Reply now only with: "Ready" plus a one-line summary of what you found in the files (number of studies, snapshot date). Do not write any section yet.

@@ -1,0 +1,130 @@
+{
+ "validation_200_sample_vs_author": {
+  "note": "author final labels count (amendment 7); blind first labels reported alongside",
+  "final": {
+   "panel": {
+    "n": 200,
+    "tp": 20,
+    "fn": 0,
+    "fp": 3,
+    "tn": 177,
+    "sens": 1.0,
+    "spec": 0.983,
+    "agree": 0.985,
+    "kappa": 0.922
+   },
+   "R1": {
+    "n": 200,
+    "tp": 19,
+    "fn": 1,
+    "fp": 9,
+    "tn": 171,
+    "sens": 0.95,
+    "spec": 0.95,
+    "agree": 0.95,
+    "kappa": 0.764
+   },
+   "R2": {
+    "n": 200,
+    "tp": 12,
+    "fn": 8,
+    "fp": 1,
+    "tn": 179,
+    "sens": 0.6,
+    "spec": 0.994,
+    "agree": 0.955,
+    "kappa": 0.704
+   },
+   "opus": {
+    "n": 200,
+    "tp": 11,
+    "fn": 9,
+    "fp": 0,
+    "tn": 180,
+    "sens": 0.55,
+    "spec": 1.0,
+    "agree": 0.955,
+    "kappa": 0.687
+   }
+  },
+  "blind": {
+   "panel": {
+    "n": 200,
+    "tp": 9,
+    "fn": 22,
+    "fp": 14,
+    "tn": 155,
+    "sens": 0.29,
+    "spec": 0.917,
+    "agree": 0.82,
+    "kappa": 0.232
+   },
+   "R1": {
+    "n": 200,
+    "tp": 10,
+    "fn": 21,
+    "fp": 18,
+    "tn": 151,
+    "sens": 0.323,
+    "spec": 0.893,
+    "agree": 0.805,
+    "kappa": 0.225
+   },
+   "R2": {
+    "n": 200,
+    "tp": 5,
+    "fn": 26,
+    "fp": 8,
+    "tn": 161,
+    "sens": 0.161,
+    "spec": 0.953,
+    "agree": 0.83,
+    "kappa": 0.149
+   },
+   "opus": {
+    "n": 200,
+    "tp": 5,
+    "fn": 26,
+    "fp": 6,
+    "tn": 163,
+    "sens": 0.161,
+    "spec": 0.964,
+    "agree": 0.84,
+    "kappa": 0.171
+   }
+  },
+  "panel_vs_opus": {
+   "n": 200,
+   "tp": 11,
+   "fn": 12,
+   "fp": 0,
+   "tn": 177,
+   "sens": 0.478,
+   "spec": 1.0,
+   "agree": 0.94,
+   "kappa": 0.619
+  }
+ },
+ "opus_judge_full_text_splits": {
+  "n": 423,
+  "judge_exclude__panel_exclude": 186,
+  "judge_include__panel_exclude": 9,
+  "judge_include__panel_include": 176,
+  "judge_exclude__panel_include": 50,
+  "undecided": 2,
+  "consulted_full_text": 133,
+  "held_back_wrong_full_text": 3
+ },
+ "opus_judge_extraction_fields": {
+  "n": 167,
+  "chosen_from": {
+   "R3": 116,
+   "R1": 17,
+   "R2": 17,
+   "judge": 17
+  },
+  "set_to_null": 18,
+  "consulted_full_text": 68
+ },
+ "evidence_quote_checks": "each model quoted up to 4 passages per claim; quotes checked automatically against the full text (verbatim/close/partial/not found); ~3% not found after normalisation"
+}

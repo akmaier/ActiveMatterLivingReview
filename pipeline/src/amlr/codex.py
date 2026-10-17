@@ -150,7 +150,9 @@ Hard rules:
   synthesis sections together should cite most of the included studies, not a few exemplars.
 - Typeset for a two-column REVTeX page without overfull lines: no long unbreakable tokens in
   running text (wrap file paths or identifiers in \\path{{...}}, avoid \\texttt for long strings),
-  tables with p{{}} columns sized to fit \\columnwidth or, in table*, \\textwidth.
+  tables with p{{}} columns sized to fit \\columnwidth or, in table*, \\textwidth. Boolean search
+  strings never go inline or in \\textsc: set them as a displayed block
+  (\\begin{{quote}}\\raggedright\\small ... \\end{{quote}}) in lower case, with spaces around operators.
 - Facts the files do not contain (author biography, funding, affiliations of others) go in as
   [placeholders]; never make them up.
 - Follow the voice guide below (didactic first-person plural, short sentences, varied openers).

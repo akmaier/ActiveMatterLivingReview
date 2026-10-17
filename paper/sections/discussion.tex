@@ -1,481 +1,271 @@
 \section{Discussion}\label{sec:discussion}
 
-Robotic active matter has developed into an experimental
-field that connects programmable interactions, collective
-motion, and nonequilibrium statistical physics. Its central
-achievement is not the reproduction of patterns that resemble
-those of biological or synthetic active systems. Rather, it
-is the ability to modify microscopic interactions and observe
-their collective consequences in physical hardware.
+Robotic active matter connects programmable interactions,
+collective motion, and nonequilibrium statistical physics.
+Its distinctive achievement is the ability to modify
+microscopic interactions and measure their consequences
+in physical hardware.
 
-Yet, the evidence reveals an important asymmetry.
-Experimental demonstrations of collective behavior are
-widespread, while independently replicated quantitative
-tests of general physical theories remain less common.
-This difference is central to our interpretation of
-the five review objectives.
+The evidence nevertheless reveals an asymmetry:
+demonstrations of collective behavior are widespread,
+while independently replicated quantitative tests of
+general physical theories remain less common.
 
-For objective O1, we find that robotic active matter
-encompasses several distinct experimental regimes:
+For objective O1, robotic active matter encompasses
 programmed mobile swarms, mechanically driven particles,
-microscopic robotic agents, feedback-controlled colloids,
+microscopic agents, feedback-controlled colloids,
 modular assemblies, and active mechanical structures.
-These platforms make different physical quantities
-accessible. Their diversity is an experimental resource,
-but it does not imply that their collective dynamics
-follow the same theoretical description.
+These platforms offer complementary experimental
+capabilities without necessarily sharing one
+theoretical description.
 
-For O2, we find broad experimental evidence for
-flocking, clustering, transport, collective assembly,
-and several forms of rotational and synchronized
-motion. More specialized phenomena, including
-active elasticity and odd mechanical response,
-have also been investigated. However, a common
-phenomenological label can conceal fundamentally
-different mechanisms.
+For O2, the evidence establishes collective motion,
+clustering, transport, assembly, rotation, and
+synchronization across several platforms.
+More specialized phenomena include active elasticity
+and odd mechanical response. Similar patterns,
+however, can arise from different mechanisms.
 
-For O3, quantitative theory--experiment comparisons
-are present across several frameworks, but
-agent-based simulation remains the dominant
-comparator. The distinction between reproducing
-an implemented controller and predicting a
-collective physical observable is therefore
-essential.
+For O3, quantitative comparisons span several
+theoretical frameworks, although agent-based
+simulation remains the dominant comparator.
+Reproducing an implemented controller must
+be distinguished from independently predicting
+collective observables.
 
 For O4, sensing, communication, and feedback
-make collective interactions experimentally
-adjustable. However, the controller is itself
-part of the physical dynamics and can impose
-the behavior that a theoretical model
-purports to explain.
+make interactions adjustable. The controller,
+however, is part of the physical dynamics
+and may impose the behavior to be explained.
 
-Finally, O5 reveals substantial weaknesses
-in reproducibility documentation, finite-size
-characterization, and the reporting of
-theoretical tests. These weaknesses do not
-invalidate the reported observations.
-They limit the strength and generality
-of the conclusions that can be drawn
-from them.
+Finally, O5 identifies weaknesses in replication
+documentation, finite-size characterization,
+and quantitative theory validation. These
+limitations do not invalidate observations,
+but restrict their generality.
 
-In the following, we assess these limitations
-systematically and distinguish conclusions
-that are strongly supported from those
+We assess these limitations and distinguish
+well-supported conclusions from those
 that remain conditional.
 
 \subsection{Risk of bias across the evidence base}
 \label{sec:discussion-risk}
 
-A central difficulty in reviewing robotic active matter
-is the absence of a validated quality instrument
-covering its heterogeneous experimental designs.
-A microscopic colloidal experiment, an aerial
-robot swarm, and an active mechanical metamaterial
-have different measurement and control requirements.
-Nevertheless, they share several conditions
-necessary for reliable inference.
+Robotic active matter lacks a validated quality
+instrument spanning its heterogeneous experimental
+designs. Microscopic colloids, aerial swarms,
+and active metamaterials require different
+measurements, yet share conditions necessary
+for reliable physical inference.
 
-We therefore used six prespecified domains:
-experimental replication (D1), agent
-heterogeneity (D2), finite-size and boundary
-effects (D3), measurement validity (D4),
-data and code availability (D5), and
-quantitative theory comparison (D6).
+We therefore assessed six prespecified domains:
+replication (D1), agent heterogeneity (D2),
+finite-size and boundary effects (D3),
+measurement validity (D4), data and code
+availability (D5), and quantitative theory
+comparison (D6).
 
-These assessments describe limitations in
-the evidence supporting a scientific claim.
-They are not measurements of experimental
-correctness. In particular, an incomplete
-report does not establish that the
-corresponding experimental practice
-was absent.
+These ratings describe limitations of reported
+evidence, not experimental correctness.
+Missing documentation does not establish
+that the corresponding practice was absent.
 
-The evidence base contains 491 records.
-The domain totals below refer to the
-corrected October 17, 2026 extraction.
-One record lacks all six domain ratings.
+The October 17, 2026 evidence base contains
+489 studies. The domain counts below retain
+the extracted ratings pending reconciliation
+of the final record-level quality table.
+One record in that extraction lacks all
+six domain ratings.
 
 \paragraph*{Replication and independent runs.}
 
 For D1, 126 studies are rated low risk,
-348 have some concerns, and 17 are
-high risk. Thus, among the 491 records
-with a D1 rating, only 25.7\%
-receive a low-risk assessment.
+348 have some concerns, and 17 are high risk.
+Thus, among the 491 extracted records
+with a D1 rating, 25.7\% received
+a low-risk assessment.
 
-The most frequent limitation is incomplete
-documentation of independent experimental
-repetitions. A numerical run count is
-recorded for 196 of the
-491 studies (39.9\%).
+A numerical independent-run count is recorded
+for 196 studies, representing 39.9\% of
+the preceding 491-study extraction.
 
-This finding matters because active-matter
-experiments often involve stochastic
-trajectories, fluctuating configurations,
-and finite populations. A collective state
-observed in one realization may be sensitive
-to initial conditions or environmental
-fluctuations.
-
-For example, experiments on collective
-aggregation, active mechanical response,
-and controlled colloidal organization
-can provide strong physical measurements,
-but reproducibility depends on how
-consistently the reported observables
-can be obtained
+Stochastic trajectories and fluctuating collective
+states require repeated realizations to establish
+measurement uncertainty. Experiments on aggregation,
+colloidal organization, and mechanical response
+illustrate the relevance of reproducibility
 \cite{Garnier2005aggregationbehaviou,Buerle2020formationofstable,Heuthe2025tunablecolloidalsw,Arbel2025amechanicalroutef,Boudet2025nonmarkoviandynami,Chen2024persistentandrespo,Wang2025hyperuniformnetwork}.
 
-A reported independent-run count is useful,
-but it does not by itself establish
-independence of every measurement.
-Repeated trajectory samples from one
-experimental run may be correlated.
-Conversely, repeated experiments may
-share calibration errors or
-systematic hardware differences.
+Run counts alone do not establish statistical
+independence: trajectory samples may be correlated,
+and repeated experiments may share calibration
+errors. The extraction does not standardize
+between-run variation or measurement uncertainty.
 
-The important quantities are therefore
-the number of independent realizations,
-the variation between them, and the
-uncertainty of the collective observable.
-The extracted dataset does not provide
-a standardized measure of all three.
-
-Hence, the D1 results support a
-moderate level of confidence in
-experimental reproducibility across
-the evidence base, with substantial
-uncertainty for studies lacking
-explicit repetition information.
+D1 therefore supports moderate confidence
+in experimental reproducibility, with
+considerable uncertainty where independent
+repetitions are incompletely reported.
 
 \paragraph*{Agent heterogeneity.}
 
 For D2, 389 studies are rated low risk,
-98 have some concerns, and four
-are high risk.
+98 have some concerns, and four are high risk.
+This is the most favorable domain.
 
-This is the most favorable distribution
-among the six domains. It suggests that
-agent properties are comparatively
-well characterized in the assessed
-experimental reports.
-
-Yet, the meaning of heterogeneity
-depends on platform. For wheeled
-robots, relevant variations include
-motor response, sensing range,
-and turning accuracy. For vibration-driven
-robots, they include propulsion
-speed, body geometry, and
-substrate-dependent friction.
-For microscopic systems, particle
-size, magnetic response, and
-actuation efficiency may matter.
-
-These differences can affect collective
-behavior even when the nominal
-interaction rule is identical.
-
-Studies involving mechanically driven
-particles, microscopic assemblies,
-and programmed swarms illustrate
-the range of relevant
-heterogeneity mechanisms
+Relevant heterogeneity depends on platform:
+motors and sensors in mobile robots;
+propulsion, geometry, and friction in
+vibration-driven systems; and size or
+field response in microscopic agents.
+Such variation can affect collective
+states despite identical nominal rules
 \cite{Welch2018aggregatesuppressio,Deblais2019howtoforceanarmy,Xie2020bioinspiredsoftmic,Pauer2021programmabledesign,Li2019particleroboticsba,Vsrhelyi2018optimizedflockingo,Zion2023morphologicalcomput}.
 
-The favorable D2 assessment should
-therefore not be interpreted as
-evidence that heterogeneity is
-physically irrelevant. Rather,
-it indicates that the extracted
-reports generally provide
-better information in this
-domain than in several others.
-
-A future quantitative synthesis
-would benefit from recording
-distributions of agent properties,
-rather than only representative
-values. This would permit direct
-tests of whether heterogeneity
-changes collective order,
-transport, or stability.
+The favorable rating indicates better
+documentation, not physical irrelevance.
+Distributions of agent properties would
+permit stronger tests of heterogeneity-dependent
+ordering, transport, and stability.
 
 \paragraph*{Finite-size and boundary effects.}
 
-D3 is one of the most problematic domains.
-Only 39 studies receive low-risk ratings,
-445 have some concerns, and seven
-are high risk.
+D3 is a major limitation. Only 39 studies
+receive low-risk ratings, 445 have some
+concerns, and seven are high risk.
+Just 7.9\% of rated extraction records
+are assessed as low risk.
 
-Thus, only 7.9\% of records with a D3
-rating are assessed as low risk.
-This represents a major limitation
-for conclusions about collective
-phases and continuum behavior.
-
-Many robotic experiments take place
-in finite arenas containing
-relatively small populations.
-Under these conditions, boundaries
-may influence a substantial
-fraction of the agents.
-The observed state can
-therefore differ from
-the behavior predicted
-for an extended system.
-
-Experiments investigating confinement,
-spatial correlations, and collective
-mechanical response demonstrate
-why these effects matter
+Robotic collectives often occupy small,
+bounded arenas. Boundaries can influence
+a substantial fraction of agents and alter
+the states predicted for extended systems
 \cite{Deblais2018boundariescontrolc,Boudet2025effectsofboundarie,Casiulis2025ageometricconditio,Wang2025hyperuniformnetwork,Zhang2026emergentnonhermiti,Coulais2025activemetamaterials,Wagner2026geometryinducedtra}.
 
-However, the extraction does not establish
-that every such study performed a
-complete finite-size analysis.
-A measurement of boundary accumulation,
-for example, identifies an important
-physical effect, but does not
-necessarily determine its influence
-on a bulk phase transition.
+A boundary-accumulation measurement does
+not establish how confinement affects
+a bulk transition. Similarly, persistent
+polarization in a finite group does not
+demonstrate thermodynamic long-range order;
+a dense aggregate does not necessarily
+establish phase coexistence; and localized
+mechanical response need not represent
+a size-independent material property.
 
-The consequence is particularly
-important for claims involving
-long-range order, phase separation,
-and continuum constitutive laws.
-
-A finite group may exhibit persistent
-polarization without establishing
-thermodynamic long-range order.
-A dense aggregate may resemble
-phase coexistence without
-demonstrating a bulk instability.
-An active mechanical network
-may display localized response
-without establishing a
-size-independent material property.
-
-Hence, D3 limits the certainty
-of broad theoretical conclusions
-more strongly than it limits
-the validity of individual
+D3 therefore limits broad theoretical
+claims more strongly than individual
 experimental observations.
 
 \paragraph*{Measurement validity.}
 
 For D4, 380 studies are rated low risk,
-106 have some concerns, and five
-are high risk.
+106 have some concerns, and five are
+high risk. Measurement methods are
+generally better documented than
+finite-size analysis or theory validation.
 
-This relatively favorable distribution
-indicates that the extracted
-measurement procedures are generally
-more thoroughly documented than
-finite-size analysis or
-quantitative theory validation.
-
-Robotic systems offer substantial
-measurement advantages.
-Macroscopic agents can often
-be tracked directly.
-Microscopic systems permit
-optical observation of
-particle trajectories.
-Active structures can be
-characterized through deformation,
-spectral, or mechanical response.
-
-Nevertheless, measurement validity
-is observable-dependent.
-A tracking procedure adequate
-for center-of-mass displacement
-may not resolve short-range
-velocity correlations.
-A method suitable for
-visualizing assembly geometry
-may not accurately measure
-forces or fluctuations.
-
-Relevant studies demonstrate
-the range of experimentally
-accessible observables
+Robotic platforms permit direct tracking,
+microscopic trajectory measurements,
+and mechanical-response characterization
 \cite{Tarcai2011patternstransition,Buerle2020formationofstable,Chvykov2020lowrattlingapred,Brandenbourger2021limitcyclesturnac,Barone2024experimentalandnum,Hanson2025electrokineticpropu,Engbring2023anonlinearfluctuat}.
 
-We therefore interpret the D4 ratings
-as evidence about the documented
-validity of measurements, not as
-a universal statement that
-all reported observables
-are directly comparable.
-
-A stronger future extraction
-would record measurement uncertainty,
-spatial and temporal resolution,
-tracking failure rates, and
-validation against independent
-measurement methods.
+Validity is nevertheless observable-dependent.
+Tracking sufficient for center-of-mass motion
+may not resolve short-range correlations;
+visualized geometry may not constrain
+forces or fluctuations. Future extraction
+should characterize resolution,
+uncertainty, tracking failure,
+and independent calibration.
 
 \paragraph*{Data and code availability.}
 
-D5 presents the clearest reporting deficit.
-Only 38 studies are rated low risk,
+D5 shows the clearest reporting deficit:
+38 studies receive low-risk ratings,
 57 have some concerns, and 396
 are high risk.
 
-Explicit code availability is identified
-in 71 of the 491 studies
-(14.5\%). Data availability is
-identified in 54 (11.0\%).
+Explicit code availability is recorded
+for 71 studies (14.5\% of the
+489-study evidence base), and data
+availability for 54 (11.0\%).
 
-These fields were coded positively
-only when a repository or archive
-was named. Consequently, a negative
-value does not necessarily imply
-that the authors would refuse
-to share their materials.
-It indicates that availability
-was not established under
-the extraction rule.
+Availability was coded positively only
+when a repository or archive was named.
+Missing availability therefore does not
+establish unwillingness to share.
 
-The scientific consequences differ
-between experimental platforms.
+Controller code defines programmed
+interactions; feedback implementations
+determine state-dependent coupling;
+calibration and trajectory data constrain
+stochastic models; and mechanical-response
+data support estimates of constitutive
+coefficients. Without these materials,
+independent verification may remain
+difficult even when the qualitative
+observation is clear.
 
-For programmed swarms, controller
-code defines the effective
-interaction law.
-For feedback-controlled colloids,
-the measurement and feedback
-implementation determine
-state-dependent interactions.
-For vibration-driven robots,
-trajectory data and calibration
-measurements constrain
-stochastic physical models.
-For active solids, response
-measurements and analysis
-procedures determine the
-estimated mechanical coefficients.
-
-Without accessible materials,
-independent researchers may be
-unable to reproduce the
-theory--experiment comparison
-even when the published
-qualitative result is clear.
-
-Hence, the low availability
-rates are a substantial
-limitation of the
-current evidence base.
-They also identify a
-practical opportunity:
-standardized sharing of
-trajectories, calibration,
-control implementations,
-and analysis scripts
-could improve reproducibility
-without requiring
-new experimental hardware.
+Sharing trajectories, calibrations,
+controllers, and analysis code
+could improve reproducibility without
+requiring new experimental hardware.
 
 \paragraph*{Quantitative theory comparison.}
 
 For D6, 83 studies are rated low risk,
 146 have some concerns, and 262
-are high risk.
+are high risk. Only 16.9\% of
+the rated extraction records
+receive a low-risk assessment.
 
-Only 16.9\% of the 491 rated records
-therefore receive a low-risk
-assessment for quantitative
-theory comparison.
+The agreement field provides a distinct measure:
+126 studies report quantitative agreement,
+238 qualitative agreement, 124 no comparison,
+and three have missing values.
 
-The extracted agreement field provides
-a related but different measure.
-Of the 491 studies,
-126 report quantitative agreement,
-238 qualitative agreement,
-124 no comparison, and three
-have missing values.
+Reported quantitative agreement can coexist
+with methodological concerns, including
+parameters fitted to the validation data
+or inadequate uncertainty estimates.
+Qualitative comparisons remain valuable
+for identifying mechanisms but support
+different claims.
 
-The difference between these distributions
-is important. A study may report
-quantitative agreement while
-the quality assessment identifies
-limitations in the comparison.
-For example, parameters may have
-been fitted to the same observations
-used for validation, or the
-comparison may lack sufficient
-uncertainty estimates.
-
-Conversely, a qualitative comparison
-can be scientifically valuable
-when it identifies a new mechanism
-or motivates a discriminating
-experiment. It simply supports
-a different level of inference.
-
-The strongest theoretical evidence
-includes experiments that connect
-measured microscopic interactions
-to collective observables
+Experiments connecting microscopic interactions
+with collective observables provide some
+of the strongest theoretical evidence
 \cite{Buerle2020formationofstable,Xiao2023perceptionofmotion,Arbel2025amechanicalroutef,Heuthe2025tunablecolloidalsw,Boudet2025nonmarkoviandynami,Chen2024persistentandrespo,Chvykov2020lowrattlingapred,Wang2025hyperuniformnetwork,Zion2023morphologicalcomput,Binysh2026moreislessinunpe}.
 
-Yet, even within this literature,
-the extraction does not systematically
-distinguish independent predictions
-from fitted descriptions.
-
-The central conclusion of D6 is
-therefore not that existing
-models generally fail.
-Rather, the literature often
-does not provide sufficiently
-discriminating tests to
-establish how far the
-models can be trusted.
+Nevertheless, the extraction does not
+systematically distinguish fitted descriptions
+from independently constrained predictions.
+The conclusion is not that theoretical
+models generally fail, but that
+discriminating tests remain limited.
 
 \paragraph*{Joint limitations.}
 
-The six risk-of-bias domains should
-not be interpreted independently.
-A quantitative comparison becomes
-less convincing when repetitions
-are poorly documented.
-Similarly, agreement with a
-continuum model may be limited
-by finite size even when
-the experimental observable
-is measured accurately.
+The six domains interact. Quantitative agreement
+is less convincing without documented repetitions;
+continuum comparisons may be constrained by
+finite size even when measurements are accurate.
 
-Only 30 studies in the corrected
-extraction receive low-risk
-ratings in both D1 and D6.
-This is 6.1\% of the
-491-study evidence base.
-
-These studies span several
-experimental approaches
+Only 30 studies in the extracted quality
+assessment receive low-risk ratings in
+both D1 and D6, equivalent to 6.1\%
+of the 489-study evidence base
 \cite{Garnier2005aggregationbehaviou,Buerle2020formationofstable,Yang2022emergentmicroroboti,Xiao2023perceptionofmotion,Arbel2025amechanicalroutef,Heuthe2025tunablecolloidalsw,Boudet2025nonmarkoviandynami,Casiulis2025ageometricconditio,Chen2024persistentandrespo,Chvykov2020lowrattlingapred,Savoie2019arobotmadeofrobo,Wang2025hyperuniformnetwork,Zion2023morphologicalcomput,Li2020programmingactiveg}.
 
-This subset provides a useful starting
-point for sensitivity analysis.
-However, low risk in two domains
-does not guarantee low risk
-in the remaining four.
-Nor does it establish
-independence between
-research groups.
+This subset is useful for sensitivity analysis,
+but favorable ratings in two domains do not
+establish low risk in the others or
+independent replication across research groups.
 
-We therefore avoid classifying
-the entire literature as
-either reliable or unreliable.
-The appropriate judgment
-depends on the specific
-physical claim and the
-evidence required to
-support it.
+We therefore assess certainty by scientific
+claim, rather than treating the entire
+literature as uniformly reliable
+or unreliable.
 
 \subsection{Reporting bias and publication status}
 \label{sec:discussion-reporting}
@@ -484,65 +274,55 @@ Publication status provides one possible indicator
 of reporting differences, but it is not a
 direct measure of scientific quality.
 Preprints may contain complete experimental
-methods and quantitative comparisons.
-Peer-reviewed articles may also omit
+methods and quantitative comparisons,
+while peer-reviewed articles may omit
 important details.
 
 The review protocol specifies a comparison
 between preprint-only and peer-reviewed
-findings. However, the supplied extraction
-contains a venue field rather than a
-reconciled publication-status variable.
-It does not establish whether a record
-listed as an arXiv or bioRxiv publication
-has a corresponding peer-reviewed version
-outside the included table.
+findings. However, the extraction contains
+venue labels rather than a reconciled
+publication-status variable. A record
+listed under arXiv or bioRxiv may have
+a corresponding peer-reviewed version
+outside the included table. We can
+therefore compare venue labels
+descriptively, but cannot reliably
+distinguish preprint-only from
+peer-reviewed studies.
 
-We can therefore report a descriptive
-comparison of venue labels, but not
-a definitive preprint-only versus
-peer-reviewed analysis.
-
-In the original extraction,
-47 records have venues explicitly
-containing arXiv or bioRxiv.
-The remaining 445 have other
-venue labels or missing
-venue information.
+In the previously tabulated venue
+extraction, 47 records have venues
+explicitly containing arXiv or bioRxiv;
+445 have other or missing venue labels.
+These are historical classification
+counts, not a reconciled breakdown
+of the current 489-study evidence base.
 
 Among the 47 preprint-labelled records,
 18 report quantitative theoretical
 agreement, 21 qualitative agreement,
-and eight no comparison.
-Their corresponding proportions
-are 38.3\%, 44.7\%,
-and 17.0\%.
+and eight no comparison. Their
+corresponding proportions are
+38.3\%, 44.7\%, and 17.0\%.
 
-Among the remaining 445 records,
+Among the other 445 records,
 109 report quantitative agreement,
 217 qualitative agreement,
-116 no comparison,
-and three have missing values.
-Quantitative agreement is
-recorded for 24.5\%
-of this group.
+116 no comparison, and three
+have missing values.
+Quantitative agreement is recorded
+for 24.5\% of this group.
 
-Thus, the extracted preprint-labelled
-records contain a higher proportion
-of quantitative comparisons.
-Yet, this difference cannot
-be interpreted as a
-publication-bias effect.
-
-The groups differ in disciplinary
-composition, publication year,
-and potentially the nature
-of the experimental platforms.
-Furthermore, the comparison
-does not reliably separate
-preprint-only studies from
-preprints associated with
-peer-reviewed publications.
+Thus, preprint-labelled records
+contain a higher proportion of
+quantitative comparisons, but
+this cannot be interpreted
+as a publication-bias effect.
+The groups may differ in
+discipline, year, and platform,
+and do not reliably distinguish
+publication histories.
 
 For D6, ten preprint-labelled
 studies are rated low risk,
@@ -552,7 +332,7 @@ Among the other records,
 73 are rated low risk,
 126 have some concerns,
 245 are high risk,
-and one has no rating.
+and one lacks a rating.
 
 For replication, nine
 preprint-labelled studies
@@ -565,620 +345,375 @@ Among the remaining records,
 16 are high risk,
 and one lacks a rating.
 
-These descriptive differences
-show that the preprint-labelled
-subset is not uniformly weaker
-than the remainder of the
-literature under the
+These differences do not suggest
+that the preprint-labelled subset
+is uniformly weaker under the
 extracted quality criteria.
-
 Nevertheless, the comparison
-cannot establish whether
-positive collective phenomena
-are preferentially published.
-The dataset contains included
-studies only. It does not
-provide a representative
-sample of unsuccessful
-experiments, unpublished
-null results, or
-abandoned theoretical
-comparisons.
+cannot determine whether positive
+collective phenomena are more
+likely to be published.
 
-Publication bias may therefore
-operate before a study enters
-the searchable literature.
-A collection of reported
-collective states can appear
-more robust than the
-underlying experimental
-research process if
-negative findings are
-less frequently disseminated.
+The evidence base contains
+reported studies, not a
+representative sample of
+unsuccessful experiments,
+unpublished null results,
+or abandoned comparisons.
+Selective reporting may
+also occur within studies
+when only observables
+showing clear effects
+are published.
 
-A further problem is the
-selective reporting of
-observables. One experiment
-may measure several order
-parameters but publish
-only those showing
-a clear effect.
-The extraction cannot
-detect such selection
-without protocols,
-complete datasets,
-or additional
-experimental records.
+Without protocols, complete
+datasets, and publication-history
+reconciliation, we cannot estimate
+the magnitude of these biases
+or apply a reliable numerical
+correction.
 
-Hence, we cannot assign
-a reliable numerical
-publication-bias correction.
-The evidence supports
-a qualitative concern
-about selective reporting,
-not a quantitative
-estimate of its magnitude.
-
-A stronger future analysis
-would require reconciliation
-of preprints with their
-published counterparts
-and explicit extraction
-of publication history.
-It would also benefit
-from complete experimental
-datasets containing
-unsuccessful or
-null-condition runs.
+The evidence therefore supports
+a qualitative concern about
+selective reporting rather than
+a quantitative estimate.
+Future living-review updates
+should reconcile preprints
+with published counterparts
+and, where possible, document
+null-condition runs and
+unsuccessful experiments.
 
 \subsection{Certainty of the main conclusions}
 \label{sec:discussion-certainty}
 
-We now translate the evidence into certainty
-judgments for the principal scientific conclusions.
-Following the prespecified framework, we use
-high, moderate, and low certainty.
-These ratings consider experimental breadth,
-independent support, replication,
-and the D1 and D6 assessments.
+We translate the evidence into high, moderate,
+and low certainty judgments for the principal
+scientific conclusions. Following the prespecified
+framework, we consider experimental breadth,
+independent support, replication, and the
+D1 and D6 assessments.
 
-The ratings apply to particular statements.
-They should not be interpreted as a
-single quality score for an entire
-platform or phenomenon family.
+These ratings apply to particular claims,
+not to entire platforms or phenomenon families.
 
 \paragraph*{Robots can realize collective active behavior: high certainty.}
 
-The existence of physical robotic collectives
-exhibiting coordinated motion, spatial
-organization, transport, and collective
-reconfiguration is supported by
-multiple experimental platforms.
-
-Evidence includes programmed mobile robots,
-mechanically driven particles,
-microscopic assemblies, and
+Physical robotic collectives exhibiting coordinated
+motion, spatial organization, transport, and
+reconfiguration are documented across
+programmed mobile robots, mechanically driven
+particles, microscopic assemblies, and
 modular systems
 \cite{Rubenstein2014programmableselfas,Vsrhelyi2018optimizedflockingo,Welch2018aggregatesuppressio,Li2019particleroboticsba,Yigit2019programmablecollect,Buerle2020formationofstable,Savoie2019arobotmadeofrobo,Xie2020bioinspiredsoftmic,Yang2022emergentmicroroboti,Xi2024emergentintelligenc,Wang2025hyperuniformnetwork}.
 
-These observations do not depend
-on one theoretical interpretation.
-The systems physically exhibit
-the reported collective responses.
-
-We therefore assign high certainty
-to the broad conclusion that
-robotic platforms can realize
-measurable collective active
-behavior.
-
-This rating does not extend
-automatically to the mechanisms
-proposed to explain each state.
+These observations do not depend on one
+theoretical interpretation. We therefore
+assign high certainty to the existence
+of measurable collective active behavior
+in robotic systems, without extending
+that rating automatically to the
+mechanisms proposed to explain it.
 
 \paragraph*{Collective mechanisms generalize across platforms:
 moderate certainty.}
 
-Several collective phenomena occur in
-systems with substantially different
-propulsion and interaction mechanisms.
-This supports the view that some
-principles of active collective
-behavior extend beyond
-individual hardware designs.
-
-Relevant examples include
-collective ordering,
+Related collective phenomena occur under
+different propulsion and interaction
+mechanisms, including ordering,
 mechanically mediated transport,
-controlled clustering,
-and collective rotation
+clustering, and rotation
 \cite{Tarcai2011patternstransition,Scholz2018rotatingrobotsmove,Buerle2020formationofstable,Chvykov2020lowrattlingapred,Fruchart2022nonreciprocalphase,Chen2024persistentandrespo,Luo2025flockingphasesepar,Casiulis2025ageometricconditio}.
 
-However, similar phenomena
-can arise through different
-microscopic interactions.
-Moreover, normalized
-information about independent
-experimental groups is
-not available.
-
-We therefore assign
-moderate certainty to
-the general conclusion
-that related collective
-mechanisms can be
-realized across
-multiple platforms.
-
-We do not infer
-that all implementations
-belong to the same
+This supports moderate certainty that
+related collective mechanisms can be
+realized across multiple platforms.
+However, similar patterns can arise
+from different microscopic interactions,
+and normalized information about
+independent experimental groups is lacking.
+We therefore do not infer a common
 universality class.
 
 \paragraph*{Specific universal phase behavior:
 low certainty.}
 
-Claims about universal flocking transitions,
+Universal flocking transitions,
 motility-induced phase separation,
-or thermodynamic scaling require
-measurements beyond the existence
-of an ordered or clustered state.
+and thermodynamic scaling require
+more than observations of ordered
+or clustered states.
 
-The limited number of
-low-risk D3 ratings
-and the prevalence
-of qualitative comparisons
-restrict confidence
-in such conclusions.
-
-Although individual studies
-provide quantitative evidence
+Although individual studies provide
+quantitative evidence
 \cite{Tarcai2011patternstransition,Buerle2020formationofstable,Xiao2023perceptionofmotion,Barone2024experimentalandnum,Wang2025hyperuniformnetwork,Verdoucq2025flockingphasetrans},
-the supplied extraction
-does not establish
-consistent finite-size
-scaling or independent
-validation across
-the entire literature.
+few studies receive low-risk
+finite-size and boundary ratings,
+and qualitative comparisons
+remain prevalent.
 
-We therefore assign
-low certainty to
-broad claims that
-specific universal
-phase behavior
-has been established
-across robotic
-active-matter
-platforms.
-
-This judgment does
-not exclude stronger
-conclusions for
-particular models
-and experimental
-conditions.
+The extraction does not establish
+consistent finite-size scaling
+or independent validation across
+the literature. We therefore
+assign low certainty to broad
+claims of universal phase behavior,
+without excluding stronger
+conclusions under particular
+experimental conditions.
 
 \paragraph*{Quantitative theory--experiment agreement:
 moderate certainty.}
 
-Quantitative comparisons are documented
-for Vicsek-type models,
-active Brownian particles,
-kinetic and hydrodynamic theories,
-active elasticity,
-and other statistical-mechanical
+Quantitative comparisons encompass
+Vicsek-type models, active Brownian
+particles, kinetic and hydrodynamic
+theories, active elasticity, and
+other statistical-mechanical
 descriptions.
 
-Several studies demonstrate
-the feasibility of connecting
-microscopic dynamics to
-measured collective observables
+Several experiments connect
+microscopic dynamics to measured
+collective observables
 \cite{Buerle2020formationofstable,Chvykov2020lowrattlingapred,Brandenbourger2021limitcyclesturnac,Xiao2023perceptionofmotion,Barone2024experimentalandnum,Heuthe2025tunablecolloidalsw,Boudet2025nonmarkoviandynami,Hanson2025electrokineticpropu,Zion2023morphologicalcomput}.
 
-The evidence supports
-moderate certainty
-that quantitative
-active-matter models
-can describe selected
-robotic experiments
-successfully.
+We assign moderate certainty
+that quantitative active-matter
+models successfully describe
+selected robotic experiments.
 
-Yet, the extracted
-agreement labels do
-not systematically
-distinguish fitted
-from independently
-predicted observables.
-Therefore, the broader
-claim that these
-models possess
-general predictive
-validity across
-platforms receives
-low certainty.
+However, the agreement labels
+do not systematically distinguish
+fitted descriptions from
+independent predictions.
+General predictive validity
+across platforms therefore
+receives low certainty.
 
 \paragraph*{Programmability provides causal experimental control:
 high certainty.}
 
-Robotic platforms permit
-controlled modification
-of interaction rules,
-feedback architecture,
-sensing, and actuation.
-
-This capability is
-demonstrated across
-macroscopic swarms,
-feedback-controlled
-colloids, and active
-mechanical structures
+Robotic systems permit controlled
+changes in interaction rules,
+feedback, sensing, and actuation.
+This capability is demonstrated
+in mobile swarms, feedback-controlled
+colloids, and active structures
 \cite{Ferrante2013aselfadaptivecomm,Li2019particleroboticsba,Buerle2020formationofstable,Chen2022collectiveresponse,Fruchart2022nonreciprocalphase,Heuthe2025tunablecolloidalsw,Brandenbourger2021limitcyclesturnac,Coulais2025activemetamaterials}.
 
-We assign high certainty
-to the conclusion
-that programmability
-makes interaction
-parameters experimentally
-accessible.
+We assign high certainty to
+the experimental accessibility
+of interaction parameters.
 
-However, the stronger
-claim that programmability
-has already enabled
-decisive tests of
-general active-matter
-theories receives
-only moderate certainty.
-
-The distinction follows
-from the limited
-number of low-risk
-quantitative comparisons
-and the possibility
-that controllers
-directly impose
-the observed behavior.
+The stronger conclusion that
+programmability has already
+enabled decisive tests of
+general active-matter theories
+receives moderate certainty.
+Low-risk quantitative comparisons
+remain limited, and controllers
+may directly impose the observed
+collective behavior.
 
 \paragraph*{Experimental reproducibility is adequately documented:
 low certainty.}
 
-The extracted reporting indicators
-show substantial missingness
-in repetition counts,
-data availability,
-and code availability.
+Reporting indicators show
+substantial missingness in
+independent-run counts,
+data availability, and
+code availability.
 
-Only a minority of
-studies receive
-low-risk ratings
-in both replication
-and quantitative
-theory comparison.
+Only a minority of studies
+receive low-risk ratings
+in both replication and
+quantitative theory comparison.
 
-We therefore have
-low certainty that
-the currently
-available literature
-provides sufficient
-documentation for
-broad independent
-reproduction of
-its quantitative
-claims.
+We therefore assign low certainty
+to the claim that the literature
+provides documentation sufficient
+for broad independent reproduction
+of its quantitative conclusions.
 
-This is not a
-claim that the
-experiments themselves
-are generally
+This assessment concerns the
+available reporting, not a
+claim that the experiments
+themselves are generally
 irreproducible.
-It is a conclusion
-about what the
-available reports
-permit us to verify.
-
 
 \subsection{Limitations of the evidence}
 \label{sec:discussion-evidence-limitations}
 
 The certainty judgments above must be interpreted in light
-of several limitations that extend beyond the individual
-risk-of-bias domains. These limitations concern the
-composition of the evidence base, the comparability
-of experimental platforms, the distinction between
-collective phenomena and physical mechanisms, and
-the way experimental findings enter the literature.
+of limitations extending beyond individual risk-of-bias
+domains. These concern the composition of the evidence
+base, comparability of experimental platforms, the
+distinction between phenomena and mechanisms,
+and selective reporting.
 
-The corrected October 17, 2026 snapshot comprises
-491 included studies. Its breadth is a strength,
-but it is not a representative sample of every
-experimental attempt to realize collective
-active behavior. Studies enter the evidence base
-through publication, indexing, retrieval,
-eligibility assessment, and extraction.
-Each step can affect which phenomena
-appear most strongly supported.
+The October 17, 2026 evidence base comprises
+489 studies. Its breadth is a strength, but
+the included literature is not a representative
+sample of every attempt to realize collective
+active behavior. Publication, indexing, retrieval,
+and eligibility assessment all affect the
+available evidence.
 
 \paragraph*{Heterogeneity of physical implementations.}
 
-The included platforms differ substantially in
-propulsion, sensing, interactions, agent size,
-collective size, and control architecture.
-These differences are scientifically
-interesting, but they limit direct pooling
-of experimental results.
+The included platforms differ in propulsion,
+sensing, interactions, size, and control
+architecture. These differences are scientifically
+useful but limit direct pooling of results.
 
-For example, collective ordering in a
-communicating mobile swarm
+Collective ordering in communicating robots
 \cite{Turgut2008selforganizedflocka,Vsrhelyi2018optimizedflockingo,Zhou2024anticipationpromote}
-does not necessarily arise from the same
-effective interactions as ordering
-in mechanically driven robots
+need not arise from the same effective interactions
+as ordering in mechanically driven systems
 \cite{Welch2019activereorientation,Baconnier2022selectiveandcollec,Luo2025flockingphasesepar}
 or feedback-controlled colloids
 \cite{Buerle2020formationofstable,Chen2024synchronousandfull,Chen2024persistentandrespo}.
 
-The resulting order parameters may be
-similar, but the assumptions governing
+Order parameters may be similar while
 interaction range, conservation laws,
 noise, and information transfer differ.
+Phenomenological replication must therefore
+be distinguished from mechanistic replication:
+the reproduction of a collective pattern
+does not necessarily confirm the same theory.
 
-This creates a distinction between
-phenomenological replication and
-mechanistic replication.
-Independent experiments may reproduce
-a visually similar state without
-independently confirming the same
-theoretical explanation.
-
-Hence, our synthesis emphasizes
-observables and interaction
-mechanisms rather than treating
-every report of a phenomenon
-as equivalent evidence.
+Our synthesis consequently emphasizes
+measured observables and interaction mechanisms
+rather than treating every occurrence
+of a phenomenon as equivalent evidence.
 
 \paragraph*{Small systems and finite experimental arenas.}
 
-A further limitation is experimental scale.
-Many robotic studies use small collectives
-because individual agents are expensive,
-require tracking or calibration,
-or operate within restricted arenas.
+Many studies use small collectives because
+agents require tracking, calibration,
+or restricted experimental arenas.
+Such systems can reveal pairwise coupling
+and local response, but are less decisive
+for theories involving large-system scaling.
 
-Small systems are valuable for investigating
-pairwise coupling, local response,
-and controlled interaction rules.
-They are less decisive for conclusions
-about collective phases that depend
-on system-size scaling.
-
-For example, stable polarization
-in a small flock does not
-establish long-range order
-in an extended active system.
-A dense aggregate in a confined
-arena does not by itself
-demonstrate macroscopic
-phase coexistence.
-
-Similarly, mechanically coupled
-robotic assemblies can display
-nonreciprocal response or
-localized motion without
-establishing a size-independent
+Stable polarization in a small flock
+does not establish long-range order.
+A confined aggregate does not necessarily
+demonstrate macroscopic phase coexistence.
+Likewise, finite mechanical assemblies
+can exhibit nonreciprocal response
+without establishing a size-independent
 constitutive law
 \cite{Brandenbourger2019nonreciprocalrobot,Brandenbourger2021limitcyclesturnac,Binysh2026moreislessinunpe,Coulais2025activemetamaterials}.
 
-The unfavorable D3 assessment
-across the evidence base
-therefore restricts generalization
-from finite experimental
-realizations to universal
-active-matter behavior.
-
-An important consequence is
-that increasing the number
-of studies does not
-automatically resolve
-this limitation.
-Many reports using
-similarly small systems
-may leave the same
-scaling question unanswered.
+The unfavorable D3 assessment therefore
+limits generalization from finite experiments
+to universal active-matter behavior.
+More publications using similar system sizes
+cannot by themselves resolve this problem.
 
 \paragraph*{Outcome definitions and theoretical specificity.}
 
-The phenomenon taxonomy is intentionally broad.
-It accommodates the terminology used by
-different experimental communities.
-However, it also combines outcomes
-that are not theoretically equivalent.
+The phenomenon taxonomy accommodates terminology
+from different communities, but some categories
+combine theoretically distinct outcomes.
 
-The category of clustering or MIPS
-includes experiments with programmed
+Clustering or MIPS encompasses programmed
 attraction, field-mediated assembly,
-contact-driven aggregation,
-and other collective structures.
-Only some can directly test
-motility-induced phase separation.
+contact-driven aggregation, and other
+forms of spatial organization. Only some
+of these directly test motility-induced
+phase separation.
 
-Likewise, the categories of
-chirality or rotation,
-swarming or vortices,
-and self-assembly or shape formation
-cover several distinct mechanisms.
-
-Experiments on programmed assembly
+Likewise, chirality or rotation,
+swarming or vortices, and self-assembly
+or shape formation include several
+mechanisms. Programmed assemblies
 \cite{Rubenstein2014programmableselfas,Li2019particleroboticsba,Yi2025reconfigurablerobot}
-and microscopic field-driven
-collectives
+and microscopic field-driven collectives
 \cite{Pauer2021programmabledesign,Sun2024multiplemagnetoopt,Cheng2025selfassemblyandco}
-may therefore share a
-phenomenon label while
-testing different
-physical questions.
+can share a phenomenon label while
+addressing different physical questions.
 
-This limitation is particularly
-important for quantitative synthesis.
-A common label does not justify
-combining order parameters,
-effect sizes, or agreement
-statistics without additional
-harmonization.
-
-We consequently avoided a
-pooled effect estimate.
-The absence of such an estimate
-is not merely a consequence
-of missing numerical data.
-It reflects genuine differences
-in mechanisms, experimental
-conditions, and estimands.
+A common label does not justify pooling
+order parameters, effect sizes, or
+agreement statistics. We therefore
+avoided a pooled effect estimate.
+This reflects genuine differences
+in mechanisms, experimental conditions,
+and quantities being estimated,
+not merely missing numerical data.
 
 \paragraph*{Independence of experiments and research groups.}
 
 Publication counts are not equivalent to
 independent experimental confirmations.
-Several reports may use related hardware,
-similar controllers, or data generated
-within the same research program.
+Several studies may share apparatus,
+controllers, datasets, or research programs.
 
-The extraction provides citation keys,
-publication metadata, platform classes,
-and experimental descriptors.
-It does not contain a fully reconciled
-mapping of shared apparatus,
-experimental lineages,
-or independent research groups.
-
+The extraction contains bibliographic metadata
+and experimental descriptors, but no fully
+reconciled mapping of shared apparatus,
+experimental lineages, or independent groups.
 We therefore cannot reliably count
-independent replications of a
-particular theoretical claim.
+independent replications of specific
+theoretical claims.
 
-This limitation affects
-certainty judgments even
-when a phenomenon appears
-in many publications.
-Repeated demonstrations
-within one experimental
-tradition provide useful
-evidence for feasibility,
-but they do not replace
-independent tests using
-different apparatus
-and measurement pipelines.
-
-Cross-platform evidence partially
-addresses this concern,
-yet platforms are not
-equivalent to research groups.
-Nor does hardware diversity
-guarantee that the same
-theoretical prediction
-was tested.
+Cross-platform evidence partly addresses
+this concern, but platform diversity
+does not guarantee independent groups
+or equivalent theoretical tests.
 
 \paragraph*{Null results and selective outcome reporting.}
 
-The available literature is likely
-to contain a disproportionate
-number of successful demonstrations
-of collective behavior.
-This concern cannot be
-quantified from the
-included studies alone.
+The literature may disproportionately represent
+successful collective demonstrations, but
+the magnitude of this bias cannot be
+estimated from included publications.
 
-The evidence base does not
-provide a registry of
-attempted experiments,
-unsuccessful implementations,
-or unreported parameter sweeps.
+The evidence base contains no registry
+of attempted experiments, unsuccessful
+implementations, or unreported parameter
+sweeps. Selective reporting may also
+occur within studies that measure several
+observables but emphasize the clearest effects.
 
-Consequently, we cannot
-estimate how often
-a proposed interaction
-fails to generate
-the expected state.
+These concerns are particularly relevant
+when models have adjustable parameters
+or controllers are optimized to produce
+specific patterns. Missing datasets
+and analysis implementations further
+limit retrospective assessment.
 
-Selective reporting may also
-occur within a study.
-An experiment may measure
-several collective observables
-while emphasizing only
-those that exhibit
-the clearest response.
-
-This possibility is
-especially relevant when
-a model has several
-adjustable parameters
-or when a controller
-is optimized to produce
-a particular pattern.
-
-The absence of complete
-datasets and analysis
-implementations makes
-these reporting effects
-difficult to assess
-retrospectively.
-
-We therefore avoid
-interpreting the
-frequency of positive
-agreement labels
-as an unbiased
-estimate of
-the probability
-that a theoretical
-model is correct.
+We therefore do not interpret the
+frequency of positive agreement labels
+as an unbiased estimate of a
+theory's probability of being correct.
 
 \paragraph*{Concentration of theoretical evidence.}
 
-The theoretical comparisons are not
-distributed evenly across
-frameworks or platforms.
+Theoretical comparisons are distributed
+unevenly across frameworks and platforms.
+Agent-based simulation is widespread,
+whereas run-and-tumble models and
+active elasticity have smaller
+experimental literatures.
 
-Agent-based simulation is
-widely used, whereas
-some analytically
-specific descriptions,
-including run-and-tumble
-models and active elasticity,
-are represented by
-much smaller literatures.
+More comparisons do not necessarily
+mean stronger theoretical support.
+Independent parameter constraints,
+measurement uncertainty, and
+predictions outside fitting conditions
+matter more than comparison counts.
 
-This unevenness limits
-comparisons between
-theories.
-A framework with
-many implementation-based
-comparisons is not
-necessarily better supported
-than one with fewer
-but more discriminating
-quantitative tests.
-
-The relevant distinction
-concerns independent parameter
-constraints, measurement
-uncertainty, and the
-ability of a model
-to predict results
-outside its fitting
-conditions.
-
-The available extraction
-records agreement type,
-but it does not
-systematically separate
-fitted and predicted
-quantities for every
-included study.
-
-This prevents us
-from assigning
-a numerical
-predictive-validity
-score across
-theoretical frameworks.
+Although the extraction records
+agreement type, it does not
+systematically distinguish fitted
+from independently predicted
+quantities for every study.
+We therefore cannot assign
+a numerical predictive-validity
+score across theoretical frameworks.
 
 \subsection{Limitations of this review}
 \label{sec:discussion-review-limitations}
@@ -1186,1186 +721,447 @@ theoretical frameworks.
 The review also has limitations arising from its
 search strategy, eligibility rules, automated
 assistance, extraction process, and treatment
-of incomplete reports. These limitations
-must be distinguished from shortcomings
-in the underlying experiments.
+of incomplete reports. These must be distinguished
+from shortcomings in the underlying experiments.
 
 We used a prespecified protocol,
 PRISMA-based selection accounting,
 a controlled extraction vocabulary,
-and documented validation and
-adjudication. These procedures
-improve transparency.
-They do not eliminate uncertainty.
+and documented validation and adjudication.
+These procedures improve transparency
+without eliminating uncertainty.
 
 \paragraph*{Database coverage and retrieval.}
 
 The search identified 15\,034 database records.
 After removing 6\,332 duplicates,
 8\,702 records were screened.
-The selection process ultimately
-produced the corrected evidence
-base of 491 studies after
-one included duplicate
-was merged.
+The final evidence base contains 489 studies.
 
-Database searching cannot guarantee
-complete coverage of robotic
-active matter.
-The field crosses
-physics, robotics,
-materials science,
-and applied engineering.
-Relevant experiments
-may use different
-terminology depending
-on their disciplinary context.
+Database searching cannot guarantee complete
+coverage of robotic active matter. The field
+crosses physics, robotics, materials science,
+and engineering, whose terminology differs.
+Experiments investigating active mechanical
+response may not use the phrase ``active matter'';
+studies of distributed robotic control may
+report collective fluctuations without identifying
+them as active-matter phenomena.
 
-For example, an experiment
-investigating active
-mechanical response
-may not use the
-phrase ``active matter.''
-A distributed robotic
-system may report
-collective fluctuations
-while being described
-primarily as
-multi-agent control.
+Broader search strings may improve coverage,
+but also increase irrelevant retrieval.
+The eligibility criteria likewise define
+the scope: we required interacting physical
+artificial agents and at least one quantitative
+collective or interaction-level observable.
 
-Search strings can be
-expanded to improve
-coverage, but broadening
-them also increases
-the number of irrelevant
-records requiring
-assessment.
-
-The protocol's requirement
-for physical interacting
-artificial agents and
-a collective or
-interaction-level
-observable also defines
-the scope of this review.
-
-Simulation-only studies
-without the specified
-hardware connection
-were excluded.
-So were studies
-concerned solely
-with task performance
-when no qualifying
-collective observable
-was established.
-
-These exclusions were
-necessary to answer
-the review questions.
-However, they mean
-that the review
-does not represent
-the entire theoretical
-or engineering
-literature on
-collective robotics.
-
-We do not infer
-that excluded
-studies are
-scientifically
-unimportant.
-They fall outside
-the defined
-evidence base.
+Simulation-only studies without the specified
+hardware connection were excluded, as were
+engineering studies reporting solely task
+performance without a qualifying physical
+observable. These exclusions serve the
+review objectives; they do not imply
+that the excluded research is unimportant.
 
 \paragraph*{Incomplete retrieval and abstract-only assessment.}
 
-The selection flow distinguishes
-reports assessed on full text
-from reports assessed only
-on abstracts because full
-text could not be obtained.
-
-In the reconciled
-pre-merge selection flow,
-979 reports were
-assessed on full text:
-462 were included,
-513 excluded,
-and four awaited
+The original selection flow distinguishes
+full-text from abstract-only assessment.
+Of 979 reports assessed on full text,
+462 were initially included,
+513 excluded, and four awaited
 a decision.
 
-Another 179 reports
-were assessed on
-their abstracts
-because full text
-was unavailable:
-30 were included
-and 149 excluded.
+Another 179 reports were assessed
+on abstracts because full text
+was unavailable: 30 were included
+and 149 excluded. The 662
+eligibility exclusions therefore
+comprise 513 full-text and
+149 abstract-only exclusions.
 
-The resulting
-662 eligibility
-exclusions comprise
-513 full-text
-exclusions and
-149 abstract-only
-exclusions.
+Following record reconciliation,
+the final 489-study evidence base
+contains 30 abstract-only inclusions.
+The remaining 459 studies were
+assessed on full text. The four
+reports awaiting a decision remain
+outside the included evidence base.
 
-The 491 included records
-therefore consist
-of 461 full-text-based
-and 30 abstract-only
-inclusions.
+Abstract-only assessment creates
+specific uncertainties. An abstract
+may establish that an experiment
+involved interacting physical agents
+and a collective observable without
+documenting independent repetitions,
+measurement validity, controller
+implementation, or quantitative
+theory comparison.
 
-After the subsequent
-duplicate merge,
-the corrected
-included-study count
-is 491.
-The identity and
-assessment basis
-of the merged
-duplicate have not
-been specified,
-so we do not
-assign the resulting
-reduction to either
-assessment stratum.
+Such records are consequently more
+susceptible to missing extraction
+fields and ambiguous classification.
+We retained them under the specified
+eligibility procedure but avoided
+unsupported detailed conclusions.
 
-The four reports
-awaiting a decision
-remain outside
-the included
-evidence base.
-
-Abstract-only assessment
-creates several
-distinct uncertainties.
-An abstract may
-establish that an
-experiment involved
-physical agents
-and collective behavior,
-but it may not
-describe experimental
-repetitions,
-measurement validation,
-control implementation,
-or the extent
-of theoretical
-agreement.
-
-The extracted fields
-for such studies
-are therefore
-particularly susceptible
-to missingness
-and incomplete
-characterization.
-
-An abstract may also
-use broad terminology
-that cannot be
-fully resolved
-without the
-methods and results.
-
-We retained these
-studies under
-the prespecified
-eligibility process,
-while avoiding
-unsupported detailed
-claims where the
-available evidence
-is insufficient.
-
-Nevertheless,
-their presence
-limits the precision
-of some descriptive
-statistics and
-certainty assessments.
-
-A useful future
-sensitivity analysis
-should compare
-conclusions with
-and without
-abstract-only records.
-Such an analysis
-would not recover
-the missing details,
-but it would
-establish whether
-the broad synthesis
-depends materially
-on these inclusions.
+A sensitivity analysis excluding
+abstract-only inclusions would
+establish whether the synthesis
+depends materially on these records.
+It would not recover their
+missing methodological information.
 
 \paragraph*{LLM-assisted screening and extraction.}
 
-The review used large language models
-to assist screening, extraction,
-and parts of the adjudication
-workflow. This approach enabled
-a substantial literature
-to be processed using
-a structured protocol,
-but it introduces
-additional sources
-of error.
+Large language models assisted screening,
+extraction, and parts of adjudication.
+This enabled structured assessment
+of a substantial literature but
+introduced additional potential errors.
 
-An automated screener
-may misinterpret
-whether a study
-contains physical
-hardware, whether
-multiple agents
-interact, or whether
-the reported
-observable is genuinely
-collective.
+A model may misidentify physical
+hardware, interaction between agents,
+or whether an observable is genuinely
+collective. It may also assign
+a platform or phenomenon label
+from terminology that does not
+adequately describe the experiment.
 
-Similarly, an extraction
-system may assign
-a platform or
-phenomenon label
-based on terminology
-that does not
-fully describe
-the experimental mechanism.
+Such errors can be systematic,
+particularly when familiar categories
+are favored or collective task
+performance is confused with
+collective active dynamics.
+Controlled vocabularies improve
+consistency but may force
+classifications when evidence
+is incomplete.
 
-These errors can
-be systematic.
-For example,
-a model may
-favor familiar
-platform categories
-or interpret
-collective task
-performance as
-evidence of
-collective active
-dynamics.
-
-The use of
-structured vocabularies
-reduces some ambiguity,
-but it can also
-produce forced
-classifications
-when the available
-information is
-incomplete.
-
-We therefore
-regard automated
-extraction as
-an evidence-processing
-procedure requiring
-validation, rather
-than as an independent
-source of
+Automated extraction is therefore
+an evidence-processing procedure
+requiring validation, not an
+independent source of
 scientific authority.
 
 \paragraph*{Blind validation versus final-label validation.}
 
-The validation exercise
-provides important evidence
-about the performance
-of the screening procedure,
-but it must be
-interpreted according
-to which labels
-were used as
-the reference.
+The validation exercise must be interpreted
+according to the reference labels used.
 
-The first author
-labels were assigned
-blindly in a
-200-record sample.
-Against these
-labels, the
-review panel's
-measured performance
-was substantially
-less favorable
-than against
-the final
-adjudicated labels.
+The first author labels were assigned
+blindly on a 200-record sample.
+Against those initial judgments,
+panel sensitivity was 0.290,
+specificity 0.917, and
+Cohen's $\kappa=0.232$.
 
-The initial
-blind-label comparison
-for the panel
-gave sensitivity
-of 0.290,
-specificity
-of 0.917,
-and Cohen's
-$\kappa=0.232$.
+Against the final adjudicated labels,
+sensitivity was 1.000,
+specificity 0.983, and
+$\kappa=0.922$.
 
-The final-label
-validation produced
-sensitivity of 1.000,
-specificity
-of 0.983,
-and $\kappa=0.922$.
+These estimates are not interchangeable.
+The first measures agreement with
+initial blind judgments; the second
+measures agreement with labels
+established after review and
+adjudication.
 
-These are not
-interchangeable
-performance estimates.
+The improvement characterizes the
+final classification process, but
+does not constitute a fresh blind
+validation against an untouched
+external gold standard. Reference
+labels changed during adjudication,
+and shared errors remain possible.
 
-The first comparison
-reflects agreement
-with the initial
-blind judgments.
-The second reflects
-agreement with
-the labels established
-after adjudication
-and review.
-
-The improvement
-is relevant
-to the quality
-of the final
-classification process.
-However, the
-final-label comparison
-does not constitute
-a fresh independent
-blind validation
-of the same
-system.
-
-In particular,
-the reference
-labels changed
-during the
-adjudication process.
-The high final
-agreement therefore
-cannot be interpreted
-as if it arose
-from an untouched
-external gold
-standard.
-
-We use the
-two comparisons
-for different
-purposes.
-The initial
-blind exercise
-identifies disagreement
-and ambiguity.
-The final-label
-analysis characterizes
-the agreement
-of the resulting
-screening output
-with the adjudicated
-reference.
-
-Both are informative,
-but neither
-eliminates the
-possibility of
-shared errors
-between automated
-systems and
-human adjudication.
+We therefore report the initial
+blind comparison alongside the
+final-label analysis instead of
+treating the latter as an
+independent estimate of screening
+accuracy.
 
 \paragraph*{The Opus judge and adjudication dependence.}
 
-The adjudication process also used
-Claude Opus as a judge
-for records with
-conflicting screening
-decisions.
-This role was
-separate from
-the model's blind
-screening evaluation
+Claude Opus served as an adjudicator
+for conflicting screening decisions
+and separately as a blind screener
 on the validation sample.
 
-For 423 full-text
-screening disagreements,
-the judge agreed
-with the panel
-in 362 cases,
-reversed the
-panel's decision
-in 59,
-and left two
-undecided.
+Across 423 full-text screening
+disagreements, the judge agreed
+with the panel in 362 cases,
+reversed 59 decisions, and
+left two undecided. These
+decisions materially affected
+the resulting classifications.
 
-These results
-show that
-adjudication had
-a material effect
-on the final
-evidence base.
+The agreement rate is not an
+independent accuracy estimate.
+Some judgments involved direct
+consultation of full text;
+others relied on evidence
+available through the
+adjudication workflow.
+Different disagreement types
+may therefore have received
+different levels of verification.
 
-They should not
-be interpreted
-as an independent
-accuracy estimate
-for the judge.
-The absence of
-a universally
-available external
-reference prevents
-such a conclusion.
+Although the decisions are
+documented for audit,
+the judge may share systematic
+interpretive tendencies with
+the models it adjudicated.
 
-The judge also
-consulted full text
-directly for
-a subset of
-disagreements.
-In other cases,
-the decision
-depended on
-the evidence
-available within
-the adjudication
-workflow.
+Evaluated separately as a
+blind screener against final
+author labels, Opus achieved
+sensitivity 0.550,
+specificity 1.000, and
+Cohen's $\kappa=0.687$.
+These figures cannot be
+combined with adjudication
+agreement because the tasks
+and information conditions differ.
 
-This creates
-the possibility
-that different
-disagreement types
-received different
-amounts of
-source verification.
-
-The protocol
-and adjudication
-records document
-these decisions,
-which supports
-auditability.
-Nevertheless,
-a model serving
-as judge may
-share systematic
-interpretive tendencies
-with the models
-whose output
-it adjudicates.
-
-The validation
-sample provides
-an additional
-perspective.
-As a blind
-screener against
-the final
-author labels,
-Opus had
-sensitivity
-of 0.550,
-specificity
-of 1.000,
-and Cohen's
-$\kappa=0.687$.
-
-These values
-must not be
-combined with
-the adjudication
-agreement rate
-as though
-they measured
-the same task.
-Blind screening
-and adjudication
-of known disagreements
-have different
-information conditions.
-
-A further limitation
-concerns extraction
-adjudication.
-The extraction
-workflow identified
-167 conflicting
-fields, with
-18 ultimately
-set to null.
-These unresolved
-or insufficiently
-supported values
-contribute to
-missingness in
-the synthesis.
-
-The null values
-are preferable
-to invented
-precision.
-However, they
-also restrict
-the conclusions
-that can
-be drawn
-from certain
-records.
+Extraction adjudication identified
+167 conflicting fields, of which
+18 were ultimately assigned null.
+These missing values reduce the
+precision of some comparisons,
+but are preferable to unsupported
+numerical or categorical assignments.
 
 \paragraph*{The residual platform category.}
 
 The platform taxonomy contains
-a substantial residual
-``other'' class:
-88 of the corrected
-491 studies,
-or approximately
-17.9\%.
+a substantial residual ``other''
+class: 87 of the 489 studies,
+or approximately 17.8\%.
 
-This category includes
-physically different
-systems that do
-not fit the
-prespecified
-platform classes.
-
-It therefore
-cannot be treated
-as a coherent
+These records encompass physically
+different systems and cannot be
+interpreted as one coherent
 experimental mechanism.
 
-The residual category
-has two consequences.
-First, its size
-limits the
-resolution of
-platform-based
-comparisons.
-Second, it
-indicates that
-the taxonomy
-may need
-further refinement
-as new experimental
-implementations
-enter the field.
+The category limits the resolution
+of platform comparisons and indicates
+a need for future taxonomic refinement.
+Nevertheless, retaining ``other''
+is preferable to forcing systems
+into inaccurate hardware classes.
 
-Nevertheless,
-retaining an
-``other'' category
-is preferable
-to forcing
-studies into
-classes that
-do not accurately
-describe their
-hardware.
+Four additional records have no
+assigned platform class. We preserve
+that missingness rather than inferring
+an assignment without supporting evidence.
 
-The same principle
-applies to
-the four records
-without assigned
-platform classes.
-Missingness
-should remain
-visible until
-the source evidence
-supports a
-specific assignment.
-
-A future taxonomy
-may benefit from
-greater emphasis
-on interaction
-mechanism,
-control architecture,
-and physical
-constraints rather
-than hardware
-appearance alone.
+Future versions may classify systems
+more effectively through interaction
+mechanisms, control architecture,
+and physical constraints rather
+than hardware appearance alone.
 
 \paragraph*{Limitations of the extracted variables.}
 
 The extraction table supports
-the descriptive and
-critical synthesis
-presented here,
-but it cannot
-answer every
-question relevant
-to active-matter
-physics.
+descriptive and critical synthesis,
+but cannot resolve every question
+relevant to active-matter physics.
 
-In particular,
-the extracted
-agreement labels
-do not establish
-whether a
-theoretical parameter
-was measured
-independently,
-fitted to
-experimental data,
-or adjusted
-after observing
-the collective
-response.
+Agreement labels do not establish
+whether theoretical parameters
+were measured independently,
+fitted to experimental data,
+or adjusted after observing
+the collective response.
 
-Similarly,
-the risk-of-bias
-fields summarize
-study-level
-limitations but
-do not replace
-a claim-specific
-assessment of
-all reported
-observables.
+Study-level risk-of-bias fields
+likewise cannot replace detailed,
+claim-specific evaluation of
+every reported observable.
 
-The maximum
-number of
-hardware agents
-does not capture
-every relevant
-measure of
-experimental scale.
-A microscopic
-population may
-contain many
-particles without
-resolving each
-trajectory.
-A mechanically
-connected active
-solid may have
-many actuators
-but only a
-limited number
-of independent
-collective modes.
+The maximum hardware agent count
+is an incomplete measure of
+experimental scale. Microscopic
+populations may contain many
+particles without resolving
+individual trajectories; connected
+active solids may contain many
+actuators but comparatively few
+independent collective modes.
 
-The theoretical
-categories are
-also multi-label.
-A study comparing
-an agent-based
-simulation with
-an active Brownian
-model can appear
-in both groups.
-Thus, totals
-across frameworks
-cannot be treated
-as independent
-study counts.
+Theoretical categories are also
+multi-label. A study comparing
+agent-based simulation with an
+active Brownian model can appear
+in both groups. Framework totals
+therefore cannot be interpreted
+as independent study counts.
 
-These limitations
-motivate the
-primarily narrative,
-mechanism-oriented
-synthesis used
-in this review.
+These limitations motivate
+the narrative, mechanism-oriented
+synthesis adopted here rather
+than a pooled numerical estimate.
 
 \subsection{What the living design can and cannot fix}
 \label{sec:discussion-living}
 
-The living design is intended to keep the evidence
-base current as new robotic active-matter
-experiments appear. Its principal advantage
-is that searches, screening decisions,
-extraction records, and synthesis outputs
-can be updated under an explicit protocol.
-
-However, living updating does not
-automatically improve the reliability
-of the underlying literature.
-It can correct review-level
-errors and incorporate new
-evidence. It cannot create
-missing experimental
-measurements or
-independent replications.
+The living design keeps the evidence base current
+as robotic active-matter experiments appear.
+Monthly searches, versioned screening decisions,
+extraction records, and updated syntheses permit
+corrections and incorporation of new evidence.
+They do not automatically improve the reliability
+of the underlying experiments.
 
 \paragraph*{What updating can correct.}
 
-The monthly search schedule can identify
-newly indexed experimental studies,
-new versions of preprints,
-and publications that
-were previously inaccessible.
+Monthly searches can identify newly indexed studies,
+revised preprints, and previously inaccessible
+publications. When full texts become available,
+abstract-only inclusions can be reassessed,
+improving eligibility decisions and extraction
+of experimental methods.
 
-When full texts become available,
-abstract-only inclusions
-can be reassessed.
-This may improve
-confidence in
-eligibility decisions
-and support
-more complete
-extraction of
-experimental methods.
+The workflow can also reconcile duplicate records,
+publication versions, and missing classifications.
+Such corrections may change descriptive counts
+without changing the underlying scientific
+literature. Every numerical claim must therefore
+refer to a dated evidence snapshot, with revisions
+recorded in the change log.
 
-The living workflow
-can also reconcile
-duplicate records
-and publication versions.
-
-The correction of
-included-study records
-is an example.
-Such corrections
-change descriptive
-counts, even when
-the underlying
-scientific literature
-has not changed.
-This demonstrates
-why snapshot
-versioning matters.
-
-This demonstrates
-why snapshot
-versioning matters.
-A numerical
-claim must refer
-to a specific
-evidence-base
-version, and
-revisions should
-remain traceable.
-
-Future updates
-can also resolve
-missing platform
-assignments,
-improve venue
-classification,
-and refine
-the distinction
-between preprints
-and peer-reviewed
-publications.
-
-Where additional
-reports provide
-new experimental
-detail, risk-of-bias
-ratings may change.
-
-For example,
-an accessible
-supplement could
-establish independent
-replication counts
-or provide
-previously unavailable
-data and code.
-
-Such corrections
-can improve
-the accuracy
-of the review
-without changing
-the original
-physical experiment.
+Future updates can refine platform assignments,
+reconcile preprints with peer-reviewed publications,
+and incorporate additional methodological details.
+A newly accessible supplement, for example, may
+document independent repetitions or provide data
+and code, allowing a risk-of-bias rating to change
+without any new experiment.
 
 \paragraph*{Updating methodological validation.}
 
-The review's automated
-workflow may also
-change over time.
-Screening prompts,
-models, adjudication
-rules, and extraction
-procedures can
-be revised.
+Screening models, prompts, adjudication rules,
+and extraction procedures may change over time.
+These changes can affect study inclusion and
+classification and must therefore be versioned.
 
-These changes
-should not be
-treated as
-administrative
-details.
-They may alter
-which studies
-are included
-and how evidence
-is classified.
+The October 17, 2026 validation describes
+the workflow evaluated at that time, not
+the performance of subsequent models or
+procedures. Substantial methodological changes
+should trigger renewed validation against
+independently assessed records.
 
-A living review
-therefore requires
-versioned records
-of the methods
-used at each
-snapshot.
+Future reports must continue to distinguish
+initial blind labels from final adjudicated
+reference labels. Otherwise, apparent
+improvements in agreement may reflect
+changes in the reference standard rather
+than screening performance.
 
-The October 17, 2026
-validation describes
-the workflow evaluated
-at that time.
-It does not
-establish the
-performance of
-future models
-or modified
-screening procedures.
-
-Major changes
-should trigger
-new validation
-against independently
-assessed records.
-
-The distinction
-between blind
-and final
-reference labels
-must remain
-explicit in
-future reports.
-Otherwise, apparent
-improvements in
-agreement could
-reflect changes
-in the reference
-labels rather
-than genuine
-changes in
-screening performance.
-
-Similarly,
-the adjudication
-role of the
-Opus judge
-should remain
-separate from
-its evaluation
-as a blind
-screener.
-
-This separation
-is essential
-for interpreting
-the resulting
-performance
-statistics.
+Likewise, the Opus judge's adjudication
+decisions must remain distinct from
+its evaluation as a blind screener.
+These activities address different
+questions and cannot be combined
+into one accuracy estimate.
 
 \paragraph*{Updating certainty assessments.}
 
-A living review
-should not simply
-increase study
-counts and
-repeat the
-same conclusions.
+A living synthesis should assess how new
+studies affect specific scientific claims,
+not merely increase publication counts.
 
-New evidence
-should be
-examined for
-its effect
-on the certainty
-of specific
-scientific claims.
+Another flocking demonstration may broaden
+the inventory of experimental platforms
+without strengthening evidence for a
+universal ordering transition.
+By contrast, one well-designed finite-size
+study could materially improve certainty
+about a particular theoretical prediction.
 
-For example,
-a new experimental
-demonstration of
-flocking may add
-breadth to the
-phenomenon inventory.
-Yet, it may
-have little effect
-on certainty
-about a
-universal
-ordering transition
-unless it
-provides relevant
-quantitative
-measurements.
+Similarly, independent measurements of
+nonreciprocal elasticity may provide
+stronger evidence for active-solid theory
+than several additional demonstrations
+of programmable mechanical motion.
 
-Conversely,
-one well-designed
-experiment measuring
-finite-size behavior
-across independent
-conditions could
-materially change
-the assessment
-of a specific
-theoretical claim.
-
-Likewise,
-an independent
-measurement of
-nonreciprocal
-elastic response
-could strengthen
-the evidence
-for active-solid
-theory more
-than several
-additional
-demonstrations of
-programmable
-mechanical motion.
-
-Hence, the
-living synthesis
-should update
-certainty in
-response to
-the content
-of new evidence,
-not merely
-its volume.
-
-A useful
-update trigger
-would be
-the appearance
-of a study
-that changes
-the balance
-of quantitative
-agreement,
-risk of bias,
-or independent
-cross-platform
-support for
-a principal
-conclusion.
-
-The same applies
-when a new
-result contradicts
-an established
-interpretation.
-A living review
-must be able
-to downgrade
-certainty as
-well as
-upgrade it.
+Certainty should therefore change when
+new evidence alters quantitative agreement,
+risk of bias, or independent cross-platform
+support. Contradictory results may warrant
+downgrading a conclusion, just as strong
+replication may justify upgrading it.
 
 \paragraph*{What updating cannot repair.}
 
-The living design
-cannot resolve
-a lack of
-independent
-experimental
-repetitions when
-those repetitions
-were never
-performed or
-reported.
-
-Nor can it
-establish
-thermodynamic-limit
-behavior from
-a collection
-of small,
-geometrically
-similar experiments
-unless the new
-evidence supplies
-the necessary
-size-dependent
+A living review cannot supply independent
+experimental repetitions that were never
+performed or documented. It cannot establish
+thermodynamic-limit behavior from small
+experiments without relevant size-dependent
 measurements.
 
-Likewise,
-a larger
-literature does
-not eliminate
-publication bias.
-If unsuccessful
-experiments remain
-unpublished,
-monthly searches
-will not retrieve
-them.
+Nor will more frequent searching eliminate
+publication bias when unsuccessful experiments
+remain unpublished. Revalidation can reveal
+errors in automated screening and extraction,
+but cannot guarantee the absence of systematic
+bias shared by models and adjudicators.
 
-The living
-workflow also
-cannot guarantee
-that automated
-screening and
-extraction are
-free from
-systematic error.
-Revalidation
-can estimate
-and help
-identify errors,
-but it cannot
-prove the
-absence of
-shared biases
-between models
-and adjudicators.
-
-Finally,
-the living
-design cannot
-transform
-qualitative
-model agreement
-into independent
-predictive validation.
-That requires
-experiments
-designed to
-distinguish
-between competing
-physical explanations.
+Most importantly, additional qualitative
+agreement cannot substitute for independent
+predictive validation. That requires experiments
+designed to distinguish competing explanations.
 
 \paragraph*{A stable protocol with revisable judgments.}
 
-A successful living review
-must balance methodological
-consistency against the
-need to improve
-its classifications
-and evidence assessments.
+Eligibility criteria must remain sufficiently
+stable for meaningful comparisons across
+snapshots. Changes in definitions or
+procedures should be documented as protocol
+amendments rather than introduced silently.
 
-The eligibility
-criteria should
-remain sufficiently
-stable to support
-comparison between
-snapshots.
-Changes in
-definitions should
-be recorded
-as protocol
-amendments,
-not silently
-introduced through
-new extraction
-practice.
+Taxonomic classifications, however, should
+remain revisable when the evidence warrants it.
+The residual platform category may eventually
+be subdivided according to distinct physical
+mechanisms. Any such revision should include
+consistent reclassification of earlier
+records wherever possible.
 
-At the same
-time, a taxonomy
-that no longer
-describes the
-experimental
-literature adequately
-should not be
-preserved solely
-for convenience.
+Future extraction could also distinguish
+fitted from independently predicted parameters,
+spontaneous self-assembly from prescribed
+formation, and independent experimental groups
+from publications sharing apparatus or data.
 
-The residual
-platform category,
-for example,
-may justify
-a documented
-revision that
-distinguishes
-previously
-combined
-physical mechanisms.
-
-Such a change
-should be accompanied
-by consistent
-reclassification
-of earlier
-records where
-the available
-evidence permits it.
-
-Similarly,
-a future extraction
-could distinguish
-fitted from
-predicted
-theoretical
-parameters,
-separate
-spontaneous
-self-assembly
-from prescribed
-formation,
-or record
-independent
-experimental
-groups.
-
-These refinements
-would improve
-the scientific
-meaning of
-the synthesis.
-However,
-they would
-also require
-careful versioning
-to avoid
-mistaking
-classification
-changes for
-changes in
-the literature.
+These refinements would improve scientific
+interpretation, provided that classification
+changes remain distinguishable from genuine
+changes in the underlying evidence.
 
 \paragraph*{Implications for interpretation.}
 
-The principal contribution of
-the living design
-is therefore
-epistemic rather
-than merely
-administrative.
+The principal contribution of the living design
+is epistemic rather than merely administrative.
+It preserves an auditable connection between
+evidence, classification, certainty, and
+scientific conclusions.
 
-It allows
-the review
-to preserve
-an auditable
-relationship
-between evidence,
-classification,
-certainty,
-and scientific
-conclusion.
+New studies can challenge existing interpretations;
+additional full texts can resolve uncertain records;
+and renewed validation can expose limitations
+in the review workflow.
 
-A new study
-can change
-the evidence
-base.
-A new full
-text can
-resolve an
-uncertain
-record.
-A new
-validation exercise
-can reveal
-limitations in
-the screening
-workflow.
-A new
-theoretical comparison
-can strengthen
-or challenge
-a physical
-interpretation.
-
-Yet, the
-central standard
-remains unchanged.
-The strength
-of a conclusion
-depends on
-the observations
-and tests
-that support it,
-not on
-the frequency
-with which
-the review
-is updated.
+The governing standard nevertheless remains
+unchanged: the strength of a conclusion depends
+on the observations and tests supporting it,
+not on how frequently the review is updated.
 
 \subsection{Overall interpretation}
 \label{sec:discussion-overall}
@@ -2375,152 +1171,69 @@ robotic active matter as a versatile
 experimental approach to collective
 nonequilibrium physics.
 
-The strongest conclusion is that
-physical robotic collectives
-can realize a broad range
-of organized behaviors
-through programmed,
-mechanical, and
-field-mediated
-interactions.
+Physical robotic collectives realize
+a broad range of organized behaviors
+through programmed, mechanical,
+and field-mediated interactions.
+Programmability also provides a means
+of changing the microscopic rules
+thought to determine collective behavior.
 
-A second conclusion
-is that programmability
-provides a valuable
-experimental means
-of changing the
-microscopic rules
-thought to determine
-collective behavior.
+However, theoretical interpretation
+requires greater care than the visual
+similarity of collective states suggests.
+The evidence is less decisive for
+universal phase behavior, large-system
+scaling, and the independent predictive
+validity of particular models.
 
-However, the theoretical
-interpretation of these
-experiments requires
-greater care than
-the visual similarity
-of collective states
-might suggest.
-
-The evidence is
-less decisive
-for universal
-phase behavior,
-large-system scaling,
-and the independent
-predictive validity
-of particular
-theoretical models.
-
-The risk-of-bias
-assessment identifies
-three particularly
-important constraints:
-incomplete replication
-reporting,
-limited finite-size
-characterization,
-and insufficiently
-documented quantitative
-theory tests.
-
-Incomplete data
-and code availability
-further restrict
+The risk-of-bias assessment identifies
+three major constraints: incomplete
+replication reporting, limited
+finite-size characterization, and
+insufficiently documented quantitative
+theory tests. Limited data and code
+availability further restricts
 independent verification.
 
-These limitations
-are not specific
-to one platform.
-They occur
-throughout the
-experimental
-taxonomy,
-although their
-importance differs
-between scientific
-questions.
+These limitations occur across
+experimental platforms, although
+their importance depends on the
+scientific question.
 
-The living design
-can improve
-coverage,
-resolve incomplete
-records,
-correct classifications,
-and update
-certainty assessments.
-It cannot
-replace the
-experimental
-measurements
-needed to
-distinguish
+The living design can improve
+coverage, resolve incomplete records,
+correct classifications, and update
+certainty assessments. It cannot
+replace experiments that distinguish
 physical mechanisms.
 
-We therefore
-regard the
-next stage
-of robotic
-active-matter
-research as
-a transition
-from realizing
-collective
-behavior to
-testing it
-predictively.
+We therefore regard the next stage
+of robotic active-matter research
+as a transition from realizing
+collective behavior to testing
+it predictively.
 
-The most
-informative
-experiments
-will characterize
-microscopic
-interactions,
-measure collective
-observables
-with independent
-replication,
-vary relevant
-parameters
-systematically,
-and test
-theoretical
-predictions
-outside the
-conditions used
-for fitting.
+The most informative experiments
+will characterize microscopic
+interactions, measure collective
+observables with independent
+replication, vary relevant
+parameters systematically,
+and test predictions outside
+the conditions used for fitting.
 
-Cross-platform
-replication
-will then
-help identify
-which principles
-are genuinely
-general and
-which depend
-on particular
-actuation,
-sensing,
-or mechanical
-implementations.
+Cross-platform replication can
+then establish which principles
+are general and which depend
+on specific actuation, sensing,
+or mechanical implementations.
 
-In this
-sense,
-the value
-of robotic
-active matter
-lies not
-only in
-constructing
-controllable
-nonequilibrium
-systems.
-It lies
-in using
-that control
-to make
-physical theories
-vulnerable
-to precise
-experimental
-tests.
+The value of robotic active matter
+lies not only in constructing
+controllable nonequilibrium systems,
+but in using that control to make
+physical theories vulnerable
+to precise experimental tests.
+
 

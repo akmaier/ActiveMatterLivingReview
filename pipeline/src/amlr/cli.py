@@ -190,13 +190,14 @@ def fulltext_browser(
     publisher: str = typer.Option(None, help="Restrict to hosts containing this string, e.g. ieee"),
     exclude: str = typer.Option(None, help="Skip hosts containing this string, e.g. ieee"),
     wait_for_human: int = typer.Option(300, help="Seconds to wait at a bot check for the person at the screen (0: skip host)"),
+    only: list[str] = typer.Option([], "--only", help="Retry exactly these record ids"),
     dry_run: bool = typer.Option(False, "--dry-run"),
 ) -> None:
     """Tier 3: visible Chrome over FAU institutional access for records the APIs could not supply."""
     from .fulltext.browser import run
 
     rprint(run(corpus, limit=limit, publisher=publisher, exclude=exclude, dry_run=dry_run,
-               wait_for_human_s=wait_for_human))
+               wait_for_human_s=wait_for_human, only=only or None))
 
 
 @app.command("fulltext-list")

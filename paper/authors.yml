@@ -1,0 +1,155 @@
+# Author information compiled from public sources only (2026-10-17).
+# "not found" = could not be established from public pages.
+# Items marked UNVERIFIED rest on a name+institution match only.
+
+affiliations:
+  prl: "Pattern Recognition Lab, Department of Computer Science, Friedrich-Alexander-Universität Erlangen-Nürnberg, Martensstr. 3, 91058 Erlangen, Germany"
+  puls: "PULS Group, Institute for Theoretical Physics, Friedrich-Alexander-Universität Erlangen-Nürnberg, Cauerstr. 3, 91058 Erlangen, Germany"
+  grasp: "GRASP, Institute of Physics B5a, University of Liège, B-4000 Liège, Belgium"
+  flame: "Department of Physical and Natural Sciences, FLAME University, Pune, India"
+  rbi: "Group for Computational Life Sciences, Division of Physical Chemistry, Ruđer Bošković Institute, 10000 Zagreb, Croatia"
+
+authors:
+  - name: "Andreas Maier"
+    short: "A. Maier"
+    affiliations: [prl]
+    orcid: "0000-0002-9550-5284"   # a second ORCID 0009-0006-7583-9144 (also FAU) exists but appears to be a different person (Regensburg/Ingolstadt)
+    url: "https://lme.tf.fau.de/"
+    expertise: "Head of the Pattern Recognition Lab at FAU since 2015; works on medical image processing, machine learning and pattern recognition for health engineering. Co-author of the GRASPion and brainbot digital-twin papers."
+    source_urls:
+      - "https://lme.tf.fau.de/about-us/"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Maier+AND+given-names:Andreas+AND+affiliation-org-name:Erlangen"
+      - "https://arxiv.org/html/2509.07437v1"
+
+  - name: "Siming Bayer"
+    short: "S. Bayer"
+    affiliations: [prl]
+    orcid: "0000-0003-2874-4805"
+    url: "https://lme.tf.fau.de/persons_category/if"
+    expertise: "Dr.-Ing.; head of a research group (formerly Image Fusion group) at the Pattern Recognition Lab, FAU; background in medical image fusion (ORCID also lists Siemens Healthineers). Detailed research topics not found on the pages consulted."
+    source_urls:
+      - "https://lme.tf.fau.de/persons_category/if"
+      - "https://www5.cs.fau.de/en/our-team/bayer-siming/index.html"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Bayer+AND+given-names:Siming"
+
+  - name: "Megan Delens"   # first name UNVERIFIED: ORCID name match at Liège, initial M.
+    short: "M. Delens"
+    affiliations: [grasp]
+    orcid: "0000-0002-7180-9451"   # UNVERIFIED (name + Université de Liège)
+    url: "not found"
+    expertise: "not found (GRASP member; co-author of the GRASPion open-source bristlebot paper, Rev. Sci. Instrum. 97, 014704)."
+    source_urls:
+      - "https://arxiv.org/html/2509.07437v1"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Delens+AND+affiliation-org-name:Li%C3%A8ge"
+
+  - name: "Isa Mammadli"
+    short: "I. Mammadli"
+    affiliations: [puls]
+    orcid: "not found"
+    url: "https://www.puls.nat.fau.de/people/hiwi"
+    expertise: "Student assistant (Hiwi) in the PULS group; first author of the Phys. Rev. Research brainbot digital-twin and onboard-control paper (FAU CRIS lists LSTM, Fluid Mechanics, as affiliation there). Co-developer of the brainbot platform."
+    source_urls:
+      - "https://cris.fau.de/publications/368817964?lang=en_GB"
+      - "https://www.puls.nat.fau.de/people/hiwi"
+
+  - name: "not found (M. Mélard)"
+    short: "M. Mélard"
+    affiliations: [grasp]
+    orcid: "not found"
+    url: "not found"
+    expertise: "not found (GRASP; co-author of the GRASPion paper)."
+    source_urls:
+      - "https://arxiv.org/html/2509.07437v1"
+
+  - name: "Siddhant Mohapatra"
+    short: "S. Mohapatra"
+    affiliations: [puls]
+    orcid: "0000-0002-6623-6732"
+    url: "https://www.puls.nat.fau.de/faudir/siddhant-mohapatra"
+    expertise: "Dr.; research associate in the PULS group (Prof. A.-S. Smith), listed in the DFG Research Training Group 2423 'Fracture across scales'. Specific research interests not stated on the page consulted."
+    source_urls:
+      - "https://www.puls.nat.fau.de/faudir/siddhant-mohapatra"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Mohapatra+AND+affiliation-org-name:Erlangen"
+
+  - name: "Maxime Noirhomme"   # first name from FAU CRIS record (ORCID results for Noirhomme did not match)
+    short: "M. Noirhomme"
+    affiliations: [grasp]
+    orcid: "not found"
+    url: "not found"
+    expertise: "not found (GRASP; first author of the original brainbot paper, Phys. Rev. Applied 23, 064008 (2025), and co-author of GRASPion)."
+    source_urls:
+      - "https://cris.fau.de/publications/368817964?lang=en_GB"
+      - "https://www.puls.nat.fau.de/publications/"
+
+  - name: "Filip Novkoski"
+    short: "F. Novkoski"
+    affiliations: [puls, grasp]
+    orcid: "0000-0003-0658-0336"
+    url: "https://www.puls.nat.fau.de/people/postdocs"
+    expertise: "Researcher in the PULS group (FAU) with a joint affiliation at GRASP, Liège; first author of the GRASPion paper. Works on programmable bristlebots/brainbots for active matter."
+    source_urls:
+      - "https://cris.fau.de/publications/358845305"
+      - "https://arxiv.org/html/2509.07437v1"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Novkoski"
+
+  - name: "Jayant Pande"   # FLAME profile; FAU CRIS record prints a different first name (Jagriti) -- CRIS entry appears erroneous
+    short: "J. Pande"
+    affiliations: [flame]
+    orcid: "0000-0002-8812-8900"
+    url: "https://www.flame.edu.in/faculty/jayant-pande"
+    expertise: "Assistant Professor of Physics, FLAME University; PhD Erlangen 2016; research interests in complex-systems physics and theoretical ecology; postdoctoral work in Israel, Puerto Rico and Erlangen. Corresponding author of the brainbot papers."
+    source_urls:
+      - "https://www.flame.edu.in/faculty/jayant-pande"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Pande+AND+given-names:Jayant"
+      - "https://arxiv.org/html/2511.00384v1"
+
+  - name: "Prajol Shrestha"
+    short: "P. Shrestha"
+    affiliations: [prl]
+    orcid: "0009-0005-9585-3800"
+    url: "https://lme.tf.fau.de/2025/04/"
+    expertise: "PhD student at the Pattern Recognition Lab since February 2025 (M.Sc. ICT, FAU; B.Sc. Computer Engineering, Tribhuvan University); works on multi-modal signal processing with AI, and on predictive control and flocking of vibration-driven robots."
+    source_urls:
+      - "https://lme.tf.fau.de/2025/04/"
+      - "https://www.puls.nat.fau.de/publications/"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Shrestha+AND+affiliation-org-name:Erlangen"
+
+  - name: "Ana-Sunčana Smith"   # ORCID record: Ana-Suncana Smith
+    short: "A.-S. Smith"
+    affiliations: [puls, rbi]
+    orcid: "0000-0002-0835-0086"
+    url: "https://www.puls.nat.fau.de/"
+    expertise: "Professor of Theoretical Physics at FAU and head of the PULS (Physics Underlying Life Science) group; expert in the theoretical physics of biological membranes, cell adhesion and soft/active matter; also affiliated with the Ruđer Bošković Institute, Zagreb."
+    source_urls:
+      - "https://www.fps.fau.de/faudir/smith-ana%e2%80%90suncana-prof-dr"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Smith+AND+given-names:Ana-Sun%C4%8Dana"
+      - "https://arxiv.org/html/2511.00384v1"
+
+  - name: "not found (N. Vanesse)"
+    short: "N. Vanesse"
+    affiliations: [grasp]
+    orcid: "not found"
+    url: "not found"
+    expertise: "not found (GRASP; co-author of the original brainbot paper, Phys. Rev. Applied 23, 064008)."
+    source_urls:
+      - "https://arxiv.org/abs/2411.01943"
+
+  - name: "Fanny Wéry"   # first name UNVERIFIED: ORCID name match at Liège, initial F.
+    short: "F. Wéry"
+    affiliations: [grasp]
+    orcid: "0009-0008-5605-4338"   # UNVERIFIED (name + University of Liège)
+    url: "not found"
+    expertise: "not found (GRASP; co-author of the GRASPion paper)."
+    source_urls:
+      - "https://arxiv.org/html/2509.07437v1"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:W%C3%A9ry+AND+affiliation-org-name:Li%C3%A8ge"
+
+  - name: "Nicolas Vandewalle"
+    short: "N. Vandewalle"
+    affiliations: [grasp]
+    orcid: "0000-0002-1824-2011"
+    url: "https://www.grasp.uliege.be/cms/c_4038109/en/nicolas-vandewalle"
+    expertise: "Professor of physics and director of GRASP (Group for Research and Applications in Statistical Physics), University of Liège; statistical physics of soft and active matter; a ULiège news item describes work on small particles at liquid surfaces manipulated by magnetic fields (first Belgian ELGRA prize winner). Last author of all three brainbot papers."
+    source_urls:
+      - "https://www.grasp.uliege.be/cms/c_4038109/en/nicolas-vandewalle"
+      - "https://pub.orcid.org/v3.0/expanded-search/?q=family-name:Vandewalle+AND+given-names:Nicolas"

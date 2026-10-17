@@ -160,14 +160,18 @@ def pdf_url(host: str, record: dict, final_url: str, html: str) -> str | None:
     return (m.group(1) or m.group(2)) if m else None
 
 
-def candidates(corpus: Path, publisher: str | None = None, exclude: str | None = None) -> list[dict]:
+def candidates(corpus: Path, publisher: str | None = None, exclude: str | None = None,
+               only: list[str] | None = None) -> list[dict]:
     latest = {r["record_id"]: r for r in read_jsonl(LEDGER)}
     out = []
     for r in read_jsonl(corpus):
         a = latest.get(r["id"])
-        if r.get("phase") != PrismaPhase.fulltext_sought.value or (a and a["status"] == "retrieved"):
+        if only is not None:  # explicit retry of named records, even if the browser route was tried
+            if r["id"] not in only:
+                continue
+        elif r.get("phase") != PrismaPhase.fulltext_sought.value or (a and a["status"] == "retrieved"):
             continue
-        if a and ROUTE in a.get("tried", []):
+        elif a and ROUTE in a.get("tried", []):
             continue
         p = plan(r)
         if p and (publisher is None or publisher in p[0]) and (exclude is None or exclude not in p[0]):
@@ -176,10 +180,10 @@ def candidates(corpus: Path, publisher: str | None = None, exclude: str | None =
 
 
 def run(corpus: Path, *, limit: int | None = None, publisher: str | None = None, exclude: str | None = None,
-        dry_run: bool = False, headless: bool = False, wait_for_human_s: int = 300) -> dict:
+        dry_run: bool = False, headless: bool = False, wait_for_human_s: int = 300, only: list[str] | None = None) -> dict:
     # Publishers other than IEEE first: those are the ones that show bot checks, best handled
     # while the person who can solve them is at the screen.
-    todo = sorted(candidates(corpus, publisher, exclude), key=lambda r: plan(r)[0] == "ieeexplore.ieee.org")[: limit or None]
+    todo = sorted(candidates(corpus, publisher, exclude, only), key=lambda r: plan(r)[0] == "ieeexplore.ieee.org")[: limit or None]
     if dry_run:
         return {"would_try": len(todo), "by_host": dict(Counter(plan(r)[0] for r in todo).most_common())}
     latest = {r["record_id"]: r for r in read_jsonl(LEDGER)}

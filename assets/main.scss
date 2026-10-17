@@ -1,0 +1,61 @@
+---
+# Site theme: minima 2.5 with the Pattern Recognition Lab (LME, FAU) palette.
+---
+
+$base-font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$text-color: #1c2a38;
+$background-color: #f7f9fb;
+$brand-color: #2f5f8a;
+$grey-color: #6b7b8c;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark: darken($grey-color, 25%);
+$content-width: 1000px;
+
+@import "minima";
+
+:root {
+  --lme-navy: #003865;
+  --lme-blue: #2f5f8a;
+  --lme-steel: #6f9fbf;
+  --lme-mist: #e6edf4;
+  --lme-bg: #f7f9fb;
+  --lme-ink: #1c2a38;
+}
+
+body { background: var(--lme-bg); color: var(--lme-ink); }
+a { color: var(--lme-blue); }
+a:visited { color: #4a6a8a; }
+a:hover { color: var(--lme-navy); }
+
+.site-header {
+  border-top: 4px solid var(--lme-navy);
+  border-bottom: 1px solid #d7dee6;
+  background: #fff;
+  min-height: 64px;
+}
+.site-title, .site-title:visited {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  color: var(--lme-navy); font-weight: 600; letter-spacing: -0.2px; line-height: 64px;
+}
+.site-title img { width: 36px; height: 36px; }
+.site-title .site-org { font-weight: 400; color: #6b7b8c; font-size: 0.8em; letter-spacing: 0; }
+.site-nav { line-height: 64px; }
+.site-nav .page-link { color: #33475b; font-weight: 500; }
+.site-nav .page-link:hover { color: var(--lme-navy); text-decoration: none; box-shadow: inset 0 -2px 0 var(--lme-steel); }
+.page-heading, .post-title { color: var(--lme-navy); }
+.post-content h2, .post-content h3 { color: var(--lme-navy); }
+.site-footer { border-top: 1px solid #d7dee6; background: #fff; }
+.footer-logo { width: 28px; height: 28px; vertical-align: middle; margin-right: 0.4rem; }
+
+table th { background: var(--lme-mist); }
+table tr:nth-child(even) { background: #f2f5f8; }
+code { background: var(--lme-mist); border-color: #d7dee6; }
+
+/* Corpus and Mermaid tweaks (formerly assets/css/custom.css). */
+table#corpus { font-size: 0.9rem; }
+table#corpus td, table#corpus th { padding: 0.4rem 0.6rem; }
+pre.mermaid { background: transparent; border: none; }
+
+@media screen and (max-width: 600px) {
+  .site-title .site-org { display: none; }
+}

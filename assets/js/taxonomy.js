@@ -64,7 +64,7 @@
 
   // ---- layout ----------------------------------------------------------------------------
   var margin = { top: 16, bottom: 16, left: 16, right: 8 };
-  var LINE = 15, MIN_COL = 120, lastPos = {}, height = 0;
+  var LINE = 15, MIN_COL = 120, lastPos = {}, height = 0, zoom, zoomG, content = { w: 1, h: 1 };
   var ctx = document.createElement("canvas").getContext("2d");
 
   function labelFont() {
@@ -85,7 +85,7 @@
     return lines;
   }
 
-  function render(animate) {
+  function render(animate, keepId) {
     var h = build();
     var avail = root.querySelector(".tx-canvas").clientWidth;
     var depthMax = Math.max(1, levels.length);
@@ -112,10 +112,18 @@
     });
     h.each(function (d) { d.x -= minX; });
     height = Math.ceil(maxX - minX);
-    var H = height + margin.top + margin.bottom;
-    svg.attr("width", width).attr("viewBox", [0, 0, width, H]);
-    svg.transition().duration(animate ? DUR : 0).attr("height", H);
+    content = { w: width, h: height + margin.top + margin.bottom };
     var t = svg.transition().duration(animate ? DUR : 0).ease(d3.easeCubicInOut);
+    // The viewport stays put: a clicked node keeps its place on screen while the tree re-forms
+    // around it, by shifting the pan by however far the layout moved that node.
+    if (keepId && lastPos[keepId]) {
+      var moved = h.descendants().filter(function (d) { return d.data.id === keepId; })[0];
+      if (moved) {
+        var k = d3.zoomTransform(svg.node());
+        var next = k.translate(-(moved.y - lastPos[keepId].y), -(moved.x - lastPos[keepId].x));
+        svg.transition(t).call(zoom.transform, next);
+      }
+    }
 
     var nodes = h.descendants(), links = h.links();
     var origin = function (d) {
@@ -208,7 +216,7 @@
   function toggle(d) {
     selected = d.data.id;
     if (d.data.children) expanded[d.data.id] = !d.children;
-    render(true);
+    render(true, d.data.id);
   }
 
   // ---- side panel ------------------------------------------------------------------------
@@ -277,7 +285,18 @@
     writeHash();
     controls();
     render(true);
+    fit(true);
   }
+
+  // ---- pan and zoom ----------------------------------------------------------------------
+  function fit(animate) {
+    var box = svg.node().getBoundingClientRect();
+    var k = Math.min(1.2, Math.max(0.25, Math.min((box.width - 24) / content.w, (box.height - 24) / content.h)));
+    var tx = 12, ty = Math.max(12, (box.height - content.h * k) / 2);
+    svg.transition().duration(animate ? DUR : 0).call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(k));
+  }
+  function nudge(dx, dy) { svg.transition().duration(250).call(zoom.translateBy, dx, dy); }
+  function zoomBy(f) { svg.transition().duration(250).call(zoom.scaleBy, f); }
 
   // ---- boot ------------------------------------------------------------------------------
   fetch(root.getAttribute("data-src"), { cache: "no-cache" })
@@ -288,16 +307,39 @@
       byId = {};
       facets.forEach(function (f) { byId[f.id] = f; });
       levels = readHash() || DEFAULT.slice();
-      root.innerHTML = '<div class="tx-levels"></div><div class="tx-main"><div class="tx-canvas"><svg role="img" aria-label="Taxonomy tree"></svg></div>' +
+      root.innerHTML = '<div class="tx-levels"></div><div class="tx-main"><div class="tx-canvas"><svg role="img" aria-label="Taxonomy tree"></svg>' +
+        '<div class="tx-zoom" role="toolbar" aria-label="Move and zoom the tree">' +
+        '<button type="button" data-z="in" title="Zoom in (+)">+</button><button type="button" data-z="out" title="Zoom out (−)">−</button>' +
+        '<button type="button" data-z="fit" title="Fit the tree to the view (0)">⤢</button>' +
+        '<span class="tx-pad"><button type="button" data-z="up" title="Move up">▲</button><button type="button" data-z="left" title="Move left">◀</button>' +
+        '<button type="button" data-z="right" title="Move right">▶</button><button type="button" data-z="down" title="Move down">▼</button></span>' +
+        '</div><p class="tx-hint">Drag to move · scroll or pinch to zoom</p></div>' +
         '<aside class="tx-list" aria-live="polite"></aside></div><p class="tx-muted tx-foot">Snapshot ' + esc(d.snapshot) + " · " +
         d.studies.length + " included studies · node size grows with the number of studies</p>";
       svg = d3.select(root).select("svg");
-      var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      zoomG = svg.append("g");
+      var g = zoomG.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      zoom = d3.zoom().scaleExtent([0.2, 3]).on("zoom", function (ev) { zoomG.attr("transform", ev.transform); });
+      svg.call(zoom).on("dblclick.zoom", null);
+      root.querySelectorAll("[data-z]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var z = b.getAttribute("data-z"), step = 120;
+          if (z === "in") zoomBy(1.3); else if (z === "out") zoomBy(1 / 1.3); else if (z === "fit") fit(true);
+          else if (z === "up") nudge(0, step); else if (z === "down") nudge(0, -step);
+          else if (z === "left") nudge(step, 0); else if (z === "right") nudge(-step, 0);
+        });
+      });
+      document.addEventListener("keydown", function (e) {
+        var tag = e.target && e.target.tagName;
+        if (tag === "INPUT" || tag === "TEXTAREA" || e.metaKey || e.ctrlKey) return;
+        if (e.key === "+" || e.key === "=") zoomBy(1.3); else if (e.key === "-") zoomBy(1 / 1.3); else if (e.key === "0") fit(true);
+      });
       gLinks = g.append("g").attr("fill", "none");
       gNodes = g.append("g");
-      color = d3.scaleOrdinal(["#3366cc", "#dc7633", "#239b56", "#c0392b", "#7d3c98", "#a04000", "#d4ac0d", "#2e86c1", "#1abc9c", "#6c3483", "#7b7d7d", "#b03a2e"]);
+      color = d3.scaleOrdinal(["#003865", "#4f7cac", "#6f9fbf", "#5b8c85", "#8c6d8f", "#b08d57", "#3e6a8a", "#9db4c8", "#7a8b99", "#a8786b", "#56708a", "#8aa39b"]);
       controls();
       render(false);
+      fit(false);
       var canvas = root.querySelector(".tx-canvas"), w = canvas.clientWidth, pending = false;
       var onResize = function () {
         var now = canvas.clientWidth;

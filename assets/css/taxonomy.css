@@ -73,3 +73,7 @@ body:has(#tx) .wrapper { max-width: 1320px; }
   .tx-levels { position: static; }
 }
 @media (prefers-reduced-motion: reduce) { .tx-chip { transition: none; } }
+
+.tx-search { flex: 1 1 22rem; max-width: 34rem; font: inherit; font-size: 0.9rem; padding: 0.35rem 0.6rem; border: 1px solid var(--tx-line); border-radius: 999px; background: #fff; }
+.tx-search:focus { outline: 2px solid #6f9fbf; outline-offset: 0; }
+.tx-hits { font-size: 0.85rem; color: var(--tx-muted); }

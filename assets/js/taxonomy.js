@@ -52,13 +52,29 @@
   }
 
   function build() {
-    var top = { id: "root", label: "All included studies", studies: data.studies, children: group(data.studies, 0, "root") };
+    var pool = matching();
+    var top = { id: "root", label: query ? "Matching studies" : "All included studies", studies: pool, children: group(pool, 0, "root") };
     var h = d3.hierarchy(top, function (d) {
       if (!d.children) return null;
       var open = d.id === "root" || expanded[d.id] === true || (expanded[d.id] === undefined && depthOf(d.id) < 1);
       return open ? d.children : null;
     });
     return h;
+  }
+  // Search (as in the living review of Matl et al.): keep studies whose title, platform name or any
+  // facet label contains every word of the query.
+  var query = "";
+  function matching() {
+    if (!query) return data.studies;
+    var words = query.toLowerCase().split(/\s+/).filter(Boolean);
+    return data.studies.filter(function (s) {
+      if (!s._hay) {
+        var parts = [s.title || "", s.platform_name || "", String(s.year || "")];
+        Object.keys(s.f).forEach(function (k) { parts = parts.concat(s.f[k]); });
+        s._hay = parts.join(" ").toLowerCase();
+      }
+      return words.every(function (w) { return s._hay.indexOf(w) >= 0; });
+    });
   }
   function depthOf(id) { return id === "root" ? 0 : id.split("/").length - 1; }
 
@@ -249,7 +265,8 @@
     var free = facets.filter(function (f) { return levels.indexOf(f.id) < 0; }).map(function (f) {
       return '<li><button type="button" class="tx-chip add" data-act="add" data-id="' + f.id + '">+ ' + esc(f.label) + "</button></li>";
     }).join("");
-    box.innerHTML = '<div class="tx-row"><span class="tx-h">Levels</span><ol class="tx-chosen">' + chosen +
+    box.innerHTML = '<div class="tx-row"><span class="tx-h">Search</span><input type="search" class="tx-search" placeholder="title, platform, phenomenon, theory… e.g. kilobot, hexbug, odd elastic" value="' + esc(query) + '" aria-label="Search the included studies"><span class="tx-hits"></span></div>' +
+      '<div class="tx-row"><span class="tx-h">Levels</span><ol class="tx-chosen">' + chosen +
       '</ol></div><div class="tx-row"><span class="tx-h">Add</span><ul class="tx-free">' + free + "</ul>" +
       '<button type="button" class="tx-reset" data-act="reset">Reset</button> <button type="button" class="tx-reset" data-act="fold">Fold all</button></div>';
 
@@ -266,6 +283,20 @@
         changed();
       });
     });
+    var search = box.querySelector(".tx-search"), timer = null;
+    var onSearch = function () {
+      if (search.value.trim() === query) return;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        query = search.value.trim();
+        render(true);
+        fit(true);
+        hits();
+      }, 220);
+    };
+    search.addEventListener("input", onSearch);
+    search.addEventListener("keyup", onSearch);
+    hits();
     // Drag to reorder.
     var dragId = null;
     box.querySelectorAll(".tx-chip.on").forEach(function (li) {
@@ -281,6 +312,10 @@
     });
   }
 
+  function hits() {
+    var el = root.querySelector(".tx-hits");
+    if (el) el.textContent = query ? matching().length + " of " + data.studies.length + " studies" : "";
+  }
   function changed() {
     writeHash();
     controls();

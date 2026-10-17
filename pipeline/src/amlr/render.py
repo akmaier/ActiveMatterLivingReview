@@ -161,3 +161,62 @@ def _bibkey(r: dict) -> str:
     year = str(r.get("year") or "nd")
     title = _SAFE.sub("", (r.get("title") or "")[:20]).lower() or "untitled"
     return f"{last}{year}{title}"
+
+
+# Facets of the reconfigurable taxonomy (/taxonomy/). Multi-label facets place a study under every
+# label it carries, so counts at one level can sum to more than the parent.
+TAXONOMY_FACETS = {
+    "platform_class": ("Platform", False),
+    "phenomena": ("Phenomenon", True),
+    "theory_compared": ("Theory compared", True),
+    "control_architecture": ("Control", False),
+    "interaction_modality": ("Interaction", True),
+    "propulsion": ("Propulsion", False),
+    "agreement": ("Theory agreement", False),
+    "scale": ("Collective size", False),
+    "period": ("Period", False),
+}
+
+
+def _scale(n) -> str:
+    try:
+        n = int(n)
+    except (TypeError, ValueError):
+        return "not reported"
+    return "2–9 agents" if n < 10 else "10–99 agents" if n < 100 else "100–999 agents" if n < 1000 else "≥ 1000 agents"
+
+
+def _period(y) -> str:
+    try:
+        y = int(y)
+    except (TypeError, ValueError):
+        return "unknown"
+    return "before 2010" if y < 2010 else "2010–2014" if y < 2015 else "2015–2019" if y < 2020 else "2020–2022" if y < 2023 else "2023–"
+
+
+def write_taxonomy_json(records: Iterable[dict], out: Path | None = None) -> Path:
+    out = out or (REPO_ROOT / "assets" / "taxonomy.json")
+    included = sorted((r for r in records if r.get("phase") == "included"), key=lambda r: r["id"])
+    keys = bibkeys(included)
+    studies = []
+    for r in included:
+        e = r.get("extraction") or {}
+        facets = {}
+        for f, (_, multi) in TAXONOMY_FACETS.items():
+            if f == "scale":
+                v = _scale(e.get("n_agents_max"))
+            elif f == "period":
+                v = _period(r.get("year"))
+            else:
+                v = e.get(f)
+            vals = (v or []) if multi else [v]
+            vals = [str(x).replace("_", " ") for x in vals if x not in (None, "", "none")] or ["not reported"]
+            facets[f] = vals
+        studies.append({"key": keys[r["id"]], "title": r.get("title"), "year": r.get("year"),
+                        "doi": r.get("doi"), "platform_name": e.get("platform_name"),
+                        "n": e.get("n_agents_max"), "abstract_only": r.get("assessment_basis") == "abstract_only",
+                        "f": facets})
+    meta = {"facets": [{"id": f, "label": lab, "multi": multi} for f, (lab, multi) in TAXONOMY_FACETS.items()],
+            "studies": studies, "snapshot": date.today().isoformat()}
+    out.write_text(json.dumps(meta, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return out

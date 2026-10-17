@@ -288,7 +288,7 @@ def prisma(corpus: Path = typer.Option(CORPUS)) -> None:
 def render(corpus: Path = typer.Option(CORPUS)) -> None:
     """Emit _data/corpus.yml, paper/refs.bib, the included-studies snapshot and the /check/ queue."""
     from .human import build_queue
-    from .render import write_bibtex, write_corpus_yml, write_snapshot
+    from .render import write_bibtex, write_corpus_yml, write_snapshot, write_taxonomy_json
     from .storage import read_jsonl
 
     rows = read_jsonl(corpus)
@@ -314,6 +314,7 @@ def evidence(
     rprint(run(corpus, text_for, kinds=tuple(kind), reviewers=tuple(reviewer), limit=limit,
                workers=workers, ledger=path))
     rprint(f"human-check queue: {build_queue(corpus)}")
+    rprint(f"wrote {write_taxonomy_json(rows)}")
 
 
 @app.command("human-queue")

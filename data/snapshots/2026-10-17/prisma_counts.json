@@ -20,16 +20,16 @@
   "not_retrieved": 300,
   "assessed_on_abstract_only": 179,
   "abstract_only_included": 30,
-  "assessed": 977,
-  "excluded_eligibility": 660,
+  "assessed": 979,
+  "excluded_eligibility": 662,
   "excluded_eligibility_reasons": {
     "E2": 261,
-    "E1": 31,
+    "E1": 32,
     "E5": 127,
     "E6": 16,
-    "E3": 223,
+    "E3": 224,
     "E4": 2
   },
-  "included_studies": 490,
-  "included_reports": 490
+  "included_studies": 492,
+  "included_reports": 492
 }

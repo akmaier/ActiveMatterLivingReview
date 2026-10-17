@@ -1,0 +1,55 @@
+/* Reconfigurable taxonomy (/taxonomy/), layered over minima. */
+body:has(#tx) .wrapper { max-width: 1240px; }
+#tx { --tx-line: #dde2e8; --tx-soft: #f6f8fa; --tx-muted: #5d6874; --tx-ink: #1f2328; --tx-accent: #2a7ae2; margin-top: 1.2rem; color: var(--tx-ink); }
+.tx-muted { color: var(--tx-muted); }
+
+.tx-levels { position: sticky; top: 0; z-index: 2; background: #fdfdfd; border-bottom: 1px solid var(--tx-line); padding: 0.5rem 0 0.6rem; }
+.tx-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; margin: 0.25rem 0; }
+.tx-h { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--tx-muted); min-width: 3.6rem; }
+#tx ol.tx-chosen, #tx ul.tx-free { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+#tx .tx-chosen li, #tx .tx-free li { margin: 0; }
+.tx-chip {
+  display: inline-flex; align-items: center; gap: 0.35rem; font: inherit; font-size: 0.9rem; line-height: 1.2;
+  border: 1px solid var(--tx-line); border-radius: 999px; padding: 0.3rem 0.45rem 0.3rem 0.6rem; background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.tx-chip.on { background: #eaf2fd; border-color: #b9d2f5; cursor: grab; }
+.tx-chip.on.dragging { opacity: 0.5; }
+.tx-chip.on.over { box-shadow: 0 0 0 2px var(--tx-accent); transform: translateY(-1px); }
+.tx-chip.add { cursor: pointer; color: var(--tx-muted); padding-right: 0.7rem; }
+.tx-chip.add:hover { color: var(--tx-ink); border-color: #b8c0ca; }
+.tx-grip { color: #9aa3ad; font-size: 0.75rem; letter-spacing: -2px; }
+.tx-lvl { display: inline-grid; place-items: center; width: 1.3rem; height: 1.3rem; border-radius: 50%; background: var(--tx-accent); color: #fff; font-size: 0.72rem; font-weight: 700; }
+.tx-chip button { appearance: none; border: 0; background: none; font: inherit; color: var(--tx-muted); cursor: pointer; padding: 0 0.2rem; border-radius: 4px; }
+.tx-chip button:hover:not([disabled]) { color: var(--tx-ink); background: rgba(0, 0, 0, 0.05); }
+.tx-chip button[disabled] { opacity: 0.3; cursor: default; }
+.tx-reset { appearance: none; border: 0; background: none; font: inherit; font-size: 0.85rem; color: var(--tx-accent); text-decoration: underline; cursor: pointer; }
+#tx button:focus-visible, .tx-node:focus-visible { outline: 2px solid var(--tx-accent); outline-offset: 2px; }
+
+.tx-main { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 1.2rem; margin-top: 0.8rem; }
+.tx-canvas { overflow-x: auto; }
+.tx-canvas svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.tx-link { stroke-width: 1.4px; }
+.tx-node { cursor: pointer; }
+.tx-node circle { stroke-width: 2px; transition: stroke-width 0.15s; }
+.tx-node:hover circle { stroke-width: 3px; }
+.tx-node.is-selected circle { stroke-width: 3.5px; }
+.tx-label { font-size: 12.5px; fill: var(--tx-ink); paint-order: stroke; stroke: #fdfdfd; stroke-width: 4px; stroke-linejoin: round; }
+.tx-node.is-selected .tx-label { font-weight: 700; }
+
+.tx-list { border-left: 1px solid var(--tx-line); padding-left: 1rem; max-height: 78vh; overflow-y: auto; position: sticky; top: 7rem; font-size: 0.88rem; }
+.tx-crumbs { font-weight: 600; line-height: 1.5; }
+.tx-crumb-f { font-weight: 400; color: var(--tx-muted); }
+.tx-sep { color: #9aa3ad; }
+.tx-count { color: var(--tx-muted); margin: 0.3rem 0 0.5rem; }
+.tx-list ol { margin: 0 0 0 1.2rem; padding: 0; }
+.tx-list li { margin-bottom: 0.45rem; line-height: 1.4; }
+.tx-meta { color: var(--tx-muted); font-size: 0.82rem; }
+.tx-foot { font-size: 0.82rem; margin-top: 0.6rem; }
+
+@media (max-width: 860px) {
+  .tx-main { grid-template-columns: 1fr; }
+  .tx-list { border-left: 0; border-top: 1px solid var(--tx-line); padding: 0.8rem 0 0; max-height: none; position: static; }
+  .tx-levels { position: static; }
+}
+@media (prefers-reduced-motion: reduce) { .tx-chip { transition: none; } }

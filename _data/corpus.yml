@@ -69,6 +69,19 @@
   phenomena: boundary accumulation
   abstract_only: false
   doi: 10.48550/arxiv.2608.01179
+- id: doi:10.1103/rd1t-h2v6
+  year: 2026
+  title: Physics-informed digital twin and onboard control of a brainbot for intelligent
+    active matter
+  authors: I. Mammadli; P. Shrestha; J. Pande; F. Novkoski; S. Mohapatra; M. Noirhomme;
+    A. Maier; N. Vandewalle; A.-S. Smith
+  venue: Physical Review Research
+  platform: vibration driven robots
+  platform_name: brainbot
+  agents: 1
+  phenomena: transport or locomotion
+  abstract_only: false
+  doi: 10.1103/rd1t-h2v6
 - id: arxiv:2608.29728
   year: 2026
   title: Active embracement enables autonomous tweezing in active star polymers
@@ -713,6 +726,18 @@
     locomotion
   abstract_only: false
   doi: 10.1088/1674-1056/adc666
+- id: doi:10.1103/pv3d-7s54
+  year: 2024
+  title: Brainbots as smart autonomous active particles with programmable motion
+  authors: Martial Noirhomme; Isa Mammadli; N. Vanesse; Jayant Pande; Ana‐Sunčana
+    Smith; Nicolas Vandewalle
+  venue: arXiv (Cornell University)
+  platform: vibration driven robots
+  platform_name: Brainbot
+  agents: 1
+  phenomena: chirality or rotation, transport or locomotion
+  abstract_only: false
+  doi: 10.1103/pv3d-7s54
 - id: doi:10.1103/z2rp-21xn
   year: 2025
   title: Hyperuniform Networks of Active Magnetic Robotic Spinners

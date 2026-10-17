@@ -1,0 +1,100 @@
+{"record_id": "ads:2021nsf....2034043M", "include": false, "reason": "E5", "confidence": 0.8, "rationale": "NSF award abstract on sea star locomotion; no results, biological."}
+{"record_id": "ads:2005nsf....0448111D", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "NSF award on computer vision MCMC; not primary research results."}
+{"record_id": "doi:10.5281/zenodo.19153000", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "Theoretical MHD blanket formulation; no interacting robotic agents."}
+{"record_id": "doi:10.1002/adma.201505754", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Gallium adhesion material study; no interacting agents."}
+{"record_id": "doi:10.1201/9780429445927-3", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "Introductory book chapter on swarm intelligence."}
+{"record_id": "doi:10.1109/tmech.2025.3572199", "include": false, "reason": "E3", "confidence": 0.6, "rationale": "Independent control of micromotors for cargo delivery; reports task accuracy and success rate, no collective observable."}
+{"record_id": "doi:10.1177/02783649261442970", "include": false, "reason": "E3", "confidence": 0.6, "rationale": "Two robotic fish but study is perception/localization performance, not collective physical observable."}
+{"record_id": "doi:10.1007/978-3-540-30552-1_12", "include": false, "reason": "E5", "confidence": 0.6, "rationale": "Review of macroscopic models for swarm robotics."}
+{"record_id": "doi:10.1109/tvt.2021.3093157", "include": false, "reason": "E3", "confidence": 0.75, "rationale": "Multi-robot coordinated control with task demonstrations; no physical collective observable."}
+{"record_id": "doi:10.5772/12902", "include": false, "reason": "E2", "confidence": 0.8, "rationale": "Theoretical distributed adaptive control chapter."}
+{"record_id": "openalex:W9163983", "include": false, "reason": "E2", "confidence": 0.75, "rationale": "Continuum model of group robots validated only against simulation."}
+{"record_id": "arxiv:1804.06827", "include": false, "reason": "E2", "confidence": 0.75, "rationale": "Pattern formation proofs and simulations only."}
+{"record_id": "ads:2017APS..MARY12004X", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Single bipedal robot on granular media."}
+{"record_id": "doi:10.1007/978-3-662-40393-8_8", "include": false, "reason": "E1", "confidence": 0.8, "rationale": "No abstract; industrial robot design, not collective."}
+{"record_id": "doi:10.1002/047134608x.w8312", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "Encyclopedia entry on swarm robotics."}
+{"record_id": "doi:10.1109/icra.2012.6224638", "include": true, "reason": null, "confidence": 0.5, "rationale": "Kilobot swarm hardware platform for collective behaviour; I3 unclear from abstract."}
+{"record_id": "doi:10.1002/anbr.202500080", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "Review of micro/nanorobot materials."}
+{"record_id": "arxiv:2604.07303", "include": false, "reason": "E1", "confidence": 0.6, "rationale": "Single robotic fish interacting with live fish; no robot-robot interaction."}
+{"record_id": "doi:10.1016/j.cocis.2022.101637", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "Theoretical review of catalytic self-propulsion."}
+{"record_id": "doi:10.1109/iscas48785.2022.9937572", "include": false, "reason": "E3", "confidence": 0.75, "rationale": "Formation control hardware architecture; reports cost and power only."}
+{"record_id": "doi:10.1007/978-3-319-16595-0_23", "include": false, "reason": "E2", "confidence": 0.7, "rationale": "No abstract; statistical-mechanics motion planning theory."}
+{"record_id": "doi:10.7868/s3034519725010101", "include": false, "reason": "E5", "confidence": 0.6, "rationale": "Conceptual article on agro-industrial technology; unrelated."}
+{"record_id": "arxiv:2307.01062", "include": false, "reason": "E1", "confidence": 0.85, "rationale": "Single soft robot modeling."}
+{"record_id": "doi:10.4018/979-8-3693-8769-6.ch001", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "Book chapter overview of service robotics."}
+{"record_id": "doi:10.1109/robot.1989.100065", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Single walking robot."}
+{"record_id": "ads:2011sice.conf..438L", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Single surveillance robot."}
+{"record_id": "doi:10.1088/1748-3190/ad9535", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Single spring-wing flapping system."}
+{"record_id": "doi:10.1109/access.2021.3076110", "include": false, "reason": "E3", "confidence": 0.8, "rationale": "UAV-UUV debris collection task system."}
+{"record_id": "doi:10.1109/iciis69028.2026.11450833", "include": false, "reason": "E3", "confidence": 0.85, "rationale": "Swarm programming IDE validated by tasks."}
+{"record_id": "doi:10.5281/zenodo.20233813", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "Conceptual modeling of UUV swarm defense framework."}
+{"record_id": "doi:10.22271/23957476.2026.v12.i8a.2298", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "Review of hydrogels in textiles."}
+{"record_id": "doi:10.3390/jmse12050701", "include": false, "reason": "E1", "confidence": 0.85, "rationale": "Numerical study of a single robotic fish."}
+{"record_id": "openalex:W7216937978", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Single crop-cutting robot."}
+{"record_id": "doi:10.5281/zenodo.20320040", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "Mathematical theory framework only."}
+{"record_id": "doi:10.1038/d41586-022-03769-3", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "Nature News and Views commentary on theory."}
+{"record_id": "doi:10.1109/icma61710.2024.10633130", "include": false, "reason": "E2", "confidence": 0.8, "rationale": "Leader-follower formation evaluated in simulation only."}
+{"record_id": "doi:10.1115/1.2826841", "include": false, "reason": "E1", "confidence": 0.8, "rationale": "Single free-floating robot assembly modeling."}
+{"record_id": "doi:10.2139/ssrn.6661342", "include": false, "reason": "E4", "confidence": 0.5, "rationale": "No abstract; fish swimming dynamics, biological."}
+{"record_id": "ads:2011nsf....1067501K", "include": false, "reason": "E5", "confidence": 0.8, "rationale": "NSF award on Janus emulsion stabilizers; not active matter results."}
+{"record_id": "doi:10.1109/robio55434.2022.10012026", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Single soft robotic fish design and CFD."}
+{"record_id": "doi:10.23919/ecc.2001.7075965", "include": false, "reason": "E2", "confidence": 0.8, "rationale": "Robot team negotiation model; simulation only."}
+{"record_id": "doi:10.1063/5.0314289", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "Perspective on memtransistors."}
+{"record_id": "doi:10.1109/stcr51658.2021.9588998", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Refrigeration system; no agents."}
+{"record_id": "doi:10.1109/mhs.2003.1249926", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Single endoscope robot."}
+{"record_id": "arxiv:2301.09018", "include": true, "reason": null, "confidence": 0.8, "rationale": "Real robot swarm milling guided by phase diagrams; collective observable likely."}
+{"record_id": "doi:10.1201/9781032690711-2", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "Book chapter on swarm intelligence algorithms."}
+{"record_id": "hal:862876", "include": false, "reason": "E1", "confidence": 0.85, "rationale": "FPGA neural network hardware; no interacting robots."}
+{"record_id": "doi:10.1515/9783110443929-015", "include": false, "reason": "E3", "confidence": 0.7, "rationale": "User interfaces for steering a modular robot; usability evaluation."}
+{"record_id": "doi:10.1146/annurev-animal-020518-114851", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "Review on livestock sensors."}
+{"record_id": "ads:2015nsf....1544578M", "include": false, "reason": "E5", "confidence": 0.85, "rationale": "NSF award on autonomous transportation networks."}
+{"record_id": "doi:10.5281/zenodo.17127203", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Single military robot dog description."}
+{"record_id": "doi:10.1002/aisy.202400254", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Soft suction cup sensor."}
+{"record_id": "doi:10.1109/iccaie.2011.6162131", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Single manipulator with bee colony algorithm vision."}
+{"record_id": "ads:2013nsf....1317477S", "include": false, "reason": "E5", "confidence": 0.8, "rationale": "NSF award proposal on magnetic micro-robot swarms; no results."}
+{"record_id": "doi:10.1007/s10015-025-01089-z", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "Multi-agent RL coordination in simulation only."}
+{"record_id": "doi:10.4018/ijsbbt.2015010101", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "Cellular automata evolutionary search; theory/simulation."}
+{"record_id": "doi:10.1021/acs.nanolett.5b03716", "include": false, "reason": "E1", "confidence": 0.75, "rationale": "Individual DNA-flagella magnetic microswimmers; no inter-agent interaction."}
+{"record_id": "doi:10.1109/robot.1998.680752", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Single trowelling robot."}
+{"record_id": "arxiv:2508.19963", "include": false, "reason": "E2", "confidence": 0.9, "rationale": "Flocking algorithm for production optimization."}
+{"record_id": "doi:10.1299/jsmermd.2009._2p1-e21_1", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Single rail-measuring robot."}
+{"record_id": "doi:10.1299/jsmermd.2021.2a1-b08", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Single rover wheel on sand."}
+{"record_id": "doi:10.1209/0295-5075/ae9008", "include": true, "reason": null, "confidence": 0.85, "rationale": "Chiral bristlebot experiments: edge currents, transport, collective dynamics of linked assemblies."}
+{"record_id": "doi:10.5281/zenodo.17752376", "include": false, "reason": "E5", "confidence": 0.6, "rationale": "Theoretical review of non-reciprocal active phase transitions."}
+{"record_id": "doi:10.1109/rose52750.2021.9611763", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "Boids variant validated in simulation only."}
+{"record_id": "doi:10.1137/18m1205327", "include": false, "reason": "E2", "confidence": 0.9, "rationale": "Kinetic/PDE theory for Levy swarm robots."}
+{"record_id": "doi:10.1103/physrevresearch.6.033070", "include": false, "reason": "E2", "confidence": 0.9, "rationale": "Schroedinger bridge inference theory."}
+{"record_id": "ads:2010nsf....1024765B", "include": false, "reason": "E5", "confidence": 0.8, "rationale": "NSF award proposal on swarm emergent behavior theory."}
+{"record_id": "doi:10.1109/acc.2012.6315402", "include": false, "reason": "E4", "confidence": 0.75, "rationale": "Human dancers flocking; no artificial agents."}
+{"record_id": "doi:10.17863/cam.130209", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "Theoretical thesis on nonequilibrium control."}
+{"record_id": "ads:2010nsf....1007068D", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "NSF award in geometric group theory."}
+{"record_id": "doi:10.3389/frobt.2022.904341", "include": false, "reason": "E3", "confidence": 0.65, "rationale": "Swarm foraging task partitioning; reports task-related behaviour, not physical observable."}
+{"record_id": "doi:10.1016/j.cpc.2026.110285", "include": false, "reason": "E2", "confidence": 0.9, "rationale": "GPU simulation code for active particles."}
+{"record_id": "doi:10.1109/iotais.2018.8600865", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Single IoT mobile robot for plant monitoring."}
+{"record_id": "doi:10.3390/machines12100739", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "Review of flocking strategies."}
+{"record_id": "ads:2017APS..MARY12007L", "include": false, "reason": "E1", "confidence": 0.85, "rationale": "Single self-propelled robot car on elastic membrane."}
+{"record_id": "doi:10.1016/j.ijmecsci.2023.108226", "include": false, "reason": "E3", "confidence": 0.5, "rationale": "No abstract; acoustic microbots for biodetection, application-focused."}
+{"record_id": "arxiv:2311.00685", "include": false, "reason": "E6", "confidence": 0.8, "rationale": "Janus vesicles propelled by uniform AC field; no programmable control."}
+{"record_id": "doi:10.1589/jpts.30.1262", "include": false, "reason": "E1", "confidence": 0.95, "rationale": "Human balance on single assist robot."}
+{"record_id": "doi:10.1109/rose.2008.4669172", "include": true, "reason": null, "confidence": 0.55, "rationale": "LEGO robot collective implementing fish-shoal algorithm with experiments; observables unclear."}
+{"record_id": "ads:2017APS..MARR14009M", "include": false, "reason": "E6", "confidence": 0.7, "rationale": "Motile colloids in uniform field through obstacles; no programmable control."}
+{"record_id": "ads:2006nsf....0547976W", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "NSF award on photonic crystal colloids."}
+{"record_id": "openalex:W7216988386", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Motor control of underwater vehicle; single."}
+{"record_id": "doi:10.1016/j.molliq.2026.129409", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Liquid crystal confinement; no agents."}
+{"record_id": "doi:10.1145/2576768.2598373", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Joint-level control of a single robot."}
+{"record_id": "ads:2011nsf....1068997I", "include": false, "reason": "E5", "confidence": 0.85, "rationale": "NSF award on CPG locomotion control."}
+{"record_id": "doi:10.1299/jsmermd.2007._2a1-h02_1", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "Swarm tracking strategy verified by simulation only."}
+{"record_id": "doi:10.1002/aisy.202200429", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "Review of nanomotor architectures."}
+{"record_id": "doi:10.30574/ijsra.2024.12.1.1090", "include": false, "reason": "E5", "confidence": 0.9, "rationale": "Overview of swarm robots in agriculture."}
+{"record_id": "doi:10.2139/ssrn.5308745", "include": false, "reason": "E2", "confidence": 0.8, "rationale": "No abstract; relational field theory and AI, unrelated."}
+{"record_id": "doi:10.1109/imccc.2011.253", "include": false, "reason": "E2", "confidence": 0.85, "rationale": "UAV flocking control simulation only."}
+{"record_id": "pmid:21181090", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "Glossary entry on toys."}
+{"record_id": "doi:10.36547/sjas.1050", "include": false, "reason": "E5", "confidence": 0.95, "rationale": "Editorial on livestock farming."}
+{"record_id": "arxiv:2412.12347", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Self-driving lab ML framework; no interacting agents."}
+{"record_id": "doi:10.3390/app11199145", "include": false, "reason": "E3", "confidence": 0.6, "rationale": "Heterogeneous UAV/AUV formation control engineering; no physical observable."}
+{"record_id": "ads:2022APS..MARK11007O", "include": false, "reason": "E4", "confidence": 0.9, "rationale": "Biological springtail locomotion."}
+{"record_id": "doi:10.1017/jfm.2025.10491", "include": false, "reason": "E1", "confidence": 0.9, "rationale": "Numerical study of a single self-propelled foil."}
+{"record_id": "doi:10.1049/iet-cta.2016.0501", "include": false, "reason": "E2", "confidence": 0.9, "rationale": "Multi-flocking control with numerical simulation only."}
+{"record_id": "doi:10.1109/wsc68292.2025.11338929", "include": false, "reason": "E2", "confidence": 0.9, "rationale": "Agent-based simulation of multi-robot coordination."}
+{"record_id": "doi:10.1098/rspa.2016.0571", "include": false, "reason": "E4", "confidence": 0.65, "rationale": "Geometric analysis method applied to natural collectives data."}
+{"record_id": "doi:10.1109/saso.2017.17", "include": false, "reason": "E2", "confidence": 0.9, "rationale": "Swarm edge detection verified in simulations only."}

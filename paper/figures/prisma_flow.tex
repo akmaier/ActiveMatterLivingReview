@@ -9,9 +9,9 @@
 \node[side, right=of scr] (exs) {Records excluded ($n=7423$)};
 \node[box, below=of scr] (sou) {Reports sought for retrieval ($n=1279$)};
 \node[side, right=of sou] (nr) {Reports not retrieved ($n=300$)\\ assessed on abstract only ($n=179$)};
-\node[box, below=of sou] (ass) {Reports assessed for eligibility ($n=977$)};
-\node[side, right=of ass] (exe) {Reports excluded ($n=660$)\\ E1: 31\\ E2: 261\\ E3: 223\\ E4: 2\\ E5: 127\\ E6: 16};
-\node[box, below=of ass, fill=green!6] (inc) {Studies included ($n=490$)\\ reports of included studies ($n=490$)};
+\node[box, below=of sou] (ass) {Reports assessed for eligibility ($n=979$)};
+\node[side, right=of ass] (exe) {Reports excluded ($n=662$)\\ E1: 32\\ E2: 261\\ E3: 224\\ E4: 2\\ E5: 127\\ E6: 16};
+\node[box, below=of ass, fill=green!6] (inc) {Studies included ($n=492$)\\ reports of included studies ($n=492$)};
 \foreach \a/\b in {id/scr, scr/sou, sou/ass, ass/inc} \draw[->] (\a) -- (\b);
 \foreach \a/\b in {id/dup, scr/exs, sou/nr, ass/exe} \draw[->] (\a) -- (\b);
 \end{tikzpicture}

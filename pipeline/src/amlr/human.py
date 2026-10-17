@@ -320,7 +320,7 @@ def apply(corpus: Path, ledger: Path = LABELS) -> dict:
     return dict(counts)
 
 
-def report(corpus: Path, ledger: Path = LABELS) -> dict:
+def report(corpus: Path, ledger: Path = LABELS, blind: bool = False) -> dict:
     """Panel sensitivity/specificity against the author on the title/abstract sample, and
     agreement on full-text splits (PROTOCOL §6)."""
 
@@ -337,10 +337,12 @@ def report(corpus: Path, ledger: Path = LABELS) -> dict:
             if q != queue or rid not in by_id:
                 continue
             if queue == "ta_sample":
-                # Sensitivity rests on the independent (blind) answer, even if it was revised later.
+                # Amendment 7: the author's final label counts; first (blind) answers with
+                # blind=True.
                 if lab.get("saw_panel") and not lab.get("blind"):
                     not_blind += 1
-                lab = lab.get("blind") or lab
+                if blind:
+                    lab = lab.get("blind") or lab
             if lab.get("include") is None:
                 continue
             panel = _votes(by_id[rid], stage.value)

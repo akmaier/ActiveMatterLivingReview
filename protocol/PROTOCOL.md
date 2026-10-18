@@ -180,8 +180,8 @@ platforms and groups reproducing the finding and the D1/D6 ratings.
 ## 14. Registration, support, competing interests, data availability (PRISMA 24–27)
 
 - Registration: OSF Registries — `[to be filled after registration]`.
-- Support / funding: `[to be filled]`.
-- Competing interests: `[to be filled]`.
+- Support / funding: none (no specific funding received; computing on the NHR@FAU LLM gateway).
+- Competing interests: none declared.
 - Availability: code (`pipeline/`), search strings, decisions, extraction data, and
   snapshots are public in this repository; subscriber full texts are not redistributed.
 - Use of AI tools: manuscript prose is drafted by an AI system (Codex) and reviewed by the

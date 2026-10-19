@@ -6,8 +6,8 @@ permalink: /methods/
 
 The frozen protocol, eligibility criteria, and per-database search
 strings live under [`protocol/`](https://github.com/akmaier/ActiveMatterLivingReview/tree/main/protocol)
-in the repository. Once drafted and pre-registered on OSF, the
-registration DOI will be pinned here.
+in the repository. The review is registered on OSF Registries:
+[osf.io/g7c8d](https://osf.io/g7c8d).
 
 ## Databases queried
 

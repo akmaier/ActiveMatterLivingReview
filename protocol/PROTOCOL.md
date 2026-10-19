@@ -1,6 +1,7 @@
 # Protocol: A living systematic review of robotic active matter
 
-Status: **DRAFT — not frozen, not registered.** Freeze = tag `protocol-v1` + OSF Registries
+Status: **Frozen 2026-10-11; registered on OSF 2026-10-19 (https://osf.io/g7c8d).**
+Original status line: DRAFT — not frozen, not registered. Freeze = tag `protocol-v1` + OSF Registries
 submission, both before the first screening decision. Amendments after freezing are new,
 dated entries in the amendment log; earlier text is never edited in place.
 
@@ -179,7 +180,8 @@ platforms and groups reproducing the finding and the D1/D6 ratings.
 
 ## 14. Registration, support, competing interests, data availability (PRISMA 24–27)
 
-- Registration: OSF Registries — `[to be filled after registration]`.
+- Registration: OSF Registries, https://osf.io/g7c8d (Generalized Systematic Review Registration;
+  submitted 2026-10-19, retrospective — the first review cycle was completed before registration).
 - Support / funding: none (no specific funding received; computing on the NHR@FAU LLM gateway).
 - Competing interests: none declared.
 - Availability: code (`pipeline/`), search strings, decisions, extraction data, and

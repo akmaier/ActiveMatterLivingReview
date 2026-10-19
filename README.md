@@ -21,7 +21,7 @@ First review cycle complete (2026-10-11 to 2026-10-17): 489 included studies, au
 panel (sensitivity 1.00 on the 200-record sample), conflicts adjudicated, manuscript drafted.
 
 - Protocol frozen with SHA-256 manifests in `protocol/freeze-*.json`
-  (amendments logged in `protocol/PROTOCOL.md`); OSF registration pending.
+  (amendments logged in `protocol/PROTOCOL.md`); registered on OSF: https://osf.io/g7c8d.
 - Searches run in OpenAlex, NASA ADS, PubMed, IEEE Xplore, arXiv, Crossref,
   HAL and bioRxiv (via Europe PMC). Exact queries, counts and payload hashes:
   `protocol/search_strategies/`.

@@ -180,7 +180,7 @@ platforms and groups reproducing the finding and the D1/D6 ratings.
 
 ## 14. Registration, support, competing interests, data availability (PRISMA 24–27)
 
-- Registration: OSF Registries, https://osf.io/g7c8d (Generalized Systematic Review Registration;
+- Registration: OSF Registries, doi:10.17605/OSF.IO/G7C8D, https://osf.io/g7c8d (Generalized Systematic Review Registration;
   submitted 2026-10-19, retrospective — the first review cycle was completed before registration).
 - Support / funding: none (no specific funding received; computing on the NHR@FAU LLM gateway).
 - Competing interests: none declared.

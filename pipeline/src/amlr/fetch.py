@@ -25,7 +25,7 @@ from typing import Callable, Iterator
 
 from .search import (
     ARXIV_RPS, MAILTO, RAW, STRATEGIES, SYNTAX, _abstract_from_inverted, ads_token, ads_url, arxiv_url,
-    europepmc_url, hal_url, http, load_concepts, matches, openalex_url, render, write_strategy,
+    europepmc_url, hal_url, http, load_concepts, matches, openalex_url, render, require_mailto, write_strategy,
 )
 
 Item = tuple[dict, dict]  # (normalized record, raw item)
@@ -445,4 +445,5 @@ def _fetch_crossref(out: Path) -> dict:
 
 
 def fetch(source: str, out_dir: Path = RAW) -> dict:
+    require_mailto()
     return FETCHERS[source](out_dir)

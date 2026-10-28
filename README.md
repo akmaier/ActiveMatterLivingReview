@@ -77,6 +77,9 @@ cp pipeline/config/tdm_api.example.toml ~/.config/amlr/tdm_api.toml
 export AMLR_MAILTO=you@your-institution.org   # contact address sent to OpenAlex, Crossref, Unpaywall
 ```
 
+`AMLR_MAILTO` has no default: `amlr fetch` and `amlr fulltext` stop until it is set (put the
+export in your shell profile).
+
 **LLM endpoint (required for screening and extraction).** This review used three models on
 the NHR@FAU LLM gateway, which is open only to members of the German NHR centres. A fork uses
 any OpenAI-compatible endpoint instead and names its three models in the `[panel]` table of

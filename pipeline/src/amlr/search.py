@@ -25,8 +25,18 @@ from .httpclient import HttpClient, RateLimitConfig
 CONCEPTS = REPO_ROOT / "protocol" / "search_strategies" / "concepts.yml"
 STRATEGIES = CONCEPTS.parent
 RAW = REPO_ROOT / "data" / "raw"
-# Contact address for the OpenAlex/Crossref polite pools (approved by the author 2026-10-11).
-MAILTO = os.environ.get("AMLR_MAILTO", "andreas.maier@fau.de").strip()
+# Contact address for the OpenAlex/Crossref polite pools and Unpaywall. No default: every
+# user of the pipeline sends their own address.
+MAILTO = os.environ.get("AMLR_MAILTO", "").strip()
+
+
+def require_mailto() -> str:
+    """The contact address, or a clear stop for the commands that must send one."""
+
+    if not MAILTO:
+        raise SystemExit("AMLR_MAILTO is not set: export AMLR_MAILTO=you@your-institution.org "
+                         "(sent to OpenAlex, Crossref and Unpaywall as the contact address)")
+    return MAILTO
 
 
 class PoliteClient(HttpClient):

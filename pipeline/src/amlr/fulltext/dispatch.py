@@ -29,7 +29,7 @@ from typing import Callable
 
 from ..config import REPO_ROOT, load_tdm_config
 from ..schema import PrismaPhase
-from ..search import MAILTO
+from ..search import MAILTO, require_mailto
 from ..storage import locked, read_jsonl, rewrite_jsonl
 from .pdftext import extract_text as pdf_text
 
@@ -493,6 +493,8 @@ def run(corpus: Path, *, limit: int | None = None, workers: int = 4, dry_run: bo
     """`retry`: only records not yet retrieved, trying only routes they have not tried.
     `force_routes`: routes to attempt again even if recorded as tried."""
 
+    if not dry_run:
+        require_mailto()  # Unpaywall refuses requests without the caller's own address
     latest = {r["record_id"]: r for r in read_jsonl(LEDGER)}
     last = {rid: set(r.get("tried", [])) - set(force_routes) for rid, r in latest.items()} if retry else {}
     todo = [r for r in pending(corpus, only_new_routes=retry and not force_routes)

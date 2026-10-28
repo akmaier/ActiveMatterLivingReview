@@ -23,8 +23,9 @@ from itertools import product
 from pathlib import Path
 from typing import Callable, Iterator
 
+from . import search
 from .search import (
-    ARXIV_RPS, MAILTO, RAW, STRATEGIES, SYNTAX, _abstract_from_inverted, ads_token, ads_url, arxiv_url,
+    ARXIV_RPS, MAILTO, RAW, pubmed_window, window_note, STRATEGIES, SYNTAX, _abstract_from_inverted, ads_token, ads_url, arxiv_url,
     europepmc_url, hal_url, http, load_concepts, matches, openalex_url, render, require_mailto, write_strategy,
 )
 
@@ -117,7 +118,7 @@ def fetch_openalex(out_dir: Path = RAW) -> dict:
     state["done"] = True
     state_path.write_text(json.dumps(state, indent=2))
     sha = _file_sha(raw_path)
-    write_strategy("openalex", q, state["n"], sha, datetime.fromisoformat(state["started"]))
+    write_strategy("openalex", q + window_note(), state["n"], sha, datetime.fromisoformat(state["started"]))
     return {"source": "openalex", "records": state["n"], "records_file": str(rec_path)}
 
 
@@ -163,7 +164,8 @@ def _pubmed_items(q: str) -> Iterator[Item]:
     client = http(3.0)
     base = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
     es = client.fetch_json(base + "esearch.fcgi?" + urllib.parse.urlencode(
-        {"db": "pubmed", "term": q, "retmode": "json", "usehistory": "y", "retmax": 0, "tool": "amlr"}))["esearchresult"]
+        {"db": "pubmed", "term": q, "retmode": "json", "usehistory": "y", "retmax": 0, "tool": "amlr"}
+        | pubmed_window()))["esearchresult"]
     total, webenv, key = int(es["count"]), es["webenv"], es["querykey"]
     for start in range(0, total, 200):
         xml_text = client.fetch_text(base + "efetch.fcgi?" + urllib.parse.urlencode(
@@ -325,6 +327,7 @@ def _crossref_items(c: dict, rows: int = 100) -> Iterator[Item]:
     for sq in crossref_subqueries(c):
         url = "https://api.crossref.org/works?" + urllib.parse.urlencode(
             {"query.bibliographic": sq, "rows": rows, "mailto": MAILTO,
+             **({"filter": f"from-index-date:{search.WINDOW}"} if search.WINDOW else {}),
              "select": "DOI,title,abstract,author,issued,container-title,type,subject"})
         for it in client.fetch_json(url)["message"]["items"]:
             doi = it["DOI"].lower()
@@ -375,7 +378,7 @@ def _run(source: str, items: Iterator[Item], query: str, out_dir: Path) -> dict:
             rf.write(json.dumps(raw, ensure_ascii=False, sort_keys=True) + "\n")
             pf.write(json.dumps(rec | {"provenance": _prov(source, stamp)}, ensure_ascii=False) + "\n")
             n += 1
-    write_strategy(source, query, n, _file_sha(raw_path), run_at)
+    write_strategy(source, query + window_note(), n, _file_sha(raw_path), run_at)
     return {"source": source, "records": n, "records_file": str(rec_path)}
 
 

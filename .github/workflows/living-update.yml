@@ -1,0 +1,83 @@
+name: Living update
+
+# Monthly re-run of the searches (PROTOCOL.md §4): new records only are screened and extracted
+# by the LLM panel on the NHR@FAU gateway; the result arrives as a pull request for review.
+on:
+  schedule:
+    - cron: "0 3 11 * *"  # 11th of each month, 03:00 UTC (first searches: 2026-10-11)
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Window start YYYY-MM-DD (empty: last search minus 14 days)"
+        required: false
+        default: ""
+      screen:
+        description: "Run the LLM panel (off: search and merge only)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: living-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    env:
+      AMLR_MAILTO: andreas.maier@fau.de  # polite-pool contact for OpenAlex, Crossref, Unpaywall
+      NHR_LLM_API_KEY: ${{ secrets.NHR_LLM_API_KEY }}
+      ADS_TOKEN: ${{ secrets.ADS_TOKEN }}  # optional; without it NASA ADS is skipped
+      OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}  # free key; runners share the anonymous budget
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/pyproject.toml
+
+      - name: Install the pipeline
+        run: pip install -e pipeline
+
+      - name: Check the LLM gateway
+        if: ${{ github.event_name == 'schedule' || inputs.screen }}
+        run: |
+          if [ -z "$NHR_LLM_API_KEY" ]; then
+            echo "::error::Repository secret NHR_LLM_API_KEY is not set"; exit 1
+          fi
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 \
+            -H "Authorization: Bearer $NHR_LLM_API_KEY" https://hub.nhr.fau.de/api/llmgw/v1/models)
+          echo "gateway answered HTTP $code"
+          [ "$code" = "200" ] || { echo "::error::NHR gateway not usable (HTTP $code)"; exit 1; }
+
+      - name: Search, merge, screen, retrieve open-access full texts, extract
+        id: update
+        run: |
+          echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+          screen=--screen
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.screen }}" != "true" ]; then
+            screen=--no-screen
+          fi
+          amlr update --since "${{ inputs.since }}" $screen
+
+      - name: PRISMA counts, site data, figures
+        run: |
+          amlr prisma
+          amlr render
+          amlr figures
+
+      - name: Open the update pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: living-update/${{ steps.update.outputs.date }}
+          commit-message: "Living update ${{ steps.update.outputs.date }}"
+          title: "Living update ${{ steps.update.outputs.date }}"
+          body-path: data/snapshots/${{ steps.update.outputs.date }}/UPDATE.md
+          labels: living-update
+          delete-branch: true

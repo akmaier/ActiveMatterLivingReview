@@ -245,9 +245,29 @@ be drafted section by section through Codex (`amlr bridge` in one terminal, `aml
 
 ### 12. Keep it living
 
-Monthly: `amlr fetch all`, `amlr build-corpus`, screen the new records (steps 7–9), then
-step 10, and add an entry to `_data/changelog.yml`. A change to the protocol after freezing
-is an amendment: log it in `protocol/PROTOCOL.md` and run `amlr freeze` again.
+`amlr update` searches every source for a date window (the previous search minus 14 days
+to today), adds unmatched records to the corpus without touching earlier decisions, screens
+and extracts the new records only, saves the corpus state to `data/state/corpus.jsonl.gz`,
+and writes `data/snapshots/<date>/UPDATE.md` plus a change-log entry. Then run `amlr prisma`,
+`amlr render` and `amlr figures`.
+
+The workflow `.github/workflows/living-update.yml` does this on the 11th of every month (or
+on demand: Actions → Living update → Run workflow) and opens a pull request. It needs:
+
+- the repository secret `NHR_LLM_API_KEY` (or `AMLR_LLM_API_KEY` for another endpoint),
+  optionally `ADS_TOKEN` (without it NASA ADS is skipped) and `OPENALEX_API_KEY` (free at
+  openalex.org/settings/api; without it OpenAlex shares one small daily budget per IP address);
+- Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests".
+
+The runner has no institutional access, so it only retrieves open-access full texts; the
+records listed under "Awaiting full text" in the pull request are retrieved locally after
+merging: `amlr state-restore --force`, `amlr fulltext --retry`, `amlr fulltext-browser`,
+`amlr screen-llm --stage full_text`, `amlr extract`, then `amlr state-save` and commit.
+IEEE Xplore (web export only) is searched locally as well. Local work on the corpus always
+ends with `amlr state-save`, so the next scheduled run continues from it.
+
+A change to the protocol after freezing is an amendment: log it in `protocol/PROTOCOL.md`
+and run `amlr freeze` again.
 
 ## Non-redistribution of subscriber content
 

@@ -27,7 +27,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 
-from ..config import REPO_ROOT, load_tdm_config
+from ..config import REPO_ROOT, TdmConfig, load_tdm_config
 from ..schema import PrismaPhase
 from ..search import MAILTO, require_mailto
 from ..storage import locked, read_jsonl, rewrite_jsonl
@@ -507,7 +507,10 @@ def run(corpus: Path, *, limit: int | None = None, workers: int = 4, dry_run: bo
             prefixes[p] = prefixes.get(p, 0) + 1
         return {"would_try": len(todo), "with_arxiv_id": sum(bool(r.get("arxiv_id")) for r in todo),
                 "doi_prefixes": dict(sorted(prefixes.items(), key=lambda kv: -kv[1])[:15])}
-    cfg = load_tdm_config()
+    try:
+        cfg = load_tdm_config()
+    except FileNotFoundError:  # e.g. a CI runner: open-access routes only, TDM routes return nothing
+        cfg = TdmConfig(source_path=Path("(none)"))
     LEDGER.parent.mkdir(parents=True, exist_ok=True)
     stats: dict[str, int] = {}
     with ThreadPoolExecutor(max_workers=workers) as pool, LEDGER.open("a", encoding="utf-8") as fh:

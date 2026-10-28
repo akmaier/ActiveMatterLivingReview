@@ -178,8 +178,12 @@ def run(corpus: Path, text_for: Callable[[dict], str | None], *, limit: int | No
         final, unresolved = reconcile(v[EXTRACTORS[0]], v[EXTRACTORS[1]], v.get(ARBITER))
         n_unresolved += bool(unresolved)
         finals.append({"record_id": rid, "prompt_sha256": sha, "disputed": d, "unresolved": unresolved, **final})
+    # Records without text in this run (e.g. a CI runner, where earlier full texts are absent)
+    # keep their previous final row.
+    ran = {f["record_id"] for f in finals}
+    kept = [f for f in read_jsonl(final_path) if f["record_id"] not in ran] if final_path.exists() else []
     with final_path.open("w", encoding="utf-8") as fh:
-        for row in finals:
+        for row in kept + finals:
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
     _apply(corpus, {f["record_id"]: f for f in finals})
     return {"included": len(records), "with_text": len(prompts), "extracted": len(finals),

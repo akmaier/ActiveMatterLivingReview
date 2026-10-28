@@ -272,6 +272,37 @@ def screen_report(stage: str = typer.Option("title_abstract")) -> None:
 
 
 @app.command()
+def update(
+    source: list[str] = typer.Option([], "--source", help="Sources to search (default: all but IEEE)"),
+    since: str = typer.Option(None, help="Window start YYYY-MM-DD (default: last search minus 14 days)"),
+    screen: bool = typer.Option(True, help="Run the LLM panel (title/abstract and full text)"),
+    fulltext: bool = typer.Option(True, help="Retrieve full texts (open-access and TDM routes)"),
+    extract: bool = typer.Option(True, help="Extract data from newly included studies"),
+    workers: int = typer.Option(6),
+) -> None:
+    """Living update: windowed search, merge new records, screen and extract them, save the state."""
+    from .update import run
+
+    rprint(run(source or None, since, screen=screen, fulltext=fulltext, extract=extract, workers=workers))
+
+
+@app.command("state-save")
+def state_save() -> None:
+    """Write data/state/corpus.jsonl.gz from data/corpus.jsonl (commit it so CI can continue)."""
+    from .update import save_state
+
+    rprint(save_state())
+
+
+@app.command("state-restore")
+def state_restore(force: bool = typer.Option(False, "--force", help="Overwrite an existing corpus")) -> None:
+    """Unpack data/state/corpus.jsonl.gz into data/corpus.jsonl (e.g. after merging an update PR)."""
+    from .update import restore_state
+
+    rprint(restore_state(force=force))
+
+
+@app.command()
 def prisma(corpus: Path = typer.Option(CORPUS)) -> None:
     """Emit PRISMA counts (site + snapshot) and the flow SVG (site + paper)."""
     from .prisma import compute_counts, write_flow_svg, write_flow_tikz

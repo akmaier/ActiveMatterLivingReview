@@ -74,6 +74,8 @@ def compute_counts(records: Iterable[dict], today: date | None = None, manifest:
         "excluded_abstract_only": _ao(records, P.excluded_eligibility.value),
         "included_full_text": n[P.included.value] - _ao(records, P.included.value),
         "awaiting_decision": n[P.assessed.value],
+        # Screened in, full text not yet sought to the end (living updates before tier-3 retrieval).
+        "awaiting_retrieval": n[P.screened_in.value] + n[P.fulltext_sought.value],
         "excluded_eligibility_reasons": dict(sorted(reasons.items())),
         "excluded_full_text_reasons": dict(sorted(reasons_ft.items())),
         "excluded_abstract_only_reasons": dict(sorted(reasons_ao.items())),

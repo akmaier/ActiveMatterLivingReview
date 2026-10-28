@@ -28,6 +28,22 @@ RAW = REPO_ROOT / "data" / "raw"
 # Contact address for the OpenAlex/Crossref polite pools and Unpaywall. No default: every
 # user of the pipeline sends their own address.
 MAILTO = os.environ.get("AMLR_MAILTO", "").strip()
+# Living updates (amlr.update) set this to the window start (YYYY-MM-DD); None = database inception.
+# Each source uses its own entry date where it has one (arXiv submission, PubMed Entrez date,
+# HAL deposit, Europe PMC first publication, ADS entry, Crossref index date); OpenAlex only
+# filters on publication date, so it looks back PUBLICATION_LOOKBACK_DAYS further.
+WINDOW: str | None = None
+PUBLICATION_LOOKBACK_DAYS = 365
+
+
+def window_note() -> str:
+    return f"\nupdate_window_from: {WINDOW} (source-specific date filter, see amlr.search.WINDOW)" if WINDOW else ""
+
+
+def _pub_since() -> str:
+    from datetime import date, timedelta
+
+    return (date.fromisoformat(WINDOW) - timedelta(PUBLICATION_LOOKBACK_DAYS)).isoformat()
 
 
 def require_mailto() -> str:
@@ -165,37 +181,47 @@ def ads_token() -> str:
 
 def ads_url(q: str, *, rows: int = 0, start: int = 0) -> str:
     return "https://api.adsabs.harvard.edu/v1/search/query?" + urllib.parse.urlencode(
-        {"q": q, "rows": rows, "start": start, "sort": "date desc",
+        {"q": f"({q}) entdate:[{WINDOW} TO *]" if WINDOW else q, "rows": rows, "start": start, "sort": "date desc",
          "fl": "bibcode,title,abstract,author,year,doi,pub,keyword,doctype,identifier"})
 
 
 def openalex_url(q: str, *, per_page: int = 1, cursor: str | None = None) -> str:
-    params = {"filter": f"title_and_abstract.search:{q}", "per-page": per_page}
+    flt = f"title_and_abstract.search:{q}" + (f",from_publication_date:{_pub_since()}" if WINDOW else "")
+    params = {"filter": flt, "per-page": per_page}
     if cursor:
         params["cursor"] = cursor
     if MAILTO:
         params["mailto"] = MAILTO
+    # Without a key, requests share one small daily budget per IP address (CI runners share IPs).
+    if key := os.environ.get("OPENALEX_API_KEY", "").strip():
+        params["api_key"] = key
     return "https://api.openalex.org/works?" + urllib.parse.urlencode(params)
 
 
 def arxiv_url(q: str, *, start: int = 0, max_results: int = 1) -> str:
     return "https://export.arxiv.org/api/query?" + urllib.parse.urlencode(
-        {"search_query": q, "start": start, "max_results": max_results})
+        {"search_query": f"({q}) AND submittedDate:[{WINDOW.replace('-', '')}0000 TO 209912312359]" if WINDOW else q,
+         "start": start, "max_results": max_results})
 
 
 def pubmed_url(q: str, *, retmax: int = 0, retstart: int = 0) -> str:
     return "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?" + urllib.parse.urlencode(
-        {"db": "pubmed", "term": q, "retmode": "json", "retmax": retmax, "retstart": retstart})
+        {"db": "pubmed", "term": q, "retmode": "json", "retmax": retmax, "retstart": retstart} | pubmed_window())
+
+
+def pubmed_window() -> dict:
+    return {"datetype": "edat", "mindate": WINDOW.replace("-", "/"), "maxdate": "3000"} if WINDOW else {}
 
 
 def hal_url(q: str, *, rows: int = 0, start: int = 0) -> str:
+    window = {"fq": f"submittedDate_tdate:[{WINDOW}T00:00:00Z TO NOW]"} if WINDOW else {}
     return "https://api.archives-ouvertes.fr/search/?" + urllib.parse.urlencode(
-        {"q": q, "rows": rows, "start": start, "wt": "json",
+        window | {"q": q, "rows": rows, "start": start, "wt": "json",
          "fl": "docid,doiId_s,title_s,abstract_s,authFullName_s,producedDateY_i,journalTitle_s,keyword_s,uri_s,docType_s"})
 
 
 def europepmc_url(q: str, *, page_size: int = 1, cursor: str = "*") -> str:
-    full = f'({q}) AND (PUBLISHER:"bioRxiv")'
+    full = f'({q}) AND (PUBLISHER:"bioRxiv")' + (f" AND (FIRST_PDATE:[{WINDOW} TO 3000-01-01])" if WINDOW else "")
     return "https://www.ebi.ac.uk/europepmc/webservices/rest/search?" + urllib.parse.urlencode(
         {"query": full, "format": "json", "pageSize": page_size, "cursorMark": cursor, "resultType": "core"})
 

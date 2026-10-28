@@ -27,12 +27,27 @@
   "included_full_text": 459,
   "awaiting_decision": 4,
   "excluded_eligibility_reasons": {
-    "E2": 261,
     "E1": 32,
-    "E5": 127,
-    "E6": 16,
+    "E2": 261,
     "E3": 224,
-    "E4": 2
+    "E4": 2,
+    "E5": 127,
+    "E6": 16
+  },
+  "excluded_full_text_reasons": {
+    "E1": 26,
+    "E2": 244,
+    "E3": 165,
+    "E4": 2,
+    "E5": 65,
+    "E6": 11
+  },
+  "excluded_abstract_only_reasons": {
+    "E1": 6,
+    "E2": 17,
+    "E3": 59,
+    "E5": 62,
+    "E6": 5
   },
   "included_studies": 489,
   "included_reports": 489

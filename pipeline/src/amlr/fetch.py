@@ -38,7 +38,7 @@ class CreditsExhausted(RuntimeError):
 
 
 def _openalex_get(url: str, *, min_remaining: int = 20) -> dict:
-    """GET without experteye's Retry-After sleep: OpenAlex answers 429 with resets of hours."""
+    """GET without the HttpClient's Retry-After sleep: OpenAlex answers 429 with resets of hours."""
 
     req = urllib.request.Request(url, headers={"User-Agent": f"amlr/0.0.1 (mailto:{MAILTO})"})
     for attempt in range(6):

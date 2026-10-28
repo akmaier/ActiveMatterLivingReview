@@ -13,9 +13,8 @@ from itertools import combinations
 from pathlib import Path
 from typing import Callable
 
-from experteye_scraper.scrum.rrze_client import RRZEClientError, Transport
-
 from .config import REPO_ROOT
+from .gateway import RRZEClientError, Transport
 from .llm import PANEL, chat, client_for, parse_json_object
 from .schema import Decision, PrismaPhase, Stage
 from .storage import locked, read_jsonl, rewrite_jsonl

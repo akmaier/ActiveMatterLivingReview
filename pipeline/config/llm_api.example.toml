@@ -1,0 +1,22 @@
+# LLM endpoint for the reviewer panel (`amlr screen-llm`, `amlr extract`, `amlr evidence`).
+# Copy to ~/.config/amlr/llm_api.toml (or point $AMLR_LLM_CONFIG at your copy).
+# Instead of [llm], AMLR_LLM_API_KEY and AMLR_LLM_BASE_URL may be set in the environment.
+# Never commit the filled-in file.
+
+[llm]
+# Any OpenAI-compatible chat-completions endpoint (the URL ends before /chat/completions):
+# NVIDIA NIM (free key at https://build.nvidia.com/explore/discover; see README.md, step 3),
+# a university gateway, or a local vLLM / Ollama / LM Studio server.
+base_url = "https://integrate.api.nvidia.com/v1"
+api_key = ""
+
+[panel]
+# The model ID behind each reviewer, as the endpoint names it. Three different model
+# families make the panel's votes as independent as possible. In screening, R1 and R2
+# vote on every record and R3 breaks ties and votes on a 10 % audit sample; in extraction,
+# R1 and R3 extract and R2 settles the disputed fields (PROTOCOL.md §6-7).
+# Unset reviewers keep the models of the published review, which only the NHR@FAU
+# gateway serves. AMLR_PANEL_R1..R3 in the environment override these.
+R1 = ""
+R2 = ""
+R3 = ""

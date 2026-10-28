@@ -18,10 +18,9 @@ from pathlib import Path
 from typing import Callable, Iterator
 
 import yaml
-from experteye_scraper.http import HttpClient, RateLimitConfig
-
 from . import __version__
 from .config import REPO_ROOT
+from .httpclient import HttpClient, RateLimitConfig
 
 CONCEPTS = REPO_ROOT / "protocol" / "search_strategies" / "concepts.yml"
 STRATEGIES = CONCEPTS.parent
@@ -31,7 +30,7 @@ MAILTO = os.environ.get("AMLR_MAILTO", "andreas.maier@fau.de").strip()
 
 
 class PoliteClient(HttpClient):
-    """experteye's HttpClient never records the last request time, so it never throttles."""
+    """The vendored HttpClient never records the last request time, so it never throttles."""
 
     def _rate_limit(self) -> None:
         super()._rate_limit()

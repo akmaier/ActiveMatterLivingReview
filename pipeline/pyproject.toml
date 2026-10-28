@@ -49,15 +49,6 @@ amlr = "amlr.cli:app"
 [tool.hatch.build.targets.wheel]
 packages = ["src/amlr"]
 
-# NOTE: `experteye_scraper` is intentionally NOT listed as a `[project]`
-# dependency because it is not published to PyPI. Install it in editable
-# mode alongside this package before running `amlr`:
-#
-#     pip install -e ../../experteye
-#     pip install -e .
-#
-# See `pipeline/README.md` for the exact bootstrap sequence.
-
 [tool.ruff]
 line-length = 100
 target-version = "py311"

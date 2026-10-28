@@ -1,8 +1,11 @@
-"""NHR@FAU LLM gateway access for the reviewer panel.
+"""LLM access for the reviewer panel, through any OpenAI-compatible endpoint.
 
-Reuses experteye's OpenAI-compatible `RRZEClient`. The API key comes from the environment
-(RRZE_LLM_API_KEY / EXPERTEYE_LLM_API_KEY / NHR_LLM_API_KEY) or, failing that, from the
-`[llm]` table only of `$AMLR_LLM_CONFIG` (default: experteye's config/llm_api.toml).
+The review itself used the NHR@FAU LLM gateway. A fork points the panel at its own endpoint:
+credentials come from the environment (AMLR_LLM_API_KEY, optionally AMLR_LLM_BASE_URL;
+RRZE_LLM_API_KEY / NHR_LLM_API_KEY are still read) or, failing that, from the `[llm]` table of
+`$AMLR_LLM_CONFIG` (default: `~/.config/amlr/llm_api.toml`; template:
+`pipeline/config/llm_api.example.toml`). The `[panel]` table of the same file, or
+AMLR_PANEL_R1..R3, names the model behind each reviewer.
 """
 
 from __future__ import annotations
@@ -15,7 +18,7 @@ import time
 import tomllib
 from pathlib import Path
 
-from experteye_scraper.scrum.rrze_client import (
+from .gateway import (
     DEFAULT_BASE_URL,
     LLMResponse,
     RRZEClient,
@@ -25,22 +28,47 @@ from experteye_scraper.scrum.rrze_client import (
     Transport,
 )
 
-PANEL: dict[str, str] = {
+# The models of the published review (NHR@FAU gateway IDs, PROTOCOL.md §6).
+DEFAULT_PANEL: dict[str, str] = {
     "R1": "gpt-oss-120b",
     "R2": "GaleneAI/Magistral-Small-2509-FP8-Dynamic",
     "R3": "deepseek-ai/DeepSeek-V4-Flash-0731",
 }
 
-DEFAULT_LLM_CONFIG = Path("/Users/maier/Documents/code/experteye/config/llm_api.toml")
-_ENV_KEYS = ("RRZE_LLM_API_KEY", "EXPERTEYE_LLM_API_KEY", "NHR_LLM_API_KEY")
+DEFAULT_LLM_CONFIG = Path.home() / ".config" / "amlr" / "llm_api.toml"
+_ENV_KEYS = ("AMLR_LLM_API_KEY", "RRZE_LLM_API_KEY", "NHR_LLM_API_KEY")
+_ENV_BASES = ("AMLR_LLM_BASE_URL", "RRZE_LLM_BASE_URL")
+
+
+def _config_path() -> Path:
+    return Path(os.environ.get("AMLR_LLM_CONFIG", DEFAULT_LLM_CONFIG))
+
+
+def load_panel() -> dict[str, str]:
+    """Model per reviewer: the defaults, then `[panel]` of the LLM config, then AMLR_PANEL_<R>."""
+
+    panel = dict(DEFAULT_PANEL)
+    path = _config_path()
+    if path.exists():
+        with path.open("rb") as fh:
+            configured = tomllib.load(fh).get("panel", {})
+        panel |= {rv: str(m) for rv, m in configured.items() if rv in panel and str(m).strip()}
+    for rv in panel:
+        if os.environ.get(f"AMLR_PANEL_{rv}", "").strip():
+            panel[rv] = os.environ[f"AMLR_PANEL_{rv}"].strip()
+    return panel
+
+
+PANEL: dict[str, str] = load_panel()
 
 
 def _credentials() -> tuple[str, str]:
     for name in _ENV_KEYS:
         if os.environ.get(name, "").strip():
-            base = os.environ.get("RRZE_LLM_BASE_URL", "").strip() or DEFAULT_BASE_URL
+            base = next((os.environ[b].strip() for b in _ENV_BASES if os.environ.get(b, "").strip()),
+                        DEFAULT_BASE_URL)
             return base, os.environ[name].strip()
-    path = Path(os.environ.get("AMLR_LLM_CONFIG", DEFAULT_LLM_CONFIG))
+    path = _config_path()
     if not path.exists():
         raise RRZEClientError(f"no LLM API key in env ({', '.join(_ENV_KEYS)}) and no {path}")
     with path.open("rb") as fh:

@@ -1,4 +1,4 @@
-"""Client for the local Codex bridge (CodexCommandServer).
+"""Client for the local Codex bridge (`amlr.codex_bridge`, started with `amlr bridge`).
 
 All manuscript prose is authored by Codex. This module only assembles the
 prompt, sends it, and stores the reply verbatim under `paper/sections/`.
@@ -17,12 +17,11 @@ from pathlib import Path
 
 import yaml
 
+from .codex_bridge import MAX_REQUEST_BYTES  # the bridge rejects larger bodies
 from .config import REPO_ROOT
 
 BRIDGE_URL = os.environ.get("CODEX_BRIDGE_URL", "http://127.0.0.1:8766")
-# Mirrors MAX_REQUEST_BYTES in CodexCommandServer/server.py.
-MAX_REQUEST_BYTES = 64 * 1024
-# The bridge runs with --timeout 3000 for long sections; wait a little longer than it does.
+# `amlr bridge` gives up a turn after 3000 s by default; wait a little longer than it does.
 CLIENT_TIMEOUT_S = 3300
 
 PAPER = REPO_ROOT / "paper"

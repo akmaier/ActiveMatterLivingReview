@@ -1,6 +1,6 @@
 """Harmonized record / decision / extraction schema.
 
-Extends `experteye_scraper.schema.Paper` with PRISMA-specific fields.
+Paper records with PRISMA-specific fields.
 Pydantic v2 is used so JSONL round-trips are strict and typed.
 """
 
@@ -47,7 +47,7 @@ class Decision(BaseModel):
 
 
 class Record(BaseModel):
-    """A corpus record. Fields that pre-exist in experteye `Paper` keep their names."""
+    """A corpus record."""
 
     model_config = ConfigDict(extra="allow")
 

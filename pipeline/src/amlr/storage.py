@@ -1,7 +1,6 @@
-"""Thin wrappers around experteye's `ManifestWriter`.
+"""Corpus storage.
 
-`experteye_scraper.storage.ManifestWriter` writes line-delimited JSON
-with a `_written_at` ISO stamp. We keep that as the canonical corpus
+Line-delimited JSON is the canonical corpus
 store and add Parquet/CSV *exports* for the dated snapshots that get
 committed under `data/snapshots/`.
 """

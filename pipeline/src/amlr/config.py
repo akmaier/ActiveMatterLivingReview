@@ -3,7 +3,7 @@
 Looks for `tdm_api.toml` at:
 
 1. `$ACTIVE_MATTER_TDM_CONFIG` if set,
-2. `/Users/maier/Documents/code/experteye/config/tdm_api.toml` otherwise.
+2. `~/.config/amlr/tdm_api.toml` otherwise (template: `pipeline/config/tdm_api.example.toml`).
 
 Credential values are never printed; the `TdmConfig.redacted()` helper
 is the only interface meant for logs.
@@ -26,9 +26,7 @@ else:  # pragma: no cover
 # pipeline/src/amlr/config.py → repo root (valid for the documented editable install).
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
-DEFAULT_CONFIG_PATH = Path(
-    "/Users/maier/Documents/code/experteye/config/tdm_api.toml"
-)
+DEFAULT_CONFIG_PATH = Path.home() / ".config" / "amlr" / "tdm_api.toml"
 ENV_VAR = "ACTIVE_MATTER_TDM_CONFIG"
 
 
@@ -78,7 +76,7 @@ def load_tdm_config(path: Path | None = None) -> TdmConfig:
     if not path.exists():
         raise FileNotFoundError(
             f"TDM config not found at {path}. Set {ENV_VAR} or place a "
-            f"tdm_api.toml at the default experteye location."
+            f"tdm_api.toml there (template: pipeline/config/tdm_api.example.toml)."
         )
     with path.open("rb") as fh:
         data: dict[str, Any] = tomllib.load(fh)

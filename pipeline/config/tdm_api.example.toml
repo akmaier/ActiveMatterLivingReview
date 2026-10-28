@@ -1,0 +1,20 @@
+# Text-and-data-mining credentials for `amlr fulltext` and the NASA ADS search.
+# Copy to ~/.config/amlr/tdm_api.toml (or point $ACTIVE_MATTER_TDM_CONFIG at your copy)
+# and fill in what you have. `amlr fulltext` needs the file to exist, but every key in it
+# is optional: a route without its credential is skipped, and the record falls through to
+# the open-access routes.
+# Never commit the filled-in file.
+
+[elsevier]
+api_key = ""
+insttoken = ""
+
+[wiley]
+tdm_token = ""
+
+[springer]
+oa_api_key = ""
+meta_api_key = ""
+
+[ads]
+ads_token = ""

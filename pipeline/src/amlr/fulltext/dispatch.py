@@ -31,6 +31,7 @@ from ..config import REPO_ROOT, load_tdm_config
 from ..schema import PrismaPhase
 from ..search import MAILTO
 from ..storage import locked, read_jsonl, rewrite_jsonl
+from .pdftext import extract_text as pdf_text
 
 PDF_DIR = REPO_ROOT / "docs"
 TEXT_DIR = REPO_ROOT / "data" / "fulltext_text"
@@ -457,8 +458,7 @@ def extract_text(pdf_path: Path, record: dict) -> Path | None:
             raw = pdf_path.read_text(encoding="utf-8", errors="replace")
             text = elsevier_xml_text(raw) if "<ce:sections" in raw else jats_text(raw)
         else:
-            from experteye_scraper.extraction.pdf_pipeline import extract_text as ee_extract
-            text = ee_extract(pdf_path)
+            text = pdf_text(pdf_path)
     except Exception:
         return None
     if not text or len(text) < 500:

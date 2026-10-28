@@ -206,13 +206,19 @@ def fulltext_list(
     include_ieee: bool = typer.Option(False, help="Also list IEEE papers (normally fetched by fulltext-browser)"),
 ) -> None:
     """Write a click-through HTML list of papers still lacking full text, for the author's browser."""
+    import platform
     import subprocess
+    import webbrowser
 
     from .fulltext.manual import write_list
 
     out = write_list(corpus, include_ieee)
     rprint(f"wrote {out}")
-    subprocess.run(["open", "-a", "Safari", str(out)], check=False)
+    # Safari on macOS keeps the publisher logins out of the Playwright Chrome profile.
+    if platform.system() == "Darwin":
+        subprocess.run(["open", "-a", "Safari", str(out)], check=False)
+    else:
+        webbrowser.open(out.as_uri())
 
 
 @app.command("fulltext-import")
@@ -355,6 +361,15 @@ def figures() -> None:
 
     for p in make_all():
         rprint(f"wrote {p}")
+
+
+@app.command(context_settings={"allow_extra_args": True, "ignore_unknown_options": True})
+def bridge(ctx: typer.Context) -> None:
+    """Start the local Codex bridge that `amlr draft` talks to (options: amlr bridge --help-bridge)."""
+    from .codex_bridge import main
+
+    args = ["--help" if a == "--help-bridge" else a for a in ctx.args]
+    main(args)
 
 
 @app.command()

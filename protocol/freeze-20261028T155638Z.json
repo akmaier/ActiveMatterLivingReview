@@ -1,0 +1,14 @@
+{
+  "frozen_at_utc": "2026-10-28T15:56:38+00:00",
+  "note": "amendment 2026-10-28: living update via GitHub Action",
+  "git_head": "d58f37c8b9547e60270ab0a3040f864587d9f5d8",
+  "protocol_uncommitted_at_freeze": false,
+  "sha256": {
+    "protocol/PROTOCOL.md": "ce2afa1a2d94cc9ac4cbb681cf25471439e0531a2e177b6fd1829708cb622a72",
+    "protocol/PICO.md": "0cb125e2c6ca4b9d673f640fe439905d5177cb1a062dcf21130e8a7a7d66ef87",
+    "protocol/screening_prompt.md": "7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7",
+    "protocol/extraction_prompt.md": "d190d61c3af2d60c692fb7d2a1cb5109ceea9f75fd624a1834485bcaf72ef7dd",
+    "protocol/search_strategies/concepts.yml": "5758fbe4fc45635b450e8b876c3bf56f0d6eeb555c753398f93b0e1f1b57fa7b",
+    "protocol/search_strategies/seed_set.yml": "5ba761fdef62ab049e35bba113f5664a265b9eb1c579f643e1031ccb8bfe0476"
+  }
+}

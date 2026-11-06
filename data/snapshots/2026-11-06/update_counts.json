@@ -1,0 +1,144 @@
+{
+  "date": "2026-11-06",
+  "window_from": "2026-09-27",
+  "fetch": {
+    "openalex": {
+      "source": "openalex",
+      "records": 1098,
+      "records_file": "/home/runner/work/ActiveMatterLivingReview/ActiveMatterLivingReview/data/raw/updates/2026-11-06/openalex-2026-11-06.jsonl"
+    },
+    "arxiv": {
+      "source": "arxiv",
+      "records": 27,
+      "records_file": "/home/runner/work/ActiveMatterLivingReview/ActiveMatterLivingReview/data/raw/updates/2026-11-06/arxiv-2026-11-06.jsonl"
+    },
+    "pubmed": {
+      "source": "pubmed",
+      "records": 21,
+      "records_file": "/home/runner/work/ActiveMatterLivingReview/ActiveMatterLivingReview/data/raw/updates/2026-11-06/pubmed-2026-11-06.jsonl"
+    },
+    "hal": {
+      "source": "hal",
+      "records": 7,
+      "records_file": "/home/runner/work/ActiveMatterLivingReview/ActiveMatterLivingReview/data/raw/updates/2026-11-06/hal-2026-11-06.jsonl"
+    },
+    "europepmc_biorxiv": {
+      "source": "europepmc_biorxiv",
+      "records": 0,
+      "records_file": "/home/runner/work/ActiveMatterLivingReview/ActiveMatterLivingReview/data/raw/updates/2026-11-06/europepmc_biorxiv-2026-11-06.jsonl"
+    },
+    "crossref": {
+      "source": "crossref",
+      "records": 147,
+      "records_file": "/home/runner/work/ActiveMatterLivingReview/ActiveMatterLivingReview/data/raw/updates/2026-11-06/crossref-2026-11-06.jsonl",
+      "skipped_non_report": {
+        "component": 1
+      }
+    },
+    "ads": {
+      "source": "ads",
+      "records": 384,
+      "records_file": "/home/runner/work/ActiveMatterLivingReview/ActiveMatterLivingReview/data/raw/updates/2026-11-06/ads-2026-11-06.jsonl"
+    },
+    "submissions": {
+      "source": "submissions",
+      "records": 0,
+      "records_file": "/home/runner/work/ActiveMatterLivingReview/ActiveMatterLivingReview/data/raw/updates/2026-11-06/submissions-2026-11-06.jsonl"
+    }
+  },
+  "merge": {
+    "rows": 1684,
+    "already_in_review": 1466,
+    "duplicates_within_update": 55,
+    "new_records": 163
+  },
+  "steps": {
+    "restore": "restored 8702 records from corpus.jsonl.gz",
+    "title_abstract": {
+      "mode": "adaptive",
+      "votes_cast": 355,
+      "tiebreak_or_audit_votes": 29,
+      "vote_errors": 1,
+      "decided": 162,
+      "skipped_no_full_text": 0,
+      "prompt_sha256": "7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7"
+    },
+    "fulltext": {
+      "attempted": 12,
+      "by_route": {
+        "landing_page": 1,
+        "not_retrieved": 5,
+        "arxiv": 5,
+        "pmc": 1
+      }
+    },
+    "full_text": {
+      "mode": "adaptive",
+      "votes_cast": 19,
+      "tiebreak_or_audit_votes": 5,
+      "vote_errors": 0,
+      "decided": 7,
+      "skipped_no_full_text": 9,
+      "prompt_sha256": "7aeeb0b6b616f0d690fefcbc50965b07093869384c4218be92741c629d5f41e7"
+    },
+    "extract": {
+      "included": 494,
+      "with_text": 5,
+      "extracted": 5,
+      "with_unresolved_fields": 2,
+      "prompt_sha256": "d190d61c3af2d60c692fb7d2a1cb5109ceea9f75fd624a1834485bcaf72ef7dd"
+    }
+  },
+  "new_records": 163,
+  "by_phase": {
+    "excluded_eligibility": 2,
+    "fulltext_sought": 5,
+    "identified": 1,
+    "included": 5,
+    "screened_out": 150
+  },
+  "included": [
+    [
+      "arxiv:2610.14560",
+      "Optoelectronically Enabled Simultaneous and Decoupled Navigation and Selective Pairing of Electrically Driven Janus Particles for Multi-Agent Microrobotics"
+    ],
+    [
+      "arxiv:2610.39632",
+      "Temporal Correlations and Optimal Feedback Control of an Active Information Engine"
+    ],
+    [
+      "arxiv:2611.04824",
+      "Assignment-Free Swarm Navigation via Adaptive Target-Field Planning and Mean-Shift Exploration"
+    ],
+    [
+      "arxiv:2611.05244",
+      "Reality and Perceptual Gaps in Expressive Swarm Robotics"
+    ],
+    [
+      "doi:10.3390/s26196269",
+      "Synergetic Control Framework for Autonomous UAV Swarm Coordination"
+    ]
+  ],
+  "awaiting_full_text": [
+    [
+      "doi:10.1016/j.jmmm.2026.174734",
+      "10.1016/j.jmmm.2026.174734"
+    ],
+    [
+      "doi:10.1109/cyber71431.2026.11695498",
+      "10.1109/cyber71431.2026.11695498"
+    ],
+    [
+      "doi:10.1109/tase.2026.3743551",
+      "10.1109/tase.2026.3743551"
+    ],
+    [
+      "doi:10.5281/zenodo.23321816",
+      "10.5281/zenodo.23321816"
+    ],
+    [
+      "openalex:W7224053003",
+      ""
+    ]
+  ]
+}

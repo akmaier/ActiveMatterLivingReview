@@ -5895,6 +5895,17 @@
   phenomena: transport or locomotion, self assembly or shape formation
   abstract_only: false
   doi: 10.48550/arxiv.2610.14560
+- id: doi:10.1109/tase.2026.3743551
+  year: 2026
+  title: Flocking Control for Cucker–Smale Model Under Data Privacy-Preserving Constraints
+  authors: "Jinliang Shao; \uFEFFLei Shi; Wei Xing Zheng; Zhiyong Sun; Qingchen Liu"
+  venue: IEEE Transactions on Automation Science and Engineering
+  platform: other
+  platform_name: Crazyflie
+  agents: null
+  phenomena: flocking polar order
+  abstract_only: false
+  doi: 10.1109/tase.2026.3743551
 - id: arxiv:2611.04824
   year: 2026
   title: Assignment-Free Swarm Navigation via Adaptive Target-Field Planning and Mean-Shift

@@ -1,48 +1,49 @@
-snapshot_date: '2026-10-17'
-identified_db: 15034
+snapshot_date: '2026-11-07'
+identified_db: 16718
 identified_registers: 0
 identified_by_source:
-  ads: 4772
-  arxiv: 695
-  crossref: 373
+  ads: 5156
+  arxiv: 722
+  crossref: 520
   europepmc_biorxiv: 44
-  hal: 147
+  hal: 154
   ieee: 901
-  openalex: 7119
-  pubmed: 983
-duplicates_removed: 6335
+  openalex: 8217
+  pubmed: 1004
+duplicates_removed: 7856
 awaiting_screening: 0
-screened: 8699
-excluded_screening: 7423
-sought: 1276
-not_retrieved: 300
-assessed_on_abstract_only: 179
+screened: 8862
+excluded_screening: 7574
+sought: 1288
+not_retrieved: 301
+assessed_on_abstract_only: 180
 abstract_only_included: 30
-assessed: 976
-excluded_eligibility: 662
-excluded_full_text: 513
-excluded_abstract_only: 149
-included_full_text: 459
+assessed: 987
+excluded_eligibility: 668
+excluded_full_text: 518
+excluded_abstract_only: 150
+included_full_text: 465
 awaiting_decision: 4
+awaiting_retrieval: 0
 excluded_eligibility_reasons:
-  E1: 32
-  E2: 261
-  E3: 224
+  E1: 33
+  E2: 263
+  E3: 225
   E4: 2
-  E5: 127
+  E5: 129
   E6: 16
 excluded_full_text_reasons:
-  E1: 26
-  E2: 244
-  E3: 165
+  E1: 27
+  E2: 246
+  E3: 166
   E4: 2
-  E5: 65
+  E5: 66
   E6: 11
 excluded_abstract_only_reasons:
   E1: 6
   E2: 17
   E3: 59
-  E5: 62
+  E5: 63
   E6: 5
-included_studies: 489
-included_reports: 489
+included_studies: 495
+included_reports: 495

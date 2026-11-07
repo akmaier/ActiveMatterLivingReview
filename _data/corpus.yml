@@ -5870,3 +5870,74 @@
   phenomena: synchronization, transport or locomotion
   abstract_only: false
   doi: 10.1002/adma.202000366
+- id: arxiv:2611.05244
+  year: 2026
+  title: Reality and Perceptual Gaps in Expressive Swarm Robotics
+  authors: Ali Imran; Abdalwhab Bakheet Mohammed Abdalwhab; Rafael Gomes Braga; Hélène
+    Duval; Audrey Rochette; Vivek Shankar Varadhajan; Yann Bouteiller; Jean Mazerolle;
+    Giovanni Beltrame; David St-Onge
+  venue: arXiv (Cornell University)
+  platform: other
+  platform_name: Sushis, CrazyCognies, Doodies
+  agents: 12
+  phenomena: chirality or rotation, clustering or mips, swarming or vortex
+  abstract_only: false
+  doi: 10.48550/arxiv.2611.05244
+- id: arxiv:2610.14560
+  year: 2026
+  title: Optoelectronically Enabled Simultaneous and Decoupled Navigation and Selective
+    Pairing of Electrically Driven Janus Particles for Multi-Agent Microrobotics
+  authors: Srikanta Debata; Ido Rachbuch; Gilad Yossifon
+  venue: arXiv (Cornell University)
+  platform: robotic micro nano agents
+  platform_name: Janus particles
+  agents: null
+  phenomena: transport or locomotion, self assembly or shape formation
+  abstract_only: false
+  doi: 10.48550/arxiv.2610.14560
+- id: doi:10.1109/tase.2026.3743551
+  year: 2026
+  title: Flocking Control for Cucker–Smale Model Under Data Privacy-Preserving Constraints
+  authors: "Jinliang Shao; \uFEFFLei Shi; Wei Xing Zheng; Zhiyong Sun; Qingchen Liu"
+  venue: IEEE Transactions on Automation Science and Engineering
+  platform: other
+  platform_name: Crazyflie
+  agents: null
+  phenomena: flocking polar order
+  abstract_only: false
+  doi: 10.1109/tase.2026.3743551
+- id: arxiv:2611.04824
+  year: 2026
+  title: Assignment-Free Swarm Navigation via Adaptive Target-Field Planning and Mean-Shift
+    Exploration
+  authors: Jiaxuan Li; Junhui Zhang; Bo Zhu
+  venue: arXiv (Cornell University)
+  platform: wheeled or legged swarm robots
+  platform_name: null
+  agents: 100
+  phenomena: transport or locomotion, self assembly or shape formation
+  abstract_only: false
+  doi: 10.48550/arxiv.2611.04824
+- id: arxiv:2610.39632
+  year: 2026
+  title: Temporal Correlations and Optimal Feedback Control of an Active Information
+    Engine
+  authors: Laura Hoek; Yael Roichman
+  venue: arXiv (Cornell University)
+  platform: vibration driven robots
+  platform_name: Hexbug nano
+  agents: 6
+  phenomena: boundary accumulation, other
+  abstract_only: false
+  doi: 10.48550/arxiv.2610.39632
+- id: doi:10.3390/s26196269
+  year: 2026
+  title: Synergetic Control Framework for Autonomous UAV Swarm Coordination
+  authors: Chepizhenko, Valerii; Pavlova, Svitlana; Li, Fuzhong
+  venue: Sensors
+  platform: other
+  platform_name: quadcopter
+  agents: 100
+  phenomena: self assembly or shape formation
+  abstract_only: false
+  doi: 10.3390/s26196269

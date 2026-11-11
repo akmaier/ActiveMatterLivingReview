@@ -1,0 +1,10 @@
+source: submissions
+run_at_utc: 2026-11-11T10:54:20+00:00
+amlr_version: 0.0.1
+record_count: 0
+raw_payload_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+concepts_sha256: 5758fbe4fc45635b450e8b876c3bf56f0d6eeb555c753398f93b0e1f1b57fa7b
+
+query:
+Reader submissions merged via pull request (submissions/*.yml)
+update_window_from: 2026-09-27 (source-specific date filter, see amlr.search.WINDOW)

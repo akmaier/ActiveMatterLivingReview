@@ -1,4 +1,10 @@
 # Append-only; newest first. Rendered by _pages/changelog.md.
+- date: '2026-11-11'
+  title: Monthly living update
+  summary: 'Searches re-run for 2026-09-27 to 2026-11-11: 1726 records retrieved, 1479 already in the
+    review, 179 new. 165 excluded at title/abstract, 7 awaiting full text, 5 included. The review now
+    includes 494 studies.'
+  added: 5 included studies
 - date: "2026-10-17"
   title: "Validation, adjudication, record fixes and a reconfigurable taxonomy"
   summary: >-
